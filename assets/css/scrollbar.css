@@ -1,0 +1,19 @@
+/* assets/css/scrollbar.css */
+
+/* Webkit 瀏覽器 (如 Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 12px; /* 滾動條寬度 */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* 滾動條背景 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a9a9a9; /* 滾動條顏色 */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a9a9a9; /* 滾動條懸停顏色 */
+}
+
