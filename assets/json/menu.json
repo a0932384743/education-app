@@ -1,0 +1,122 @@
+[
+  {
+    "children": [],
+    "icon": "mdi-home",
+    "name": "Home",
+    "url": "/"
+  },
+  {
+    "children": [],
+    "icon": "mdi-view-dashboard",
+    "name": "Dashboard",
+    "url": "/"
+  },
+  {
+    "children": [],
+    "icon": "mdi-file",
+    "name": "已結案事件單",
+    "url": "/"
+  },
+  {
+    "children": [
+      {
+        "children": [],
+        "name": "維運團隊",
+        "url": "/"
+      },
+      {
+        "children": [],
+        "name": "GigaPops",
+        "url": "/"
+      },
+      {
+        "children": [],
+        "name": "連線單位",
+        "url": "/"
+      },
+      {
+        "children": [],
+        "name": "VPLS VPN",
+        "url": "/"
+      },
+      {
+        "children": [],
+        "name": "國內外BGP Peering",
+        "url": "/"
+      }
+    ],
+    "icon": "mdi-file",
+    "name": "聯絡資料",
+    "url": ""
+  },
+  {
+    "children": [
+      {
+        "children": [],
+        "name": "設備資料設定檔",
+        "url": "/"
+      }
+    ],
+    "icon": "mdi-file",
+    "name": "設備資料",
+    "url": ""
+  },
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [],
+            "name": "國內骨幹流量狀況",
+            "url": "/"
+          },
+          {
+            "children": [],
+            "name": "國內骨幹界接介面狀況",
+            "url": "/"
+          },
+          {
+            "children": [],
+            "name": "國際電路流量狀況",
+            "url": "/"
+          },
+          {
+            "children": [],
+            "name": "國際電路界接介面狀況",
+            "url": "/"
+          },
+          {
+            "children": [],
+            "name": "國際電路界接介面WAN Port IP Ping狀況",
+            "url": "/"
+          },
+          {
+            "children": [],
+            "name": "國科會線路狀況",
+            "url": "/"
+          },
+          {
+            "children": [],
+            "name": "資策會線路界接介面狀況",
+            "url": "/"
+          },
+          {
+            "children": [],
+            "name": "TWNIC DNS代管Server界接介面狀況",
+            "url": "/"
+          },
+          {
+            "children": [],
+            "name": "國內骨幹介面品質",
+            "url": "/"
+          }
+        ],
+        "name": "電路狀態",
+        "url": ""
+      }
+    ],
+    "icon": "mdi-file",
+    "name": "監控狀態",
+    "url": ""
+  }
+]
