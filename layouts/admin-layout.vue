@@ -1,30 +1,45 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer v-model="drawer" app color="aside">
+    <v-navigation-drawer v-model="drawer" app color="aside" width="310">
       <v-list-item
         active-class="info"
-        class="header"
         dark
         :style="{
           height: `${vuetify.application.top}px`,
         }"
       >
         <v-list-item-content class="py-1">
-          <v-list-item-title class="text-h6 text-center font-weight-bold">
-            {{ title }}
-          </v-list-item-title>
+          <v-img
+            class="mx-auto"
+            contain
+            lazy-src="/logo-2.png"
+            max-width="120"
+            :alt="title"
+            src="/logo-2.png"
+          ></v-img>
         </v-list-item-content>
       </v-list-item>
 
-      <v-list nav dense color="aside">
+      <v-list
+        nav
+        dense
+        color="aside"
+        class="overflow-auto"
+        :style="{
+          height: `calc(100% - ${vuetify.application.top}px)`,
+        }"
+      >
         <template v-for="menu in menus">
           <v-list-group
             v-if="menu.children && menu.children.length"
             :key="JSON.stringify(menu)"
             active-class="info"
+            sub-group
           >
             <template #prependIcon>
-              <v-icon size="20" class="warning--text">{{ menu.icon }}</v-icon>
+              <v-icon size="20" class="white--text"
+                >mdi-view-grid-outline</v-icon
+              >
             </template>
             <template #appendIcon>
               <v-icon size="20" class="white--text">mdi-menu-left</v-icon>
@@ -40,12 +55,11 @@
               <v-list-group
                 v-if="children1.children && children1.children.length"
                 :key="JSON.stringify(children1)"
+                active-class="info"
                 sub-group
               >
                 <template #prependIcon>
-                  <v-icon size="15" class="white--text"
-                    >mdi-circle-outline</v-icon
-                  >
+                  <v-icon size="20" class="white--text"></v-icon>
                 </template>
                 <template #appendIcon>
                   <v-icon size="20" class="white--text">mdi-menu-left</v-icon>
@@ -61,11 +75,8 @@
                   v-for="children2 in children1.children"
                   :key="JSON.stringify(children2)"
                   :to="children2.url"
-                  link="false"
+                  :link="false"
                 >
-                  <v-list-item-icon class="white--text mr-1">
-                    <v-icon size="15">mdi-circle-outline</v-icon>
-                  </v-list-item-icon>
                   <v-list-item-content>
                     <v-list-item-title class="white--text">{{
                       children2.name
@@ -78,9 +89,6 @@
                 :key="JSON.stringify(children1)"
                 :to="children1.url"
               >
-                <v-list-item-icon class="white--text mr-1">
-                  <v-icon size="15">mdi-circle-outline</v-icon>
-                </v-list-item-icon>
                 <v-list-item-content>
                   <v-list-item-title class="white--text">{{
                     children1.name
@@ -90,8 +98,10 @@
             </template>
           </v-list-group>
           <v-list-item v-else :key="JSON.stringify(menu)" :to="menu.url">
-            <v-list-item-icon class="warning--text mr-1">
-              <v-icon size="20">{{ menu.icon }}</v-icon>
+            <v-list-item-icon class="mr-1">
+              <v-icon size="20" class="white--text"
+                >mdi-view-grid-outline</v-icon
+              >
             </v-list-item-icon>
             <v-list-item-content>
               <v-list-item-title class="white--text">{{
@@ -102,7 +112,7 @@
         </template>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar app color="header" dark>
+    <v-app-bar app color="header">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-spacer></v-spacer>
       <div
@@ -125,7 +135,24 @@
       </div>
     </v-app-bar>
     <v-main>
-      <v-container>
+      <v-breadcrumbs
+        light
+        class="justify-end"
+        :items="[
+          {
+            text: 'Home',
+            href: '/',
+          },
+          ...items,
+        ]"
+      >
+        <template #item="{ item }">
+          <v-breadcrumbs-item tag="a" :to="item.href" :disabled="item.disabled">
+            {{ item.text }}
+          </v-breadcrumbs-item>
+        </template>
+      </v-breadcrumbs>
+      <v-container fluid>
         <Nuxt />
       </v-container>
     </v-main>
@@ -145,9 +172,25 @@ export default {
       timer: 0,
       time: moment().format('HH:mm:ss'),
       title: 'TWAREN 100G INMS',
+      items: [],
     }
   },
   computed: {
+    flatMenu() {
+      const flatList = []
+      function flatten(item) {
+        flatList.push({
+          icon: item.icon,
+          name: item.name,
+          url: item.url,
+        })
+        if (item.children && item.children.length > 0) {
+          item.children.forEach(flatten)
+        }
+      }
+      menus.forEach(flatten)
+      return flatList
+    },
     vuetify() {
       return this.$vuetify
     },
@@ -158,10 +201,33 @@ export default {
       return menus
     },
   },
+  watch: {
+    $route(to) {
+      this.items = this.flatMenu
+        .filter((f) => f.url === to.path)
+        .map((m) => {
+          return {
+            text: m.name,
+            href: m.url,
+            disabled: true,
+          }
+        })
+    },
+  },
   mounted() {
     this.timer = setInterval(() => {
       this.time = moment().format('HH:mm:ss')
-    }, 1000) // 每秒更新一次时间
+    }, 1000)
+
+    this.items = this.flatMenu
+      .filter((f) => f.url === this.$router.currentRoute.path)
+      .map((m) => {
+        return {
+          text: m.name,
+          href: m.url,
+          disabled: true,
+        }
+      })
   },
   beforeDestroy() {
     // 在组件销毁前清除定时器
@@ -183,5 +249,17 @@ export default {
     .v-icon {
     transform: rotate(-90deg);
   }
+
+  .v-list-group--sub-group > .v-list-item {
+    padding-left: 8px !important;
+  }
+}
+
+a.v-breadcrumbs__item {
+  color: black !important;
+}
+
+a.v-breadcrumbs__item--disabled {
+  color: rgba(0, 0, 0, 0.38) !important;
 }
 </style>

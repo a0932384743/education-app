@@ -9,7 +9,13 @@
     "children": [],
     "icon": "mdi-view-dashboard",
     "name": "Dashboard",
-    "url": "/"
+    "url": "/dashboard"
+  },
+  {
+    "children": [],
+    "icon": "mdi-view-dashboard",
+    "name": "3D監控模式",
+    "url": "/3d-dashboard"
   },
   {
     "children": [],
@@ -66,57 +72,78 @@
       {
         "children": [
           {
-            "children": [],
             "name": "國內骨幹流量狀況",
-            "url": "/"
+            "url": "/monitor/circuit-status/domestic-backbone-traffic"
           },
           {
-            "children": [],
             "name": "國內骨幹界接介面狀況",
-            "url": "/"
+            "url": "/monitor/circuit-status/domestic-backbone-interface"
           },
           {
-            "children": [],
             "name": "國際電路流量狀況",
-            "url": "/"
+            "url": "/monitor/circuit-status/international-circuit-traffic"
           },
           {
-            "children": [],
             "name": "國際電路界接介面狀況",
-            "url": "/"
+            "url": "/monitor/circuit-status/international-circuit-interface"
           },
           {
-            "children": [],
-            "name": "國際電路界接介面WAN Port IP Ping狀況",
-            "url": "/"
+            "name": "國際電路界接介面WAN Port IP Ping 狀況",
+            "url": "/monitor/circuit-status/international-circuit-wan-ping"
           },
           {
-            "children": [],
             "name": "國科會線路狀況",
-            "url": "/"
+            "url": "/monitor/circuit-status/nstc-line-status"
           },
           {
-            "children": [],
             "name": "資策會線路界接介面狀況",
-            "url": "/"
+            "url": "/monitor/circuit-status/iii-line-interface"
           },
           {
-            "children": [],
-            "name": "TWNIC DNS代管Server界接介面狀況",
-            "url": "/"
+            "name": "TWNIC DNS 代管 Server 界接介面狀況",
+            "url": "/monitor/circuit-status/twnic-dns-server-interface"
           },
           {
-            "children": [],
             "name": "國內骨幹介面品質",
-            "url": "/"
+            "url": "/monitor/circuit-status/domestic-backbone-interface-quality"
           }
         ],
         "name": "電路狀態",
-        "url": ""
+        "url": "/monitor/circuit-status"
+      },
+      {
+        "children": [
+          {
+            "name": "設備CPU狀況",
+            "url": "/monitor/device-status/cpu-status"
+          },
+          {
+            "name": "設備Memory狀況",
+            "url": "/monitor/device-status/memory-status"
+          },
+          {
+            "name": "設備Power Supply狀況",
+            "url": "/monitor/device-status/power-supply-status"
+          },
+          {
+            "name": "骨幹設備IP Ping狀況",
+            "url": "/monitor/device-status/backbone-ip-ping-status"
+          },
+          {
+            "name": "局端與納管設備OOB IP Ping 狀況",
+            "url": "/monitor/device-status/oob-ip-ping-status"
+          },
+          {
+            "name": "機房電源設備與溫控設備IP Ping 狀況",
+            "url": "/monitor/device-status/data-center-ip-ping-status"
+          }
+        ],
+        "name": "設備狀態",
+        "url": "/monitor/device-status"
       }
     ],
-    "icon": "mdi-file",
+    "icon": "mdi-monitor",
     "name": "監控狀態",
-    "url": ""
+    "url": "/monitor"
   }
 ]

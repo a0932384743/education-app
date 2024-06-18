@@ -1,0 +1,52 @@
+[
+  {
+    "id": "1",
+    "device": "TWAREN-TC-N3524-P-01",
+    "interface": "Eth1/4",
+    "desc": "@_@_MOST-IDC-Internet-001-inter_sw01",
+    "input": 0.00127541,
+    "output": 0.119906,
+    "status": "down",
+    "checkTime": "2024-05-30 11:40:00"
+  },
+  {
+    "id": "2",
+    "device": "TWAREN-TC-N3524-P-02",
+    "interface": "Eth1/4",
+    "desc": "@_@_MOST-IDC-Internet-002-inter_sw02",
+    "input": 0.00317541,
+    "output": 0.219906,
+    "status": "down",
+    "checkTime": "2024-05-30 11:45:00"
+  },
+  {
+    "id": "3",
+    "device": "TWAREN-TC-N3524-P-03",
+    "interface": "Eth1/4",
+    "desc": "@_@_MOST-IDC-Internet-003-inter_sw03",
+    "input": 0.00314541,
+    "output": 0.214906,
+    "status": "down",
+    "checkTime": "2024-05-30 11:50:00"
+  },
+  {
+    "id": "4",
+    "device": "TWAREN-TC-N3524-P-04",
+    "interface": "Eth1/4",
+    "desc": "@_@_MOST-IDC-Internet-004-inter_sw04",
+    "input": 0.00714541,
+    "output": 0.214906,
+    "status": "down",
+    "checkTime": "2024-05-30 11:55:00"
+  },
+  {
+    "id": "5",
+    "device": "TWAREN-TC-N3524-P-05",
+    "interface": "Eth1/4",
+    "desc": "@_@_MOST-IDC-Internet-005-inter_sw05",
+    "input": 0.00714741,
+    "output": 0.214706,
+    "status": "down",
+    "checkTime": "2024-05-30 12:00:00"
+  }
+]
