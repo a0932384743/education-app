@@ -1,5 +1,9 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+  server: {
+    port: process.env.PORT || 3000,
+    host: '0.0.0.0',
+  },
   head: {
     titleTemplate: '%s - TWAREN 100G INMS',
     title: 'TWAREN 100G INMS',
@@ -19,8 +23,7 @@ export default {
   css: ['~/assets/css/scrollbar.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
-
+  plugins: ['~/plugins/echart'],
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 

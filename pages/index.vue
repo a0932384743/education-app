@@ -82,7 +82,7 @@
 
 <script>
 export default {
-  layout: 'admin-layout',
   name: 'IndexPage',
+  layout: 'admin-layout',
 }
 </script>

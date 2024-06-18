@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  layout: 'admin-layout',
   name: 'InspirePage',
+  layout: 'admin-layout',
 }
 </script>
