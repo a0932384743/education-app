@@ -1,10 +1,20 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   ssr: false,
-
   server: {
     port: process.env.PORT || 3000,
     host: '0.0.0.0',
+  },
+  router: {
+    base: '/',
+    linkExactActiveClass: 'active',
+    extendRoutes(routes, resolve) {
+      routes.push({
+        name: 'custom',
+        path: '*',
+        component: resolve('./pages/error.vue'),
+      })
+    },
   },
   head: {
     titleTemplate: '%s - TWAREN 100G INMS',
@@ -22,10 +32,10 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['~/assets/css/scrollbar.css', '~/assets/css/table.css'],
+  css: ['~/assets/css/scrollbar.css', '~/assets/css/custom.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/echarts'],
+  plugins: ['~/plugins/echarts', '~/plugins/draggable'],
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 

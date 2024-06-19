@@ -1,0 +1,8 @@
+.v-data-table-header th {
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.v-chip__content {
+  align-items: normal !important;
+}

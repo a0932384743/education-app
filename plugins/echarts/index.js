@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import ECharts from 'vue-echarts'
+
 import 'echarts'
+import 'static/js/world';
 import 'echarts-wordcloud'
 import 'echarts/lib/component/geo'
 import 'echarts/lib/component/markLine'
@@ -10,7 +12,6 @@ import { use } from 'echarts/core'
 import { CanvasRenderer } from 'echarts/renderers'
 import { LinesChart } from 'echarts/charts'
 import { GeoComponent } from 'echarts/components'
-
 // Register the required components
 use([CanvasRenderer, LinesChart, GeoComponent])
 Vue.component('VChart', ECharts)

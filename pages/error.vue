@@ -18,5 +18,10 @@
 export default {
   name: 'ErrorPage',
   layout: 'admin-layout',
+  methods:{
+    goHome(){
+      this.$router.push('/')
+    }
+  }
 }
 </script>
