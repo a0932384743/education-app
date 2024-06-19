@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-col class="text-center" sm="12">
+    <v-col class="text-center" :cols="12">
       <v-card>
         <v-card-title>
           <span class="font-weight-bold">設備狀態總覽</span>
@@ -13,7 +13,7 @@
         />
       </v-card>
     </v-col>
-    <v-col sm="12">
+    <v-col :cols="12">
       <v-card>
         <v-card-title>
           <span class="font-weight-bold">設備CPU狀態列表</span>

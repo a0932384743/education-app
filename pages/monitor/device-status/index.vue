@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-col class="text-center">
+    <v-col class="text-center" :cols="12">
       <v-card>
         <v-card-title>
           設備CPU狀態列表

@@ -13,4 +13,5 @@ module.exports = {
   plugins: ['jest'],
   // add your custom rules here
   rules: {},
+  ignorePatterns: ['static/js/*.js'],
 }
