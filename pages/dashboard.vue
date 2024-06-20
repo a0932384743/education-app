@@ -107,31 +107,144 @@ export default {
   },
   computed: {
     mapOptions() {
+      const nodes = [
+        { name: 'Taipei', value: [121.5654, 25.033] },
+        { name: 'Taichung', value: [120.6736, 24.1477] },
+        { name: 'Tainan', value: [120.2049, 22.9999] },
+        { name: 'Kaohsiung', value: [120.666, 23.0109] },
+        { name: 'New York', value: [-74.0059, 40.7128] },
+        { name: 'Los Angeles', value: [-118.2437, 34.0522] },
+        { name: 'Chicago', value: [-87.6298, 41.8781] },
+        { name: 'Houston', value: [-95.3698, 29.7604] },
+        { name: 'Phoenix', value: [-112.074, 33.4484] },
+      ]
+
+      const links = [
+        { source: 'Taipei', target: 'Taichung', value: 50 },
+        { source: 'Taichung', target: 'Tainan', value: 50 },
+        { source: 'Tainan', target: 'Kaohsiung', value: 50 },
+        { source: 'New York', target: 'Los Angeles', value: 60 },
+        { source: 'New York', target: 'Chicago', value: 40 },
+        { source: 'Los Angeles', target: 'Chicago', value: 50 },
+        { source: 'Los Angeles', target: 'Houston', value: 30 },
+        { source: 'Chicago', target: 'Houston', value: 40 },
+        { source: 'Houston', target: 'Phoenix', value: 50 },
+      ]
       return {
-        geo: {
-          itemStyle: {
-            emphasis: {
-              areaColor: 'gray',
-            },
-            normal: {
-              areaColor: 'lightgray',
-              borderColor: 'gray',
-            },
-          },
-          label: {
-            emphasis: {
+        geo: [
+          {
+            map: 'taiwanGEO', // The map type of the second map, e.g., 'world'
+            left: '5%',
+            right: '50%',
+            top: '0%',
+            bottom: '0%',
+            roam: true, // Whether to enable zoom and move
+            label: {
               show: false,
             },
+            itemStyle: {
+              areaColor: '#dddddd',
+              borderColor: '#888888',
+            },
           },
-          map: 'world',
-          roam: true,
-          silent: true,
-        },
+          {
+            map: 'usaGEO', // The map type of the first map, e.g., 'china'
+            left: '50%',
+            right: '5%',
+            top: '10%',
+            bottom: '10%',
+            roam: true, // Whether to enable zoom and move
+            label: {
+              show: false,
+            },
+            itemStyle: {
+              areaColor: '#dddddd',
+              borderColor: '#888888',
+            },
+          },
+        ],
         grid: {
           left: '5%',
           right: '5%',
         },
-        series: [],
+        series: [
+          {
+            type: 'scatter',
+            coordinateSystem: 'geo',
+            data: nodes,
+            geoIndex: 0,
+            symbolSize: 12,
+            label: {
+              show: true,
+              formatter: '{b}',
+              position: 'right',
+            },
+            itemStyle: {
+              color: '#FF6F61',
+            },
+          },
+          {
+            type: 'lines',
+            coordinateSystem: 'geo',
+            geoIndex: 0,
+            data: links.map(function (link) {
+              return {
+                fromName: link.source,
+                toName: link.target,
+                coords: [
+                  nodes.find((n) => n.name === link.source).value,
+                  nodes.find((n) => n.name === link.target).value,
+                ],
+                lineStyle: {
+                  color: link.value > 80 ? '#FF0000' : '#00FF00',
+                  width: 2,
+                },
+              }
+            }),
+            lineStyle: {
+              color: '#00FF00',
+              width: 2,
+            },
+          },
+          {
+            type: 'scatter',
+            coordinateSystem: 'geo',
+            data: nodes,
+            geoIndex: 1,
+            symbolSize: 12,
+            label: {
+              show: true,
+              formatter: '{b}',
+              position: 'right',
+            },
+            itemStyle: {
+              color: '#FF6F61',
+            },
+          },
+          {
+            type: 'lines',
+            coordinateSystem: 'geo',
+            geoIndex: 1,
+            data: links.map(function (link) {
+              return {
+                fromName: link.source,
+                toName: link.target,
+                coords: [
+                  nodes.find((n) => n.name === link.source).value,
+                  nodes.find((n) => n.name === link.target).value,
+                ],
+                lineStyle: {
+                  color: link.value > 80 ? '#FF0000' : '#00FF00',
+                  width: 2,
+                },
+              }
+            }),
+            lineStyle: {
+              color: '#00FF00',
+              width: 2,
+            },
+          },
+        ],
       }
     },
     statusOptions() {
