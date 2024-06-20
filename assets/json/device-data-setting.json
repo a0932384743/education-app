@@ -1,0 +1,111 @@
+[{
+  "id": "1",
+  "type": "Router",
+  "device": "TWAREN-TP-ASR9912-01",
+  "gigapop": "TP",
+  "ip": "192.168.203.3",
+  "ipv4": "211.73.76.1",
+  "ipv6": "200:0E10:FFFF:FFFF:211:73:76:1",
+  "phone": "0800-050-940",
+  "mobile": "06-505-0421",
+  "contact": "NOC"
+},{
+  "id": "2",
+  "type": "Router",
+  "device": "TWAREN-TP-ASR9912-02",
+  "gigapop": "TP",
+  "ip": "192.168.203.2",
+  "ipv4": "211.73.76.3",
+  "ipv6": "200:0E10:FFFF:FFFF:211:73:76:3",
+  "phone": "0800-050-940",
+  "mobile": "06-505-0421",
+  "contact": "NOC"
+},{
+  "id": "3",
+  "type": "Router",
+  "device": "TWAREN-TP-ASR9912-03",
+  "gigapop": "TP",
+  "ip": "192.168.203.4",
+  "ipv4": "211.73.76.3",
+  "ipv6": "200:0E10:FFFF:FFFF:211:73:76:3",
+  "phone": "0800-050-940",
+  "mobile": "06-505-0421",
+  "contact": "NOC"
+},{
+  "id": "4",
+  "type": "Router",
+  "device": "TWAREN-TP-ASR9912-04",
+  "gigapop": "TP",
+  "ip": "192.168.203.4",
+  "ipv4": "211.73.76.4",
+  "ipv6": "200:0E10:FFFF:FFFF:211:73:76:4",
+  "phone": "0800-050-940",
+  "mobile": "06-505-0421",
+  "contact": "NOC"
+},{
+  "id": "5",
+  "type": "Router",
+  "device": "TWAREN-TP-ASR9912-05",
+  "gigapop": "TP",
+  "ip": "192.168.203.5",
+  "ipv4": "211.73.76.5",
+  "ipv6": "200:0E10:FFFF:FFFF:211:73:76:5",
+  "phone": "0800-050-940",
+  "mobile": "06-505-0421",
+  "contact": "NOC"
+},{
+  "id": "6",
+  "type": "Router",
+  "device": "TWAREN-TP-ASR9912-06",
+  "gigapop": "TP",
+  "ip": "192.168.203.6",
+  "ipv4": "211.73.76.6",
+  "ipv6": "200:0E10:FFFF:FFFF:211:73:76:6",
+  "phone": "0800-050-940",
+  "mobile": "06-505-0421",
+  "contact": "NOC"
+},{
+  "id": "7",
+  "type": "Router",
+  "device": "TWAREN-TP-ASR9912-07",
+  "gigapop": "TP",
+  "ip": "192.168.203.7",
+  "ipv4": "211.73.76.7",
+  "ipv6": "200:0E10:FFFF:FFFF:211:73:76:7",
+  "phone": "0800-050-940",
+  "mobile": "06-505-0421",
+  "contact": "NOC"
+},{
+  "id": "8",
+  "type": "Router",
+  "device": "TWAREN-TP-ASR9912-08",
+  "gigapop": "TP",
+  "ip": "192.168.203.8",
+  "ipv4": "211.73.76.8",
+  "ipv6": "200:0E10:FFFF:FFFF:211:73:76:8",
+  "phone": "0800-050-940",
+  "mobile": "06-505-0421",
+  "contact": "NOC"
+},{
+  "id": "9",
+  "type": "Router",
+  "device": "TWAREN-TP-ASR9912-09",
+  "gigapop": "TP",
+  "ip": "192.168.203.9",
+  "ipv4": "211.73.76.9",
+  "ipv6": "200:0E10:FFFF:FFFF:211:73:76:9",
+  "phone": "0800-050-940",
+  "mobile": "06-505-0421",
+  "contact": "NOC"
+},{
+  "id": "10",
+  "type": "Router",
+  "device": "TWAREN-TP-ASR9912-10",
+  "gigapop": "TP",
+  "ip": "192.168.203.10",
+  "ipv4": "211.73.76.10",
+  "ipv6": "200:0E10:FFFF:FFFF:211:73:76:10",
+  "phone": "0800-050-940",
+  "mobile": "06-505-0421",
+  "contact": "NOC"
+}]

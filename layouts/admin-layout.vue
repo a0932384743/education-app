@@ -122,24 +122,48 @@
     <v-app-bar app color="header">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-spacer></v-spacer>
-      <div
-        class="align-center justify-center flex-grow-0 d-flex px-2"
-        style="gap: 0.6rem"
-      >
-        <v-icon size="24"> mdi-clock </v-icon>
-        <span class="font-italic font-weight-bold">{{ date }}</span>
-        <span>|</span>
-        <span>TIME: {{ time }}</span>
-      </div>
-      <div class="align-center justify-center flex-grow-0 d-flex px-2">
+      <v-toolbar-items class="hidden-sm-and-down">
+        <div
+          class="align-center justify-center flex-grow-0 d-flex px-2"
+          style="gap: 0.6rem"
+        >
+          <v-icon size="24"> mdi-clock </v-icon>
+          <span class="font-italic font-weight-bold">{{ date }}</span>
+          <span>|</span>
+          <span>TIME: {{ time }}</span>
+        </div>
         <v-btn text> <v-icon size="24"> mdi-account </v-icon> User</v-btn>
-      </div>
-      <div
-        class="align-center justify-center flex-grow-0 d-flex px-2"
-        style="gap: 0.6rem"
-      >
         <v-btn text> Logout </v-btn>
-      </div>
+      </v-toolbar-items>
+      <v-menu v-if="!vuetify.breakpoint.mdAndUp">
+        <template #activator="{ on, attrs }">
+          <v-btn icon v-bind="attrs" class="hidden-md-and-up" v-on="on">
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item>
+            <div
+              class="align-center justify-center flex-grow-0 d-flex px-2"
+              style="gap: 0.6rem"
+            >
+              <v-icon size="24"> mdi-clock </v-icon>
+              <span class="font-italic font-weight-bold">{{ date }}</span>
+              <span>|</span>
+              <span>TIME: {{ time }}</span>
+            </div>
+          </v-list-item>
+
+          <v-list-item>
+            <v-btn width="100%" text>
+              <v-icon size="24"> mdi-account </v-icon> User</v-btn
+            >
+          </v-list-item>
+          <v-list-item>
+            <v-btn width="100%" text> Logout </v-btn>
+          </v-list-item>
+        </v-list>
+      </v-menu>
     </v-app-bar>
     <v-main>
       <v-breadcrumbs
