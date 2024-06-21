@@ -23,7 +23,7 @@
         nav
         dense
         color="aside"
-        class="overflow-auto"
+        class="overflow-auto pb-5"
         :style="{
           height: `calc(100% - ${vuetify.application.top}px)`,
         }"
