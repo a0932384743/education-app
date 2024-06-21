@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'peering-bgp-status',
+  name: 'PeeringBgpStatus',
   layout: 'admin-layout',
 }
 </script>

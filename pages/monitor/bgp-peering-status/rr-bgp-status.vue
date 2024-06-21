@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'rr-bgp-status',
+  name: 'RrBgpStatus',
   layout: 'admin-layout',
 }
 </script>

@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'closed-case-list',
+  name: 'ClosedCaseList',
   layout: 'admin-layout',
 }
 </script>

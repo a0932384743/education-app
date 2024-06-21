@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'connection-unit',
+  name: 'ConnectionUnit',
   layout: 'admin-layout',
 }
 </script>

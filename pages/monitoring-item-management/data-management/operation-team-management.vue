@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'operation-team-management',
+  name: 'OperationTeamManagement',
   layout: 'admin-layout',
 }
 </script>

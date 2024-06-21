@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: '100G-maintenance-report-query',
+  name: '100GMaintenanceReportQuery',
   layout: 'admin-layout',
 }
 </script>

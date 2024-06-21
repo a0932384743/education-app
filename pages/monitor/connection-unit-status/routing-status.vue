@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'routing-status',
+  name: 'RoutingStatus',
   layout: 'admin-layout',
 }
 </script>

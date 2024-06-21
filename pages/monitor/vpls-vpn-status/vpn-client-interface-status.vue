@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'vpn-client-interface-status',
+  name: 'VpnClientInterfaceStatus',
   layout: 'admin-layout',
 }
 </script>

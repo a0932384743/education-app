@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'vpls-vpn-peer-status',
+  name: 'VplsVpnPeerStatus',
   layout: 'admin-layout',
 }
 </script>

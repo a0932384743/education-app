@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'rpm-total-load-current-status',
+  name: 'RpmTotalLoadCurrentStatus',
   layout: 'admin-layout',
 }
 </script>

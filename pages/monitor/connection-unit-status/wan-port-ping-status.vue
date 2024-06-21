@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'wan-port-ping-status',
+  name: 'WanPortPingStatus',
   layout: 'admin-layout',
 }
 </script>

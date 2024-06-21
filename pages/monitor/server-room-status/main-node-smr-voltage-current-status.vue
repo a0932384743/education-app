@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'main-node-smr-voltage-current-status',
+  name: 'MainNodeSmrVoltageCurrentStatus',
   layout: 'admin-layout',
 }
 </script>

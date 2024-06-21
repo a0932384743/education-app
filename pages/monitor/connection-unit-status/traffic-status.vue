@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'traffic-status',
+  name: 'TrafficStatus',
   layout: 'admin-layout',
 }
 </script>

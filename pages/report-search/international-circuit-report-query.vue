@@ -49,7 +49,7 @@ import deviceTraffic from '~/assets/json/device-traffic.json'
 import data from '~/assets/json/device-summary.json'
 
 export default {
-  name: 'international-circuit-report-query',
+  name: 'InternationalCircuitReportQuery',
   layout: 'admin-layout',
   data() {
     return {

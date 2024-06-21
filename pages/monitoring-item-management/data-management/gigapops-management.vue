@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'gigapops-management',
+  name: 'GigapopsManagement',
   layout: 'admin-layout',
 }
 </script>

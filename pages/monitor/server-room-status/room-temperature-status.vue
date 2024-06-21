@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'room-temperature-status',
+  name: 'RoomTemperatureStatus',
   layout: 'admin-layout',
 }
 </script>

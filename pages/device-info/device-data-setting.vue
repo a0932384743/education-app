@@ -15,7 +15,7 @@
         </v-card-title>
         <v-data-table :headers="headers" :items="items" :search="search">
           <template #[`item.config`]>
-            <v-btn color="secondary" fab small dark>
+            <v-btn color="secondary" fab x-small dark>
               <v-icon>mdi-magnify</v-icon>
             </v-btn>
           </template>

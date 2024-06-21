@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "device": "TWAREN-TP-ASR1234-01",
+    "is_alert": "On",
+    "cpu_utilization": 80,
+    "temp_high": 75,
+    "temp_low": 20
+  },
+  {
+    "id": 2,
+    "device": "TWAREN-TP-ASR5678-02",
+    "is_alert": "Off",
+    "cpu_utilization": 50,
+    "temp_high": 70,
+    "temp_low": 18
+  },
+  {
+    "id": 3,
+    "device": "TWAREN-TP-ASR9012-03",
+    "is_alert": "On",
+    "cpu_utilization": 90,
+    "temp_high": 85,
+    "temp_low": 25
+  },
+  {
+    "id": 4,
+    "device": "TWAREN-TP-ASR3456-04",
+    "is_alert": "On",
+    "cpu_utilization": 75,
+    "temp_high": 78,
+    "temp_low": 22
+  },
+  {
+    "id": 5,
+    "device": "TWAREN-TP-ASR7890-05",
+    "is_alert": "Off",
+    "cpu_utilization": 60,
+    "temp_high": 72,
+    "temp_low": 19
+  },
+  {
+    "id": 6,
+    "device": "TWAREN-TP-ASR2345-06",
+    "is_alert": "On",
+    "cpu_utilization": 85,
+    "temp_high": 80,
+    "temp_low": 23
+  },
+  {
+    "id": 7,
+    "device": "TWAREN-TP-ASR6789-07",
+    "is_alert": "On",
+    "cpu_utilization": 95,
+    "temp_high": 88,
+    "temp_low": 27
+  },
+  {
+    "id": 8,
+    "device": "TWAREN-TP-ASR0123-08",
+    "is_alert": "Off",
+    "cpu_utilization": 55,
+    "temp_high": 68,
+    "temp_low": 17
+  },
+  {
+    "id": 9,
+    "device": "TWAREN-TP-ASR4567-09",
+    "is_alert": "On",
+    "cpu_utilization": 70,
+    "temp_high": 76,
+    "temp_low": 21
+  },
+  {
+    "id": 10,
+    "device": "TWAREN-TP-ASR8901-10",
+    "is_alert": "On",
+    "cpu_utilization": 88,
+    "temp_high": 82,
+    "temp_low": 24
+  },
+  {
+    "id": 11,
+    "device": "TWAREN-TP-ASR2345-11",
+    "is_alert": "On",
+    "cpu_utilization": 92,
+    "temp_high": 87,
+    "temp_low": 26
+  },
+  {
+    "id": 12,
+    "device": "TWAREN-TP-ASR6789-12",
+    "is_alert": "Off",
+    "cpu_utilization": 45,
+    "temp_high": 65,
+    "temp_low": 15
+  },
+  {
+    "id": 13,
+    "device": "TWAREN-TP-ASR0123-13",
+    "is_alert": "On",
+    "cpu_utilization": 78,
+    "temp_high": 79,
+    "temp_low": 22
+  },
+  {
+    "id": 14,
+    "device": "TWAREN-TP-ASR4567-14",
+    "is_alert": "On",
+    "cpu_utilization": 82,
+    "temp_high": 83,
+    "temp_low": 23
+  },
+  {
+    "id": 15,
+    "device": "TWAREN-TP-ASR8901-15",
+    "is_alert": "Off",
+    "cpu_utilization": 58,
+    "temp_high": 71,
+    "temp_low": 18
+  },
+  {
+    "id": 16,
+    "device": "TWAREN-TP-ASR2345-16",
+    "is_alert": "On",
+    "cpu_utilization": 89,
+    "temp_high": 81,
+    "temp_low": 25
+  },
+  {
+    "id": 17,
+    "device": "TWAREN-TP-ASR6789-17",
+    "is_alert": "On",
+    "cpu_utilization": 93,
+    "temp_high": 89,
+    "temp_low": 28
+  },
+  {
+    "id": 18,
+    "device": "TWAREN-TP-ASR0123-18",
+    "is_alert": "Off",
+    "cpu_utilization": 52,
+    "temp_high": 69,
+    "temp_low": 16
+  },
+  {
+    "id": 19,
+    "device": "TWAREN-TP-ASR4567-19",
+    "is_alert": "On",
+    "cpu_utilization": 73,
+    "temp_high": 77,
+    "temp_low": 20
+  },
+  {
+    "id": 20,
+    "device": "TWAREN-TP-ASR8901-20",
+    "is_alert": "On",
+    "cpu_utilization": 86,
+    "temp_high": 84,
+    "temp_low": 24
+  }
+]

@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "eventId": "E1001",
+    "category": "Network",
+    "level": "Critical",
+    "startTime": "2024-06-20 08:45:00",
+    "endTime": "2024-06-20 09:15:00",
+    "duration": "00:30:00",
+    "device": "Router A",
+    "desc": "Network outage detected"
+  },
+  {
+    "id": 2,
+    "eventId": "E1002",
+    "category": "Server",
+    "level": "High",
+    "startTime": "2024-06-20 10:00:00",
+    "endTime": "2024-06-20 11:30:00",
+    "duration": "01:30:00",
+    "device": "Server B",
+    "desc": "Server overload"
+  },
+  {
+    "id": 3,
+    "eventId": "E1003",
+    "category": "Database",
+    "level": "Medium",
+    "startTime": "2024-06-20 12:00:00",
+    "endTime": "2024-06-20 12:45:00",
+    "duration": "00:45:00",
+    "device": "DB Server 1",
+    "desc": "Database connection timeout"
+  },
+  {
+    "id": 4,
+    "eventId": "E1004",
+    "category": "Application",
+    "level": "Low",
+    "startTime": "2024-06-20 13:00:00",
+    "endTime": "2024-06-20 13:20:00",
+    "duration": "00:20:00",
+    "device": "App Server 3",
+    "desc": "Application crash"
+  },
+  {
+    "id": 5,
+    "eventId": "E1005",
+    "category": "Network",
+    "level": "Critical",
+    "startTime": "2024-06-20 14:00:00",
+    "endTime": "2024-06-20 15:00:00",
+    "duration": "01:00:00",
+    "device": "Router B",
+    "desc": "Router failure"
+  },
+  {
+    "id": 6,
+    "eventId": "E1006",
+    "category": "Power",
+    "level": "High",
+    "startTime": "2024-06-20 16:00:00",
+    "endTime": "2024-06-20 16:45:00",
+    "duration": "00:45:00",
+    "device": "UPS 1",
+    "desc": "Power outage"
+  },
+  {
+    "id": 7,
+    "eventId": "E1007",
+    "category": "Network",
+    "level": "Medium",
+    "startTime": "2024-06-20 17:00:00",
+    "endTime": "2024-06-20 17:25:00",
+    "duration": "00:25:00",
+    "device": "Switch 2",
+    "desc": "Packet loss detected"
+  },
+  {
+    "id": 8,
+    "eventId": "E1008",
+    "category": "Application",
+    "level": "Low",
+    "startTime": "2024-06-20 18:00:00",
+    "endTime": "2024-06-20 18:15:00",
+    "duration": "00:15:00",
+    "device": "App Server 1",
+    "desc": "Minor application bug"
+  },
+  {
+    "id": 9,
+    "eventId": "E1009",
+    "category": "Database",
+    "level": "Critical",
+    "startTime": "2024-06-20 19:00:00",
+    "endTime": "2024-06-20 20:30:00",
+    "duration": "01:30:00",
+    "device": "DB Server 2",
+    "desc": "Database corruption"
+  },
+  {
+    "id": 10,
+    "eventId": "E1010",
+    "category": "Network",
+    "level": "High",
+    "startTime": "2024-06-20 21:00:00",
+    "endTime": "2024-06-20 21:40:00",
+    "duration": "00:40:00",
+    "device": "Router C",
+    "desc": "Network latency issues"
+  },
+  {
+    "id": 11,
+    "eventId": "E1011",
+    "category": "Server",
+    "level": "Medium",
+    "startTime": "2024-06-21 08:00:00",
+    "endTime": "2024-06-21 08:45:00",
+    "duration": "00:45:00",
+    "device": "Server A",
+    "desc": "High CPU usage"
+  },
+  {
+    "id": 12,
+    "eventId": "E1012",
+    "category": "Power",
+    "level": "Critical",
+    "startTime": "2024-06-21 09:00:00",
+    "endTime": "2024-06-21 09:30:00",
+    "duration": "00:30:00",
+    "device": "UPS 2",
+    "desc": "Complete power failure"
+  },
+  {
+    "id": 13,
+    "eventId": "E1013",
+    "category": "Network",
+    "level": "High",
+    "startTime": "2024-06-21 10:00:00",
+    "endTime": "2024-06-21 10:30:00",
+    "duration": "00:30:00",
+    "device": "Switch 1",
+    "desc": "Network congestion"
+  },
+  {
+    "id": 14,
+    "eventId": "E1014",
+    "category": "Database",
+    "level": "Medium",
+    "startTime": "2024-06-21 11:00:00",
+    "endTime": "2024-06-21 11:30:00",
+    "duration": "00:30:00",
+    "device": "DB Server 3",
+    "desc": "Slow query performance"
+  },
+  {
+    "id": 15,
+    "eventId": "E1015",
+    "category": "Application",
+    "level": "Low",
+    "startTime": "2024-06-21 12:00:00",
+    "endTime": "2024-06-21 12:20:00",
+    "duration": "00:20:00",
+    "device": "App Server 2",
+    "desc": "Minor glitch"
+  },
+  {
+    "id": 16,
+    "eventId": "E1016",
+    "category": "Network",
+    "level": "Critical",
+    "startTime": "2024-06-21 13:00:00",
+    "endTime": "2024-06-21 13:40:00",
+    "duration": "00:40:00",
+    "device": "Router D",
+    "desc": "ISP outage"
+  },
+  {
+    "id": 17,
+    "eventId": "E1017",
+    "category": "Server",
+    "level": "High",
+    "startTime": "2024-06-21 14:00:00",
+    "endTime": "2024-06-21 14:50:00",
+    "duration": "00:50:00",
+    "device": "Server C",
+    "desc": "Memory leak"
+  },
+  {
+    "id": 18,
+    "eventId": "E1018",
+    "category": "Database",
+    "level": "Medium",
+    "startTime": "2024-06-21 15:00:00",
+    "endTime": "2024-06-21 15:30:00",
+    "duration": "00:30:00",
+    "device": "DB Server 4",
+    "desc": "Transaction log full"
+  },
+  {
+    "id": 19,
+    "eventId": "E1019",
+    "category": "Network",
+    "level": "Low",
+    "startTime": "2024-06-21 16:00:00",
+    "endTime": "2024-06-21 16:15:00",
+    "duration": "00:15:00",
+    "device": "Switch 3",
+    "desc": "Temporary disconnection"
+  },
+  {
+    "id": 20,
+    "eventId": "E1020",
+    "category": "Application",
+    "level": "Critical",
+    "startTime": "2024-06-21 17:00:00",
+    "endTime": "2024-06-21 18:00:00",
+    "duration": "01:00:00",
+    "device": "App Server 4",
+    "desc": "Major application failure"
+  }
+]

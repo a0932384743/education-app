@@ -4,5 +4,5 @@
 }
 
 .v-chip__content {
-  align-items: normal !important;
+  font-weight: 500 !important;
 }
