@@ -7,7 +7,7 @@
             >國科會線路界接介面與流量狀況(總數:{{ items?.length ?? '-' }})</span
           >
           <v-spacer></v-spacer>
-          <v-row align="center" justify="end" style="gap: 0.6rem">
+          <v-row align="center" justify="end" style="gap: 0.6rem" class="my-0">
             <v-btn depressed>
               <v-icon>mdi-filter-outline</v-icon>
               過濾

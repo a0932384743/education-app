@@ -5,7 +5,7 @@
         <v-card-title>
           設備CPU狀態列表
           <v-spacer></v-spacer>
-          <v-row align="center" justify="end" style="gap: 0.6rem">
+          <v-row align="center" justify="end" style="gap: 0.6rem" class="my-0">
             <v-btn depressed>
               <v-icon>mdi-filter-outline</v-icon>
               過濾
