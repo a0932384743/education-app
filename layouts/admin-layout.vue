@@ -123,15 +123,6 @@
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-        <div
-          class="align-center justify-center flex-grow-0 d-flex px-2"
-          style="gap: 0.6rem"
-        >
-          <v-icon size="24"> mdi-clock </v-icon>
-          <span class="font-italic font-weight-bold">{{ date }}</span>
-          <span>|</span>
-          <span>TIME: {{ time }}</span>
-        </div>
         <v-btn text> <v-icon size="24"> mdi-account </v-icon> User</v-btn>
         <v-btn text> Logout </v-btn>
       </v-toolbar-items>
@@ -142,18 +133,6 @@
           </v-btn>
         </template>
         <v-list>
-          <v-list-item>
-            <div
-              class="align-center justify-center flex-grow-0 d-flex px-2"
-              style="gap: 0.6rem"
-            >
-              <v-icon size="24"> mdi-clock </v-icon>
-              <span class="font-italic font-weight-bold">{{ date }}</span>
-              <span>|</span>
-              <span>TIME: {{ time }}</span>
-            </div>
-          </v-list-item>
-
           <v-list-item>
             <v-btn width="100%" text>
               <v-icon size="24"> mdi-account </v-icon> User</v-btn
@@ -166,23 +145,32 @@
       </v-menu>
     </v-app-bar>
     <v-main>
-      <v-breadcrumbs
-        light
-        class="justify-end"
-        :items="[
-          {
-            text: 'Home',
-            href: '/',
-          },
-          ...items,
-        ]"
-      >
-        <template #item="{ item }">
-          <v-breadcrumbs-item tag="a" :to="item.href" :disabled="item.disabled">
-            {{ item.text }}
-          </v-breadcrumbs-item>
-        </template>
-      </v-breadcrumbs>
+      <v-row class="mt-4 mb-2 mx-0 px-2 flex-nowrap flex-sm-row flex-column-reverse">
+        <h2 class="flex-grow-1">
+          {{ items?.slice(-1)[0]?.text }}
+        </h2>
+        <v-breadcrumbs
+          light
+          class="justify-end py-1 flex-grow-1"
+          :items="[
+            {
+              text: 'Home',
+              href: '/',
+            },
+            ...items.filter((item) => item.text !== 'Home'),
+          ]"
+        >
+          <template #item="{ item }">
+            <v-breadcrumbs-item
+              tag="a"
+              :to="item.href"
+              :disabled="item.disabled"
+            >
+              {{ item.text }}
+            </v-breadcrumbs-item>
+          </template>
+        </v-breadcrumbs>
+      </v-row>
       <v-container fluid>
         <Nuxt />
       </v-container>
@@ -191,7 +179,6 @@
 </template>
 
 <script>
-import moment from 'moment/moment'
 import menus from '@/assets/json/menu.json'
 
 export default {
@@ -200,9 +187,7 @@ export default {
   data() {
     return {
       drawer: false,
-      timer: 0,
       activePath: 7,
-      time: moment().format('HH:mm:ss'),
       title: 'TWAREN 100G INMS',
       items: [],
     }
@@ -226,9 +211,6 @@ export default {
     vuetify() {
       return this.$vuetify
     },
-    date() {
-      return moment().format('ddd MMM DD YYYY')
-    },
     menus() {
       return menus
     },
@@ -248,9 +230,6 @@ export default {
     },
   },
   mounted() {
-    this.timer = setInterval(() => {
-      this.time = moment().format('HH:mm:ss')
-    }, 1000)
     this.activePath = this.$router.currentRoute.path
     this.items = this.flatMenu
       .filter((f) => f.url === this.$router.currentRoute.path)
@@ -261,10 +240,6 @@ export default {
           disabled: true,
         }
       })
-  },
-  beforeDestroy() {
-    // 在组件销毁前清除定时器
-    clearInterval(this.timer)
   },
 }
 </script>
