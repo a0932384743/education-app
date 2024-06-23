@@ -2,15 +2,31 @@
   <v-row>
     <v-col class="text-center" :cols="12">
       <v-card>
-        <v-card-title>
+        <v-card-title class="info white--text">
           <span class="font-weight-bold">BGP Peering狀況監控統計圖</span>
         </v-card-title>
-        <v-chart
-          :options="options"
-          class="mx-auto"
-          style="width: 100%; height: 250px"
-          autoresize
-        />
+        <v-row class="my-0">
+          <v-col :cols="12" :sm="6" class="d-flex">
+            <v-chart
+              :options="pieOption"
+              class="mx-auto"
+              style="width: 100%; height: 250px"
+              autoresize
+            />
+            <v-list>
+              <v-list-item v-for="item in pieData" :key="item.name">
+                <v-list-item-content>
+                  <v-list-item-title
+                    >{{ item.name }} :
+                    <span :class="`${statusMap[item.name]}--text`">{{
+                      item.value
+                    }}</span></v-list-item-title
+                  >
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
+          </v-col>
+        </v-row>
       </v-card>
     </v-col>
     <v-col :cols="12">
@@ -46,7 +62,7 @@
 
 <script>
 import deviceTraffic from '~/assets/json/device-traffic.json'
-import data from '~/assets/json/device-summary.json'
+import pieData from '~/assets/json/device-summary.json'
 
 export default {
   name: 'InternationalCircuitReportQuery',
@@ -57,66 +73,9 @@ export default {
         異常: 'danger',
         停報: 'secondary',
         正常: 'success',
-      },
-      options: {
-        grid: {
-          top: 0,
-          bottom: 0,
-          containLabel: true,
-        },
-        tooltip: {
-          trigger: 'item',
-        },
-        legend: {
-          orient: 'vertical',
-          right: '5%',
-          top: 'center',
-          formatter: function (name) {
-            if (name === '總數') {
-              return `${name} ${data
-                .reduce((sum, d) => sum + d.value, 0)
-                .toLocaleString()}`
-            }
-            return `${name} ${data
-              .filter((d) => d.name === name)[0]
-              .value.toLocaleString()}`
-          },
-          data: [
-            ...data.map((d) => {
-              return {
-                ...d,
-                icon: 'circle',
-              }
-            }),
-            {
-              name: '總數',
-              icon: 'circle',
-            },
-          ],
-        },
-        series: [
-          {
-            name: '設備總覽',
-            type: 'pie',
-            radius: ['40%', '100%'],
-            center: ['50%', '70%'],
-            startAngle: 180,
-            endAngle: 360,
-            data: [
-              ...data,
-              {
-                value: 0,
-                name: '總數',
-                label: {
-                  show: false,
-                },
-                labelLine: {
-                  show: false,
-                },
-              },
-            ],
-          },
-        ],
+        不正常數: 'danger',
+        不發報數: 'secondary',
+        正常數: 'success',
       },
       search: '',
       headers: [
@@ -167,6 +126,55 @@ export default {
   computed: {
     items() {
       return deviceTraffic
+    },
+    pieData() {
+      return [
+        ...pieData,
+        {
+          value: pieData.reduce((sum, d) => sum + d.value, 0),
+          name: '總監控數',
+        },
+      ]
+    },
+    pieOption() {
+      return {
+        grid: {
+          top: 0,
+          bottom: 0,
+          containLabel: true,
+        },
+        tooltip: {
+          trigger: 'item',
+        },
+        legend: {
+          top: '5%',
+          left: 'center',
+        },
+        series: [
+          {
+            avoidLabelOverlap: false,
+            label: {
+              show: false,
+              position: 'center',
+            },
+            labelLine: {
+              show: false,
+            },
+            name: '設備總覽',
+            type: 'pie',
+            radius: ['30%', '60%'],
+            data: pieData.map((d) => ({
+              ...d,
+              itemStyle: {
+                color:
+                  this.$vuetify.theme.themes[
+                    this.$vuetify.theme.isDark ? 'dark' : 'light'
+                  ][this.statusMap[d.name] || 'secondary'],
+              },
+            })),
+          },
+        ],
+      }
     },
   },
 }

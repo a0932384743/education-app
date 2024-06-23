@@ -41,6 +41,14 @@
       <v-card>
         <v-card-title>
           <span class="font-weight-bold">電路狀態-國內骨幹電路狀態</span>
+          <v-spacer></v-spacer>
+          <v-text-field
+            v-model="search"
+            append-icon="mdi-magnify"
+            label="Search"
+            single-line
+            hide-details
+          ></v-text-field>
         </v-card-title>
         <v-data-table
           :headers="headers"
@@ -85,24 +93,24 @@
             </td>
           </template>
           <template #[`item.input`]="{ item }">
-            <div> {{ item.input }}(Mpbs)</div>
+            <div>{{ item.input }}(Mpbs)</div>
             <v-sparkline
               fill
               :color="statusMap[item.status]"
               :smooth="16"
               :line-width="2"
-              :value="[10,32,43,54,67,8,12]"
+              :value="Array.from({ length: 10 }, () => Math.random())"
               auto-draw
             ></v-sparkline>
           </template>
           <template #[`item.output`]="{ item }">
-            <div> {{ item.output }}(Mpbs)</div>
+            <div>{{ item.output }}(Mpbs)</div>
             <v-sparkline
               fill
               :color="statusMap[item.status]"
               :smooth="16"
               :line-width="2"
-              :value="[10,12,23,14,47,2,32]"
+              :value="Array.from({ length: 10 }, () => Math.random())"
               auto-draw
             ></v-sparkline>
           </template>
@@ -113,7 +121,7 @@
 </template>
 
 <script>
-import deviceTraffic from '~/assets/json/device-traffic.json'
+import items from '~/assets/json/device-traffic.json'
 import pieData from '~/assets/json/domestic-backbone-traffic-statistics.json'
 import lineData from '~/assets/json/domestic-backbone-traffic-history.json'
 
@@ -163,7 +171,6 @@ export default {
           text: '備註',
           value: 'remark',
         },
-
       ],
       footerProps: {
         itemsPerPageAllText: '所有',
@@ -174,7 +181,7 @@ export default {
   },
   computed: {
     items() {
-      return deviceTraffic
+      return items
     },
     pieOption() {
       return {
