@@ -1,132 +1,60 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer v-model="drawer" app color="aside" width="280">
-      <v-list-item
-        active-class="info"
-        dark
-        :style="{
-          height: `${vuetify.application.top}px`,
-        }"
-      >
-        <v-list-item-content class="py-1">
-          <v-img
-            class="mx-auto"
-            contain
-            lazy-src="/logo-2.png"
-            max-width="120"
-            :alt="title"
-            src="/logo-2.png"
-          ></v-img>
-        </v-list-item-content>
-      </v-list-item>
-      <v-list
-        nav
-        dense
-        color="aside"
-        class="overflow-auto pb-5"
-        :style="{
-          height: `calc(100% - ${vuetify.application.top}px)`,
-        }"
-      >
-        <v-list-item-group v-model="activePath" active-class="info">
-          <template v-for="menu in menus">
-            <v-list-group
-              v-if="menu.children && menu.children.length"
-              :key="JSON.stringify(menu)"
-              active-class="faded-info-background"
-              sub-group
-            >
-              <template #prependIcon>
-                <v-icon size="20" class="white--text"
-                  >mdi-view-grid-outline</v-icon
-                >
-              </template>
-              <template #appendIcon>
-                <v-icon size="20" class="white--text">mdi-menu-left</v-icon>
-              </template>
-              <template #activator>
-                <v-list-item-content>
-                  <v-list-item-title class="white--text">{{
-                    menu.name
-                  }}</v-list-item-title>
-                </v-list-item-content>
-              </template>
-              <template v-for="children1 in menu.children">
-                <v-list-group
-                  v-if="children1.children && children1.children.length"
-                  :key="JSON.stringify(children1)"
-                  sub-group
-                >
-                  <template #prependIcon>
-                    <v-icon size="20" class="white--text"></v-icon>
-                  </template>
-                  <template #appendIcon>
-                    <v-icon size="20" class="white--text">mdi-menu-left</v-icon>
-                  </template>
-                  <template #activator>
-                    <v-list-item-content>
-                      <v-list-item-title class="white--text">{{
-                        children1.name
-                      }}</v-list-item-title>
-                    </v-list-item-content>
-                  </template>
-                  <v-list-item
-                    v-for="children2 in children1.children"
-                    :key="JSON.stringify(children2)"
-                    :to="children2.url"
-                    :value="children2.url"
-                    :link="false"
-                  >
-                    <v-list-item-content>
-                      <v-list-item-title class="white--text">{{
-                        children2.name
-                      }}</v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
-                </v-list-group>
-                <v-list-item
-                  v-else
-                  :key="JSON.stringify(children1)"
-                  :to="children1.url"
-                  :value="children1.url"
-                >
-                  <v-list-item-content>
-                    <v-list-item-title class="white--text">{{
-                      children1.name
-                    }}</v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-              </template>
-            </v-list-group>
-            <v-list-item
-              v-else
-              :key="JSON.stringify(menu)"
-              :to="menu.url"
-              :value="menu.url"
-            >
-              <v-list-item-icon class="mr-1">
-                <v-icon size="20" class="white--text"
-                  >mdi-view-grid-outline</v-icon
-                >
-              </v-list-item-icon>
-              <v-list-item-content>
-                <v-list-item-title class="white--text">{{
-                  menu.name
-                }}</v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </template>
-        </v-list-item-group>
-      </v-list>
-    </v-navigation-drawer>
     <v-app-bar app color="header">
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="toggleDrawer"></v-app-bar-nav-icon>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
+        <v-menu transition="slide-y-transition" offset-y bottom left>
+          <template #activator="{ on, attrs }">
+            <v-btn v-bind="attrs" text v-on="on">
+              <v-icon size="24">mdi-translate-variant</v-icon>
+              {{ $t('language') }}
+            </v-btn>
+          </template>
+          <v-list>
+            <v-list-item
+              :class="{ 'info white--text': currentLocale === 'zh-tw' }"
+              @click="changeLanguage('zh-tw')"
+            >
+              <v-list-item-content>
+                <v-list-item-title class="subtitle-2">
+                  <v-icon
+                    size="22"
+                    :class="{ 'white--text': currentLocale === 'zh-tw' }"
+                  >
+                    mdi-earth </v-icon
+                  >{{ $t('lang.zh-tw') }}</v-list-item-title
+                >
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item
+              :class="{ 'info white--text': currentLocale === 'en' }"
+              @click="changeLanguage('en')"
+            >
+              <v-list-item-content>
+                <v-list-item-title class="subtitle-2">
+                  <v-icon
+                    size="22"
+                    :class="{ 'white--text': currentLocale === 'en' }"
+                  >
+                    mdi-earth </v-icon
+                  >{{ $t('lang.en') }}</v-list-item-title
+                >
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </v-menu>
         <v-btn text> <v-icon size="24"> mdi-account </v-icon> User</v-btn>
-        <v-btn text> Logout </v-btn>
+        <v-btn text> <v-icon size="24"> mdi-logout </v-icon> Logout </v-btn>
       </v-toolbar-items>
-      <v-menu v-if="!vuetify.breakpoint.mdAndUp">
+      <v-menu
+        v-if="!vuetify.breakpoint.mdAndUp"
+        min-width="150px"
+        transition="slide-y-transition"
+        offset-y
+        bottom
+        left
+      >
         <template #activator="{ on, attrs }">
           <v-btn icon v-bind="attrs" class="hidden-md-and-up" v-on="on">
             <v-icon>mdi-dots-vertical</v-icon>
@@ -134,18 +62,59 @@
         </template>
         <v-list>
           <v-list-item>
-            <v-btn width="100%" text>
-              <v-icon size="24"> mdi-account </v-icon> User</v-btn
+            <v-list-subheader> {{ $t('language') }}</v-list-subheader>
+          </v-list-item>
+          <v-list-item
+            :class="{ 'info white--text': currentLocale === 'zh-tw' }"
+            @click="changeLanguage('zh-tw')"
+          >
+            <v-list-item-content>
+              <v-list-item-title class="subtitle-2">
+                <v-icon
+                  size="20"
+                  :class="{ 'white--text': currentLocale === 'zh-tw' }"
+                >
+                  mdi-earth </v-icon
+                >{{ $t('lang.zh-tw') }}</v-list-item-title
+              >
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item
+            :class="{ 'info white--text': currentLocale === 'en' }"
+            @click="changeLanguage('en')"
+          >
+            <v-list-item-content>
+              <v-list-item-title class="subtitle-2">
+                <v-icon
+                  size="20"
+                  :class="{ 'white--text': currentLocale === 'en' }"
+                >
+                  mdi-earth </v-icon
+                >{{ $t('lang.en') }}</v-list-item-title
+              >
+            </v-list-item-content>
+          </v-list-item>
+          <v-divider></v-divider>
+          <v-list-item>
+            <v-list-item-title class="subtitle-2">
+              <v-icon size="20"> mdi-account </v-icon>User</v-list-item-title
             >
           </v-list-item>
           <v-list-item>
-            <v-btn width="100%" text> Logout </v-btn>
+            <v-list-item-content>
+              <v-list-item-title class="subtitle-2">
+                <v-icon size="20"> mdi-logout </v-icon>Logout</v-list-item-title
+              >
+            </v-list-item-content>
           </v-list-item>
         </v-list>
       </v-menu>
     </v-app-bar>
+    <side-menu :drawer.sync="drawer" />
     <v-main>
-      <v-row class="mt-4 mb-2 mx-0 px-2 flex-nowrap flex-sm-row flex-column-reverse">
+      <v-row
+        class="mt-4 mb-2 mx-0 px-2 flex-nowrap flex-sm-row flex-column-reverse"
+      >
         <h2 class="flex-grow-1">
           {{ items?.slice(-1)[0]?.text }}
         </h2>
@@ -179,28 +148,32 @@
 </template>
 
 <script>
-import menus from '@/assets/json/menu.json'
+import SideMenu from '~/components/SideMenu.vue'
+import menus from '~/assets/json/menu.json'
 
 export default {
   name: 'AdminLayout',
+  components: { SideMenu },
   layout: 'AdminLayout',
   data() {
     return {
       drawer: false,
-      activePath: 7,
-      title: 'TWAREN 100G INMS',
       items: [],
     }
   },
+  head() {
+    return {
+      title: this.$t('app.welcome'),
+    }
+  },
   computed: {
+    currentLocale() {
+      return this.$i18n.locale
+    },
     flatMenu() {
       const flatList = []
       function flatten(item) {
-        flatList.push({
-          icon: item.icon,
-          name: item.name,
-          url: item.url,
-        })
+        flatList.push(item)
         if (item.children && item.children.length > 0) {
           item.children.forEach(flatten)
         }
@@ -208,16 +181,13 @@ export default {
       menus.forEach(flatten)
       return flatList
     },
+
     vuetify() {
       return this.$vuetify
-    },
-    menus() {
-      return menus
     },
   },
   watch: {
     $route(to) {
-      this.activePath = to.path
       this.items = this.flatMenu
         .filter((f) => f.url === to.path)
         .map((m) => {
@@ -228,9 +198,19 @@ export default {
           }
         })
     },
+    currentLocale(locale) {
+      this.items = this.flatMenu
+        .filter((f) => f.url === this.$router.currentRoute.path)
+        .map((m) => {
+          return {
+            text: locale === 'en' ? m.name_en : m.name,
+            href: m.url,
+            disabled: true,
+          }
+        })
+    },
   },
   mounted() {
-    this.activePath = this.$router.currentRoute.path
     this.items = this.flatMenu
       .filter((f) => f.url === this.$router.currentRoute.path)
       .map((m) => {
@@ -240,6 +220,14 @@ export default {
           disabled: true,
         }
       })
+  },
+  methods: {
+    changeLanguage(lang) {
+      this.$i18n.setLocale(lang)
+    },
+    toggleDrawer() {
+      this.drawer = !this.drawer
+    },
   },
 }
 </script>
@@ -265,17 +253,5 @@ export default {
   .v-list-group--sub-group > .v-list-item {
     padding-left: 8px !important;
   }
-}
-
-a.v-breadcrumbs__item {
-  color: black !important;
-}
-
-a.v-breadcrumbs__item--disabled {
-  color: rgba(0, 0, 0, 0.38) !important;
-}
-
-.faded-info-background {
-  background-color: rgba(var(--v-theme-info-base), 0.1);
 }
 </style>

@@ -1,3 +1,6 @@
+import en from './locales/en.json'
+import zhTW from './locales/zh-tw.json'
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   ssr: false,
@@ -55,20 +58,54 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ['@nuxtjs/i18n'],
 
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        iso: 'en',
+        name: 'English',
+      },
+      {
+        code: 'zh-tw',
+        iso: 'zh-tw',
+        name: '中文',
+      },
+    ],
+    strategy: 'no_prefix',
+    defaultLocale: 'zh-tw',
+    vueI18n: {
+      fallbackLocale: 'zh-tw',
+      messages: {
+        en,
+        'zh-tw': zhTW,
+      },
+    },
+  },
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     treeShake: true,
     theme: {
       themes: {
-        light: {
+        dark: {
           primary: '#0807B7',
           info: '#3F7EA1',
           success: '#01A559',
           warning: '#F99C0A',
           danger: '#B81003',
+          secondary: '#D0CDCA',
+          background: '#141844',
+          header: '#0b0d26',
+          aside: '#00201c',
+        },
+        light: {
+          primary: '#0807B7',
+          info: '#3F7EA1',
+          success: '#01A559',
+          warning: '#F99C0A',
+          danger: '#e81707',
           secondary: '#D0CDCA',
           background: '#FFFFFF',
           header: 'white',
