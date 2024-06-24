@@ -192,7 +192,7 @@ export default {
         .filter((f) => f.url === to.path)
         .map((m) => {
           return {
-            text: m.name,
+            text: this.$i18n.locale === 'en' ? m.name_en : m.name,
             href: m.url,
             disabled: true,
           }
