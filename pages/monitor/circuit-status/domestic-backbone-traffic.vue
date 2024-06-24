@@ -71,7 +71,6 @@
           <template #[`item.device`]="{ item }">
             <td
               :class="statusMap[item.status]"
-              style="border-color: white !important"
             >
               {{ item.device || '-' }}
             </td>
@@ -79,7 +78,6 @@
           <template #[`item.interface`]="{ item }">
             <td
               :class="statusMap[item.status]"
-              style="border-color: white !important"
             >
               {{ item.interface || '-' }}
             </td>
@@ -87,7 +85,6 @@
           <template #[`item.desc`]="{ item }">
             <td
               :class="statusMap[item.status]"
-              style="border-color: white !important"
             >
               {{ item.desc || '-' }}
             </td>
@@ -96,10 +93,10 @@
             <div>{{ item.input }}(Mpbs)</div>
             <v-sparkline
               fill
-              :color="statusMap[item.status]"
+              :color="item?.inputHistory?.some(v=>v > 0.309) ? 'danger' : 'success'"
               :smooth="16"
               :line-width="2"
-              :value="Array.from({ length: 10 }, () => Math.random())"
+              :value="item?.inputHistory || []"
               auto-draw
             ></v-sparkline>
           </template>
@@ -107,10 +104,10 @@
             <div>{{ item.output }}(Mpbs)</div>
             <v-sparkline
               fill
-              :color="statusMap[item.status]"
+              :color="item?.outputHistory?.some(v=>v > 0.405) ? 'danger' : 'success'"
               :smooth="16"
               :line-width="2"
-              :value="Array.from({ length: 10 }, () => Math.random())"
+              :value="item?.outputHistory || []"
               auto-draw
             ></v-sparkline>
           </template>
@@ -121,7 +118,7 @@
 </template>
 
 <script>
-import items from '~/assets/json/device-traffic.json'
+import items from '~/assets/json/domestic-backbone-traffic.json'
 import pieData from '~/assets/json/domestic-backbone-traffic-statistics.json'
 import lineData from '~/assets/json/domestic-backbone-traffic-history.json'
 
