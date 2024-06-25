@@ -60,6 +60,26 @@
   "add.pic": "New Picture",
   "add": "Add",
   "國內骨幹流量狀態監控統計圖": "Domestic Backbone Traffic Status Monitoring Statistics Chart",
-  "國內骨幹流量狀態趨勢圖": "Domestic Backbone Traffic Status Trend Chart"
-
+  "國內骨幹流量狀態趨勢圖": "Domestic Backbone Traffic Status Trend Chart",
+  "normal.count": "Normal",
+  "abnormal.count": "Abnormal",
+  "non-warning.count": "Non-Warning",
+  "total.count": "Total",
+  "normal": "Normal",
+  "abnormal": "Abnormal",
+  "non-warning": "Non-Warning",
+  "total": "Total",
+  "normal.yesterday.count": "Last Normal",
+  "abnormal.yesterday.count": "Last Abnormal",
+  "non-warning.yesterday.count": "Last Non-Warning",
+  "total.yesterday.count": "Last Total",
+  "id": "ID",
+  "device": "Device",
+  "interface": "Interface",
+  "interface.description": "Description",
+  "check.time": "Check Time",
+  "input.usage": "Input",
+  "output.usage": "Output",
+  "remark": "Remark",
+  "hours": "{e} Hours Age"
 }
