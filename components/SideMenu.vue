@@ -2,8 +2,14 @@
   <v-navigation-drawer
     :value="drawer"
     app
-    color="aside"
-    width="280"
+    dark
+    :absolute="sideMenuSettings.absolute"
+    :clipped="sideMenuSettings.clipped"
+    :color="sideMenuSettings.color"
+    :fixed="sideMenuSettings.fixed"
+    :floating="sideMenuSettings.floating"
+    :permanent="sideMenuSettings.permanent"
+    :width="sideMenuSettings.width"
     @input="updateDrawer"
   >
     <v-list-item
@@ -27,7 +33,7 @@
     <v-list
       nav
       dense
-      color="aside"
+      :color="sideMenuSettings.color"
       class="overflow-auto pb-5"
       :style="{
         height: `calc(100% - ${vuetify.application.top}px)`,
@@ -145,6 +151,9 @@ export default {
     }
   },
   computed: {
+    sideMenuSettings() {
+      return this.$store.getters['common/getSideMenuSetting']
+    },
     currentLocale() {
       return this.$i18n.locale
     },

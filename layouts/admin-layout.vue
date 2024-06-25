@@ -1,6 +1,16 @@
 <template>
   <v-app id="inspire">
-    <v-app-bar app color="header">
+    <v-app-bar
+      app
+      :color="headerSettings.color"
+      :dense="headerSettings.dense"
+      :elevation="headerSettings.elevation"
+      :flat="headerSettings.flat"
+      :outlined="headerSettings.outlined"
+      :prominent="headerSettings.prominent"
+      :rounded="headerSettings.rounded"
+      :shaped="headerSettings.shaped"
+    >
       <v-app-bar-nav-icon @click="toggleDrawer"></v-app-bar-nav-icon>
       <v-spacer></v-spacer>
       <v-toolbar-items>
@@ -141,7 +151,19 @@
       </v-toolbar-items>
     </v-app-bar>
     <side-menu :drawer.sync="drawer" />
+    <tool-menu :drawer.sync="toolDrawer" />
     <v-main>
+      <v-btn
+        class="tool-btn info lighten-2"
+        icon
+        fab
+        small
+        dark
+        color="white"
+        @click.stop="toolDrawer = !toolDrawer"
+      >
+        <v-icon dark>mdi-cog-outline</v-icon>
+      </v-btn>
       <v-row
         class="mt-4 mb-2 mx-0 px-2 flex-nowrap flex-sm-row flex-column-reverse"
       >
@@ -188,6 +210,7 @@ export default {
   data() {
     return {
       drawer: false,
+      toolDrawer: false,
       items: [],
     }
   },
@@ -197,6 +220,9 @@ export default {
     }
   },
   computed: {
+    headerSettings() {
+      return this.$store.getters['common/getHeaderSetting']
+    },
     currentLocale() {
       return this.$i18n.locale
     },
@@ -341,5 +367,25 @@ export default {
 
 .wipe.w-0 {
   width: 0px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.tool-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  z-index: 999;
+
+  .v-icon {
+    animation: rotate 2s linear infinite;
+  }
 }
 </style>

@@ -1,6 +1,6 @@
 import en from './locales/en.json'
 import zhTW from './locales/zh-tw.json'
-
+import { lightTheme, darkTheme } from './utils/themes'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   ssr: false,
@@ -89,28 +89,8 @@ export default {
     treeShake: true,
     theme: {
       themes: {
-        dark: {
-          primary: '#0807B7',
-          info: '#3F7EA1',
-          success: '#01A559',
-          warning: '#F99C0A',
-          danger: '#B81003',
-          secondary: '#D0CDCA',
-          background: '#141844',
-          header: '#0b0d26',
-          aside: '#00201c',
-        },
-        light: {
-          primary: '#0807B7',
-          info: '#3F7EA1',
-          success: '#01A559',
-          warning: '#F99C0A',
-          danger: '#e81707',
-          secondary: '#D0CDCA',
-          background: '#FFFFFF',
-          header: 'white',
-          aside: '#00201c',
-        },
+        light: lightTheme,
+        dark: darkTheme,
       },
     },
   },
