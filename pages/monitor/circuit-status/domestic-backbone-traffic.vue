@@ -1,41 +1,38 @@
 <template>
   <v-row>
-    <v-col class="text-center" :cols="12">
-      <v-card>
-        <v-card-title class="info white--text">
-          <span class="font-weight-bold">國內骨幹流量狀態監控統計圖</span>
-        </v-card-title>
-        <v-row class="my-0">
-          <v-col :cols="12" :sm="6" class="d-flex">
-            <v-chart
-              :options="pieOption"
-              class="mx-auto"
-              style="width: 100%; height: 250px"
-              autoresize
-            />
-            <v-list>
-              <v-list-item v-for="item in pieData" :key="item.name">
-                <v-list-item-content>
-                  <v-list-item-title
-                    >{{ item.name }} :
-                    <span :class="`${statusMap[item.name]}--text`">{{
-                      item.value
-                    }}</span></v-list-item-title
-                  >
-                </v-list-item-content>
-              </v-list-item>
-            </v-list>
-          </v-col>
-          <v-col :cols="12" :sm="6" class="d-flex">
-            <v-chart
-              :options="lineOption"
-              class="mx-auto"
-              style="width: 100%; height: 250px"
-              autoresize
-            />
-          </v-col>
-        </v-row>
-      </v-card>
+    <v-col class="text-center" :cols="12" :md="6">
+      <chart-card title="國內骨幹流量狀態監控統計圖">
+        <div class="d-flex">
+          <v-chart
+            :options="pieOption"
+            class="mx-auto"
+            style="width: 100%; height: 250px"
+            autoresize
+          />
+          <v-list class="flex-grow-1">
+            <v-list-item v-for="item in pieData" :key="item.name">
+              <v-list-item-content>
+                <v-list-item-title
+                  >{{ item.name }} :
+                  <span :class="`${statusMap[item.name]}--text`">{{
+                    item.value
+                  }}</span></v-list-item-title
+                >
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </div>
+      </chart-card>
+    </v-col>
+    <v-col class="text-center" :cols="12" :md="6">
+      <chart-card title="國內骨幹流量狀態趨勢圖">
+        <v-chart
+          :options="lineOption"
+          class="mx-auto"
+          style="width: 100%; height: 250px"
+          autoresize
+        />
+      </chart-card>>
     </v-col>
     <v-col :cols="12">
       <v-card>
@@ -69,23 +66,17 @@
             </div>
           </template>
           <template #[`item.device`]="{ item }">
-            <td
-              :class="statusMap[item.status]"
-            >
+            <td :class="statusMap[item.status]">
               {{ item.device || '-' }}
             </td>
           </template>
           <template #[`item.interface`]="{ item }">
-            <td
-              :class="statusMap[item.status]"
-            >
+            <td :class="statusMap[item.status]">
               {{ item.interface || '-' }}
             </td>
           </template>
           <template #[`item.desc`]="{ item }">
-            <td
-              :class="statusMap[item.status]"
-            >
+            <td :class="statusMap[item.status]">
               {{ item.desc || '-' }}
             </td>
           </template>
@@ -93,7 +84,11 @@
             <div>{{ item.input }}(Mpbs)</div>
             <v-sparkline
               fill
-              :color="item?.inputHistory?.some(v=>v > 0.309) ? 'danger' : 'success'"
+              :color="
+                item?.inputHistory?.some((v) => v > 0.309)
+                  ? 'danger'
+                  : 'success'
+              "
               :smooth="16"
               :line-width="2"
               :value="item?.inputHistory || []"
@@ -104,7 +99,11 @@
             <div>{{ item.output }}(Mpbs)</div>
             <v-sparkline
               fill
-              :color="item?.outputHistory?.some(v=>v > 0.405) ? 'danger' : 'success'"
+              :color="
+                item?.outputHistory?.some((v) => v > 0.405)
+                  ? 'danger'
+                  : 'success'
+              "
               :smooth="16"
               :line-width="2"
               :value="item?.outputHistory || []"
@@ -121,9 +120,11 @@
 import items from '~/assets/json/domestic-backbone-traffic.json'
 import pieData from '~/assets/json/domestic-backbone-traffic-statistics.json'
 import lineData from '~/assets/json/domestic-backbone-traffic-history.json'
+import ChartCard from '~/components/ChartCard.vue'
 
 export default {
   name: 'DomesticBackboneTraffic',
+  components: { ChartCard },
   layout: 'admin-layout',
   data() {
     return {
@@ -222,13 +223,6 @@ export default {
     },
     lineOption() {
       return {
-        title: {
-          text: '異常數趨勢圖',
-          left: 'center', // 將標題水平置中
-          textStyle: {
-            fontSize: 14,
-          },
-        },
         tooltip: {
           trigger: 'axis',
         },

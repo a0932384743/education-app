@@ -29,8 +29,8 @@
         <v-row class="mx-0">
           <v-col cols="12">
             <v-btn-toggle :value="theme" @change="updateTheme">
-              <v-btn :value="true" color="info" small>Light</v-btn>
-              <v-btn :value="false" color="info" small>Dark</v-btn>
+              <v-btn :value="false" color="info" small>Light</v-btn>
+              <v-btn :value="true" color="info" small>Dark</v-btn>
             </v-btn-toggle>
           </v-col>
         </v-row>
@@ -111,6 +111,15 @@
               class="mt-0"
             />
           </v-col>
+          <v-col cols="12" sm="6">
+            <v-switch
+              v-model="headerSettings.absolute"
+              label="Absolute"
+              color="info"
+              hide-details
+              class="mt-0"
+            />
+          </v-col>
         </v-row>
       </v-list-item>
       <v-list-item>
@@ -120,8 +129,8 @@
         <v-row class="mx-0">
           <v-col cols="12">
             <v-slider
-              :max="300"
               v-model="sideMenuSettings.width"
+              :max="300"
               label="Width"
               hide-details
               color="info"
@@ -156,8 +165,8 @@
           </v-col>
           <v-col cols="12" sm="6">
             <v-switch
-              v-model="sideMenuSettings.fixed"
-              label="Fixed"
+              v-model="sideMenuSettings.miniVariant"
+              label="MiniVariant"
               hide-details
               color="info"
               class="mt-0"
@@ -169,15 +178,6 @@
               label="Permanent"
               hide-details
               color="info"
-              class="mt-0"
-            />
-          </v-col>
-          <v-col cols="12" sm="6">
-            <v-switch
-              v-model="headerSettings.right"
-              label="Right"
-              color="info"
-              hide-details
               class="mt-0"
             />
           </v-col>

@@ -6,10 +6,12 @@
       :dense="headerSettings.dense"
       :elevation="headerSettings.elevation"
       :flat="headerSettings.flat"
+      :clipped-left="headerSettings.absolute"
       :outlined="headerSettings.outlined"
       :prominent="headerSettings.prominent"
       :rounded="headerSettings.rounded"
       :shaped="headerSettings.shaped"
+      :fixed="headerSettings.absolute"
     >
       <v-app-bar-nav-icon @click="toggleDrawer"></v-app-bar-nav-icon>
       <v-spacer></v-spacer>
@@ -183,7 +185,6 @@
         >
           <template #item="{ item }">
             <v-breadcrumbs-item
-              tag="a"
               :to="item.href"
               :disabled="item.disabled"
             >

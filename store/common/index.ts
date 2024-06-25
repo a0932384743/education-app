@@ -15,15 +15,15 @@ type State = {
     prominent: boolean
     rounded: boolean
     shaped: boolean
+    absolute: boolean
   }
   sideMenuSettings: {
     absolute: boolean
     clipped: boolean
     color: ColorType
-    fixed: boolean
+    miniVariant: boolean
     floating: boolean
     permanent: boolean
-    right: boolean
     width: number
   }
 }
@@ -70,15 +70,15 @@ const commonModule: Module<State, StateInterface> = {
       prominent: false,
       rounded: false,
       shaped: false,
+      absolute: false,
     },
     sideMenuSettings: {
       absolute: false,
       clipped: false,
       color: 'aside',
-      fixed: false,
+      miniVariant: false,
       floating: false,
       permanent: false,
-      right: false,
       width: 280,
     },
   },

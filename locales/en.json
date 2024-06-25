@@ -58,5 +58,8 @@
   "add.chart": "New Chart",
   "add.text": "New Text",
   "add.pic": "New Picture",
-  "add": "Add"
+  "add": "Add",
+  "國內骨幹流量狀態監控統計圖": "Domestic Backbone Traffic Status Monitoring Statistics Chart",
+  "國內骨幹流量狀態趨勢圖": "Domestic Backbone Traffic Status Trend Chart"
+
 }

@@ -8,7 +8,7 @@ export const lightTheme = {
   danger: '#e81707',
   secondary: '#D0CDCA',
   background: '#FFFFFF',
-  header: 'white',
+  header: '#ffffff',
   aside: '#00201c',
 }
 
