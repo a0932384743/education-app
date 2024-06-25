@@ -61,6 +61,7 @@
   "add": "Add",
   "國內骨幹流量狀態監控統計圖": "Domestic Backbone Traffic Status Monitoring Statistics Chart",
   "國內骨幹流量狀態趨勢圖": "Domestic Backbone Traffic Status Trend Chart",
+  "電路狀態-國內骨幹電路狀態": "Circuit Status - Domestic Backbone Circuit Status",
   "normal.count": "Normal",
   "abnormal.count": "Abnormal",
   "non-warning.count": "Non-Warning",
@@ -81,5 +82,8 @@
   "input.usage": "Input",
   "output.usage": "Output",
   "remark": "Remark",
-  "hours": "{e} Hours Age"
+  "hours": "{e} Hours Age",
+  "all": "All",
+  "per.page": "Per Page",
+  "current.page": "{0} to {1}, Total {2}"
 }

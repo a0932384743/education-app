@@ -52,7 +52,7 @@
   "keyword": "關鍵字",
   "username": "用戶名",
   "product.name": "產品",
-  "search": "搜索",
+  "search": "搜尋",
   "last.update.time": "最後更新時間",
   "save": "保存",
   "add.chart": "新增圖表",
@@ -73,6 +73,7 @@
   "total.yesterday.count": "昨日總監控數",
   "國內骨幹流量狀態監控統計圖": "國內骨幹流量狀態監控統計圖",
   "國內骨幹流量狀態趨勢圖": "國內骨幹流量狀態趨勢圖",
+  "電路狀態-國內骨幹電路狀態": "電路狀態-國內骨幹電路狀態",
   "id": "編號",
   "device": "設備",
   "interface": "介面",
@@ -81,5 +82,8 @@
   "input.usage": "Input使用量",
   "output.usage": "Output使用量",
   "remark": "備註",
-  "hours": "前{e}小時"
+  "hours": "前{e}小時",
+  "all": "總共",
+  "per.page": "每頁筆數",
+  "page": "第{0}-{1}項，共{2}項"
 }

@@ -27,83 +27,74 @@
       </chart-card>
     </v-col>
     <v-col :cols="12">
-      <v-card>
-        <v-card-title>
-          <span class="font-weight-bold">電路狀態-國內骨幹電路狀態</span>
-          <v-spacer></v-spacer>
-          <v-text-field
-            v-model="search"
-            append-icon="mdi-magnify"
-            label="Search"
-            single-line
-            hide-details
-          ></v-text-field>
-        </v-card-title>
-        <v-data-table
-          :headers="headers"
-          :items="items"
-          :search="search"
-          :footer-props="footerProps"
-        >
-          <template #[`header.input`]="{ header }">
-            <div class="d-inline-block text-center">
-              <div>{{ header.text }}</div>
-              <div>(每五分鐘平均值)</div>
-            </div>
-          </template>
-          <template #[`header.output`]="{ header }">
-            <div class="d-inline-block text-center">
-              <div>{{ header.text }}</div>
-              <div>(每五分鐘平均值)</div>
-            </div>
-          </template>
-          <template #[`item.device`]="{ item }">
-            <td :class="statusMap[item.status]">
-              {{ item.device || '-' }}
-            </td>
-          </template>
-          <template #[`item.interface`]="{ item }">
-            <td :class="statusMap[item.status]">
-              {{ item.interface || '-' }}
-            </td>
-          </template>
-          <template #[`item.desc`]="{ item }">
-            <td :class="statusMap[item.status]">
-              {{ item.desc || '-' }}
-            </td>
-          </template>
-          <template #[`item.input`]="{ item }">
-            <div>{{ item.input }}(Mpbs)</div>
-            <v-sparkline
-              fill
-              :color="
-                item?.inputHistory?.some((v) => v > 0.309)
-                  ? 'danger'
-                  : 'success'
-              "
-              :smooth="16"
-              :line-width="2"
-              :value="item?.inputHistory || []"
-              auto-draw
-            ></v-sparkline>
-          </template>
-          <template #[`item.output`]="{ item }">
-            <div>{{ item.output }}(Mpbs)</div>
-            <v-sparkline
-              fill
-              :color="
-                item?.outputHistory?.some((v) => v > 0.405)
-                  ? 'danger'
-                  : 'success'
-              "
-              :smooth="16"
-              :line-width="2"
-              :value="item?.outputHistory || []"
-              auto-draw
-            ></v-sparkline>
-          </template>
-        </v-data-table>
-      </v-card>
+      <table-card title="電路狀態-國內骨幹電路狀態">
+        <template #default="{ search, footerProps }">
+          <v-data-table
+            :headers="headers"
+            :items="items"
+            :search="search"
+            :footer-props="footerProps"
+          >
+            <template #[`header.input`]="{ header }">
+              <div class="d-inline-block text-center">
+                <div>{{ header.text }}</div>
+                <div>(每五分鐘平均值)</div>
+              </div>
+            </template>
+            <template #[`header.output`]="{ header }">
+              <div class="d-inline-block text-center">
+                <div>{{ header.text }}</div>
+                <div>(每五分鐘平均值)</div>
+              </div>
+            </template>
+            <template #[`item.device`]="{ item }">
+              <td :class="statusMap[item.status]">
+                {{ item.device || '-' }}
+              </td>
+            </template>
+            <template #[`item.interface`]="{ item }">
+              <td :class="statusMap[item.status]">
+                {{ item.interface || '-' }}
+              </td>
+            </template>
+            <template #[`item.desc`]="{ item }">
+              <td :class="statusMap[item.status]">
+                {{ item.desc || '-' }}
+              </td>
+            </template>
+            <template #[`item.input`]="{ item }">
+              <div>{{ item.input }}(Mpbs)</div>
+              <v-sparkline
+                fill
+                :color="
+                  item?.inputHistory?.some((v) => v > 0.309)
+                    ? 'danger'
+                    : 'success'
+                "
+                :smooth="16"
+                :line-width="2"
+                :value="item?.inputHistory || []"
+                auto-draw
+              ></v-sparkline>
+            </template>
+            <template #[`item.output`]="{ item }">
+              <div>{{ item.output }}(Mpbs)</div>
+              <v-sparkline
+                fill
+                :color="
+                  item?.outputHistory?.some((v) => v > 0.405)
+                    ? 'danger'
+                    : 'success'
+                "
+                :smooth="16"
+                :line-width="2"
+                :value="item?.outputHistory || []"
+                auto-draw
+              ></v-sparkline>
+            </template>
+          </v-data-table>
+        </template>
+      </table-card>
     </v-col>
   </v-row>
 </template>
@@ -157,11 +148,6 @@ export default {
           value: 'remark',
         },
       ],
-      footerProps: {
-        itemsPerPageAllText: '所有',
-        itemsPerPageText: '每頁筆數:',
-        pageText: '第{0}-{1}項，共{2}項',
-      },
     }
   },
   computed: {
