@@ -3,8 +3,29 @@
     <v-app-bar app color="header">
       <v-app-bar-nav-icon @click="toggleDrawer"></v-app-bar-nav-icon>
       <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-sm-and-down">
-        <v-menu transition="slide-y-transition" offset-y bottom left>
+      <v-toolbar-items>
+        <v-autocomplete
+          ref="searchEle"
+          class="my-0 align-center"
+          dense
+          hide-details
+        >
+          <template #append-outer>
+            <v-btn icon @click="toggleSearchInput">
+              <v-icon>mdi-magnify</v-icon>
+            </v-btn>
+          </template>
+        </v-autocomplete>
+        <v-btn icon @click="toggleFullScreen">
+          <v-icon ref="fullscreenEle">mdi-fullscreen</v-icon>
+        </v-btn>
+        <v-menu
+          v-if="vuetify.breakpoint.mdAndUp"
+          transition="slide-y-transition"
+          offset-y
+          bottom
+          left
+        >
           <template #activator="{ on, attrs }">
             <v-btn v-bind="attrs" text v-on="on">
               <v-icon size="24">mdi-translate-variant</v-icon>
@@ -13,13 +34,77 @@
           </template>
           <v-list>
             <v-list-item
+              v-for="lang in ['zh-tw', 'en']"
+              :key="lang"
+              :class="{ 'info white--text': currentLocale === lang }"
+              @click="changeLanguage(lang)"
+            >
+              <v-list-item-content>
+                <v-list-item-title class="subtitle-2">
+                  <v-icon
+                    size="22"
+                    :class="{ 'white--text': currentLocale === lang }"
+                  >
+                    mdi-earth </v-icon
+                  >{{ $t('lang.' + lang) }}</v-list-item-title
+                >
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+        <v-menu
+          v-if="vuetify.breakpoint.mdAndUp"
+          transition="slide-y-transition"
+          offset-y
+          bottom
+          left
+        >
+          <template #activator="{ on, attrs }">
+            <v-btn v-bind="attrs" text v-on="on">
+              <v-icon size="24"> mdi-account </v-icon> User
+            </v-btn>
+          </template>
+          <v-list>
+            <v-list-item>
+              <v-list-item-content>
+                <v-list-item-title class="subtitle-2">
+                  <v-icon size="22"> mdi-logout </v-icon> Logout
+                </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+        <v-menu
+          v-if="!vuetify.breakpoint.mdAndUp"
+          min-width="150px"
+          transition="slide-y-transition"
+          offset-y
+          bottom
+          left
+        >
+          <template #activator="{ on, attrs }">
+            <v-btn icon v-bind="attrs" class="hidden-md-and-up" v-on="on">
+              <v-icon>mdi-dots-vertical</v-icon>
+            </v-btn>
+          </template>
+          <v-list>
+            <v-list-item>
+              <v-list-item-title class="subtitle-2">
+                <v-icon size="20"> mdi-account </v-icon>User</v-list-item-title
+              >
+            </v-list-item>
+            <v-divider></v-divider>
+            <v-list-item>
+              <v-list-subheader> {{ $t('language') }}</v-list-subheader>
+            </v-list-item>
+            <v-list-item
               :class="{ 'info white--text': currentLocale === 'zh-tw' }"
               @click="changeLanguage('zh-tw')"
             >
               <v-list-item-content>
                 <v-list-item-title class="subtitle-2">
                   <v-icon
-                    size="22"
+                    size="20"
                     :class="{ 'white--text': currentLocale === 'zh-tw' }"
                   >
                     mdi-earth </v-icon
@@ -34,7 +119,7 @@
               <v-list-item-content>
                 <v-list-item-title class="subtitle-2">
                   <v-icon
-                    size="22"
+                    size="20"
                     :class="{ 'white--text': currentLocale === 'en' }"
                   >
                     mdi-earth </v-icon
@@ -42,73 +127,18 @@
                 >
               </v-list-item-content>
             </v-list-item>
+            <v-divider></v-divider>
+            <v-list-item>
+              <v-list-item-content>
+                <v-list-item-title class="subtitle-2">
+                  <v-icon size="20"> mdi-logout </v-icon
+                  >Logout</v-list-item-title
+                >
+              </v-list-item-content>
+            </v-list-item>
           </v-list>
         </v-menu>
-        <v-btn text> <v-icon size="24"> mdi-account </v-icon> User</v-btn>
-        <v-btn text> <v-icon size="24"> mdi-logout </v-icon> Logout </v-btn>
       </v-toolbar-items>
-      <v-menu
-        v-if="!vuetify.breakpoint.mdAndUp"
-        min-width="150px"
-        transition="slide-y-transition"
-        offset-y
-        bottom
-        left
-      >
-        <template #activator="{ on, attrs }">
-          <v-btn icon v-bind="attrs" class="hidden-md-and-up" v-on="on">
-            <v-icon>mdi-dots-vertical</v-icon>
-          </v-btn>
-        </template>
-        <v-list>
-          <v-list-item>
-            <v-list-subheader> {{ $t('language') }}</v-list-subheader>
-          </v-list-item>
-          <v-list-item
-            :class="{ 'info white--text': currentLocale === 'zh-tw' }"
-            @click="changeLanguage('zh-tw')"
-          >
-            <v-list-item-content>
-              <v-list-item-title class="subtitle-2">
-                <v-icon
-                  size="20"
-                  :class="{ 'white--text': currentLocale === 'zh-tw' }"
-                >
-                  mdi-earth </v-icon
-                >{{ $t('lang.zh-tw') }}</v-list-item-title
-              >
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item
-            :class="{ 'info white--text': currentLocale === 'en' }"
-            @click="changeLanguage('en')"
-          >
-            <v-list-item-content>
-              <v-list-item-title class="subtitle-2">
-                <v-icon
-                  size="20"
-                  :class="{ 'white--text': currentLocale === 'en' }"
-                >
-                  mdi-earth </v-icon
-                >{{ $t('lang.en') }}</v-list-item-title
-              >
-            </v-list-item-content>
-          </v-list-item>
-          <v-divider></v-divider>
-          <v-list-item>
-            <v-list-item-title class="subtitle-2">
-              <v-icon size="20"> mdi-account </v-icon>User</v-list-item-title
-            >
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-content>
-              <v-list-item-title class="subtitle-2">
-                <v-icon size="20"> mdi-logout </v-icon>Logout</v-list-item-title
-              >
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-      </v-menu>
     </v-app-bar>
     <side-menu :drawer.sync="drawer" />
     <v-main>
@@ -220,8 +250,59 @@ export default {
           disabled: true,
         }
       })
+    this.initSearchInput()
   },
   methods: {
+    initSearchInput() {
+      if (this.$refs.searchEle) {
+        this.$refs.searchEle.$el
+          .querySelector('.v-input__control')
+          .classList.add('wipe', 'in', 'd-none')
+        this.$refs.searchEle.$el
+          .querySelector('.v-input__append-inner')
+          .classList.toggle('d-none')
+      }
+    },
+    toggleFullScreen() {
+      if (this.$refs.fullscreenEle) {
+        this.$refs.fullscreenEle.$el.classList.toggle('mdi-fullscreen-exit')
+      }
+      const docElement = document.documentElement
+      if (!document.fullscreenElement) {
+        if (docElement.requestFullscreen) {
+          docElement.requestFullscreen()
+        } else if (docElement.webkitRequestFullscreen) {
+          /* Safari */
+          docElement.webkitRequestFullscreen()
+        } else if (docElement.msRequestFullscreen) {
+          /* IE11 */
+          docElement.msRequestFullscreen()
+        }
+      } else if (document.exitFullscreen) {
+        document.exitFullscreen()
+      } else if (document.webkitExitFullscreen) {
+        /* Safari */
+        document.webkitExitFullscreen()
+      } else if (document.msExitFullscreen) {
+        /* IE11 */
+        document.msExitFullscreen()
+      }
+    },
+    toggleSearchInput() {
+      if (this.$refs.searchEle) {
+        this.$refs.searchEle.$el
+          .querySelector('.v-input__control')
+          .classList.remove('d-none')
+
+        this.$refs.searchEle.$el
+          .querySelector('.v-input__control')
+          .classList.toggle('in')
+
+        this.$refs.searchEle.$el
+          .querySelector('.v-input__append-inner')
+          .classList.toggle('d-none')
+      }
+    },
     changeLanguage(lang) {
       this.$i18n.setLocale(lang)
     },
@@ -232,26 +313,33 @@ export default {
 }
 </script>
 <style lang="scss">
-.aside {
-  .v-list-item__icon {
-    margin-right: 10px !important;
+@keyframes wipeOut {
+  from {
+    width: 0px;
   }
-  .v-list-item--link:before {
-    background-color: transparent;
+  to {
+    width: 180px;
   }
-  .v-list-group__items {
-    overflow-x: hidden;
-  }
+}
 
-  .v-list-group--active
-    > .v-list-group__header
-    > .v-list-group__header__append-icon
-    .v-icon {
-    transform: rotate(-90deg);
-  }
+.wipe {
+  animation: wipeOut 0.2s ease-in-out forwards;
+}
 
-  .v-list-group--sub-group > .v-list-item {
-    padding-left: 8px !important;
+@keyframes wipeIn {
+  from {
+    width: 180px;
   }
+  to {
+    width: 0px;
+  }
+}
+
+.wipe.in {
+  animation: wipeIn 0.2s ease-in-out forwards;
+}
+
+.wipe.w-0 {
+  width: 0px;
 }
 </style>
