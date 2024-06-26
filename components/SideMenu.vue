@@ -46,7 +46,9 @@
             v-if="menu.children && menu.children.length"
             :key="JSON.stringify(menu)"
             active-class="faded-info-background"
+            :value="String(activePath).includes(menu.url)"
             sub-group
+            @click="activePath = menu.url"
           >
             <template #prependIcon>
               <v-icon size="20" class="white--text"
@@ -67,7 +69,9 @@
               <v-list-group
                 v-if="children1.children && children1.children.length"
                 :key="JSON.stringify(children1)"
+                :value="String(activePath).includes(children1.url)"
                 sub-group
+                @click="activePath = children1.url"
               >
                 <template #prependIcon>
                   <v-icon size="20" class="white--text"></v-icon>

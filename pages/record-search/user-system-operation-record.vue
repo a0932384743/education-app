@@ -4,73 +4,75 @@
       <v-card>
         <v-card-title>
           <span class="font-weight-bold">查詢條件</span>
-          <v-spacer></v-spacer>
         </v-card-title>
-        <v-form class="px-5">
-          <v-row>
-            <!-- 查詢日期 -->
-            <v-col cols="12" sm="6" md="4" lg="3" class="pt-1">
-              <v-menu
-                ref="startDateMenu"
-                v-model="startDateMenu"
-                :close-on-content-click="false"
-                :nudge-right="40"
-                transition="scale-transition"
-                offset-y
-                min-width="290px"
-              >
-                <template #activator="{ on, attrs }">
-                  <v-text-field
+        <v-divider />
+        <v-card-text>
+          <v-form class="px-5">
+            <v-row class="my-0">
+              <!-- 查詢日期 -->
+              <v-col cols="12" sm="6" md="4" lg="3" class="pt-1">
+                <v-menu
+                  ref="startDateMenu"
+                  v-model="startDateMenu"
+                  :close-on-content-click="false"
+                  :nudge-right="40"
+                  transition="scale-transition"
+                  offset-y
+                  min-width="290px"
+                >
+                  <template #activator="{ on, attrs }">
+                    <v-text-field
+                      v-model="startDate"
+                      label="開始時間"
+                      prepend-icon="mdi-calendar"
+                      readonly
+                      v-bind="attrs"
+                      v-on="on"
+                    ></v-text-field>
+                  </template>
+                  <v-date-picker
                     v-model="startDate"
-                    label="開始時間"
-                    prepend-icon="mdi-calendar"
-                    readonly
-                    v-bind="attrs"
-                    v-on="on"
-                  ></v-text-field>
-                </template>
-                <v-date-picker
-                  v-model="startDate"
-                  @input="startDateMenu = false"
-                ></v-date-picker>
-              </v-menu>
-            </v-col>
-            <v-col cols="12" sm="6" md="4" lg="3" class="pt-1">
-              <v-menu
-                ref="endDateMenu"
-                v-model="endDateMenu"
-                :close-on-content-click="false"
-                :nudge-right="40"
-                transition="scale-transition"
-                offset-y
-                min-width="290px"
-              >
-                <template #activator="{ on, attrs }">
-                  <v-text-field
+                    @input="startDateMenu = false"
+                  ></v-date-picker>
+                </v-menu>
+              </v-col>
+              <v-col cols="12" sm="6" md="4" lg="3" class="pt-1">
+                <v-menu
+                  ref="endDateMenu"
+                  v-model="endDateMenu"
+                  :close-on-content-click="false"
+                  :nudge-right="40"
+                  transition="scale-transition"
+                  offset-y
+                  min-width="290px"
+                >
+                  <template #activator="{ on, attrs }">
+                    <v-text-field
+                      v-model="endDate"
+                      label="結束時間"
+                      prepend-icon="mdi-calendar"
+                      readonly
+                      v-bind="attrs"
+                      v-on="on"
+                    ></v-text-field>
+                  </template>
+                  <v-date-picker
                     v-model="endDate"
-                    label="結束時間"
-                    prepend-icon="mdi-calendar"
-                    readonly
-                    v-bind="attrs"
-                    v-on="on"
-                  ></v-text-field>
-                </template>
-                <v-date-picker
-                  v-model="endDate"
-                  @input="endDateMenu = false"
-                ></v-date-picker>
-              </v-menu>
-            </v-col>
-            <!-- 使用者代碼 -->
-            <v-col cols="12" sm="6" md="4" lg="3" class="pt-1">
-              <v-select
-                v-model="category"
-                :items="categories"
-                label="使用者代碼"
-              ></v-select>
-            </v-col>
-          </v-row>
-        </v-form>
+                    @input="endDateMenu = false"
+                  ></v-date-picker>
+                </v-menu>
+              </v-col>
+              <!-- 使用者代碼 -->
+              <v-col cols="12" sm="6" md="4" lg="3" class="pt-1">
+                <v-select
+                  v-model="category"
+                  :items="categories"
+                  label="使用者代碼"
+                ></v-select>
+              </v-col>
+            </v-row>
+          </v-form>
+        </v-card-text>
         <!-- 查詢按鈕 -->
         <v-card-actions class="justify-end">
           <v-btn color="primary" @click="onSearchEvents">查詢</v-btn>
@@ -137,12 +139,6 @@ export default {
           value: 'timestamp',
         },
       ],
-      footerProps: {
-        itemsPerPageAllText: '所有',
-        itemsPerPageText: '每頁筆數:',
-        pageText: '第{0}-{1}項，共{2}項',
-      },
-      search: '',
       items,
       startDateMenu: false,
       endDateMenu: false,

@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-col class="text-center" :cols="12">
+    <v-col class="text-center" :cols="12" :md="6">
       <chart-card title="國際電路界接介面狀態統計圖">
         <chart-pie-list :items="pieData">
           <template #default="{ options }">
@@ -11,6 +11,19 @@
             />
           </template>
         </chart-pie-list>
+      </chart-card>
+    </v-col>
+    <v-col class="text-center" :cols="12" :md="6">
+      <chart-card title="國際電路界接介面狀況趨勢圖">
+        <chart-check-list :items="lineData">
+          <template #default="{ options }">
+            <v-chart
+              :options="options"
+              style="width: 100%; height: 250px"
+              autoresize
+            />
+          </template>
+        </chart-check-list>
       </chart-card>
     </v-col>
     <v-col :cols="12">
@@ -59,7 +72,7 @@
             </template>
             <template #[`item.history`]>
               <td align="center">
-                <v-btn color="secondary" fab x-small dark>
+                <v-btn color="secondary" small dark>
                   <v-icon>mdi-chart-areaspline</v-icon>
                 </v-btn>
               </td>
@@ -72,6 +85,7 @@
 </template>
 
 <script>
+import lineData from '~/assets/json/international-circuit-interface-history.json';
 import items from '~/assets/json/international-circuit-Interface.json';
 import pieData from '~/assets/json/device-summary.json';
 import ChartCard from '~/components/ChartCard.vue';
@@ -90,45 +104,48 @@ export default {
     headers() {
       return [
         {
-          text: '介面編號',
+          text: this.$t('interface.id'),
           value: 'id',
         },
         {
-          text: '介面設備',
+          text: this.$t('interface.equipment'),
           value: 'equipment',
         },
         {
-          text: '介面',
+          text: this.$t('interface'),
           value: 'interface_num',
         },
         {
-          text: '介面描述',
+          text: this.$t('interface.description'),
           value: 'description',
         },
         {
-          text: '介面來源端',
+          text: this.$t('interface.source'),
           value: 'source',
         },
         {
-          text: '介面目的地端',
+          text: this.$t('interface.destination'),
           value: 'destination',
         },
         {
-          text: '檢查時間',
+          text: this.$t('check.time'),
           value: 'checkTime',
         },
         {
-          text: '當前介面品質',
+          text: this.$t('interface.quality'),
           value: 'quality',
         },
         {
-          text: '歷史資料查詢',
+          text: this.$t('history'),
           value: 'history',
         },
       ];
     },
     items() {
       return items;
+    },
+    lineData() {
+      return lineData;
     },
     pieData() {
       return pieData;

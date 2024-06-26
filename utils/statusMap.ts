@@ -4,6 +4,6 @@ export const statusMap = {
   error: 'error',
   'non-warning': 'warning',
   total: 'black',
-  down: 'danger',
+  down: 'error',
   up: 'success',
 };

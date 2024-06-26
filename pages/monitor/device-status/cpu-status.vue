@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-col class="text-center" :cols="12">
+    <v-col class="text-center" :cols="12" :md="6">
       <chart-card title="設備CPU狀況統計圖">
         <chart-pie-list :items="pieData">
           <template #default="{ options }">
@@ -11,6 +11,19 @@
             />
           </template>
         </chart-pie-list>
+      </chart-card>
+    </v-col>
+    <v-col class="text-center" :cols="12" :md="6">
+      <chart-card title="設備CPU狀況趨勢圖">
+        <chart-check-list :items="lineData">
+          <template #default="{ options }">
+            <v-chart
+              :options="options"
+              style="width: 100%; height: 250px"
+              autoresize
+            />
+          </template>
+        </chart-check-list>
       </chart-card>
     </v-col>
     <v-col :cols="12">
@@ -51,6 +64,7 @@
 <script>
 import items from '~/assets/json/device-status.json';
 import pieData from '~/assets/json/device-summary.json';
+import lineData from '~/assets/json/cpu-status-history.json';
 import ChartCard from '~/components/ChartCard.vue';
 import { statusMap } from '~/utils/statusMap';
 export default {
@@ -98,6 +112,9 @@ export default {
           value: 'checkTime',
         },
       ];
+    },
+    lineData() {
+      return lineData;
     },
     items() {
       return items;

@@ -6,63 +6,66 @@
           <span class="font-weight-bold">查詢條件</span>
           <v-spacer></v-spacer>
         </v-card-title>
-        <v-form class="px-5">
-          <v-row>
-            <!-- 查詢日期 -->
-            <v-col cols="12" sm="6" md="4" lg="3" class="pt-1">
-              <v-menu
-                ref="startDateMenu"
-                v-model="startDateMenu"
-                :close-on-content-click="false"
-                :nudge-right="40"
-                transition="scale-transition"
-                offset-y
-                min-width="290px"
-              >
-                <template #activator="{ on, attrs }">
-                  <v-text-field
+        <v-divider />
+        <v-card-text>
+          <v-form class="px-5">
+            <v-row class="my-0">
+              <!-- 查詢日期 -->
+              <v-col cols="12" sm="6" md="4" lg="3" class="pt-1">
+                <v-menu
+                  ref="startDateMenu"
+                  v-model="startDateMenu"
+                  :close-on-content-click="false"
+                  :nudge-right="40"
+                  transition="scale-transition"
+                  offset-y
+                  min-width="290px"
+                >
+                  <template #activator="{ on, attrs }">
+                    <v-text-field
+                      v-model="startDate"
+                      label="登入開始時間"
+                      prepend-icon="mdi-calendar"
+                      readonly
+                      v-bind="attrs"
+                      v-on="on"
+                    ></v-text-field>
+                  </template>
+                  <v-date-picker
                     v-model="startDate"
-                    label="登入開始時間"
-                    prepend-icon="mdi-calendar"
-                    readonly
-                    v-bind="attrs"
-                    v-on="on"
-                  ></v-text-field>
-                </template>
-                <v-date-picker
-                  v-model="startDate"
-                  @input="startDateMenu = false"
-                ></v-date-picker>
-              </v-menu>
-            </v-col>
-            <v-col cols="12" sm="6" md="4" lg="3" class="pt-1">
-              <v-menu
-                ref="endDateMenu"
-                v-model="endDateMenu"
-                :close-on-content-click="false"
-                :nudge-right="40"
-                transition="scale-transition"
-                offset-y
-                min-width="290px"
-              >
-                <template #activator="{ on, attrs }">
-                  <v-text-field
+                    @input="startDateMenu = false"
+                  ></v-date-picker>
+                </v-menu>
+              </v-col>
+              <v-col cols="12" sm="6" md="4" lg="3" class="pt-1">
+                <v-menu
+                  ref="endDateMenu"
+                  v-model="endDateMenu"
+                  :close-on-content-click="false"
+                  :nudge-right="40"
+                  transition="scale-transition"
+                  offset-y
+                  min-width="290px"
+                >
+                  <template #activator="{ on, attrs }">
+                    <v-text-field
+                      v-model="endDate"
+                      label="登入結束時間"
+                      prepend-icon="mdi-calendar"
+                      readonly
+                      v-bind="attrs"
+                      v-on="on"
+                    ></v-text-field>
+                  </template>
+                  <v-date-picker
                     v-model="endDate"
-                    label="登入結束時間"
-                    prepend-icon="mdi-calendar"
-                    readonly
-                    v-bind="attrs"
-                    v-on="on"
-                  ></v-text-field>
-                </template>
-                <v-date-picker
-                  v-model="endDate"
-                  @input="endDateMenu = false"
-                ></v-date-picker>
-              </v-menu>
-            </v-col>
-          </v-row>
-        </v-form>
+                    @input="endDateMenu = false"
+                  ></v-date-picker>
+                </v-menu>
+              </v-col>
+            </v-row>
+          </v-form>
+        </v-card-text>
         <!-- 查詢按鈕 -->
         <v-card-actions class="justify-end">
           <v-btn color="primary" @click="onSearchEvents">查詢</v-btn>
@@ -117,8 +120,8 @@ export default {
       items,
       startDateMenu: false,
       endDateMenu: false,
-      startDate: moment().startOf('week').format('YYYY-MM-DD'),
-      endDate: moment().format('YYYY-MM-DD'),
+      startDate: moment('2024-06-01').format('YYYY-MM-DD'),
+      endDate: moment('2024-06-30').format('YYYY-MM-DD'),
     };
   },
   methods: {

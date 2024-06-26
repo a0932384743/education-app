@@ -1,67 +1,68 @@
 <template>
   <v-row>
-    <v-col class="text-center">
-      <v-card>
-        <v-card-title>
-          <span class="font-weight-bold"
-            >國科會線路界接介面與流量狀況(總數:{{ items?.length ?? '-' }})</span
-          >
-          <v-spacer></v-spacer>
-          <v-row align="center" justify="end" style="gap: 0.6rem" class="my-0">
-            <v-btn depressed>
-              <v-icon>mdi-filter-outline</v-icon>
-              過濾
-            </v-btn>
-            <v-btn depressed>
-              <v-icon>mdi-calendar-range</v-icon>
-              選擇日期
-            </v-btn>
-            <v-btn depressed>
-              <v-icon>mdi-download</v-icon>
-              下載CSV
-            </v-btn>
-          </v-row>
-        </v-card-title>
-        <v-data-table
-          :headers="headers"
-          :items="items"
-          :search="search"
-          :footer-props="footerProps"
+    <v-col :cols="12">
+      <table-card title="電路狀態-國際電路界接介面狀況" :items="items">
+        <template
+          #default="{
+            search,
+            footerProps,
+            itemPerPage,
+            page,
+            items,
+            headerProps,
+          }"
         >
-          <template #[`item.status`]="{ item }">
-            <v-chip :color="item.status === 'down' ? 'danger' : 'success'" dark>
-              {{ item.status.toUpperCase() }}
-            </v-chip>
-          </template>
-        </v-data-table>
-      </v-card>
+          <v-data-table
+            :headers="headers"
+            :items="items"
+            :search="search"
+            :page="page"
+            :items-per-page="itemPerPage"
+            :footer-props="footerProps"
+            :header-props="headerProps"
+            fixed-header
+            hide-default-footer
+          >
+            <template #[`item.status`]="{ item }">
+              <v-chip :color="statusMap[item.status]" dark small>
+                {{ item.status.toUpperCase() }}
+              </v-chip>
+            </template>
+          </v-data-table>
+        </template>
+      </table-card>
     </v-col>
   </v-row>
 </template>
 
 <script>
-import deviceStatus from '~/assets/json/device-status.json';
+import items from '~/assets/json/device-status.json';
+import { statusMap } from '~/utils/statusMap';
 export default {
   name: 'InternationalCircuitInterface',
   layout: 'admin-layout',
   data() {
     return {
-      search: '',
-      headers: [
+      statusMap,
+    };
+  },
+  computed: {
+    headers() {
+      return [
         {
-          text: '編號',
+          text: this.$t('id'),
           value: 'id',
         },
         {
-          text: '設備',
+          text: this.$t('device'),
           value: 'device',
         },
         {
-          text: '介面',
+          text: this.$t('interface'),
           value: 'interface',
         },
         {
-          text: '介面敘述',
+          text: this.$t('interface.description'),
           value: 'desc',
         },
         {
@@ -73,24 +74,17 @@ export default {
           value: 'output',
         },
         {
-          text: '現在介面狀態',
+          text: this.$t('interface.status'),
           value: 'status',
         },
         {
-          text: '檢查時間',
+          text: this.$t('check.time'),
           value: 'checkTime',
         },
-      ],
-      footerProps: {
-        itemsPerPageAllText: '所有',
-        itemsPerPageText: '每頁筆數:',
-        pageText: '第{0}-{1}項，共{2}項',
-      },
-    };
-  },
-  computed: {
+      ];
+    },
     items() {
-      return deviceStatus;
+      return items;
     },
   },
 };

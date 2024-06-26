@@ -36,7 +36,7 @@
           v-model="selected"
           :label="$t(item)"
           :value="item"
-          class="text-no-wrap"
+          class="text-no-wrap mt-0"
           hide-details
         ></v-checkbox>
       </v-list-item>
@@ -76,8 +76,11 @@ export default {
             })
             .map((item) => this.$t(`${item.name  }.count`)),
           icon: 'rect',
-          top: '10%',
+          top: '5%',
           left: 'center',
+          textStyle:{
+            fontSize: 18
+          }
         },
         xAxis: {
           type: 'category',

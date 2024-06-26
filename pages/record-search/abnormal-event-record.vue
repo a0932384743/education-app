@@ -4,89 +4,91 @@
       <v-card>
         <v-card-title>
           <span class="font-weight-bold">查詢條件</span>
-          <v-spacer></v-spacer>
         </v-card-title>
-        <v-form class="px-5">
-          <v-row>
-            <!-- 查詢日期 -->
-            <v-col cols="12" sm="6" md="4" lg="3" class="pt-1">
-              <v-menu
-                ref="startDateMenu"
-                v-model="startDateMenu"
-                :close-on-content-click="false"
-                :nudge-right="40"
-                transition="scale-transition"
-                offset-y
-                min-width="290px"
-              >
-                <template #activator="{ on, attrs }">
-                  <v-text-field
+        <v-divider />
+        <v-card-text>
+          <v-form class="px-5">
+            <v-row class="my-0">
+              <!-- 查詢日期 -->
+              <v-col cols="12" sm="6" md="4" lg="3" class="pt-1">
+                <v-menu
+                  ref="startDateMenu"
+                  v-model="startDateMenu"
+                  :close-on-content-click="false"
+                  :nudge-right="40"
+                  transition="scale-transition"
+                  offset-y
+                  min-width="290px"
+                >
+                  <template #activator="{ on, attrs }">
+                    <v-text-field
+                      v-model="startDate"
+                      label="開始時間"
+                      prepend-icon="mdi-calendar"
+                      readonly
+                      v-bind="attrs"
+                      v-on="on"
+                    ></v-text-field>
+                  </template>
+                  <v-date-picker
                     v-model="startDate"
-                    label="開始時間"
-                    prepend-icon="mdi-calendar"
-                    readonly
-                    v-bind="attrs"
-                    v-on="on"
-                  ></v-text-field>
-                </template>
-                <v-date-picker
-                  v-model="startDate"
-                  @input="startDateMenu = false"
-                ></v-date-picker>
-              </v-menu>
-            </v-col>
-            <v-col cols="12" sm="6" md="4" lg="3" class="pt-1">
-              <v-menu
-                ref="endDateMenu"
-                v-model="endDateMenu"
-                :close-on-content-click="false"
-                :nudge-right="40"
-                transition="scale-transition"
-                offset-y
-                min-width="290px"
-              >
-                <template #activator="{ on, attrs }">
-                  <v-text-field
+                    @input="startDateMenu = false"
+                  ></v-date-picker>
+                </v-menu>
+              </v-col>
+              <v-col cols="12" sm="6" md="4" lg="3" class="pt-1">
+                <v-menu
+                  ref="endDateMenu"
+                  v-model="endDateMenu"
+                  :close-on-content-click="false"
+                  :nudge-right="40"
+                  transition="scale-transition"
+                  offset-y
+                  min-width="290px"
+                >
+                  <template #activator="{ on, attrs }">
+                    <v-text-field
+                      v-model="endDate"
+                      label="結束時間"
+                      prepend-icon="mdi-calendar"
+                      readonly
+                      v-bind="attrs"
+                      v-on="on"
+                    ></v-text-field>
+                  </template>
+                  <v-date-picker
                     v-model="endDate"
-                    label="結束時間"
-                    prepend-icon="mdi-calendar"
-                    readonly
-                    v-bind="attrs"
-                    v-on="on"
-                  ></v-text-field>
-                </template>
-                <v-date-picker
-                  v-model="endDate"
-                  @input="endDateMenu = false"
-                ></v-date-picker>
-              </v-menu>
-            </v-col>
-            <!-- 事件類別 -->
-            <v-col cols="12" sm="6" md="4" lg="3" class="pt-1">
-              <v-select
-                v-model="category"
-                :items="categories"
-                label="事件類別"
-              ></v-select>
-            </v-col>
-            <!-- 嚴重等級 -->
-            <v-col cols="12" sm="6" md="4" lg="3" class="pt-1">
-              <v-select
-                v-model="level"
-                :items="levels"
-                label="嚴重等級"
-              ></v-select>
-            </v-col>
-            <!-- 事件是否結束 -->
-            <v-col cols="12" sm="6" md="4" lg="3" class="pt-1">
-              <v-switch
-                v-model="isEventEnded"
-                label="事件是否結束"
-                class="mt-0"
-              ></v-switch>
-            </v-col>
-          </v-row>
-        </v-form>
+                    @input="endDateMenu = false"
+                  ></v-date-picker>
+                </v-menu>
+              </v-col>
+              <!-- 事件類別 -->
+              <v-col cols="12" sm="6" md="4" lg="3" class="pt-1">
+                <v-select
+                  v-model="category"
+                  :items="categories"
+                  label="事件類別"
+                ></v-select>
+              </v-col>
+              <!-- 嚴重等級 -->
+              <v-col cols="12" sm="6" md="4" lg="3" class="pt-1">
+                <v-select
+                  v-model="level"
+                  :items="levels"
+                  label="嚴重等級"
+                ></v-select>
+              </v-col>
+              <!-- 事件是否結束 -->
+              <v-col cols="12" sm="6" md="4" lg="3" class="pt-1">
+                <v-switch
+                  v-model="isEventEnded"
+                  label="事件是否結束"
+                  class="mt-0"
+                ></v-switch>
+              </v-col>
+            </v-row>
+          </v-form>
+        </v-card-text>
         <!-- 查詢按鈕 -->
         <v-card-actions class="justify-end">
           <v-btn color="primary" @click="onSearchEvents">查詢</v-btn>
@@ -131,44 +133,6 @@ export default {
   layout: 'admin-layout',
   data: () => {
     return {
-      headers: [
-        {
-          text: '編號',
-          value: 'id',
-        },
-        {
-          text: '事件編號',
-          value: 'eventId',
-        },
-        {
-          text: '事件類別',
-          value: 'category',
-        },
-        {
-          text: '等級',
-          value: 'level',
-        },
-        {
-          text: '事件開始時間',
-          value: 'startTime',
-        },
-        {
-          text: '事件結束時間',
-          value: 'endTime',
-        },
-        {
-          text: '事件持續時間',
-          value: 'duration',
-        },
-        {
-          text: '界接設備/單位',
-          value: 'device',
-        },
-        {
-          text: '描述',
-          value: 'desc',
-        },
-      ],
       items,
       startDateMenu: false,
       endDateMenu: false,
@@ -177,9 +141,51 @@ export default {
       category: '',
       categories: ['Network', 'Server', 'Database', 'Application', 'Power'],
       levels: ['Critical', 'High', 'Medium', 'Low'],
-      startDate: moment().startOf('week').format('YYYY-MM-DD'),
-      endDate: moment().format('YYYY-MM-DD'),
+      startDate: moment('2024-06-01').format('YYYY-MM-DD'),
+      endDate: moment('2024-06-30').format('YYYY-MM-DD'),
     };
+  },
+  computed: {
+    headers() {
+      return [
+        {
+          text: this.$t('id'),
+          value: 'id',
+        },
+        {
+          text: this.$t('event.id'),
+          value: 'eventId',
+        },
+        {
+          text: this.$t('event.category'),
+          value: 'category',
+        },
+        {
+          text: this.$t('level'),
+          value: 'level',
+        },
+        {
+          text: this.$t('event.start.time'),
+          value: 'startTime',
+        },
+        {
+          text: this.$t('event.end.time'),
+          value: 'endTime',
+        },
+        {
+          text: this.$t('event.duration'),
+          value: 'duration',
+        },
+        {
+          text: this.$t('event.device'),
+          value: 'device',
+        },
+        {
+          text: this.$t('event.description'),
+          value: 'desc',
+        },
+      ];
+    },
   },
   mounted() {
     this.items = items;

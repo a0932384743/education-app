@@ -190,7 +190,7 @@
           </template>
         </v-breadcrumbs>
       </v-row>
-      <v-container fluid>
+      <v-container fluid class="pt-5">
         <Nuxt />
       </v-container>
     </v-main>
@@ -256,7 +256,6 @@ export default {
       menus.forEach(flatten);
       return flatList;
     },
-
     vuetify() {
       return this.$vuetify;
     },
@@ -264,7 +263,13 @@ export default {
   watch: {
     $route(to) {
       this.items = this.flatMenu
-        .filter((f) => f.url === to.path)
+        .filter(
+          (f) =>
+            f.url === to.path ||
+            f.url === to.path.split('/').slice(0, 3).join('/') ||
+            f.url === to.path.split('/').slice(0, 2).join('/') ||
+            f.url === to.path.split('/').slice(0, 1).join('/')
+        )
         .map((m) => {
           return {
             text: this.$i18n.locale === 'en' ? m.name_en : m.name,
@@ -287,7 +292,16 @@ export default {
   },
   mounted() {
     this.items = this.flatMenu
-      .filter((f) => f.url === this.$router.currentRoute.path)
+      .filter(
+        (f) =>
+          f.url === this.$router.currentRoute.path ||
+          f.url ===
+          this.$router.currentRoute.path.split('/').slice(0, 3).join('/') ||
+          f.url ===
+            this.$router.currentRoute.path.split('/').slice(0, 2).join('/') ||
+          f.url ===
+            this.$router.currentRoute.path.split('/').slice(0, 1).join('/')
+      )
       .map((m) => {
         return {
           text: m.name,

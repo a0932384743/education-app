@@ -57,6 +57,9 @@ export default {
         legend: {
           top: '5%',
           left: 'center',
+          textStyle:{
+            fontSize: 18
+          }
         },
         series: [
           {
@@ -73,7 +76,7 @@ export default {
             radius: ['30%', '60%'],
             data: this.items.map((d) => ({
               ...d,
-              name: this.$t(d.name),
+              name: this.$t(`${d.name}.count`),
               itemStyle: {
                 color:
                   this.$vuetify.theme.themes[

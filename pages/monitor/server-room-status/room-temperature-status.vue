@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-col class="text-center" :cols="12">
+    <v-col class="text-center" :cols="12" :md="6">
       <chart-card title="機房溫度狀況統計圖">
         <chart-pie-list :items="pieData">
           <template #default="{ options }">
@@ -11,6 +11,19 @@
             />
           </template>
         </chart-pie-list>
+      </chart-card>
+    </v-col>
+    <v-col class="text-center" :cols="12" :md="6">
+      <chart-card title="機房溫度狀況趨勢圖">
+        <chart-check-list :items="lineData">
+          <template #default="{ options }">
+            <v-chart
+              :options="options"
+              style="width: 100%; height: 250px"
+              autoresize
+            />
+          </template>
+        </chart-check-list>
       </chart-card>
     </v-col>
     <v-col :cols="12">
@@ -36,8 +49,38 @@
             fixed-header
             hide-default-footer
           >
+            <template #[`item.device_name`]="{ item }">
+              <td
+                :class="{
+                  error:
+                    item.current_temperature < item.low_critical_temperature ||
+                    item.current_temperature > item.high_critical_temperature,
+                }"
+              >
+                {{ item.device_name }}
+              </td>
+            </template>
+            <template #[`item.location`]="{ item }">
+              <td
+                :class="{
+                  error:
+                    item.current_temperature < item.low_critical_temperature ||
+                    item.current_temperature > item.high_critical_temperature,
+                }"
+              >
+                {{ item.location }}
+              </td>
+            </template>
             <template #[`item.current_temperature`]="{ item }">
-              {{ item.current_temperature || '-' }}°C
+              <td
+                :class="{
+                  error:
+                    item.current_temperature < item.low_critical_temperature ||
+                    item.current_temperature > item.high_critical_temperature,
+                }"
+              >
+                {{ item.current_temperature || '-' }}°C
+              </td>
             </template>
             <template #[`item.high_critical_temperature`]="{ item }">
               {{ item.high_critical_temperature || '-' }}°C
@@ -53,20 +96,15 @@
 </template>
 
 <script>
-import items from '~/assets/json/room-temperature-status.json'
-import pieData from '~/assets/json/room-temperature-summary.json'
-import ChartCard from '~/components/ChartCard.vue'
-import { statusMap } from '~/utils/statusMap'
+import lineData from '~/assets/json/room-temperature-status-history.json';
+import items from '~/assets/json/room-temperature-status.json';
+import pieData from '~/assets/json/room-temperature-summary.json';
+import ChartCard from '~/components/ChartCard.vue';
 
 export default {
   name: 'RoomTemperatureStatus',
   components: { ChartCard },
   layout: 'admin-layout',
-  data() {
-    return {
-      statusMap,
-    }
-  },
   computed: {
     headers() {
       return [
@@ -90,14 +128,17 @@ export default {
           text: this.$t('low.critical.temperature'),
           value: 'low_critical_temperature',
         },
-      ]
+      ];
+    },
+    lineData() {
+      return lineData;
     },
     items() {
-      return items
+      return items;
     },
     pieData() {
-      return pieData
+      return pieData;
     },
   },
-}
+};
 </script>
