@@ -102,7 +102,7 @@ const commonModule: Module<State, StateInterface> = {
       width: 280,
     },
     footerSettings: {
-      absolute: false,
+      absolute: true,
       clipped: false,
       color: 'footer',
       inset: true,

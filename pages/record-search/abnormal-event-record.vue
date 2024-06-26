@@ -94,18 +94,30 @@
       </v-card>
     </v-col>
     <v-col :cols="12">
-      <v-card>
-        <v-card-title>
-          <span class="font-weight-bold">異常事件紀錄</span>
-        </v-card-title>
-        <v-data-table
-          :headers="headers"
-          :items="items"
-          :search="search"
-          :footer-props="footerProps"
+      <table-card title="異常事件紀錄" :items="items">
+        <template
+          #default="{
+            search,
+            footerProps,
+            itemPerPage,
+            page,
+            items,
+            headerProps,
+          }"
         >
-        </v-data-table>
-      </v-card>
+          <v-data-table
+            :headers="headers"
+            :items="items"
+            :search="search"
+            :page="page"
+            :items-per-page="itemPerPage"
+            :footer-props="footerProps"
+            :header-props="headerProps"
+            fixed-header
+            hide-default-footer
+          />
+        </template>
+      </table-card>
     </v-col>
   </v-row>
 </template>
@@ -157,12 +169,6 @@ export default {
           value: 'desc',
         },
       ],
-      footerProps: {
-        itemsPerPageAllText: '所有',
-        itemsPerPageText: '每頁筆數:',
-        pageText: '第{0}-{1}項，共{2}項',
-      },
-      search: '',
       items,
       startDateMenu: false,
       endDateMenu: false,

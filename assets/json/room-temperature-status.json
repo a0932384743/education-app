@@ -1,0 +1,177 @@
+[
+  {
+    "device_name": "溫溼度感測器1",
+    "location": "Taiwan Branch Node 1",
+    "current_temperature": 23.5,
+    "high_critical_temperature": 30.0,
+    "low_critical_temperature": 15.0
+  },
+  {
+    "device_name": "溫溼度感測器2",
+    "location": "Taiwan Branch Node 2",
+    "current_temperature": 24.0,
+    "high_critical_temperature": 31.0,
+    "low_critical_temperature": 16.0
+  },
+  {
+    "device_name": "溫溼度感測器3",
+    "location": "Taiwan Branch Node 3",
+    "current_temperature": 22.8,
+    "high_critical_temperature": 29.5,
+    "low_critical_temperature": 14.5
+  },
+  {
+    "device_name": "溫溼度感測器4",
+    "location": "Taiwan Branch Node 4",
+    "current_temperature": 25.3,
+    "high_critical_temperature": 32.0,
+    "low_critical_temperature": 17.0
+  },
+  {
+    "device_name": "溫溼度感測器5",
+    "location": "Taiwan Branch Node 5",
+    "current_temperature": 21.9,
+    "high_critical_temperature": 28.0,
+    "low_critical_temperature": 13.0
+  },
+  {
+    "device_name": "溫溼度感測器6",
+    "location": "Taiwan Branch Node 6",
+    "current_temperature": 26.1,
+    "high_critical_temperature": 33.0,
+    "low_critical_temperature": 18.0
+  },
+  {
+    "device_name": "溫溼度感測器7",
+    "location": "Taiwan Branch Node 7",
+    "current_temperature": 23.2,
+    "high_critical_temperature": 30.5,
+    "low_critical_temperature": 15.5
+  },
+  {
+    "device_name": "溫溼度感測器8",
+    "location": "Taiwan Branch Node 8",
+    "current_temperature": 24.8,
+    "high_critical_temperature": 31.5,
+    "low_critical_temperature": 16.5
+  },
+  {
+    "device_name": "溫溼度感測器9",
+    "location": "Taiwan Branch Node 9",
+    "current_temperature": 22.5,
+    "high_critical_temperature": 29.0,
+    "low_critical_temperature": 14.0
+  },
+  {
+    "device_name": "溫溼度感測器10",
+    "location": "Taiwan Branch Node 10",
+    "current_temperature": 27.0,
+    "high_critical_temperature": 34.0,
+    "low_critical_temperature": 19.0
+  },
+  {
+    "device_name": "溫溼度感測器11",
+    "location": "Taiwan Branch Node 11",
+    "current_temperature": 23.8,
+    "high_critical_temperature": 31.0,
+    "low_critical_temperature": 16.0
+  },
+  {
+    "device_name": "溫溼度感測器12",
+    "location": "Taiwan Branch Node 12",
+    "current_temperature": 25.5,
+    "high_critical_temperature": 32.5,
+    "low_critical_temperature": 17.5
+  },
+  {
+    "device_name": "溫溼度感測器13",
+    "location": "Taiwan Branch Node 13",
+    "current_temperature": 21.3,
+    "high_critical_temperature": 28.5,
+    "low_critical_temperature": 13.5
+  },
+  {
+    "device_name": "溫溼度感測器14",
+    "location": "Taiwan Branch Node 14",
+    "current_temperature": 26.8,
+    "high_critical_temperature": 33.5,
+    "low_critical_temperature": 18.5
+  },
+  {
+    "device_name": "溫溼度感測器15",
+    "location": "Taiwan Branch Node 15",
+    "current_temperature": 23.0,
+    "high_critical_temperature": 30.0,
+    "low_critical_temperature": 15.0
+  },
+  {
+    "device_name": "溫溼度感測器16",
+    "location": "Taiwan Branch Node 16",
+    "current_temperature": 24.2,
+    "high_critical_temperature": 31.2,
+    "low_critical_temperature": 16.2
+  },
+  {
+    "device_name": "溫溼度感測器17",
+    "location": "Taiwan Branch Node 17",
+    "current_temperature": 22.0,
+    "high_critical_temperature": 29.2,
+    "low_critical_temperature": 14.2
+  },
+  {
+    "device_name": "溫溼度感測器18",
+    "location": "Taiwan Branch Node 18",
+    "current_temperature": 25.0,
+    "high_critical_temperature": 32.2,
+    "low_critical_temperature": 17.2
+  },
+  {
+    "device_name": "溫溼度感測器19",
+    "location": "Taiwan Branch Node 19",
+    "current_temperature": 21.5,
+    "high_critical_temperature": 28.2,
+    "low_critical_temperature": 13.2
+  },
+  {
+    "device_name": "溫溼度感測器20",
+    "location": "Taiwan Branch Node 20",
+    "current_temperature": 26.5,
+    "high_critical_temperature": 33.2,
+    "low_critical_temperature": 18.2
+  },
+  {
+    "device_name": "溫溼度感測器21",
+    "location": "Taiwan Branch Node 21",
+    "current_temperature": 23.5,
+    "high_critical_temperature": 30.2,
+    "low_critical_temperature": 15.2
+  },
+  {
+    "device_name": "溫溼度感測器22",
+    "location": "Taiwan Branch Node 22",
+    "current_temperature": 24.5,
+    "high_critical_temperature": 31.7,
+    "low_critical_temperature": 16.7
+  },
+  {
+    "device_name": "溫溼度感測器23",
+    "location": "Taiwan Branch Node 23",
+    "current_temperature": 22.3,
+    "high_critical_temperature": 29.7,
+    "low_critical_temperature": 14.7
+  },
+  {
+    "device_name": "溫溼度感測器24",
+    "location": "Taiwan Branch Node 24",
+    "current_temperature": 25.7,
+    "high_critical_temperature": 32.7,
+    "low_critical_temperature": 17.7
+  },
+  {
+    "device_name": "溫溼度感測器25",
+    "location": "Taiwan Branch Node 25",
+    "current_temperature": 21.7,
+    "high_critical_temperature": 28.7,
+    "low_critical_temperature": 13.7
+  }
+]

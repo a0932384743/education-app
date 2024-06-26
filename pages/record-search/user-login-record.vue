@@ -70,18 +70,30 @@
       </v-card>
     </v-col>
     <v-col :cols="12">
-      <v-card>
-        <v-card-title>
-          <span class="font-weight-bold">使用者系統操作紀錄</span>
-        </v-card-title>
-        <v-data-table
-          :headers="headers"
-          :items="items"
-          :search="search"
-          :footer-props="footerProps"
+      <table-card title="使用者系統登入紀錄" :items="items">
+        <template
+          #default="{
+            search,
+            footerProps,
+            itemPerPage,
+            page,
+            items,
+            headerProps,
+          }"
         >
-        </v-data-table>
-      </v-card>
+          <v-data-table
+            :headers="headers"
+            :items="items"
+            :search="search"
+            :page="page"
+            :items-per-page="itemPerPage"
+            :footer-props="footerProps"
+            :header-props="headerProps"
+            fixed-header
+            hide-default-footer
+          />
+        </template>
+      </table-card>
     </v-col>
   </v-row>
 </template>
@@ -102,12 +114,6 @@ export default {
         { text: '登入時間', value: 'login_time' },
         { text: '登出時間', value: 'logout_time' },
       ],
-      footerProps: {
-        itemsPerPageAllText: '所有',
-        itemsPerPageText: '每頁筆數:',
-        pageText: '第{0}-{1}項，共{2}項',
-      },
-      search: '',
       items,
       startDateMenu: false,
       endDateMenu: false,

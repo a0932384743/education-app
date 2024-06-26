@@ -1,5 +1,5 @@
 [
-  { "value": 322, "name": "正常數" },
-  { "value": 161, "name": "不正常數" },
-  { "value": 161, "name": "不發報數" }
+  { "value": 322, "name": "normal" },
+  { "value": 161, "name": "abnormal" },
+  { "value": 161, "name": "non-warning" }
 ]
