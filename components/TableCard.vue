@@ -66,13 +66,13 @@
         <div class="text-left">
           {{
             $t('table.footer.text.1', [
-              (page - 1) * 10,
+              (page - 1) * 10 + 1,
               page * 10 > totalItem ? totalItem : page * 10,
               totalItem,
             ])
           }}
         </div>
-        <div class="">
+        <div class="align-self-center">
           <v-pagination v-model="page" :length="totalPage" />
         </div>
       </div>
@@ -97,7 +97,7 @@ export default {
       search: '',
       page: 1,
       itemPerPage: 10,
-    }
+    };
   },
   computed: {
     footerProps() {
@@ -105,21 +105,21 @@ export default {
         itemsPerPageAllText: this.$t('all'),
         itemsPerPageText: this.$t('per.page'),
         pageText: this.$t('current.page'),
-      }
+      };
     },
     headerProps() {
       return {
         sortByText: this.$t('sort.by'),
         itemsPerPageText: this.$t('per.page'),
         pageText: this.$t('current.page'),
-      }
+      };
     },
     totalPage() {
-      return Math.ceil((this.items?.length ?? 0) / this.itemPerPage)
+      return Math.ceil((this.items?.length ?? 0) / this.itemPerPage);
     },
     totalItem() {
-      return this.items?.length ?? 0
+      return this.items?.length ?? 0;
     },
   },
-}
+};
 </script>
