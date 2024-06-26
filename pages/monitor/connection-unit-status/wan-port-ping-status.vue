@@ -27,7 +27,7 @@
       </chart-card>
     </v-col>
     <v-col :cols="12">
-      <table-card title="連線單位-連線單位WAN Port Ping狀況" :items="items">
+      <table-card title="連線單位狀態-連線單位WAN Port Ping狀況" :items="items">
         <template
           #default="{
             search,
