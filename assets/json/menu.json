@@ -368,6 +368,24 @@
             "name_en": "Circuit Interface Management",
             "url": "/monitoring-item-management/data-management/circuit-interface-management",
             "children": []
+          },
+          {
+            "name": "帳號管理",
+            "name_en": "Account Management",
+            "url": "/monitoring-item-management/data-management/account-management",
+            "children": []
+          },
+          {
+            "name": "群組授權管理",
+            "name_en": "Group Management",
+            "url": "/monitoring-item-management/data-management/group-management",
+            "children": []
+          },
+          {
+            "name": "系統參數設定",
+            "name_en": "System Parameter",
+            "url": "/monitoring-item-management/data-management/system-parameter-management",
+            "children": []
           }
         ]
       },

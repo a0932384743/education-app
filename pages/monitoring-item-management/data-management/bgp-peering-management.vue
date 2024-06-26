@@ -14,7 +14,7 @@
       </chart-card>
     </v-col>
     <v-col :cols="12">
-      <table-card title="電路狀態-國際電路界接介面狀況" :items="items">
+      <table-card title="監控項目管理-BGP Peering狀況" :items="items">
         <template
           #default="{
             search,
