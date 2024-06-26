@@ -6,5 +6,5 @@
 export default {
   name: 'vpls-vpn"',
   layout: 'admin-layout',
-}
+};
 </script>

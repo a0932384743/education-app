@@ -30,7 +30,7 @@ export default {
     return {
       collapse: false,
       show: true,
-    }
+    };
   },
-}
+};
 </script>

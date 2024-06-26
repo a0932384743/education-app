@@ -6,5 +6,5 @@
 export default {
   name: 'PowerSupplyStatus',
   layout: 'admin-layout',
-}
+};
 </script>

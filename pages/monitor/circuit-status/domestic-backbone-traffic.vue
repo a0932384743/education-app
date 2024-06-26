@@ -27,24 +27,38 @@
       </chart-card>
     </v-col>
     <v-col :cols="12">
-      <table-card title="電路狀態-國內骨幹電路狀態">
-        <template #default="{ search, footerProps }">
+      <table-card title="電路狀態-國內骨幹電路狀態" :items="items">
+        <template
+          #default="{
+            search,
+            footerProps,
+            itemPerPage,
+            page,
+            items,
+            headerProps,
+          }"
+        >
           <v-data-table
             :headers="headers"
             :items="items"
             :search="search"
+            :page="page"
+            :items-per-page="itemPerPage"
             :footer-props="footerProps"
+            :header-props="headerProps"
+            fixed-header
+            hide-default-footer
           >
             <template #[`header.input`]="{ header }">
               <div class="d-inline-block text-center">
                 <div>{{ header.text }}</div>
-                <div>(每五分鐘平均值)</div>
+                <div>({{$t('average.per.min' , ['五'])}})</div>
               </div>
             </template>
             <template #[`header.output`]="{ header }">
               <div class="d-inline-block text-center">
                 <div>{{ header.text }}</div>
-                <div>(每五分鐘平均值)</div>
+                <div>({{$t('average.per.min' , ['五'])}})</div>
               </div>
             </template>
             <template #[`item.device`]="{ item }">
@@ -100,11 +114,11 @@
 </template>
 
 <script>
-import items from '~/assets/json/domestic-backbone-traffic.json'
-import pieData from '~/assets/json/domestic-backbone-traffic-statistics.json'
-import lineData from '~/assets/json/domestic-backbone-traffic-history.json'
-import ChartCard from '~/components/ChartCard.vue'
-import { statusMap } from '~/utils/statusMap'
+import items from '~/assets/json/domestic-backbone-traffic.json';
+import pieData from '~/assets/json/domestic-backbone-traffic-statistics.json';
+import lineData from '~/assets/json/domestic-backbone-traffic-history.json';
+import ChartCard from '~/components/ChartCard.vue';
+import { statusMap } from '~/utils/statusMap';
 
 export default {
   name: 'DomesticBackboneTraffic',
@@ -113,8 +127,11 @@ export default {
   data() {
     return {
       statusMap,
-      search: '',
-      headers: [
+    };
+  },
+  computed: {
+    headers() {
+      return [
         {
           text: this.$t('id'),
           value: 'id',
@@ -147,19 +164,18 @@ export default {
           text: this.$t('remark'),
           value: 'remark',
         },
-      ],
-    }
-  },
-  computed: {
+      ];
+    },
+
     items() {
-      return items
+      return items;
     },
     lineData() {
-      return lineData
+      return lineData;
     },
     pieData() {
-      return pieData
+      return pieData;
     },
   },
-}
+};
 </script>

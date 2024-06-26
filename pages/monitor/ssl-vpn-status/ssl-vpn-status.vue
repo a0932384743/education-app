@@ -73,8 +73,8 @@
 </template>
 
 <script>
-import items from '~/assets/json/ssl-vpn-status.json'
-import pieData from '~/assets/json/device-summary.json'
+import items from '~/assets/json/ssl-vpn-status.json';
+import pieData from '~/assets/json/device-summary.json';
 
 export default {
   name: 'SslVpnStatus',
@@ -120,11 +120,11 @@ export default {
         itemsPerPageText: '每頁筆數:',
         pageText: '第{0}-{1}項，共{2}項',
       },
-    }
+    };
   },
   computed: {
     items() {
-      return items
+      return items;
     },
     pieData() {
       return [
@@ -133,7 +133,7 @@ export default {
           value: pieData.reduce((sum, d) => sum + d.value, 0),
           name: '總監控數',
         },
-      ]
+      ];
     },
     pieOption() {
       return {
@@ -173,8 +173,8 @@ export default {
             })),
           },
         ],
-      }
+      };
     },
   },
-}
+};
 </script>

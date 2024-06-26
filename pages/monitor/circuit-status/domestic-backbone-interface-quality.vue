@@ -6,5 +6,5 @@
 export default {
   name: 'DomesticBackboneInterfaceQuality',
   layout: 'admin-layout',
-}
+};
 </script>

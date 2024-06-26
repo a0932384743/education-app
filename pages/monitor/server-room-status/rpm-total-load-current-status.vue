@@ -6,5 +6,5 @@
 export default {
   name: 'RpmTotalLoadCurrentStatus',
   layout: 'admin-layout',
-}
+};
 </script>

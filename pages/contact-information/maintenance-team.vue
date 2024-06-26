@@ -6,5 +6,5 @@
 export default {
   name: 'MaintenanceTeam',
   layout: 'admin-layout',
-}
+};
 </script>

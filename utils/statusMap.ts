@@ -3,4 +3,4 @@ export const statusMap = {
   abnormal: 'error',
   'non-warning': 'warning',
   total: 'black',
-}
+};

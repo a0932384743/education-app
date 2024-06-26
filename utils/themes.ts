@@ -8,8 +8,9 @@ export const lightTheme = {
   secondary: '#D0CDCA',
   background: '#FFFFFF',
   header: '#ffffff',
+  footer: '#a2a2a2',
   aside: '#00201c',
-}
+};
 
 export const darkTheme = {
   error: '#b0566a',
@@ -21,5 +22,6 @@ export const darkTheme = {
   secondary: '#D0CDCA',
   background: '#141844',
   header: '#0b0d26',
+  footer: '#a2a2a2',
   aside: '#00201c',
-}
+};

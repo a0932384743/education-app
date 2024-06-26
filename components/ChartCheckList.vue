@@ -44,7 +44,7 @@
   </div>
 </template>
 <script>
-import { statusMap } from '~/utils/statusMap'
+import { statusMap } from '~/utils/statusMap';
 
 export default {
   name: 'ChartCheckList',
@@ -59,7 +59,7 @@ export default {
       statusMap,
       selected: [],
       range: 12,
-    }
+    };
   },
   computed: {
     options() {
@@ -71,10 +71,10 @@ export default {
           data: this.items
             .filter((d) => {
               return this.selected.some((s) => {
-                return d.name.includes(s)
-              })
+                return d.name.includes(s);
+              });
             })
-            .map((item) => this.$t(item.name + '.count')),
+            .map((item) => this.$t(`${item.name  }.count`)),
           icon: 'rect',
           top: '10%',
           left: 'center',
@@ -90,11 +90,11 @@ export default {
         series: this.items
           .filter((d) => {
             return this.selected.some((s) => {
-              return d.name.includes(s)
-            })
+              return d.name.includes(s);
+            });
           })
           .map((d) => ({
-            name: this.$t(d.name + '.count'),
+            name: this.$t(`${d.name  }.count`),
             type: 'line',
             showSymbol: false,
             smooth: true,
@@ -110,14 +110,14 @@ export default {
                 ][this.statusMap[d.name] || 'secondary'],
             },
           })),
-      }
+      };
     },
   },
   mounted() {
     this.selected = this.items
       .map((d) => d.name)
       .filter((d) => !d.includes('yesterday'))
-      .slice(0, 1)
+      .slice(0, 1);
   },
-}
+};
 </script>

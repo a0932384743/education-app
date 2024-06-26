@@ -6,5 +6,5 @@
 export default {
   name: 'InternationalCircuitTraffic',
   layout: 'admin-layout',
-}
+};
 </script>

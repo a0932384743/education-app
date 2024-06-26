@@ -95,8 +95,8 @@
 </template>
 
 <script>
-import moment from 'moment/moment'
-import items from '~/assets/json/user-system-operation-record.json'
+import moment from 'moment/moment';
+import items from '~/assets/json/user-system-operation-record.json';
 
 export default {
   name: 'UserSystemOperationRecord',
@@ -159,7 +159,7 @@ export default {
       ],
       startDate: moment().startOf('week').format('YYYY-MM-DD'),
       endDate: moment().format('YYYY-MM-DD'),
-    }
+    };
   },
   methods: {
     onSearchEvents() {
@@ -174,9 +174,9 @@ export default {
               moment(this.startDate).startOf('days')
             )) &&
           (!this.category || item.userId === this.category)
-        )
-      })
+        );
+      });
     },
   },
-}
+};
 </script>

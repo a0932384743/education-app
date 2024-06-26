@@ -6,5 +6,5 @@
 export default {
   name: 'ConnectionUnitManagement',
   layout: 'admin-layout',
-}
+};
 </script>

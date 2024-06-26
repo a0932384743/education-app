@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import deviceStatus from '~/assets/json/device-status.json'
+import deviceStatus from '~/assets/json/device-status.json';
 export default {
   name: 'InternationalCircuitInterface',
   layout: 'admin-layout',
@@ -86,12 +86,12 @@ export default {
         itemsPerPageText: '每頁筆數:',
         pageText: '第{0}-{1}項，共{2}項',
       },
-    }
+    };
   },
   computed: {
     items() {
-      return deviceStatus
+      return deviceStatus;
     },
   },
-}
+};
 </script>

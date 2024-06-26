@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import items from '~/assets/json/equipment-category-alert.json'
+import items from '~/assets/json/equipment-category-alert.json';
 
 export default {
   name: 'EquipmentCategory',
@@ -54,7 +54,7 @@ export default {
       },
       search: '',
       items,
-    }
+    };
   },
-}
+};
 </script>

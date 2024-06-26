@@ -1,5 +1,5 @@
-import { ActionTree, GetterTree, Module, MutationTree } from 'vuex'
-import { ColorType } from '~/utils/color'
+import { ActionTree, GetterTree, Module, MutationTree } from 'vuex';
+import { ColorType } from '~/utils/color';
 
 interface StateInterface {
   prop: boolean
@@ -26,34 +26,54 @@ type State = {
     permanent: boolean
     width: number
   }
+  footerSettings: {
+    absolute: boolean
+    clipped: boolean
+    color: ColorType
+    inset: boolean
+    outlined: boolean
+    shaped: boolean
+    height: number
+    elevation: number
+    padless: boolean
+  }
 }
 
 const getters: GetterTree<State, StateInterface> = {
   getHeaderSetting(state) {
-    return state.headerSettings
+    return state.headerSettings;
   },
   getSideMenuSetting(state) {
-    return state.sideMenuSettings
+    return state.sideMenuSettings;
   },
-}
+  getFooterSetting(state) {
+    return state.footerSettings;
+  },
+};
 
 const mutations: MutationTree<State> = {
   SET_HEADER_SETTING(state, setting) {
-    state.headerSettings = setting
+    state.headerSettings = setting;
   },
   SET_SIDE_MENU_SETTING(state, setting) {
-    state.sideMenuSettings = setting
+    state.sideMenuSettings = setting;
   },
-}
+  SET_FOOTER_SETTING(state, setting) {
+    state.footerSettings = setting;
+  },
+};
 
 const actions: ActionTree<State, StateInterface> = {
   setHeaderSetting({ commit }, setting) {
-    commit('SET_HEADER_SETTING', setting)
+    commit('SET_HEADER_SETTING', setting);
   },
   setSideMenuSetting({ commit }, setting) {
-    commit('SET_SIDE_MENU_SETTING', setting)
+    commit('SET_SIDE_MENU_SETTING', setting);
   },
-}
+  setFooterSetting({ commit }, setting) {
+    commit('SET_FOOTER_SETTING', setting);
+  },
+};
 
 const commonModule: Module<State, StateInterface> = {
   actions,
@@ -81,7 +101,18 @@ const commonModule: Module<State, StateInterface> = {
       permanent: false,
       width: 280,
     },
+    footerSettings: {
+      absolute: false,
+      clipped: false,
+      color: 'secondary',
+      inset: true,
+      outlined: false,
+      shaped: false,
+      height: 60,
+      elevation: 10,
+      padless: false,
+    },
   },
-}
+};
 
-export default commonModule
+export default commonModule;

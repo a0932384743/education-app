@@ -111,8 +111,8 @@
 </template>
 
 <script>
-import moment from 'moment/moment'
-import items from '~/assets/json/abnormal-event.json'
+import moment from 'moment/moment';
+import items from '~/assets/json/abnormal-event.json';
 
 export default {
   name: 'AbnormalEventRecord',
@@ -173,10 +173,10 @@ export default {
       levels: ['Critical', 'High', 'Medium', 'Low'],
       startDate: moment().startOf('week').format('YYYY-MM-DD'),
       endDate: moment().format('YYYY-MM-DD'),
-    }
+    };
   },
   mounted() {
-    this.items = items
+    this.items = items;
   },
   methods: {
     onSearchEvents() {
@@ -192,9 +192,9 @@ export default {
             )) &&
           (!this.category || item.category === this.category) &&
           (!this.level || item.level === this.level)
-        )
-      })
+        );
+      });
     },
   },
-}
+};
 </script>

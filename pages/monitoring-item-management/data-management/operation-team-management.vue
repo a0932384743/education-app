@@ -6,5 +6,5 @@
 export default {
   name: 'OperationTeamManagement',
   layout: 'admin-layout',
-}
+};
 </script>

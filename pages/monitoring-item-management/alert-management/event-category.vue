@@ -6,5 +6,5 @@
 export default {
   name: 'EventCategory',
   layout: 'admin-layout',
-}
+};
 </script>

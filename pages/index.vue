@@ -80,5 +80,5 @@
 export default {
   name: 'IndexPage',
   layout: 'admin-layout',
-}
+};
 </script>

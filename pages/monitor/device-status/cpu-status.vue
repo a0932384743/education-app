@@ -67,8 +67,8 @@
 </template>
 
 <script>
-import deviceStatus from '~/assets/json/device-status.json'
-import pieData from '~/assets/json/device-summary.json'
+import deviceStatus from '~/assets/json/device-status.json';
+import pieData from '~/assets/json/device-summary.json';
 export default {
   name: 'CPUStatus',
   layout: 'admin-layout',
@@ -125,11 +125,11 @@ export default {
         itemsPerPageText: '每頁筆數:',
         pageText: '第{0}-{1}項，共{2}項',
       },
-    }
+    };
   },
   computed: {
     items() {
-      return deviceStatus
+      return deviceStatus;
     },
     pieData() {
       return [
@@ -138,7 +138,7 @@ export default {
           value: pieData.reduce((sum, d) => sum + d.value, 0),
           name: '總監控數',
         },
-      ]
+      ];
     },
     pieOption() {
       return {
@@ -178,8 +178,8 @@ export default {
             })),
           },
         ],
-      }
+      };
     },
   },
-}
+};
 </script>

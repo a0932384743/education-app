@@ -6,5 +6,5 @@
 export default {
   name: '100GMaintenanceReportQuery',
   layout: 'admin-layout',
-}
+};
 </script>

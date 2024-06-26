@@ -12,7 +12,9 @@ export const colors = [
   'danger',
   'header',
   'aside',
-]
+  'secondary',
+  'footer'
+];
 
 export type ColorType =
   | 'red'
@@ -28,5 +30,7 @@ export type ColorType =
   | 'danger'
   | 'header'
   | 'aside'
+  | 'footer'
+  | 'secondary'
 
-export default colors
+export default colors;

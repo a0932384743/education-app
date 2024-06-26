@@ -29,7 +29,7 @@
   </div>
 </template>
 <script>
-import { statusMap } from '~/utils/statusMap'
+import { statusMap } from '~/utils/statusMap';
 export default {
   name: 'ChartPieList',
   props: {
@@ -41,7 +41,7 @@ export default {
   data() {
     return {
       statusMap,
-    }
+    };
   },
   computed: {
     options() {
@@ -83,8 +83,8 @@ export default {
             })),
           },
         ],
-      }
+      };
     },
   },
-}
+};
 </script>

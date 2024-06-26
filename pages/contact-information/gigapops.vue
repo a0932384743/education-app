@@ -6,5 +6,5 @@
 export default {
   name: 'Gigapops',
   layout: 'admin-layout',
-}
+};
 </script>

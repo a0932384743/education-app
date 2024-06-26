@@ -87,8 +87,8 @@
 </template>
 
 <script>
-import moment from 'moment/moment'
-import items from '~/assets/json/user-login-record.json'
+import moment from 'moment/moment';
+import items from '~/assets/json/user-login-record.json';
 
 export default {
   name: 'UserLoginRecord',
@@ -113,7 +113,7 @@ export default {
       endDateMenu: false,
       startDate: moment().startOf('week').format('YYYY-MM-DD'),
       endDate: moment().format('YYYY-MM-DD'),
-    }
+    };
   },
   methods: {
     onSearchEvents() {
@@ -127,9 +127,9 @@ export default {
             moment(item.login_time).isAfter(
               moment(this.startDate).startOf('days')
             ))
-        )
-      })
+        );
+      });
     },
   },
-}
+};
 </script>

@@ -6,5 +6,5 @@
 export default {
   name: 'DataCenterIpPingStatus',
   layout: 'admin-layout',
-}
+};
 </script>

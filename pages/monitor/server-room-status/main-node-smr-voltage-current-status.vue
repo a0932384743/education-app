@@ -6,5 +6,5 @@
 export default {
   name: 'MainNodeSmrVoltageCurrentStatus',
   layout: 'admin-layout',
-}
+};
 </script>

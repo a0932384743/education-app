@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import deviceDataSettings from '~/assets/json/device-data-setting.json'
+import deviceDataSettings from '~/assets/json/device-data-setting.json';
 
 export default {
   name: 'DeviceDataSetting',
@@ -66,12 +66,12 @@ export default {
         { text: '聯絡資訊', value: 'contact' },
         { text: 'Config', value: 'config' },
       ],
-    }
+    };
   },
   computed: {
     items() {
-      return deviceDataSettings
+      return deviceDataSettings;
     },
   },
-}
+};
 </script>

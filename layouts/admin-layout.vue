@@ -184,10 +184,7 @@
           ]"
         >
           <template #item="{ item }">
-            <v-breadcrumbs-item
-              :to="item.href"
-              :disabled="item.disabled"
-            >
+            <v-breadcrumbs-item :to="item.href" :disabled="item.disabled">
               {{ item.text }}
             </v-breadcrumbs-item>
           </template>
@@ -197,6 +194,25 @@
         <Nuxt />
       </v-container>
     </v-main>
+    <v-footer
+      class="mt-8 justify-space-between"
+      app
+      :absolute="footerSettings.absolute"
+      :clipped="footerSettings.clipped"
+      :color="footerSettings.color"
+      :inset="footerSettings.inset"
+      :outlined="footerSettings.outlined"
+      :shaped="footerSettings.shaped"
+      :height="footerSettings.height"
+      :elevation="footerSettings.elevation"
+      :padless="footerSettings.padless"
+    >
+      <v-col class="text-left">
+        Copyright © 2024 <a href="www.cht.com.tw">www.cht.com.tw</a> All rights
+        reserved.
+      </v-col>
+      <v-col class="text-right">Version 2.0.0-rc</v-col>
+    </v-footer>
   </v-app>
 </template>
 
@@ -223,6 +239,9 @@ export default {
   computed: {
     headerSettings() {
       return this.$store.getters['common/getHeaderSetting']
+    },
+    footerSettings() {
+      return this.$store.getters['common/getFooterSetting']
     },
     currentLocale() {
       return this.$i18n.locale

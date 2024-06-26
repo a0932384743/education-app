@@ -74,8 +74,8 @@
 </template>
 
 <script>
-import events from '~/assets/json/device-event.json'
-import deviceStatus from '~/assets/json/device-status-stastic.json'
+import events from '~/assets/json/device-event.json';
+import deviceStatus from '~/assets/json/device-status-stastic.json';
 
 export default {
   name: 'Dashboard',
@@ -103,7 +103,7 @@ export default {
         },
         { name: '設備狀態統計圖', i: 3, w: 3, h: 1, x: 7, y: 1, moved: false },
       ],
-    }
+    };
   },
   computed: {
     mapOptions() {
@@ -117,7 +117,7 @@ export default {
         { name: 'Chicago', value: [-87.6298, 41.8781] },
         { name: 'Houston', value: [-95.3698, 29.7604] },
         { name: 'Phoenix', value: [-112.074, 33.4484] },
-      ]
+      ];
 
       const links = [
         { source: 'Taipei', target: 'Taichung', value: 50 },
@@ -129,7 +129,7 @@ export default {
         { source: 'Los Angeles', target: 'Houston', value: 30 },
         { source: 'Chicago', target: 'Houston', value: 40 },
         { source: 'Houston', target: 'Phoenix', value: 50 },
-      ]
+      ];
       return {
         geo: [
           {
@@ -199,7 +199,7 @@ export default {
                   color: link.value > 80 ? '#FF0000' : '#00FF00',
                   width: 2,
                 },
-              }
+              };
             }),
             lineStyle: {
               color: '#00FF00',
@@ -237,7 +237,7 @@ export default {
                   color: link.value > 80 ? '#FF0000' : '#00FF00',
                   width: 2,
                 },
-              }
+              };
             }),
             lineStyle: {
               color: '#00FF00',
@@ -245,7 +245,7 @@ export default {
             },
           },
         ],
-      }
+      };
     },
     statusOptions() {
       return {
@@ -286,9 +286,9 @@ export default {
                   ? this.$vuetify.theme.themes.light.danger
                   : this.$vuetify.theme.themes.light.success,
             },
-          }
+          };
         }),
-      }
+      };
     },
     eventOptions() {
       return {
@@ -309,13 +309,13 @@ export default {
           type: 'bar',
           data: events,
         },
-      }
+      };
     },
   },
   methods: {
     onLayoutUpdated(list) {
-      this.dashboardList = list
+      this.dashboardList = list;
     },
   },
-}
+};
 </script>

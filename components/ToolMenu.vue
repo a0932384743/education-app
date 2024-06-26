@@ -18,7 +18,7 @@
         </v-list-item-title>
       </v-list-item-content>
     </v-list-item>
-    <v-divider />
+    <v-divider class="my-3"/>
     <v-list dense>
       <v-list-item>
         <v-list-item-content>
@@ -35,6 +35,7 @@
           </v-col>
         </v-row>
       </v-list-item>
+      <v-divider class="my-3"/>
       <v-list-item>
         <v-subheader>Header Setting</v-subheader>
       </v-list-item>
@@ -122,6 +123,88 @@
           </v-col>
         </v-row>
       </v-list-item>
+      <v-divider class="my-3"/>
+
+      <v-list-item>
+        <v-subheader>Footer Setting</v-subheader>
+      </v-list-item>
+      <v-list-item>
+        <v-row class="mx-0">
+          <v-col cols="12">
+            <v-slider
+              v-model="footerSettings.elevation"
+              label="Elevation"
+              hide-details
+              color="info"
+              class="mt-0"
+            />
+          </v-col>
+          <v-col cols="12">
+            <v-slider
+              v-model="footerSettings.height"
+              label="Height"
+              hide-details
+              color="info"
+              class="mt-0"
+              :max="100"
+            />
+          </v-col>
+          <v-col cols="12">
+            <v-select
+              v-model="footerSettings.color"
+              :items="colors"
+              hide-details
+              label="Color"
+            ></v-select>
+          </v-col>
+          <v-col cols="12" sm="6">
+            <v-switch
+              v-model="footerSettings.absolute"
+              label="Absolute"
+              hide-details
+              color="info"
+              class="mt-0"
+            />
+          </v-col>
+          <v-col cols="12" sm="6">
+            <v-switch
+              v-model="footerSettings.outline"
+              label="Outlined"
+              hide-details
+              color="info"
+              class="mt-0"
+            />
+          </v-col>
+          <v-col cols="12" sm="6">
+            <v-switch
+              v-model="footerSettings.shaped"
+              label="Shaped"
+              hide-details
+              color="info"
+              class="mt-0"
+            />
+          </v-col>
+          <v-col cols="12" sm="6">
+            <v-switch
+              v-model="footerSettings.clipped"
+              label="Clipped"
+              hide-details
+              color="info"
+              class="mt-0"
+            />
+          </v-col>
+          <v-col cols="12" sm="6">
+            <v-switch
+              v-model="footerSettings.padless"
+              label="Padless"
+              hide-details
+              color="info"
+              class="mt-0"
+            />
+          </v-col>
+        </v-row>
+      </v-list-item>
+      <v-divider class="my-3"/>
       <v-list-item>
         <v-subheader>Side Menu Setting</v-subheader>
       </v-list-item>
@@ -187,7 +270,7 @@
   </v-navigation-drawer>
 </template>
 <script>
-import colors from '~/utils/color'
+import colors from '~/utils/color';
 export default {
   name: 'ToolMenu',
   props: {
@@ -198,25 +281,28 @@ export default {
   },
   computed: {
     colors() {
-      return colors
+      return colors;
     },
     theme() {
-      return this.$vuetify.theme.dark
+      return this.$vuetify.theme.dark;
     },
     headerSettings() {
-      return this.$store.getters['common/getHeaderSetting']
+      return this.$store.getters['common/getHeaderSetting'];
+    },
+    footerSettings() {
+      return this.$store.getters['common/getFooterSetting'];
     },
     sideMenuSettings() {
-      return this.$store.getters['common/getSideMenuSetting']
+      return this.$store.getters['common/getSideMenuSetting'];
     },
   },
   methods: {
     updateTheme(value) {
-      this.$vuetify.theme.dark = value
+      this.$vuetify.theme.dark = value;
     },
     updateDrawer(value) {
-      this.$emit('update:drawer', value)
+      this.$emit('update:drawer', value);
     },
   },
-}
+};
 </script>

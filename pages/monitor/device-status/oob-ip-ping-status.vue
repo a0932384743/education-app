@@ -6,5 +6,5 @@
 export default {
   name: 'OobIpPingStatus',
   layout: 'admin-layout',
-}
+};
 </script>

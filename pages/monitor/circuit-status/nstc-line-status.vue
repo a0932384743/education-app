@@ -6,5 +6,5 @@
 export default {
   name: 'NstcLineStatus',
   layout: 'admin-layout',
-}
+};
 </script>

@@ -137,7 +137,7 @@
   </v-navigation-drawer>
 </template>
 <script>
-import menus from '~/assets/json/menu.json'
+import menus from '~/assets/json/menu.json';
 export default {
   name: 'SideMenu',
   props: {
@@ -149,51 +149,51 @@ export default {
   data() {
     return {
       activePath: '',
-    }
+    };
   },
   computed: {
     sideMenuSettings() {
-      return this.$store.getters['common/getSideMenuSetting']
+      return this.$store.getters['common/getSideMenuSetting'];
     },
     currentLocale() {
-      return this.$i18n.locale
+      return this.$i18n.locale;
     },
     flatMenu() {
-      const flatList = []
+      const flatList = [];
       function flatten(item) {
         flatList.push({
           icon: item.icon,
           name: item.name,
           url: item.url,
-        })
+        });
         if (item.children && item.children.length > 0) {
-          item.children.forEach(flatten)
+          item.children.forEach(flatten);
         }
       }
-      menus.forEach(flatten)
-      return flatList
+      menus.forEach(flatten);
+      return flatList;
     },
     vuetify() {
-      return this.$vuetify
+      return this.$vuetify;
     },
     menus() {
-      return menus
+      return menus;
     },
   },
   watch: {
     $route(to) {
-      this.activePath = to.path
+      this.activePath = to.path;
     },
   },
   mounted() {
-    this.activePath = this.$router.currentRoute.path
+    this.activePath = this.$router.currentRoute.path;
   },
   methods: {
     updateDrawer(value) {
-      this.$emit('update:drawer', value)
+      this.$emit('update:drawer', value);
     },
   },
-}
+};
 </script>
 <style lang="scss">
 .aside {

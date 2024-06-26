@@ -6,5 +6,5 @@
 export default {
   name: 'MemoryStatus',
   layout: 'admin-layout',
-}
+};
 </script>

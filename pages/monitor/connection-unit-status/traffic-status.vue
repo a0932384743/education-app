@@ -6,5 +6,5 @@
 export default {
   name: 'TrafficStatus',
   layout: 'admin-layout',
-}
+};
 </script>

@@ -6,5 +6,5 @@
 export default {
   name: 'TwnicDnsServerInterface',
   layout: 'admin-layout',
-}
+};
 </script>

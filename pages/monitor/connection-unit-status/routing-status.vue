@@ -6,5 +6,5 @@
 export default {
   name: 'RoutingStatus',
   layout: 'admin-layout',
-}
+};
 </script>

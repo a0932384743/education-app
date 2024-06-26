@@ -6,5 +6,5 @@
 export default {
   name: 'IiiLineInterface',
   layout: 'admin-layout',
-}
+};
 </script>

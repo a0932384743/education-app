@@ -106,9 +106,9 @@
 </template>
 
 <script>
-import items from '~/assets/json/wan-port-ping.json'
-import pieData from '~/assets/json/wan-port-ping-statistics.json'
-import lineData from '~/assets/json/wan-port-ping-history.json'
+import items from '~/assets/json/wan-port-ping.json';
+import pieData from '~/assets/json/wan-port-ping-statistics.json';
+import lineData from '~/assets/json/wan-port-ping-history.json';
 
 export default {
   name: 'WanPortPingStatus',
@@ -136,11 +136,11 @@ export default {
         itemsPerPageText: '每頁筆數:',
         pageText: '第{0}-{1}項，共{2}項',
       },
-    }
+    };
   },
   computed: {
     items() {
-      return items
+      return items;
     },
     pieOption() {
       return {
@@ -180,7 +180,7 @@ export default {
             })),
           },
         ],
-      }
+      };
     },
     lineOption() {
       return {
@@ -221,7 +221,7 @@ export default {
               ][this.statusMap[d.name] || 'secondary'],
           },
         })),
-      }
+      };
     },
     pieData() {
       return [
@@ -230,8 +230,8 @@ export default {
           value: pieData.reduce((sum, d) => sum + d.value, 0),
           name: '總監控數',
         },
-      ]
+      ];
     },
   },
-}
+};
 </script>

@@ -6,5 +6,5 @@
 export default {
   name: 'BgpPeering',
   layout: 'admin-layout',
-}
+};
 </script>

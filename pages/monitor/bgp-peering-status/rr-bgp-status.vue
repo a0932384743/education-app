@@ -6,5 +6,5 @@
 export default {
   name: 'RrBgpStatus',
   layout: 'admin-layout',
-}
+};
 </script>

@@ -6,5 +6,5 @@
 export default {
   name: 'BackboneIpPingStatus',
   layout: 'admin-layout',
-}
+};
 </script>

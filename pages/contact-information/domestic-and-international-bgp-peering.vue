@@ -6,5 +6,5 @@
 export default {
   name: 'DomesticAndInternationalBgpPeering',
   layout: 'admin-layout',
-}
+};
 </script>

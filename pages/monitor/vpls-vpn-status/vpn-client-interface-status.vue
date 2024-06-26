@@ -6,5 +6,5 @@
 export default {
   name: 'VpnClientInterfaceStatus',
   layout: 'admin-layout',
-}
+};
 </script>
