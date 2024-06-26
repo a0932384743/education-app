@@ -196,8 +196,7 @@
     </v-main>
     <v-footer
       class="mt-8 justify-space-between"
-      app
-      :absolute="footerSettings.absolute"
+      :app="footerSettings.absolute"
       :clipped="footerSettings.clipped"
       :color="footerSettings.color"
       :inset="footerSettings.inset"
@@ -205,7 +204,7 @@
       :shaped="footerSettings.shaped"
       :height="footerSettings.height"
       :elevation="footerSettings.elevation"
-      :padless="footerSettings.padless"
+      padless
     >
       <v-col class="text-left">
         Copyright © 2024 <a href="www.cht.com.tw">www.cht.com.tw</a> All rights
@@ -217,8 +216,8 @@
 </template>
 
 <script>
-import SideMenu from '~/components/SideMenu.vue'
-import menus from '~/assets/json/menu.json'
+import SideMenu from '~/components/SideMenu.vue';
+import menus from '~/assets/json/menu.json';
 
 export default {
   name: 'AdminLayout',
@@ -229,37 +228,37 @@ export default {
       drawer: false,
       toolDrawer: false,
       items: [],
-    }
+    };
   },
   head() {
     return {
       title: this.$t('app.welcome'),
-    }
+    };
   },
   computed: {
     headerSettings() {
-      return this.$store.getters['common/getHeaderSetting']
+      return this.$store.getters['common/getHeaderSetting'];
     },
     footerSettings() {
-      return this.$store.getters['common/getFooterSetting']
+      return this.$store.getters['common/getFooterSetting'];
     },
     currentLocale() {
-      return this.$i18n.locale
+      return this.$i18n.locale;
     },
     flatMenu() {
-      const flatList = []
+      const flatList = [];
       function flatten(item) {
-        flatList.push(item)
+        flatList.push(item);
         if (item.children && item.children.length > 0) {
-          item.children.forEach(flatten)
+          item.children.forEach(flatten);
         }
       }
-      menus.forEach(flatten)
-      return flatList
+      menus.forEach(flatten);
+      return flatList;
     },
 
     vuetify() {
-      return this.$vuetify
+      return this.$vuetify;
     },
   },
   watch: {
@@ -271,8 +270,8 @@ export default {
             text: this.$i18n.locale === 'en' ? m.name_en : m.name,
             href: m.url,
             disabled: true,
-          }
-        })
+          };
+        });
     },
     currentLocale(locale) {
       this.items = this.flatMenu
@@ -282,8 +281,8 @@ export default {
             text: locale === 'en' ? m.name_en : m.name,
             href: m.url,
             disabled: true,
-          }
-        })
+          };
+        });
     },
   },
   mounted() {
@@ -294,69 +293,69 @@ export default {
           text: m.name,
           href: m.url,
           disabled: true,
-        }
-      })
-    this.initSearchInput()
+        };
+      });
+    this.initSearchInput();
   },
   methods: {
     initSearchInput() {
       if (this.$refs.searchEle) {
         this.$refs.searchEle.$el
           .querySelector('.v-input__control')
-          .classList.add('wipe', 'in', 'd-none')
+          .classList.add('wipe', 'in', 'd-none');
         this.$refs.searchEle.$el
           .querySelector('.v-input__append-inner')
-          .classList.toggle('d-none')
+          .classList.toggle('d-none');
       }
     },
     toggleFullScreen() {
       if (this.$refs.fullscreenEle) {
-        this.$refs.fullscreenEle.$el.classList.toggle('mdi-fullscreen-exit')
+        this.$refs.fullscreenEle.$el.classList.toggle('mdi-fullscreen-exit');
       }
-      const docElement = document.documentElement
+      const docElement = document.documentElement;
       if (!document.fullscreenElement) {
         if (docElement.requestFullscreen) {
-          docElement.requestFullscreen()
+          docElement.requestFullscreen();
         } else if (docElement.webkitRequestFullscreen) {
           /* Safari */
-          docElement.webkitRequestFullscreen()
+          docElement.webkitRequestFullscreen();
         } else if (docElement.msRequestFullscreen) {
           /* IE11 */
-          docElement.msRequestFullscreen()
+          docElement.msRequestFullscreen();
         }
       } else if (document.exitFullscreen) {
-        document.exitFullscreen()
+        document.exitFullscreen();
       } else if (document.webkitExitFullscreen) {
         /* Safari */
-        document.webkitExitFullscreen()
+        document.webkitExitFullscreen();
       } else if (document.msExitFullscreen) {
         /* IE11 */
-        document.msExitFullscreen()
+        document.msExitFullscreen();
       }
     },
     toggleSearchInput() {
       if (this.$refs.searchEle) {
         this.$refs.searchEle.$el
           .querySelector('.v-input__control')
-          .classList.remove('d-none')
+          .classList.remove('d-none');
 
         this.$refs.searchEle.$el
           .querySelector('.v-input__control')
-          .classList.toggle('in')
+          .classList.toggle('in');
 
         this.$refs.searchEle.$el
           .querySelector('.v-input__append-inner')
-          .classList.toggle('d-none')
+          .classList.toggle('d-none');
       }
     },
     changeLanguage(lang) {
-      this.$i18n.setLocale(lang)
+      this.$i18n.setLocale(lang);
     },
     toggleDrawer() {
-      this.drawer = !this.drawer
+      this.drawer = !this.drawer;
     },
   },
-}
+};
 </script>
 <style lang="scss">
 @keyframes wipeOut {

@@ -104,7 +104,7 @@ const commonModule: Module<State, StateInterface> = {
     footerSettings: {
       absolute: false,
       clipped: false,
-      color: 'secondary',
+      color: 'footer',
       inset: true,
       outlined: false,
       shaped: false,

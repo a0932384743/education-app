@@ -39,7 +39,7 @@
     </v-card-title>
     <v-divider />
     <v-card-text class="pb-8">
-      <div class="text-right my-5">
+      <div class="text-right mt-2 mb-1">
         <v-text-field
           v-model="search"
           small
