@@ -10,9 +10,11 @@
             page,
             items,
             headerProps,
+            loading,
           }"
         >
           <v-data-table
+            :loading="loading"
             :headers="headers"
             :items="items"
             :search="search"
@@ -26,8 +28,8 @@
             <template #[`header.operate`]="{ header }">
               <div class="d-inline-flex align-center" style="gap: 0.5rem">
                 <div>{{ header.text }}</div>
-                <v-btn small @click="addAccount()">
-                  <v-icon>mdi-plus</v-icon>
+                <v-btn small color="success" @click="addAccount()">
+                  <v-icon size="20">mdi-plus</v-icon>
                 </v-btn>
               </div>
             </template>
@@ -116,14 +118,15 @@
               <v-btn
                 small
                 :disabled="Object.keys(item).some((key) => item[key] === '')"
-                :color="item.editable ? 'info' : 'secondary'"
+                :color="item.editable ? 'secondary' : 'info'"
                 @click="
                   Object.keys(item).every((key) => item[key])
                     ? (item.editable = !item.editable)
                     : (item.editable = true)
                 "
               >
-                <v-icon>mdi-pencil</v-icon>
+                <v-icon size="20">mdi-pencil</v-icon>
+                <span class="d-none d-sm-inline-block">{{ $t('edit') }}</span>
               </v-btn>
             </template>
           </v-data-table>
@@ -133,7 +136,7 @@
   </v-row>
 </template>
 <script>
-import items from '~/assets/json/accounts.json';
+import items from '~/assets/json/accounts.json'
 export default {
   name: 'AccountManagement',
   layout: 'admin-layout',
@@ -143,7 +146,7 @@ export default {
         ...item,
         editable: false,
       })),
-    };
+    }
   },
   computed: {
     headers() {
@@ -156,7 +159,7 @@ export default {
         { text: this.$t('mobile'), value: 'mobile' },
         { text: this.$t('status'), value: 'status' },
         { text: this.$t('operate'), value: 'operate', sortable: false },
-      ];
+      ]
     },
   },
   methods: {
@@ -171,8 +174,8 @@ export default {
         mobile: '',
         status: 'disabled',
         editable: true,
-      });
+      })
     },
   },
-};
+}
 </script>

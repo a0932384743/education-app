@@ -1,6 +1,6 @@
-import en from './locales/en.json'
-import zhTW from './locales/zh-tw.json'
-import { lightTheme, darkTheme } from './utils/themes'
+import en from './locales/en.json';
+import zhTW from './locales/zh-tw.json';
+import { darkTheme, lightTheme } from './utils/themes';
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   ssr: false,
@@ -16,7 +16,7 @@ export default {
         name: 'custom',
         path: '*',
         component: resolve('./pages/error.vue'),
-      })
+      });
     },
   },
   head: {
@@ -94,7 +94,8 @@ export default {
       },
     },
   },
+  loading: { color: '#027afa' },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-}
+};

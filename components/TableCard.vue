@@ -3,7 +3,7 @@
     <v-card-title class="flex-nowrap">
       <span class="font-weight-bold text-truncate">{{ $t(title) }}</span>
       <v-spacer></v-spacer>
-      <v-btn icon>
+      <v-btn icon @click="onReload">
         <v-icon>mdi-refresh</v-icon>
       </v-btn>
       <v-menu
@@ -53,6 +53,7 @@
       <div class="overflow-x-auto">
         <slot
           :search="search"
+          :loading="loading"
           :footer-props="footerProps"
           :page="page"
           :item-per-page="itemPerPage"
@@ -97,6 +98,7 @@ export default {
       search: '',
       page: 1,
       itemPerPage: 10,
+      loading: false,
     };
   },
   computed: {
@@ -119,6 +121,14 @@ export default {
     },
     totalItem() {
       return this.items?.length ?? 0;
+    },
+  },
+  methods: {
+    onReload() {
+      this.loading = true;
+      setTimeout(() => {
+        this.loading = false;
+      }, 1000);
     },
   },
 };

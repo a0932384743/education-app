@@ -1,0 +1,82 @@
+[
+  {
+    "id": "1",
+    "paramName": "最大連接數",
+    "param": "MAX_CONN",
+    "desc": "系統允許的最大連接數",
+    "value": "100",
+    "remark": "預設值"
+  },
+  {
+    "id": "2",
+    "paramName": "超時時間",
+    "param": "TIMEOUT",
+    "desc": "系統的超時時間（秒）",
+    "value": "30",
+    "remark": "預設值"
+  },
+  {
+    "id": "3",
+    "paramName": "密碼最短",
+    "param": "PWD_SHORT_LEN",
+    "desc": "密碼最短使用天數",
+    "value": "1",
+    "remark": "內部測試環境"
+  },
+  {
+    "id": "4",
+    "paramName": "閒置時間",
+    "param": "IDLE_TEIM",
+    "desc": "登入後系統閒置操作的時間設定",
+    "value": "15",
+    "remark": "內部測試環境"
+  },
+  {
+    "id": "5",
+    "paramName": "日誌級別",
+    "param": "LOG_LEVEL",
+    "desc": "系統日誌記錄級別",
+    "value": "INFO",
+    "remark": "預設值"
+  },
+  {
+    "id": "6",
+    "paramName": "API金鑰",
+    "param": "API_KEY",
+    "desc": "第三方服務的API金鑰",
+    "value": "abcd1234",
+    "remark": "測試用"
+  },
+  {
+    "id": "7",
+    "paramName": "文件根目錄",
+    "param": "DOC_ROOT",
+    "desc": "系統文件的根目錄路徑",
+    "value": "/var/www/html",
+    "remark": "預設值"
+  },
+  {
+    "id": "8",
+    "paramName": "快取大小",
+    "param": "CACHE_SIZE",
+    "desc": "系統快取的大小（MB）",
+    "value": "256",
+    "remark": "預設值"
+  },
+  {
+    "id": "9",
+    "paramName": "運行模式",
+    "param": "RUN_MODE",
+    "desc": "系統的運行模式",
+    "value": "production",
+    "remark": "生產環境"
+  },
+  {
+    "id": "10",
+    "paramName": "備份頻率",
+    "param": "BACKUP_FREQ",
+    "desc": "資料庫備份的頻率（天）",
+    "value": "7",
+    "remark": "每週備份一次"
+  }
+]
