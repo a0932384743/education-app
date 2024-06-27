@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'AbnormalEventRecord',
+  name: 'IiiCircuit',
   layout: 'admin-layout',
 };
 </script>

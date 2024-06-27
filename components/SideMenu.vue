@@ -88,21 +88,62 @@
                     }}</v-list-item-title>
                   </v-list-item-content>
                 </template>
-                <v-list-item
-                  v-for="children2 in children1.children"
-                  :key="JSON.stringify(children2)"
-                  :to="children2.url"
-                  :value="children2.url"
-                  :link="false"
-                >
-                  <v-list-item-content>
-                    <v-list-item-title class="white--text">{{
-                      currentLocale === 'en'
-                        ? children2.name_en
-                        : children2.name
-                    }}</v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
+
+                <template v-for="children2 in children1.children">
+                  <v-list-group
+                    v-if="children2.children && children2.children.length"
+                    :key="JSON.stringify(children2)"
+                    :value="String(activePath).includes(children2.url)"
+                    sub-group
+                    @click="activePath = children2.url"
+                  >
+                    <template #prependIcon>
+                      <v-icon size="20" class="white--text"></v-icon>
+                    </template>
+                    <template #appendIcon>
+                      <v-icon size="20" class="white--text">mdi-menu-left</v-icon>
+                    </template>
+                    <template #activator>
+                      <v-list-item-content>
+                        <v-list-item-title class="white--text">{{
+                            currentLocale === 'en'
+                              ? children2.name_en
+                              : children2.name
+                          }}</v-list-item-title>
+                      </v-list-item-content>
+                    </template>
+                    <v-list-item
+                      v-for="children3 in children2.children"
+                      :key="JSON.stringify(children3)"
+                      :to="children3.url"
+                      :value="children3.url"
+                      :link="false"
+                    >
+                      <v-list-item-content>
+                        <v-list-item-title class="white--text">{{
+                            currentLocale === 'en'
+                              ? children3.name_en
+                              : children3.name
+                          }}</v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+                  </v-list-group>
+                  <v-list-item
+                    v-else
+                    :key="JSON.stringify(children2)"
+                    :to="children2.url"
+                    :value="children2.url"
+                    :link="false"
+                  >
+                    <v-list-item-content>
+                      <v-list-item-title class="white--text">{{
+                          currentLocale === 'en'
+                            ? children2.name_en
+                            : children2.name
+                        }}</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+                </template>
               </v-list-group>
               <v-list-item
                 v-else

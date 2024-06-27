@@ -22,6 +22,6 @@ export const darkTheme = {
   secondary: '#D0CDCA',
   background: '#141844',
   header: '#0b0d26',
-  footer: '#c4c4c4',
+  footer: '#0b0d26',
   aside: '#00201c',
 };

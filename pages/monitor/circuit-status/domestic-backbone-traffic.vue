@@ -36,9 +36,11 @@
             page,
             items,
             headerProps,
+            loading
           }"
         >
           <v-data-table
+            :loading="loading"
             :headers="headers"
             :items="items"
             :search="search"

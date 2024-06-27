@@ -171,105 +171,105 @@
         "url": "/monitor/device-status"
       },
       {
-        "name": "VPLS VPN狀態",
-        "name_en": "VPLS VPN Status",
-        "url": "/monitor/vpls-vpn-status",
         "children": [
           {
+            "children": [],
             "name": "VPN Client界接介面狀況",
             "name_en": "VPN Client Interface Status",
-            "url": "/monitor/vpls-vpn-status/vpn-client-interface-status",
-            "children": []
+            "url": "/monitor/vpls-vpn-status/vpn-client-interface-status"
           },
           {
+            "children": [],
             "name": "VPLS VPN Peer狀況",
             "name_en": "VPLS VPN Peer Status",
-            "url": "/monitor/vpls-vpn-status/vpls-vpn-peer-status",
-            "children": []
+            "url": "/monitor/vpls-vpn-status/vpls-vpn-peer-status"
           }
-        ]
+        ],
+        "name": "VPLS VPN狀態",
+        "name_en": "VPLS VPN Status",
+        "url": "/monitor/vpls-vpn-status"
       },
       {
-        "name": "機房環境狀態",
-        "name_en": "Server Room Status",
-        "url": "/monitor/server-room-status",
         "children": [
           {
+            "children": [],
             "name": "機房溫度狀況",
             "name_en": "Server Room Temperature Status",
-            "url": "/monitor/server-room-status/room-temperature-status",
-            "children": []
+            "url": "/monitor/server-room-status/room-temperature-status"
           },
           {
+            "children": [],
             "name": "主節點SMR電壓與電流狀況",
             "name_en": "Main Node SMR Voltage and Current Status",
-            "url": "/monitor/server-room-status/main-node-smr-voltage-current-status",
-            "children": []
+            "url": "/monitor/server-room-status/main-node-smr-voltage-current-status"
           },
           {
+            "children": [],
             "name": "RPM總負載電流狀況",
             "name_en": "RPM Total Load Current Status",
-            "url": "/monitor/server-room-status/rpm-total-load-current-status",
-            "children": []
+            "url": "/monitor/server-room-status/rpm-total-load-current-status"
           }
-        ]
+        ],
+        "name": "機房環境狀態",
+        "name_en": "Server Room Status",
+        "url": "/monitor/server-room-status"
       },
       {
-        "name": "連線單位狀態",
-        "name_en": "Connection Unit Status",
-        "url": "/monitor/connection-unit-status",
         "children": [
           {
+            "children": [],
             "name": "連線單位WAN Port Ping 狀況",
             "name_en": "Connection Unit WAN Port Ping Status",
-            "url": "/monitor/connection-unit-status/wan-port-ping-status",
-            "children": []
+            "url": "/monitor/connection-unit-status/wan-port-ping-status"
           },
           {
+            "children": [],
             "name": "連線單位路由狀況",
             "name_en": "Connection Unit Routing Status",
-            "url": "/monitor/connection-unit-status/routing-status",
-            "children": []
+            "url": "/monitor/connection-unit-status/routing-status"
           },
           {
+            "children": [],
             "name": "連線單位流量狀況",
             "name_en": "Connection Unit Traffic Status",
-            "url": "/monitor/connection-unit-status/traffic-status",
-            "children": []
+            "url": "/monitor/connection-unit-status/traffic-status"
           }
-        ]
+        ],
+        "name": "連線單位狀態",
+        "name_en": "Connection Unit Status",
+        "url": "/monitor/connection-unit-status"
       },
       {
-        "name": "BGP Peering狀態",
-        "name_en": "BGP Peering Status",
-        "url": "/monitor/bgp-peering-status",
         "children": [
           {
+            "children": [],
             "name": "Peering BGP狀況",
             "name_en": "Peering BGP Status",
-            "url": "/monitor/bgp-peering-status/peering-bgp-status",
-            "children": []
+            "url": "/monitor/bgp-peering-status/peering-bgp-status"
           },
           {
+            "children": [],
             "name": "RR BGP狀況",
             "name_en": "RR BGP Status",
-            "url": "/monitor/bgp-peering-status/rr-bgp-status",
-            "children": []
+            "url": "/monitor/bgp-peering-status/rr-bgp-status"
           }
-        ]
+        ],
+        "name": "BGP Peering狀態",
+        "name_en": "BGP Peering Status",
+        "url": "/monitor/bgp-peering-status"
       },
       {
-        "name": "SSL VPN狀態",
-        "name_en": "SSL VPN Status",
-        "url": "/monitor/ssl-vpn-status",
         "children": [
           {
+            "children": [],
             "name": "SSL VPN狀況",
             "name_en": "SSL VPN Status",
-            "url": "/monitor/ssl-vpn-status/ssl-vpn-status",
-            "children": []
+            "url": "/monitor/ssl-vpn-status/ssl-vpn-status"
           }
-        ]
+        ],
+        "name": "SSL VPN狀態",
+        "name_en": "SSL VPN Status",
+        "url": "/monitor/ssl-vpn-status"
       }
     ],
     "icon": "mdi-monitor",
@@ -280,22 +280,22 @@
   {
     "children": [
       {
+        "children": [],
         "name": "異常事件紀錄",
         "name_en": "Abnormal Event Record",
-        "url": "/record-search/abnormal-event-record",
-        "children": []
+        "url": "/record-search/abnormal-event-record"
       },
       {
+        "children": [],
         "name": "使用者系統操作紀錄",
         "name_en": "User System Operation Record",
-        "url": "/record-search/user-system-operation-record",
-        "children": []
+        "url": "/record-search/user-system-operation-record"
       },
       {
+        "children": [],
         "name": "使用者登入紀錄",
         "name_en": "User Login Record",
-        "url": "/record-search/user-login-record",
-        "children": []
+        "url": "/record-search/user-login-record"
       }
     ],
     "icon": "mdi-file",
@@ -306,16 +306,16 @@
   {
     "children": [
       {
+        "children": [],
         "name": "100G維運報表查詢",
         "name_en": "100G Maintenance Report Query",
-        "url": "/report-search/100G-maintenance-report-query",
-        "children": []
+        "url": "/report-search/100G-maintenance-report-query"
       },
       {
+        "children": [],
         "name": "國際電路報表查詢",
         "name_en": "International Circuit Report Query",
-        "url": "/report-search/international-circuit-report-query",
-        "children": []
+        "url": "/report-search/international-circuit-report-query"
       }
     ],
     "icon": "mdi-file",
@@ -324,102 +324,118 @@
     "url": "/report-search"
   },
   {
-    "name": "監控項目管理",
-    "name_en": "Monitoring Item Management",
-    "url": "/monitoring-item-management",
     "children": [
       {
-        "name": "資料管理",
-        "name_en": "Data Management",
-        "url": "/monitoring-item-management/data-management",
         "children": [
           {
+            "children": [],
             "name": "維運團隊管理",
             "name_en": "Operation Team Management",
-            "url": "/monitoring-item-management/data-management/operation-team-management",
-            "children": []
+            "url": "/monitoring-item-management/data-management/operation-team-management"
           },
           {
+            "children": [],
             "name": "GigaPops管理",
             "name_en": "GigaPoPs Management",
-            "url": "/monitoring-item-management/data-management/gigapops-management",
-            "children": []
+            "url": "/monitoring-item-management/data-management/gigapops-management"
           },
           {
+            "children": [],
             "name": "連線單位管理",
             "name_en": "Connection Unit Management",
-            "url": "/monitoring-item-management/data-management/connection-unit-management",
-            "children": []
+            "url": "/monitoring-item-management/data-management/connection-unit-management"
           },
           {
+            "children": [],
             "name": "BGP Peering管理",
             "name_en": "BGP Peering Management",
-            "url": "/monitoring-item-management/data-management/bgp-peering-management",
-            "children": []
+            "url": "/monitoring-item-management/data-management/bgp-peering-management"
           },
           {
+            "children": [],
             "name": "VPLS VPN管理",
             "name_en": "VPLS VPN Management",
-            "url": "/monitoring-item-management/data-management/vpls-vpn-management",
-            "children": []
+            "url": "/monitoring-item-management/data-management/vpls-vpn-management"
           },
           {
+            "children": [
+              {
+                "name": "國內電路",
+                "name_en": "Domestic Circuit",
+                "url": "/monitoring-item-management/data-management/circuit-interface-management/domestic-circuit"
+              },
+              {
+                "name": "國際電路",
+                "name_en": "International Circuit",
+                "url": "/monitoring-item-management/data-management/circuit-interface-management/internation-circuit"
+              },
+              {
+                "name": "資策會監控電路",
+                "name_en": "Institute for Information Industry Monitoring Circuit",
+                "url": "/monitoring-item-management/data-management/circuit-interface-management/iii-circuit"
+              }
+            ],
             "name": "電路介面管理",
             "name_en": "Circuit Interface Management",
-            "url": "/monitoring-item-management/data-management/circuit-interface-management",
-            "children": []
+            "url": "/monitoring-item-management/data-management/circuit-interface-management"
           },
           {
+            "children": [],
             "name": "帳號管理",
             "name_en": "Account Management",
-            "url": "/monitoring-item-management/data-management/account-management",
-            "children": []
+            "url": "/monitoring-item-management/data-management/account-management"
           },
           {
+            "children": [],
             "name": "群組授權管理",
             "name_en": "Group Management",
-            "url": "/monitoring-item-management/data-management/group-management",
-            "children": []
+            "url": "/monitoring-item-management/data-management/group-management"
           },
           {
+            "children": [],
             "name": "系統參數設定",
             "name_en": "System Parameter",
-            "url": "/monitoring-item-management/data-management/system-parameter-management",
-            "children": []
+            "url": "/monitoring-item-management/data-management/system-parameter-management"
           }
-        ]
+        ],
+        "name": "資料管理",
+        "name_en": "Data Management",
+        "url": "/monitoring-item-management/data-management"
       },
       {
-        "name": "告警管理",
-        "name_en": "Alert Management",
-        "url": "/monitoring-item-management/alert-management",
         "children": [
           {
+            "children": [],
             "name": "連線單位",
             "name_en": "Connection Unit",
-            "url": "/monitoring-item-management/alert-management/connection-unit",
-            "children": []
+            "url": "/monitoring-item-management/alert-management/connection-unit"
           },
           {
+            "children": [],
             "name": "BGP Peering",
             "name_en": "BGP Peering",
-            "url": "/monitoring-item-management/alert-management/bgp-peering",
-            "children": []
+            "url": "/monitoring-item-management/alert-management/bgp-peering"
           },
           {
+            "children": [],
             "name": "事件類別",
             "name_en": "Event Category",
-            "url": "/monitoring-item-management/alert-management/event-category",
-            "children": []
+            "url": "/monitoring-item-management/alert-management/event-category"
           },
           {
+            "children": [],
             "name": "設備類",
             "name_en": "Equipment Category",
-            "url": "/monitoring-item-management/alert-management/equipment-category",
-            "children": []
+            "url": "/monitoring-item-management/alert-management/equipment-category"
           }
-        ]
+        ],
+        "name": "告警管理",
+        "name_en": "Alert Management",
+        "url": "/monitoring-item-management/alert-management"
       }
-    ]
+    ],
+    "name": "監控項目管理",
+    "name_en": "Monitoring Item Management",
+    "url": "/monitoring-item-management"
   }
 ]

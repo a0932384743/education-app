@@ -266,6 +266,7 @@ export default {
         .filter(
           (f) =>
             f.url === to.path ||
+            f.url === to.path.split('/').slice(0, 4).join('/') ||
             f.url === to.path.split('/').slice(0, 3).join('/') ||
             f.url === to.path.split('/').slice(0, 2).join('/') ||
             f.url === to.path.split('/').slice(0, 1).join('/')
@@ -295,6 +296,8 @@ export default {
       .filter(
         (f) =>
           f.url === this.$router.currentRoute.path ||
+          f.url ===
+          this.$router.currentRoute.path.split('/').slice(0, 4).join('/') ||
           f.url ===
           this.$router.currentRoute.path.split('/').slice(0, 3).join('/') ||
           f.url ===

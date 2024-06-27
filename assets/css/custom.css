@@ -19,6 +19,10 @@
   opacity: 0.6;
 }
 
+.v-stepper__header {
+  box-shadow: none !important;
+}
+
 .w-100 {
   width: 100%;
 }
