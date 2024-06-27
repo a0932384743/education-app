@@ -51,6 +51,44 @@
             :loading="loading"
             hide-default-footer
           >
+            <template #[`item.device`]="{ item }">
+              <td
+                :class="statusMap[item.status]"
+                style="border-color: white !important; color: white"
+              >
+                {{ item.device || '-' }}
+              </td>
+            </template>
+            <template #[`item.desc`]="{ item }">
+              <td
+                :class="statusMap[item.status]"
+                style="border-color: white !important; color: white"
+              >
+                {{ item.desc || '-' }}
+              </td>
+            </template>
+            <template #[`item.output`]="{ item }">
+              <div>{{ item?.output }}</div>
+              <v-sparkline
+                fill
+                :color="statusMap[item.status]"
+                :smooth="16"
+                :line-width="2"
+                :value="item?.output_history || []"
+                auto-draw
+              ></v-sparkline>
+            </template>
+            <template #[`item.input`]="{ item }">
+              <div>{{ item?.input }}</div>
+              <v-sparkline
+                fill
+                :color="statusMap[item.status]"
+                :smooth="16"
+                :line-width="2"
+                :value="item?.input_history || []"
+                auto-draw
+              ></v-sparkline>
+            </template>
             <template #[`item.status`]="{ item }">
               <v-chip :color="statusMap[item.status]" dark small>
                 {{ item.status.toUpperCase() }}
