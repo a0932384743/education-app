@@ -35,6 +35,7 @@
             itemPerPage,
             page,
             items,
+            loading,
             headerProps,
           }"
         >
@@ -43,6 +44,7 @@
             :items="items"
             :search="search"
             :page="page"
+            :loading="loading"
             :items-per-page="itemPerPage"
             :footer-props="footerProps"
             :header-props="headerProps"

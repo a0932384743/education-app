@@ -9,10 +9,12 @@
             itemPerPage,
             page,
             items,
+            loading,
             headerProps,
           }"
         >
           <v-data-table
+            :loading="loading"
             :headers="headers"
             :items="items"
             :search="search"

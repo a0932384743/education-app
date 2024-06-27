@@ -35,6 +35,7 @@
             itemPerPage,
             page,
             items,
+            loading,
             headerProps,
           }"
         >
@@ -47,6 +48,7 @@
             :footer-props="footerProps"
             :header-props="headerProps"
             fixed-header
+            :loading="loading"
             hide-default-footer
           >
             <template #[`item.status`]="{ item }">

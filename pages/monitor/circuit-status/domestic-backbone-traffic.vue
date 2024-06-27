@@ -82,11 +82,7 @@
               <div>{{ item.input }}(Mpbs)</div>
               <v-sparkline
                 fill
-                :color="
-                  item?.inputHistory?.some((v) => v > 0.309)
-                    ? 'danger'
-                    : 'success'
-                "
+                :color="statusMap[item.status]"
                 :smooth="16"
                 :line-width="2"
                 :value="item?.inputHistory || []"
@@ -97,11 +93,7 @@
               <div>{{ item.output }}(Mpbs)</div>
               <v-sparkline
                 fill
-                :color="
-                  item?.outputHistory?.some((v) => v > 0.405)
-                    ? 'danger'
-                    : 'success'
-                "
+                :color="statusMap[item.status]"
                 :smooth="16"
                 :line-width="2"
                 :value="item?.outputHistory || []"

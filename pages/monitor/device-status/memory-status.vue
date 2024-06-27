@@ -35,6 +35,7 @@
             itemPerPage,
             page,
             items,
+            loading,
             headerProps,
           }"
         >
@@ -47,6 +48,7 @@
             :footer-props="footerProps"
             :header-props="headerProps"
             fixed-header
+            :loading="loading"
             hide-default-footer
           >
             <template #[`header.memory`]="{ header }">
@@ -66,11 +68,7 @@
               <div>{{ (item?.memory ?? 0) / 1000 }}(MB)</div>
               <v-sparkline
                 fill
-                :color="
-                  item?.memory_history?.some((v) => v > 750)
-                    ? 'danger'
-                    : 'success'
-                "
+                :color="statusMap[item.status]"
                 :smooth="16"
                 :line-width="2"
                 :value="item?.memory_history || []"

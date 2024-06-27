@@ -19,9 +19,9 @@
             :class="statusMap[item.name] === 'error' && 'title'"
           >
             {{ $t(item.name + '.count') }} :
-            <span :class="`${statusMap[item.name]}--text`">{{
+            <a :class="`${statusMap[item.name]}--text`">{{
               item.value
-            }}</span></v-list-item-title
+            }}</a></v-list-item-title
           >
         </v-list-item-content>
       </v-list-item>
@@ -57,9 +57,9 @@ export default {
         legend: {
           top: '5%',
           left: 'center',
-          textStyle:{
-            fontSize: 18
-          }
+          textStyle: {
+            fontSize: 18,
+          },
         },
         series: [
           {
@@ -91,3 +91,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+a:hover {
+  text-decoration: underline;
+}
+</style>
