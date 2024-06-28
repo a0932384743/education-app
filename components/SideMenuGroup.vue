@@ -7,7 +7,9 @@
     sub-group
   >
     <template #prependIcon>
-      <v-icon size="20" class="white--text">mdi-view-grid-outline</v-icon>
+      <v-icon size="20" class="white--text" v-if="!isSubMenu">mdi-view-grid-outline</v-icon>
+      <v-icon size="20" class="white--text" v-else>mdi-blank</v-icon>
+
     </template>
     <template #appendIcon>
       <v-icon size="20" class="white--text">mdi-menu-left</v-icon>
@@ -23,10 +25,11 @@
       v-for="children in menu.children"
       :key="Object.keys(children)"
       :menu="children"
+      is-sub-menu
     />
   </v-list-group>
   <v-list-item v-else :key="JSON.stringify(menu)" :to="menu.url">
-    <v-list-item-icon class="mr-1">
+    <v-list-item-icon class="mr-1" v-if="!isSubMenu">
       <v-icon size="20" class="white--text">mdi-view-grid-outline</v-icon>
     </v-list-item-icon>
     <v-list-item-content>
@@ -44,22 +47,26 @@ export default {
       type: Object,
       required: true,
     },
+    isSubMenu:{
+      type: Boolean,
+      required: true,
+    }
   },
   data() {
     return {
       active: '',
-    };
+    }
   },
   computed: {
     sideMenuSettings() {
-      return this.$store.getters['common/getSideMenuSetting'];
+      return this.$store.getters['common/getSideMenuSetting']
     },
     currentLocale() {
-      return this.$i18n.locale;
+      return this.$i18n.locale
     },
   },
   mounted() {
-    this.active = this.$router.currentRoute.path.includes(this.menu.url);
+    this.active = this.$router.currentRoute.path.includes(this.menu.url)
   },
-};
+}
 </script>
