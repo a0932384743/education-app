@@ -21,7 +21,7 @@
     "icon": "mdi-view-dashboard",
     "name": "3D監控模式",
     "name_en": "3D Monitoring Mode",
-    "url": "/3d-dashboard"
+    "url": "/dashboard-3d"
   },
   {
     "id": 4,

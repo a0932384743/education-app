@@ -1,0 +1,14 @@
+[
+  {
+    "name": "UP",
+    "type": "normal",
+    "category": ["Router", "Switch", "QLA", "ROADM", "PRM", "SMR"],
+    "data": [120, 132, 101, 123, 132, 145]
+  },
+  {
+    "name": "DOWN",
+    "type": "error",
+    "category": ["Router", "Switch", "QLA", "ROADM", "PRM", "SMR"],
+    "data": [91, 34, 90, 12, 34, 56]
+  }
+]

@@ -90,7 +90,7 @@ export default {
           {
             map: this.map || 'geo',
             roam: true,
-            zoom: this.currentZoom,
+            zoom: this.center ? 2 : this.currentZoom,
             center: this.center || [126.9654, 25.5477],
             regions: this.nodes.map((node) => {
               return {

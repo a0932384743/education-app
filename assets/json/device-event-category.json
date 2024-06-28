@@ -1,0 +1,7 @@
+[
+  { "value": 10, "name": "安全事件", "type": "normal" },
+  { "value": 15, "name": "網絡故障", "type": "non-warning" },
+  { "value": 5, "name": "設備故障", "type": "abnormal" },
+  { "value": 5, "name": "設備停用", "type": "primary" },
+  { "value": 7, "name": "其他", "type": "info" }
+]

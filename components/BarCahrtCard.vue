@@ -18,7 +18,9 @@
         <v-list>
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title class="subtitle-2"> 編輯圖表 </v-list-item-title>
+              <v-list-item-title class="subtitle-2">
+                編輯圖表
+              </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list>
@@ -33,7 +35,7 @@
     </v-card-title>
     <v-expand-transition>
       <v-card-text v-if="!collapse" class="fill-height w-100">
-        <slot/>
+        <slot />
         <v-chart
           :options="options"
           class="mx-auto"
@@ -53,6 +55,10 @@ export default {
     title: {
       type: String,
       required: true,
+    },
+    chartType: {
+      type: String,
+      required: false,
     },
     items: {
       type: Array,
@@ -84,7 +90,7 @@ export default {
           bottom: '15%',
         },
         tooltip: {
-          trigger: 'axis',
+          trigger: this.chartType !== 'pie' ? 'axis' : 'item',
           axisPointer: {
             type: 'cross',
             label: {
@@ -93,6 +99,7 @@ export default {
           },
         },
         xAxis: {
+          show: this.chartType !== 'pie',
           type: 'category',
           data: this.xAxis || [],
           axisLabel: {
@@ -115,7 +122,7 @@ export default {
         series: this.items.map((s) => {
           return {
             ...s,
-            type: 'bar',
+            type: this.chartType || 'bar',
             itemStyle: {
               color:
                 this.$vuetify.theme.themes[

@@ -79,7 +79,8 @@
     >
       <bar-chart-card
         title="未結案比例統計圖表"
-        :items="events"
+        :items="eventCategories"
+        :chart-type="'pie'"
         :legends-props="{
           show: false,
         }"
@@ -100,8 +101,8 @@
     >
       <bar-chart-card
         title="設備存活狀態統計圖表"
-        :items="cpus"
-        :x-axis="cpus[0].category"
+        :items="lives"
+        :x-axis="lives[0].category"
         :series-props="{
           stack: 'Total',
         }"
@@ -191,15 +192,16 @@
 </template>
 
 <script>
-import eventsNotCloseList from '~/assets/json/event-not-close.json'
-import eventsAlertList from '~/assets/json/event-alert.json'
-
-import events from '~/assets/json/device-event.json'
-import cpus from '~/assets/json/device-cpu-stastic.json'
-import BarChartCard from '~/components/BarCahrtCard.vue'
-import ChartCard from '~/components/ChartCard.vue'
-import MapCard from '~/components/MapCard.vue'
-import { statusMap } from '~/utils/statusMap'
+import eventsNotCloseList from '~/assets/json/event-not-close.json';
+import eventsAlertList from '~/assets/json/event-alert.json';
+import events from '~/assets/json/device-event.json';
+import eventCategories from '~/assets/json/device-event-category.json';
+import cpus from '~/assets/json/device-cpu-stastic.json';
+import lives from '~/assets/json/device-live-stastic.json';
+import BarChartCard from '~/components/BarCahrtCard.vue';
+import ChartCard from '~/components/ChartCard.vue';
+import MapCard from '~/components/MapCard.vue';
+import { statusMap } from '~/utils/statusMap';
 
 export default {
   name: 'Dashboard',
@@ -222,6 +224,7 @@ export default {
       eventsNotCloseList,
       eventsAlertList,
       cpus,
+      lives,
       dashboardList: [
         {
           name: 'TWAREN 400G骨幹網路即時監控狀態圖',
@@ -246,8 +249,8 @@ export default {
           i: 3,
           w: 4,
           h: 1,
-          x: 8,
-          y: 0,
+          x: 4,
+          y: 1,
           moved: false,
         },
         {
@@ -256,7 +259,7 @@ export default {
           w: 12,
           h: 1,
           x: 0,
-          y: 5,
+          y: 2,
           moved: false,
         },
         {
@@ -265,17 +268,16 @@ export default {
           w: 12,
           h: 1,
           x: 0,
-          y: 7,
+          y: 3,
           moved: false,
         },
-
         {
           name: '設備存活狀態統計圖',
           i: 6,
           w: 4,
           h: 1,
-          x: 4,
-          y: 1,
+          x: 8,
+          y: 0,
           moved: false,
         },
         {
@@ -288,11 +290,34 @@ export default {
           moved: false,
         },
       ],
-    }
+    };
   },
   computed: {
     eventsCategory() {
-      return events.map((item) => item.name)
+      return events.map((item) => item.name);
+    },
+    eventCategories() {
+      return [
+        {
+          name: '事件類別',
+          type: 'pie',
+          radius: '80%',
+          data: eventCategories.map((d) => {
+            return {
+              ...d,
+              itemStyle: {
+                color:
+                  this.$vuetify.theme.themes[
+                    this.$vuetify.theme.isDark ? 'dark' : 'light'
+                  ][statusMap[d.type] || d.type],
+              },
+            };
+          }),
+          label: {
+            show: false,
+          },
+        },
+      ];
     },
     events() {
       return [
@@ -309,7 +334,7 @@ export default {
             },
           })),
         },
-      ]
+      ];
     },
     eventsNotCloseListHeader() {
       return [
@@ -345,7 +370,7 @@ export default {
           text: this.$t('event.description'),
           value: 'desc',
         },
-      ]
+      ];
     },
     eventsAlertListHeader() {
       return [
@@ -377,13 +402,13 @@ export default {
           text: this.$t('event.description'),
           value: 'desc',
         },
-      ]
+      ];
     },
   },
   methods: {
     onLayoutUpdated(list) {
-      this.dashboardList = list
+      this.dashboardList = list;
     },
   },
-}
+};
 </script>
