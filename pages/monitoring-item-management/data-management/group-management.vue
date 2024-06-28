@@ -1,15 +1,21 @@
 <template>
   <v-row>
-    <v-col cols="12" class="d-inline-flex align-center" style="gap: 1rem">
-      <v-select
-        v-model="selectedRole"
-        class="d-inline-block flex-grow-0"
-        :items="roles"
-        item-text="name"
-        item-value="id"
-        :label="$t('select.group')"
-      ></v-select>
-      <v-btn color="primary" @click="savePermissions">{{ $t('save') }}</v-btn>
+    <v-col cols="12">
+      <v-card>
+        <v-card-text class="d-inline-flex align-center" style="gap: 1rem">
+          <v-select
+            v-model="selectedRole"
+            class="d-inline-block flex-grow-0"
+            :items="roles"
+            item-text="name"
+            item-value="id"
+            :label="$t('select.group')"
+          ></v-select>
+          <v-btn color="primary" @click="savePermissions">{{
+            $t('save')
+          }}</v-btn>
+        </v-card-text>
+      </v-card>
     </v-col>
     <v-col cols="12">
       <v-card>
