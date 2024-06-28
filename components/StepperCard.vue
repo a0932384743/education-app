@@ -19,7 +19,7 @@
             <v-stepper-step :key="item.name" :step="index + 1">
               {{ item.name }}
             </v-stepper-step>
-            <v-divider :key="`${item.name}_divider`" v-if="index < (items?.length -1)"></v-divider>
+            <v-divider v-if="index < (items?.length -1)" :key="`${item.name}_divider`"></v-divider>
           </template>
         </v-stepper-header>
         <v-stepper-items>

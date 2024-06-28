@@ -1,8 +1,6 @@
 import Vue from 'vue';
-import SnackBar from '../../components/SnackBar.vue';
-
-const Snackbar = Vue.extend(SnackBar);
-
+import SnackBarComponent from '../../components/SnackBar.vue';
+const Snackbar = Vue.extend(SnackBarComponent);
 export default (context, inject) => {
   const snackbar = new Snackbar({
     vuetify: context.app.vuetify,

@@ -136,7 +136,7 @@
   </v-row>
 </template>
 <script>
-import items from '~/assets/json/accounts.json'
+import items from '~/assets/json/accounts.json';
 export default {
   name: 'AccountManagement',
   layout: 'admin-layout',
@@ -146,7 +146,7 @@ export default {
         ...item,
         editable: false,
       })),
-    }
+    };
   },
   computed: {
     headers() {
@@ -159,7 +159,7 @@ export default {
         { text: this.$t('mobile'), value: 'mobile' },
         { text: this.$t('status'), value: 'status' },
         { text: this.$t('operate'), value: 'operate', sortable: false },
-      ]
+      ];
     },
   },
   methods: {
@@ -174,8 +174,8 @@ export default {
         mobile: '',
         status: 'disabled',
         editable: true,
-      })
+      });
     },
   },
-}
+};
 </script>

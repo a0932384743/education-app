@@ -232,8 +232,8 @@
                   :label="$t('select.file')"
                   :rules="rules.file"
                   prepend-icon="mdi-paperclip"
-                  @change="selectFile"
                   hide-details
+                  @change="selectFile"
                 ></v-file-input>
                 <v-subheader v-if="message" :class="message + '--text'">
                   <v-icon

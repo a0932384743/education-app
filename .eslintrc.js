@@ -40,4 +40,4 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 0,
   },
   ignorePatterns: ['static/js/*.js'],
-}
+};
