@@ -40,151 +40,22 @@
         height: `calc(100% - ${vuetify.application.top}px)`,
       }"
     >
-      <v-list-item-group v-model="activePath" active-class="info">
-        <template v-for="menu in menus">
-          <v-list-group
-            v-if="menu.children && menu.children.length"
-            :key="JSON.stringify(menu)"
-            active-class="faded-info-background"
-            :value="String(activePath).includes(menu.url)"
-            sub-group
-            @click="activePath = menu.url"
-          >
-            <template #prependIcon>
-              <v-icon size="20" class="white--text"
-                >mdi-view-grid-outline</v-icon
-              >
-            </template>
-            <template #appendIcon>
-              <v-icon size="20" class="white--text">mdi-menu-left</v-icon>
-            </template>
-            <template #activator>
-              <v-list-item-content>
-                <v-list-item-title class="white--text">{{
-                  currentLocale === 'en' ? menu.name_en : menu.name
-                }}</v-list-item-title>
-              </v-list-item-content>
-            </template>
-            <template v-for="children1 in menu.children">
-              <v-list-group
-                v-if="children1.children && children1.children.length"
-                :key="JSON.stringify(children1)"
-                :value="String(activePath).includes(children1.url)"
-                sub-group
-                @click="activePath = children1.url"
-              >
-                <template #prependIcon>
-                  <v-icon size="20" class="white--text"></v-icon>
-                </template>
-                <template #appendIcon>
-                  <v-icon size="20" class="white--text">mdi-menu-left</v-icon>
-                </template>
-                <template #activator>
-                  <v-list-item-content>
-                    <v-list-item-title class="white--text">{{
-                      currentLocale === 'en'
-                        ? children1.name_en
-                        : children1.name
-                    }}</v-list-item-title>
-                  </v-list-item-content>
-                </template>
-
-                <template v-for="children2 in children1.children">
-                  <v-list-group
-                    v-if="children2.children && children2.children.length"
-                    :key="JSON.stringify(children2)"
-                    :value="String(activePath).includes(children2.url)"
-                    sub-group
-                    @click="activePath = children2.url"
-                  >
-                    <template #prependIcon>
-                      <v-icon size="20" class="white--text"></v-icon>
-                    </template>
-                    <template #appendIcon>
-                      <v-icon size="20" class="white--text">mdi-menu-left</v-icon>
-                    </template>
-                    <template #activator>
-                      <v-list-item-content>
-                        <v-list-item-title class="white--text">{{
-                            currentLocale === 'en'
-                              ? children2.name_en
-                              : children2.name
-                          }}</v-list-item-title>
-                      </v-list-item-content>
-                    </template>
-                    <v-list-item
-                      v-for="children3 in children2.children"
-                      :key="JSON.stringify(children3)"
-                      :to="children3.url"
-                      :value="children3.url"
-                      :link="false"
-                    >
-                      <v-list-item-content>
-                        <v-list-item-title class="white--text">{{
-                            currentLocale === 'en'
-                              ? children3.name_en
-                              : children3.name
-                          }}</v-list-item-title>
-                      </v-list-item-content>
-                    </v-list-item>
-                  </v-list-group>
-                  <v-list-item
-                    v-else
-                    :key="JSON.stringify(children2)"
-                    :to="children2.url"
-                    :value="children2.url"
-                    :link="false"
-                  >
-                    <v-list-item-content>
-                      <v-list-item-title class="white--text">{{
-                          currentLocale === 'en'
-                            ? children2.name_en
-                            : children2.name
-                        }}</v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
-                </template>
-              </v-list-group>
-              <v-list-item
-                v-else
-                :key="JSON.stringify(children1)"
-                :to="children1.url"
-                :value="children1.url"
-              >
-                <v-list-item-content>
-                  <v-list-item-title class="white--text">{{
-                    currentLocale === 'en' ? children1.name_en : children1.name
-                  }}</v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </template>
-          </v-list-group>
-          <v-list-item
-            v-else
-            :key="JSON.stringify(menu)"
-            :to="menu.url"
-            :value="menu.url"
-          >
-            <v-list-item-icon class="mr-1">
-              <v-icon size="20" class="white--text"
-                >mdi-view-grid-outline</v-icon
-              >
-            </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title class="white--text">{{
-                currentLocale === 'en' ? menu.name_en : menu.name
-              }}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </template>
+      <v-list-item-group  active-class="info">
+        <side-menu-group
+          v-for="menu in menus"
+          :key="Object.keys(menu)"
+          :menu="menu"
+        />
       </v-list-item-group>
     </v-list>
   </v-navigation-drawer>
 </template>
 <script>
 import menus from '~/assets/json/menu.json';
+import SideMenuGroup from '~/components/SideMenuGroup.vue';
 export default {
   name: 'SideMenu',
+  components: { SideMenuGroup },
   props: {
     drawer: {
       type: Boolean,
@@ -200,38 +71,12 @@ export default {
     sideMenuSettings() {
       return this.$store.getters['common/getSideMenuSetting'];
     },
-    currentLocale() {
-      return this.$i18n.locale;
-    },
-    flatMenu() {
-      const flatList = [];
-      function flatten(item) {
-        flatList.push({
-          icon: item.icon,
-          name: item.name,
-          url: item.url,
-        });
-        if (item.children && item.children.length > 0) {
-          item.children.forEach(flatten);
-        }
-      }
-      menus.forEach(flatten);
-      return flatList;
-    },
     vuetify() {
       return this.$vuetify;
     },
     menus() {
       return menus;
     },
-  },
-  watch: {
-    $route(to) {
-      this.activePath = to.path;
-    },
-  },
-  mounted() {
-    this.activePath = this.$router.currentRoute.path;
   },
   methods: {
     updateDrawer(value) {
