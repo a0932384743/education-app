@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import SnackBarComponent from '../../components/SnackBar.vue';
+import SnackBarComponent from '../../components/AlertMessage.vue';
 const Snackbar = Vue.extend(SnackBarComponent);
 export default (context, inject) => {
   const snackbar = new Snackbar({
