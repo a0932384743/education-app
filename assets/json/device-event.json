@@ -1,14 +1,17 @@
 [
   {
     "value": 11,
-    "name": "Critical"
+    "name": "Critical",
+    "type": "abnormal"
   },
   {
     "value": 20,
-    "name": "Mirror"
+    "name": "Mirror",
+    "type": "non-warning"
   },
   {
-    "value": 3,
-    "name": "Normal"
+    "value": 10,
+    "name": "Normal",
+    "type": "normal"
   }
 ]

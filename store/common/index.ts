@@ -16,6 +16,7 @@ type State = {
     rounded: boolean
     shaped: boolean
     absolute: boolean
+    height: number
   }
   sideMenuSettings: {
     absolute: boolean
@@ -91,6 +92,7 @@ const commonModule: Module<State, StateInterface> = {
       rounded: false,
       shaped: false,
       absolute: false,
+      height:80,
     },
     sideMenuSettings: {
       absolute: false,

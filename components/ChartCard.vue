@@ -11,7 +11,7 @@
       </v-btn>
     </v-card-title>
     <v-expand-transition>
-      <v-card-text v-if="!collapse">
+      <v-card-text v-if="!collapse" style="height: calc(100% - 60px)">
         <slot />
       </v-card-text>
     </v-expand-transition>
@@ -30,7 +30,7 @@ export default {
     return {
       collapse: false,
       show: true,
-    };
+    }
   },
-};
+}
 </script>

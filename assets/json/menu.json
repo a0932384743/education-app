@@ -2,18 +2,18 @@
   {
     "id": 1,
     "children": [],
-    "icon": "mdi-home",
-    "name": "Home",
-    "name_en": "Home",
-    "url": "/"
+    "icon": "mdi-view-dashboard",
+    "name": "Dashboard",
+    "name_en": "Dashboard",
+    "url": "/dashboard"
   },
   {
     "id": 2,
     "children": [],
     "icon": "mdi-view-dashboard",
-    "name": "Dashboard",
-    "name_en": "Dashboard",
-    "url": "/dashboard"
+    "name": "Dashboard(教育部)",
+    "name_en": "Dashboard(Education)",
+    "url": "/dashboard-edu"
   },
   {
     "id": 3,

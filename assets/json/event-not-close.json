@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "event": "EV-2024-001",
+    "category": "網路連接異常",
+    "level": "danger",
+    "startTime": "2024-06-28 10:15:00",
+    "endTime":"2024-07-28 10:15:00",
+    "equipment": "TWAREN-TN-ASR001-01",
+    "desc": "[to TWAREN-AC-AS002-02] in 0 Mbps, out 0 Mbps, in_high: 9000, in_low: 1e-05, in_avg: 0"
+  },
+  {
+    "id": 2,
+    "event": "EV-2024-002",
+    "category": "數據包丟失",
+    "level": "warning",
+    "startTime": "2024-06-28 11:30:45",
+    "endTime":"2024-07-28 10:15:00",
+    "equipment": "TWAREN-TN-ASR002-03",
+    "desc": "[to TWAREN-AC-AS002-02] in 0 Mbps, out 0 Mbps, in_high: 8500, in_low: 1e-06, in_avg: 0"
+  }
+]

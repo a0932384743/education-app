@@ -52,8 +52,7 @@ export default {
         },
 
         {
-          text: this.$t(' device.category'),
-
+          text: this.$t('device.category'),
           value: 'type',
         },
         {

@@ -2,6 +2,7 @@
   <v-app id="inspire">
     <v-app-bar
       app
+      :height="headerSettings.height"
       :color="headerSettings.color"
       :dense="headerSettings.dense"
       :elevation="headerSettings.elevation"
@@ -12,6 +13,7 @@
       :rounded="headerSettings.rounded"
       :shaped="headerSettings.shaped"
       :fixed="headerSettings.absolute"
+      style="overflow: hidden"
     >
       <v-app-bar-nav-icon @click="toggleDrawer"></v-app-bar-nav-icon>
       <v-spacer></v-spacer>

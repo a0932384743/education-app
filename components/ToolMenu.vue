@@ -18,7 +18,7 @@
         </v-list-item-title>
       </v-list-item-content>
     </v-list-item>
-    <v-divider class="my-3"/>
+    <v-divider class="my-3" />
     <v-list dense>
       <v-list-item>
         <v-list-item-content>
@@ -35,7 +35,7 @@
           </v-col>
         </v-row>
       </v-list-item>
-      <v-divider class="my-3"/>
+      <v-divider class="my-3" />
       <v-list-item>
         <v-subheader>Header Setting</v-subheader>
       </v-list-item>
@@ -46,6 +46,17 @@
               v-model="headerSettings.elevation"
               label="Elevation"
               hide-details
+              color="info"
+              class="mt-0"
+            />
+          </v-col>
+          <v-col cols="12">
+            <v-slider
+              v-model="headerSettings.height"
+              label="Height"
+              hide-details
+              :min="1"
+              :max="100"
               color="info"
               class="mt-0"
             />
@@ -123,7 +134,7 @@
           </v-col>
         </v-row>
       </v-list-item>
-      <v-divider class="my-3"/>
+      <v-divider class="my-3" />
 
       <v-list-item>
         <v-subheader>Footer Setting</v-subheader>
@@ -146,6 +157,7 @@
               hide-details
               color="info"
               class="mt-0"
+              :min="1"
               :max="100"
             />
           </v-col>
@@ -204,7 +216,7 @@
           </v-col>
         </v-row>
       </v-list-item>
-      <v-divider class="my-3"/>
+      <v-divider class="my-3" />
       <v-list-item>
         <v-subheader>Side Menu Setting</v-subheader>
       </v-list-item>

@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "event": "EV-2024-001",
+    "category": "網路連接異常",
+    "level": "warning",
+    "startTime": "2024-06-28 10:15:00",
+    "endTime":"2024-07-28 10:15:00",
+    "equipment": "Big Data PlantForm",
+    "desc": "大數據資料平台連線Mail伺服器失敗"
+  }
+]

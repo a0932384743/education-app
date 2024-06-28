@@ -49,11 +49,19 @@
   </v-card>
 </template>
 <script>
-import { statusMap } from '~/utils/statusMap'
+import { statusMap } from '~/utils/statusMap';
 
 export default {
   name: 'MapCard',
   props: {
+    center: {
+      type: Array,
+      required: false,
+    },
+    map: {
+      type: String,
+      required: false,
+    },
     title: {
       type: String,
       required: true,
@@ -72,18 +80,18 @@ export default {
       statusMap,
       collapse: false,
       show: true,
-      currentZoom: 9,
-    }
+      currentZoom: 8,
+    };
   },
   computed: {
     options() {
       return {
         geo: [
           {
-            map: 'geo',
+            map: this.map || 'geo',
             roam: true,
             zoom: this.currentZoom,
-            center: [126.9654, 25.5477],
+            center: this.center || [126.9654, 25.5477],
             regions: this.nodes.map((node) => {
               return {
                 ...node,
@@ -93,7 +101,7 @@ export default {
                       this.$vuetify.theme.isDark ? 'light' : 'dark'
                     ][statusMap[node.status]],
                 },
-              }
+              };
             }),
           },
         ],
@@ -113,13 +121,13 @@ export default {
                       this.$vuetify.theme.isDark ? 'light' : 'dark'
                     ][statusMap[node.status]],
                 },
-              }
+              };
             }),
             symbolSize: 35,
             label: {
               show: true,
               formatter: function (params) {
-                return params.value[2]
+                return params.value[2];
               },
               position: 'inside',
               color: '#e7e7e7', // 字體顏色
@@ -156,37 +164,37 @@ export default {
                   color: '#fff',
                   symbolSize: 3,
                 },
-              }
+              };
             }),
           },
         ],
-      }
+      };
     },
   },
   methods: {
     reload() {
-      this.currentZoom = 9
+      this.currentZoom = 9;
       this.$refs.map.chart.dispatchAction({
         type: 'geoRoam',
         zoom: this.currentZoom,
-      })
+      });
     },
     zoomIn() {
-      this.currentZoom -= 2
+      this.currentZoom -= 2;
       this.$refs.map.chart.dispatchAction({
         type: 'geoRoam',
         zoom: this.currentZoom,
-      })
+      });
     },
     zoomOut() {
-      this.currentZoom += 2
+      this.currentZoom += 2;
       this.$refs.map.chart.dispatchAction({
         type: 'geoRoam',
         zoom: this.currentZoom,
-      })
+      });
     },
   },
-}
+};
 </script>
 <style scoped>
 .btn-group {

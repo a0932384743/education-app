@@ -23,6 +23,8 @@
         title="TWAREN 400G骨幹網路即時監控狀態圖"
         :links="links"
         :nodes="nodes"
+        :center="[121, 24.033]"
+        :map="'taiwanGEO'"
       />
     </grid-item>
     <grid-item
@@ -41,6 +43,9 @@
         }"
         :x-axis="eventsCategory"
       >
+        <template>
+          <div class="subtitle-2">依據事件告警嚴重等級統計</div>
+        </template>
       </bar-chart-card>
     </grid-item>
     <grid-item
@@ -59,6 +64,51 @@
           stack: 'Total',
         }"
       >
+        <template>
+          <div class="subtitle-2">TWAREN設備存活狀態比較圖</div>
+        </template>
+      </bar-chart-card>
+    </grid-item>
+    <grid-item
+      drag-allow-from=".v-card__title"
+      :x="dashboardList[5].x"
+      :y="dashboardList[5].y"
+      :w="dashboardList[5].w"
+      :h="dashboardList[5].h"
+      :i="dashboardList[5].i"
+    >
+      <bar-chart-card
+        title="未結案比例統計圖表"
+        :items="events"
+        :legends-props="{
+          show: false,
+        }"
+        :x-axis="eventsCategory"
+      >
+        <template>
+          <div class="subtitle-2">依據事件告警嚴重等級統計</div>
+        </template>
+      </bar-chart-card>
+    </grid-item>
+    <grid-item
+      drag-allow-from=".v-card__title"
+      :x="dashboardList[6].x"
+      :y="dashboardList[6].y"
+      :w="dashboardList[6].w"
+      :h="dashboardList[6].h"
+      :i="dashboardList[6].i"
+    >
+      <bar-chart-card
+        title="設備存活狀態統計圖表"
+        :items="cpus"
+        :x-axis="cpus[0].category"
+        :series-props="{
+          stack: 'Total',
+        }"
+      >
+        <template>
+          <div class="subtitle-2">TWAREN設備存活狀態比較圖</div>
+        </template>
       </bar-chart-card>
     </grid-item>
     <grid-item
@@ -83,7 +133,11 @@
               </div>
             </template>
             <template #item="{ item }">
-              <tr :class="item.level" class="lighten-2" style="border-color: inherit !important">
+              <tr
+                :class="item.level"
+                class="lighten-2"
+                style="border-color: inherit !important"
+              >
                 <td>{{ item.id }}</td>
                 <td nowrap="nowrap">{{ item.event }}</td>
                 <td nowrap="nowrap">{{ item.category }}</td>
@@ -115,7 +169,11 @@
             hide-default-footer
           >
             <template #item="{ item }">
-              <tr :class="item.level" class="lighten-2" style="border-color: inherit !important">
+              <tr
+                :class="item.level"
+                class="lighten-2"
+                style="border-color: inherit !important"
+              >
                 <td>{{ item.id }}</td>
                 <td nowrap="nowrap">{{ item.event }}</td>
                 <td nowrap="nowrap">{{ item.category }}</td>
@@ -127,23 +185,21 @@
             </template>
           </v-data-table>
         </div>
-
-
       </chart-card>
     </grid-item>
   </grid-layout>
 </template>
 
 <script>
-import eventsNotCloseList from '~/assets/json/event-not-close.json';
-import eventsAlertList from '~/assets/json/event-alert.json';
+import eventsNotCloseList from '~/assets/json/event-not-close.json'
+import eventsAlertList from '~/assets/json/event-alert.json'
 
-import events from '~/assets/json/device-event.json';
-import cpus from '~/assets/json/device-cpu-stastic.json';
-import BarChartCard from '~/components/BarCahrtCard.vue';
-import ChartCard from '~/components/ChartCard.vue';
-import MapCard from '~/components/MapCard.vue';
-import { statusMap } from '~/utils/statusMap';
+import events from '~/assets/json/device-event.json'
+import cpus from '~/assets/json/device-cpu-stastic.json'
+import BarChartCard from '~/components/BarCahrtCard.vue'
+import ChartCard from '~/components/ChartCard.vue'
+import MapCard from '~/components/MapCard.vue'
+import { statusMap } from '~/utils/statusMap'
 
 export default {
   name: 'Dashboard',
@@ -156,76 +212,12 @@ export default {
         { name: '台中市', value: [120.6736, 24.1477, 50], status: 'normal' },
         { name: '台南市', value: [120.2049, 22.9999, 60], status: 'abnormal' },
         { name: '高雄市', value: [120.666, 23.0109, 50], status: 'normal' },
-        {
-          name: 'New York',
-          value: [145 - 74.0059 / 6, 20 + 40.71282 / 6, 60],
-          status: 'abnormal',
-        },
-        {
-          name: 'California',
-          value: [145 - 118.2437 / 6, 20 + 34.0522 / 6, 50],
-          status: 'normal',
-        },
-        {
-          name: 'Indiana',
-          value: [145 - 87.6298 / 6, 20 + 41.8781 / 6, 40],
-          status: 'non-warning',
-        },
-        {
-          name: 'Texas',
-
-          value: [145 - 95.3698 / 6, 20 + 29.7604 / 6, 60],
-          status: 'abnormal',
-        },
-        {
-          name: 'Arizona',
-          value: [145 - 112.074 / 6, 20 + 33.4484 / 6, 40],
-          status: 'non-warning',
-        },
       ],
       links: [
         { source: '台北市', target: '台中市', value: 50 },
-        { source: '台北市', target: 'New York', value: 50, status: 'normal' },
-        { source: '台南市', target: 'New York', value: 50, status: 'normal' },
-        {
-          source: '台中市',
-          target: 'Indiana',
-          value: 40,
-          status: 'non-warning',
-        },
+        { source: '台北市', target: '台南市', value: 50, status: 'normal' },
         { source: '台中市', target: '台南市', value: 50, status: 'normal' },
         { source: '台南市', target: '高雄市', value: 50, status: 'normal' },
-        {
-          source: 'New York',
-          target: 'California',
-          value: 60,
-          status: 'normal',
-        },
-        {
-          source: 'New York',
-          target: 'Indiana',
-          value: 60,
-          status: 'abnormal',
-        },
-        {
-          source: 'California',
-          target: 'Indiana',
-          value: 60,
-          status: 'abnormal',
-        },
-        {
-          source: 'California',
-          target: 'Arizona',
-          value: 60,
-          status: 'abnormal',
-        },
-        { source: 'Indiana', target: 'Arizona', value: 60, status: 'abnormal' },
-        {
-          source: 'Arizona',
-          target: 'Texas',
-          value: 40,
-          status: 'non-warning',
-        },
       ],
       eventsNotCloseList,
       eventsAlertList,
@@ -234,7 +226,7 @@ export default {
         {
           name: 'TWAREN 400G骨幹網路即時監控狀態圖',
           i: 1,
-          w: 8,
+          w: 4,
           h: 2,
           x: 0,
           y: 0,
@@ -245,11 +237,19 @@ export default {
           i: 2,
           w: 4,
           h: 1,
+          x: 4,
+          y: 0,
+          moved: false,
+        },
+        {
+          name: '未結案事件比例圖',
+          i: 3,
+          w: 4,
+          h: 1,
           x: 8,
           y: 0,
           moved: false,
         },
-        { name: '設備狀態統計圖', i: 3, w: 4, h: 1, x: 8, y: 1, moved: false },
         {
           name: '至今尚未關閉事件',
           i: 4,
@@ -268,12 +268,31 @@ export default {
           y: 7,
           moved: false,
         },
+
+        {
+          name: '設備存活狀態統計圖',
+          i: 6,
+          w: 4,
+          h: 1,
+          x: 4,
+          y: 1,
+          moved: false,
+        },
+        {
+          name: '設備存活狀態統計圖',
+          i: 7,
+          w: 4,
+          h: 1,
+          x: 8,
+          y: 1,
+          moved: false,
+        },
       ],
-    };
+    }
   },
   computed: {
     eventsCategory() {
-      return events.map((item) => item.name);
+      return events.map((item) => item.name)
     },
     events() {
       return [
@@ -290,7 +309,7 @@ export default {
             },
           })),
         },
-      ];
+      ]
     },
     eventsNotCloseListHeader() {
       return [
@@ -326,7 +345,7 @@ export default {
           text: this.$t('event.description'),
           value: 'desc',
         },
-      ];
+      ]
     },
     eventsAlertListHeader() {
       return [
@@ -358,14 +377,13 @@ export default {
           text: this.$t('event.description'),
           value: 'desc',
         },
-      ];
+      ]
     },
-
   },
   methods: {
     onLayoutUpdated(list) {
-      this.dashboardList = list;
+      this.dashboardList = list
     },
   },
-};
+}
 </script>
