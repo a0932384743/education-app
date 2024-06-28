@@ -38,7 +38,7 @@ export default {
   css: ['~/assets/css/scrollbar.css', '~/assets/css/switch.css' , '~/assets/css/custom.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/echarts', '~/plugins/draggable'],
+  plugins: ['~/plugins/echarts', '~/plugins/draggable' , '~/plugins/snackbar'],
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 

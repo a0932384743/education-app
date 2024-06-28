@@ -212,6 +212,18 @@
       </v-col>
       <v-col class="text-right">Version 2.0.0-rc</v-col>
     </v-footer>
+    <div
+      id="Snackbar"
+      style="
+        z-index: 9999;
+        position: fixed;
+        bottom: 10px;
+        left: 0;
+        width: 100%;
+        display: inline-flex;
+        justify-content: center;
+      "
+    />
   </v-app>
 </template>
 
@@ -297,9 +309,9 @@ export default {
         (f) =>
           f.url === this.$router.currentRoute.path ||
           f.url ===
-          this.$router.currentRoute.path.split('/').slice(0, 4).join('/') ||
+            this.$router.currentRoute.path.split('/').slice(0, 4).join('/') ||
           f.url ===
-          this.$router.currentRoute.path.split('/').slice(0, 3).join('/') ||
+            this.$router.currentRoute.path.split('/').slice(0, 3).join('/') ||
           f.url ===
             this.$router.currentRoute.path.split('/').slice(0, 2).join('/') ||
           f.url ===

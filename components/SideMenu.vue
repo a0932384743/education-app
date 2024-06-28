@@ -43,7 +43,7 @@
       <v-list-item-group  active-class="info">
         <side-menu-group
           v-for="menu in menus"
-          :key="Object.keys(menu)"
+          :key="menu.id"
           :menu="menu"
         />
       </v-list-item-group>
