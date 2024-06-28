@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import SnackBar from '~/components/SnackBar.vue';
+import SnackBar from '../../components/SnackBar.vue';
 
 const Snackbar = Vue.extend(SnackBar);
 
