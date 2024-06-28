@@ -5,7 +5,7 @@
         <v-card-text class="d-inline-flex align-center" style="gap: 1rem">
           <v-select
             v-model="selectedRole"
-            class="d-inline-block flex-grow-0"
+            class="d-inline-block"
             :items="roles"
             item-text="name"
             item-value="id"

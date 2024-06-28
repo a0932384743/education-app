@@ -1,5 +1,5 @@
-import en from './locales/en.json';
-import zhTW from './locales/zh-tw.json';
+import en from './assets/locales/en.json';
+import zhTW from './assets/locales/zh-tw.json';
 import { darkTheme, lightTheme } from './utils/themes';
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
