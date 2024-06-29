@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col class="text-center" :cols="12" :md="6">
-      <chart-card title="設備CPU狀況統計圖">
+      <chart-card title="設備CPU狀況監控統計圖">
         <chart-pie-list :items="pieData">
           <template #default="{ options }">
             <v-chart
@@ -51,49 +51,29 @@
             :loading="loading"
             hide-default-footer
           >
+            <template #[`header.cpu`]="{ header }">
+                {{ header.text }}(%)<br>
+                ({{ $t('average.per.min' , [5]) }})
+            </template>
             <template #[`item.device`]="{ item }">
               <td
                 :class="statusMap[item.status]"
-                style="border-color: white !important; color: white"
+                nowrap="nowrap"
               >
                 {{ item.device || '-' }}
               </td>
             </template>
-            <template #[`item.desc`]="{ item }">
-              <td
-                :class="statusMap[item.status]"
-                style="border-color: white !important; color: white"
-              >
-                {{ item.desc || '-' }}
-              </td>
+            <template #[`item.cpu`]="{ item }">
+              <div style="width: 100px" class="mt-2">
+                <v-progress-linear
+                  v-model="item.cpu"
+                  :color="statusMap[item.status]"
+                  height="10"
+                ></v-progress-linear>
+              </div>
+              <div>{{ Math.round(item.cpu * 100 )}}%</div>
             </template>
-            <template #[`item.output`]="{ item }">
-              <div>{{ item?.output }}</div>
-              <v-sparkline
-                fill
-                :color="statusMap[item.status]"
-                :smooth="16"
-                :line-width="2"
-                :value="item?.output_history || []"
-                auto-draw
-              ></v-sparkline>
-            </template>
-            <template #[`item.input`]="{ item }">
-              <div>{{ item?.input }}</div>
-              <v-sparkline
-                fill
-                :color="statusMap[item.status]"
-                :smooth="16"
-                :line-width="2"
-                :value="item?.input_history || []"
-                auto-draw
-              ></v-sparkline>
-            </template>
-            <template #[`item.status`]="{ item }">
-              <v-chip :color="statusMap[item.status]" dark small>
-                {{ item.status.toUpperCase() }}
-              </v-chip>
-            </template>
+
           </v-data-table>
         </template>
       </table-card>
@@ -102,7 +82,7 @@
 </template>
 
 <script>
-import items from '~/assets/json/device-status.json';
+import items from '~/assets/json/device-cpu-status.json';
 import pieData from '~/assets/json/device-summary.json';
 import lineData from '~/assets/json/cpu-status-history.json';
 import ChartCard from '~/components/ChartCard.vue';
@@ -128,28 +108,12 @@ export default {
           value: 'device',
         },
         {
-          text: this.$t('interface'),
-          value: 'interface',
-        },
-        {
-          text: this.$t('interface.description'),
-          value: 'desc',
-        },
-        {
-          text: 'Input(Mbps)',
-          value: 'input',
-        },
-        {
-          text: 'Output(Mbps)',
-          value: 'output',
-        },
-        {
-          text: this.$t('interface.status'),
-          value: 'status',
-        },
-        {
           text: this.$t('check.time'),
           value: 'checkTime',
+        },
+        {
+          text: this.$t('cpu.usage'),
+          value: 'cpu',
         },
       ];
     },

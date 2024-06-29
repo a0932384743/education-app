@@ -1,5 +1,5 @@
 [
-  { "value": 322, "name": "normal" },
-  { "value": 161, "name": "abnormal" },
-  { "value": 161, "name": "non-warning" }
+  { "value": 79, "name": "normal" },
+  { "value": 21, "name": "abnormal" },
+  { "value": 3, "name": "non-warning" }
 ]

@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <table-card title="連線單位聯絡資料查詢" :items="items">
+    <table-card title="連線單位聯絡資料維護" :items="items">
       <template
         #default="{
           search,

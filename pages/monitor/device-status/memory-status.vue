@@ -27,7 +27,7 @@
       </chart-card>
     </v-col>
     <v-col :cols="12">
-      <table-card title="設備狀態-設備Memory狀態" :items="items">
+      <table-card title="設備狀態-設備Memory狀況" :items="items">
         <template
           #default="{
             search,
@@ -60,25 +60,20 @@
               <td
                 :class="statusMap[item.status]"
                 style="border-color: white !important; color: white"
+                nowrap="nowrap"
               >
                 {{ item.device || '-' }}
               </td>
             </template>
             <template #[`item.memory`]="{ item }">
-              <div>{{ (item?.memory ?? 0) / 1000 }}(MB)</div>
-              <v-sparkline
-                fill
-                :color="statusMap[item.status]"
-                :smooth="16"
-                :line-width="2"
-                :value="item?.memory_history || []"
-                auto-draw
-              ></v-sparkline>
-            </template>
-            <template #[`item.status`]="{ item }">
-              <v-chip :color="statusMap[item.status]" dark small>
-                {{ item.status.toUpperCase() }}
-              </v-chip>
+              <div style="width: 100px" class="mt-2">
+                <v-progress-linear
+                  v-model="item.memory"
+                  :color="statusMap[item.status]"
+                  height="10"
+                ></v-progress-linear>
+              </div>
+              <div>{{ Math.round(item.memory * 100 )}}%</div>
             </template>
           </v-data-table>
         </template>
@@ -114,21 +109,14 @@ export default {
           value: 'device',
         },
         {
-          text: this.$t('device.desc'),
-          value: 'desc',
-        },
-        {
-          text: this.$t('memory'),
-          value: 'memory',
-        },
-        {
-          text: this.$t('device.status'),
-          value: 'status',
-        },
-        {
           text: this.$t('check.time'),
           value: 'checkTime',
         },
+        {
+          text: this.$t('memory.usage'),
+          value: 'memory',
+        },
+
       ];
     },
     lineData() {

@@ -25,9 +25,24 @@
             fixed-header
             hide-default-footer
           >
+            <template #[`item.contact`]="{ item }">
+              <div class="d-inline-flex flex-column" style="gap: 0.4rem">
+                <a class="info--text text-no-wrap" href="#"
+                  >{{ item.contact }}
+                  <v-icon size="20" class="mx-2" color="info">mdi-card-account-details-outline</v-icon></a
+                >
+                <a class="info--text text-no-wrap" :href="`tel:${item.mobile}`">{{
+                  item.mobile
+                }}</a>
+                <a class="info--text text-no-wrap" :href="`tel:${item.phone}`">{{
+                  item.phone
+                }}</a>
+              </div>
+            </template>
             <template #[`item.config`]>
-              <v-btn color="secondary" small dark>
+              <v-btn small color="info">
                 <v-icon>mdi-magnify</v-icon>
+                <span class="d-none d-sm-inline-block">{{ $t('view') }}</span>
               </v-btn>
             </template>
           </v-data-table>
