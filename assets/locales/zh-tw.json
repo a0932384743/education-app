@@ -36,7 +36,7 @@
   "connection.unit": "連線單位",
   "connection.unit.ip": "連線單位WAN Port IP",
   "contact.info": "聯絡資訊",
-  "context.name": "上下文名稱",
+  "context.name": "Context Name",
   "cpu.usage": "CPU使用率",
   "create.account": "創建帳戶",
   "current.temperature": "目前溫度",
