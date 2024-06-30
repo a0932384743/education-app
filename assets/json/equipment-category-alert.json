@@ -5,7 +5,8 @@
     "is_alert": "On",
     "cpu_utilization": 80,
     "temp_high": 75,
-    "temp_low": 20
+    "temp_low": 20,
+    "memory_utilization": 70
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "is_alert": "Off",
     "cpu_utilization": 50,
     "temp_high": 70,
-    "temp_low": 18
+    "temp_low": 18,
+    "memory_utilization": 60
   },
   {
     "id": 3,
@@ -21,7 +23,8 @@
     "is_alert": "On",
     "cpu_utilization": 90,
     "temp_high": 85,
-    "temp_low": 25
+    "temp_low": 25,
+    "memory_utilization": 85
   },
   {
     "id": 4,
@@ -29,7 +32,8 @@
     "is_alert": "On",
     "cpu_utilization": 75,
     "temp_high": 78,
-    "temp_low": 22
+    "temp_low": 22,
+    "memory_utilization": 68
   },
   {
     "id": 5,
@@ -37,7 +41,8 @@
     "is_alert": "Off",
     "cpu_utilization": 60,
     "temp_high": 72,
-    "temp_low": 19
+    "temp_low": 19,
+    "memory_utilization": 50
   },
   {
     "id": 6,
@@ -45,7 +50,8 @@
     "is_alert": "On",
     "cpu_utilization": 85,
     "temp_high": 80,
-    "temp_low": 23
+    "temp_low": 23,
+    "memory_utilization": 72
   },
   {
     "id": 7,
@@ -53,7 +59,8 @@
     "is_alert": "On",
     "cpu_utilization": 95,
     "temp_high": 88,
-    "temp_low": 27
+    "temp_low": 27,
+    "memory_utilization": 90
   },
   {
     "id": 8,
@@ -61,7 +68,8 @@
     "is_alert": "Off",
     "cpu_utilization": 55,
     "temp_high": 68,
-    "temp_low": 17
+    "temp_low": 17,
+    "memory_utilization": 45
   },
   {
     "id": 9,
@@ -69,7 +77,8 @@
     "is_alert": "On",
     "cpu_utilization": 70,
     "temp_high": 76,
-    "temp_low": 21
+    "temp_low": 21,
+    "memory_utilization": 65
   },
   {
     "id": 10,
@@ -77,7 +86,8 @@
     "is_alert": "On",
     "cpu_utilization": 88,
     "temp_high": 82,
-    "temp_low": 24
+    "temp_low": 24,
+    "memory_utilization": 75
   },
   {
     "id": 11,
@@ -85,7 +95,8 @@
     "is_alert": "On",
     "cpu_utilization": 92,
     "temp_high": 87,
-    "temp_low": 26
+    "temp_low": 26,
+    "memory_utilization": 88
   },
   {
     "id": 12,
@@ -93,7 +104,8 @@
     "is_alert": "Off",
     "cpu_utilization": 45,
     "temp_high": 65,
-    "temp_low": 15
+    "temp_low": 15,
+    "memory_utilization": 42
   },
   {
     "id": 13,
@@ -101,7 +113,8 @@
     "is_alert": "On",
     "cpu_utilization": 78,
     "temp_high": 79,
-    "temp_low": 22
+    "temp_low": 22,
+    "memory_utilization": 70
   },
   {
     "id": 14,
@@ -109,7 +122,8 @@
     "is_alert": "On",
     "cpu_utilization": 82,
     "temp_high": 83,
-    "temp_low": 23
+    "temp_low": 23,
+    "memory_utilization": 80
   },
   {
     "id": 15,
@@ -117,7 +131,8 @@
     "is_alert": "Off",
     "cpu_utilization": 58,
     "temp_high": 71,
-    "temp_low": 18
+    "temp_low": 18,
+    "memory_utilization": 55
   },
   {
     "id": 16,
@@ -125,7 +140,8 @@
     "is_alert": "On",
     "cpu_utilization": 89,
     "temp_high": 81,
-    "temp_low": 25
+    "temp_low": 25,
+    "memory_utilization": 82
   },
   {
     "id": 17,
@@ -133,7 +149,8 @@
     "is_alert": "On",
     "cpu_utilization": 93,
     "temp_high": 89,
-    "temp_low": 28
+    "temp_low": 28,
+    "memory_utilization": 89
   },
   {
     "id": 18,
@@ -141,7 +158,8 @@
     "is_alert": "Off",
     "cpu_utilization": 52,
     "temp_high": 69,
-    "temp_low": 16
+    "temp_low": 16,
+    "memory_utilization": 50
   },
   {
     "id": 19,
@@ -149,7 +167,8 @@
     "is_alert": "On",
     "cpu_utilization": 73,
     "temp_high": 77,
-    "temp_low": 20
+    "temp_low": 20,
+    "memory_utilization": 67
   },
   {
     "id": 20,
@@ -157,6 +176,7 @@
     "is_alert": "On",
     "cpu_utilization": 86,
     "temp_high": 84,
-    "temp_low": 24
+    "temp_low": 24,
+    "memory_utilization": 78
   }
 ]

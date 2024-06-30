@@ -31,6 +31,8 @@
   "connect.info": "Connection Information",
   "connect.success": "Connected Success",
   "connect.test": "Test Connection",
+  "connect.unit.id": "Unit Id",
+  "connect.unit.name": "Connection Unit",
   "connection.unit": "Connection Unit",
   "connection.unit.ip": "Connection Unit WAN Port IP",
   "contact.info": "Contact Information",
@@ -75,7 +77,7 @@
   "giga.pop": "Located GigaPoP",
   "group": "Group",
   "high.critical.temperature": "High Critical Temperature",
-  "high.temperature": "High Temperature",
+  "high.temperature": "Temperature High Threshold",
   "history": "History",
   "home": "Home",
   "hours": "{e} Hours Ago",
@@ -107,7 +109,7 @@
   "login.credential": "Or login with credentials",
   "logout": "Logout",
   "low.critical.temperature": "Low Critical Temperature",
-  "low.temperature": "Low Temperature",
+  "low.temperature": "Temperature Low Threshold",
   "memory": "Memory",
   "memory.usage": "Memory Usage",
   "minutes": "{0} Min.",
@@ -178,6 +180,7 @@
   "whois.org.id": "whois Org ID",
   "使用者系統操作紀錄": "User System Operation Records",
   "使用者系統登入紀錄": "User System Login Records",
+  "告警管理-連線單位": "Alert Manage-Connection Unit",
   "國內骨幹流量狀態監控統計圖": "Domestic Backbone Traffic Status Monitoring Statistics Chart",
   "國內骨幹流量狀態趨勢圖": "Domestic Backbone Traffic Status Trend Chart",
   "國際電路界接介面狀態統計圖": "International Circuit Interface Status Statistics Chart",
@@ -208,5 +211,6 @@
   "連線單位聯絡資料維護": "Contact Information Maintenance for Connected Units",
   "電路介面管理-國內電路-新增資通設備": "Circuit Interface Management - Domestic Circuit - Add Telecommunication Equipment",
   "電路狀態-國內骨幹電路狀態": "Circuit Status-Domestic Backbone Circuit Status",
-  "電路狀態-國際電路界接介面狀況": "Circuit Status-International Circuit Interface Condition"
+  "電路狀態-國際電路界接介面狀況": "Circuit Status-International Circuit Interface Condition",
+  "告警管理-設備類": "Alert Management-Equipment"
 }
