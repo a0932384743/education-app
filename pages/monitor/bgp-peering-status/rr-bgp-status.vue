@@ -148,7 +148,7 @@ export default {
           value: 'routes_received_low',
         },
         {
-          text: this.$t('history'),
+          text: this.$t('routes.received.num.history'),
           value: 'history',
         },
       ];
