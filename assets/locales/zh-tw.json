@@ -1,5 +1,8 @@
 {
+  "BGP Peering狀態-RR BGP狀況": "BGP Peering狀態-RR BGP狀況",
   "BGP Peering狀況監控統計圖": "BGP Peering狀況監控統計圖",
+  "RR BGP狀況監控統計圖": "RR BGP狀況監控統計圖",
+  "RR BGP狀況趨勢圖": "R BGP狀況趨勢圖",
   "TWAREN 400G骨幹網路即時監控狀態圖": "TWAREN 400G骨幹網路即時監控狀態圖",
   "abnormal": "異常",
   "abnormal.count": "異常數",
@@ -20,6 +23,7 @@
   "average.per.min": "每{0}分鐘平均值",
   "basic.setting": "基本設定",
   "bgp.community": "BGP Community",
+  "bgp.status": "BGP狀態",
   "brand": "廠牌",
   "cancel": "取消",
   "category": "類別",
@@ -152,6 +156,11 @@
   "remember.me": "記住我",
   "reset": "重設",
   "resource.name": "資源名稱",
+  "routes.received.num.current": "目前接收路由筆數",
+  "routes.received.num.high": "接收路由高臨界值",
+  "routes.received.num.low": "接收路由低臨界值",
+  "rr.client": "RR Client",
+  "rr.server": "RR Server",
   "save": "儲存",
   "search": "搜尋",
   "security.level": "安全層級",
@@ -180,6 +189,7 @@
   "whois.org.id": "whois Org ID",
   "使用者系統操作紀錄": "使用者系統操作紀錄",
   "使用者系統登入紀錄": "使用者系統登入紀錄",
+  "告警管理-設備類": "告警管理-設備類",
   "告警管理-連線單位": "告警管理-連線單位",
   "國內骨幹流量狀態監控統計圖": "國內骨幹流量狀態監控統計圖",
   "國內骨幹流量狀態趨勢圖": "國內骨幹流量狀態趨勢圖",
@@ -214,6 +224,5 @@
   "連線單位聯絡資料維護": "連線單位聯絡資料維護",
   "電路介面管理-國內電路-新增資通設備": "電路介面管理-國內電路-新增資通設備",
   "電路狀態-國內骨幹電路狀態": "電路狀態-國內骨幹電路狀態",
-  "電路狀態-國際電路界接介面狀況": "電路狀態-國際電路界接介面狀況",
-  "告警管理-設備類": "告警管理-設備類"
+  "電路狀態-國際電路界接介面狀況": "電路狀態-國際電路界接介面狀況"
 }

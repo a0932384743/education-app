@@ -36,6 +36,7 @@
           v-model="selected"
           :label="$t(item)"
           :value="item"
+          color="info"
           class="text-no-wrap mt-0"
           hide-details
         ></v-checkbox>
@@ -71,16 +72,16 @@ export default {
           data: this.items
             .filter((d) => {
               return this.selected.some((s) => {
-                return d.name.includes(s);
+                return String(s) === String(d.name) || String(`${s}.yesterday`) === String(d.name);
               });
             })
-            .map((item) => this.$t(`${item.name  }.count`)),
+            .map((item) => this.$t(`${item.name}.count`)),
           icon: 'rect',
           top: '5%',
           left: 'center',
-          textStyle:{
-            fontSize: 18
-          }
+          textStyle: {
+            fontSize: 18,
+          },
         },
         xAxis: {
           type: 'category',
@@ -93,11 +94,11 @@ export default {
         series: this.items
           .filter((d) => {
             return this.selected.some((s) => {
-              return d.name.includes(s);
+              return String(s) === String(d.name) || String(`${s}.yesterday`) === String(d.name);
             });
           })
           .map((d) => ({
-            name: this.$t(`${d.name  }.count`),
+            name: this.$t(`${d.name}.count`),
             type: 'line',
             showSymbol: false,
             smooth: true,

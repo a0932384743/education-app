@@ -1,5 +1,8 @@
 {
+  "BGP Peering狀態-RR BGP狀況": "BGP Peering Status - RR BGP Status",
   "BGP Peering狀況監控統計圖": "BGP Peering Status Monitoring Statistics Chart",
+  "RR BGP狀況監控統計圖": "RR BGP Status Monitoring Statistics Chart",
+  "RR BGP狀況趨勢圖": "RR BGP Status Trend Chart",
   "TWAREN 400G骨幹網路即時監控狀態圖": "TWAREN 400G Backbone Network Real-Time Monitoring Status Diagram",
   "abnormal": "Abnormal",
   "abnormal.count": "Abnormal",
@@ -20,6 +23,7 @@
   "average.per.min": "Per {0} Min. Average",
   "basic.setting": "Basic Settings",
   "bgp.community": "BGP Community",
+  "bgp.status": "BGP Status",
   "brand": "Brand",
   "cancel": "Cancel",
   "category": "Category",
@@ -152,6 +156,11 @@
   "remember.me": "Remember Me",
   "reset": "Reset",
   "resource.name": "Resource Name",
+  "routes.received.num.current": "Current Received Routes",
+  "routes.received.num.high": "High Received Routes Threshold",
+  "routes.received.num.low": "Low Received Routes Threshold",
+  "rr.client": "RR Client",
+  "rr.server": "RR Server",
   "save": "Save",
   "search": "Search",
   "security.level": "Security Level",
@@ -180,6 +189,7 @@
   "whois.org.id": "whois Org ID",
   "使用者系統操作紀錄": "User System Operation Records",
   "使用者系統登入紀錄": "User System Login Records",
+  "告警管理-設備類": "Alert Management-Equipment",
   "告警管理-連線單位": "Alert Manage-Connection Unit",
   "國內骨幹流量狀態監控統計圖": "Domestic Backbone Traffic Status Monitoring Statistics Chart",
   "國內骨幹流量狀態趨勢圖": "Domestic Backbone Traffic Status Trend Chart",
@@ -211,6 +221,5 @@
   "連線單位聯絡資料維護": "Contact Information Maintenance for Connected Units",
   "電路介面管理-國內電路-新增資通設備": "Circuit Interface Management - Domestic Circuit - Add Telecommunication Equipment",
   "電路狀態-國內骨幹電路狀態": "Circuit Status-Domestic Backbone Circuit Status",
-  "電路狀態-國際電路界接介面狀況": "Circuit Status-International Circuit Interface Condition",
-  "告警管理-設備類": "Alert Management-Equipment"
+  "電路狀態-國際電路界接介面狀況": "Circuit Status-International Circuit Interface Condition"
 }
