@@ -81,6 +81,8 @@ export default {
       collapse: false,
       show: true,
       currentZoom: 8,
+      dashOffset: 10,
+      times: null,
     };
   },
   computed: {
@@ -146,23 +148,16 @@ export default {
                   this.nodes.find((n) => n.name === link.target).value,
                 ],
                 lineStyle: {
-                  normal: {
-                    color:
-                      this.$vuetify.theme.themes[
-                        this.$vuetify.theme.isDark ? 'light' : 'dark'
-                      ].info,
-                    width: 5,
-                    opacity: 0.6,
-                    curveness: 0.2,
-                    type: 'dashed', // 设置为虚线
-                  },
-                },
-                effect: {
-                  show: true,
-                  period: 6, // Animation speed
-                  trailLength: 0.7,
-                  color: '#fff',
-                  symbolSize: 3,
+                  animation: true,
+                  type: 'dashed',
+                  dashOffset: this.dashOffset,
+                  color:
+                    this.$vuetify.theme.themes[
+                      this.$vuetify.theme.isDark ? 'light' : 'dark'
+                    ].info,
+                  width: 5,
+                  opacity: 0.6,
+                  curveness: 0.1,
                 },
               };
             }),
