@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col :cols="12">
-      <table-card title="資料管理-帳號管理" :items="items">
+      <table-card title="帳號管理" :items="items">
         <template
           #default="{
             search,
