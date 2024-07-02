@@ -243,6 +243,7 @@
   "連線單位聯絡資料查詢": "Connection Unit Contact Information Inquiry",
   "連線單位聯絡資料維護": "Contact Information Maintenance for Connected Units",
   "電路介面管理-國內電路-新增資通設備": "Circuit Interface Management - Domestic Circuit - Add Telecommunication Equipment",
+  "電路介面管理-國內電路界接介面資料維護": "Circuit Interface Management - Domestic Circuit Interface Data Maintenance",
   "電路介面管理-資策會界接介面資料維護": "Circuit Interface Management - III-NCNU Interface Data Maintenance",
   "電路狀態-國內骨幹電路狀態": "Circuit Status-Domestic Backbone Circuit Status"
 }
