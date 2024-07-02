@@ -145,7 +145,7 @@
                 <td><v-icon :color="item.level">mdi-alert</v-icon></td>
                 <td nowrap="nowrap">{{ item.startTime }}</td>
                 <td nowrap="nowrap">{{ item.endTime }}</td>
-                <td>{{ item?.equipment || '-' }}</td>
+                <td :nowrap="!vuetify.breakpoint.mdAndUp">{{ item?.equipment || '-' }}</td>
                 <td>{{ item.desc }}</td>
               </tr>
             </template>
@@ -173,15 +173,15 @@
               <tr
                 :class="item.level"
                 class="lighten-2"
-                style="border-color: inherit !important"
+                style="border-color: inherit !important" b 
               >
                 <td>{{ item.id }}</td>
                 <td nowrap="nowrap">{{ item.event }}</td>
                 <td nowrap="nowrap">{{ item.category }}</td>
                 <td><v-icon :color="item.level">mdi-alert</v-icon></td>
                 <td nowrap="nowrap">{{ item.startTime }}</td>
-                <td>{{ item?.equipment || '-' }}</td>
-                <td>{{ item.desc }}</td>
+                <td :nowrap="!vuetify.breakpoint.mdAndUp">{{ item?.equipment || '-' }}</td>
+                <td :nowrap="!vuetify.breakpoint.mdAndUp">{{ item.desc }}</td>
               </tr>
             </template>
           </v-data-table>
@@ -293,6 +293,9 @@ export default {
     };
   },
   computed: {
+    vuetify() {
+      return this.$vuetify;
+    },
     eventsCategory() {
       return events.map((item) => item.name);
     },

@@ -13,6 +13,7 @@
         }"
       >
         <v-data-table
+          :fixed-header="true"
           :headers="headers"
           :items="items"
           :search="search"
@@ -21,9 +22,84 @@
           :items-per-page="itemPerPage"
           :footer-props="footerProps"
           :header-props="headerProps"
-          fixed-header
+          height="500px"
           hide-default-footer
         >
+          <template #[`item.whoisOrgID`]="{ item }">
+            <div v-if="!item.editable">{{ item.whoisOrgID }}</div>
+            <v-text-field
+              v-else
+              :value="item.whoisOrgID"
+              small
+              label="ORG"
+              required
+              :rules="[
+                (val) => (val || '').length > 0 || 'This field is required',
+              ]"
+              @change="item.whoisOrgID = 'ORG' + $event"
+            />
+          </template>
+          <template #[`item.orgNameZh`]="{ item }">
+            <div v-if="!item.editable">{{ item.orgNameZh }}</div>
+            <v-select
+              v-else
+              :value="item.orgNameZh"
+              small
+              :items="orgOptions"
+              required
+              :rules="[
+                (val) => (val || '').length > 0 || 'This field is required',
+              ]"
+              @change="
+                item.orgNameZh = $event
+                item.orgNameEn = orgMap[$event].orgNameEn
+                item.gigaPoP = orgMap[$event].gigaPoP
+              "
+            />
+          </template>
+          <template #[`item.bgpCommunity`]="{ item }">
+            <div v-if="!item.editable">{{ item.bgpCommunity }}</div>
+            <v-text-field
+              v-else
+              :value="item.bgpCommunity"
+              label=""
+              :rules="[
+                (val) => (val || '').length > 0 || 'This field is required',
+              ]"
+              @change="
+                item.bgpCommunity = $event.substr(0, 5) + ':' + $event.substr(5)
+              "
+            ></v-text-field>
+          </template>
+          <template #[`item.ipv4Route`]="{ item }">
+            <div v-if="!item.editable">{{ item.ipv4Route }}</div>
+            <v-text-field
+              v-else
+              v-model="item.ipv4Route"
+              label=""
+              :rules="[
+                (v) => !!v || 'IPv4 address is required',
+                (v) =>
+                  /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(\/\d{1,2})?$/.test(v) ||
+                  'Invalid IPv4 address format',
+              ]"
+            ></v-text-field>
+          </template>
+          <template #[`item.operate`]="{ item }">
+            <v-btn
+              small
+              :disabled="Object.keys(item).some((key) => item[key] === '')"
+              :color="item.editable ? 'secondary' : 'info'"
+              @click="
+                Object.keys(item).every((key) => item[key])
+                  ? (item.editable = !item.editable)
+                  : (item.editable = true)
+              "
+            >
+              <v-icon size="20">mdi-pencil</v-icon>
+              <span class="d-none d-sm-inline-block">{{ $t('edit') }}</span>
+            </v-btn>
+          </template>
         </v-data-table>
       </template>
     </table-card>
@@ -36,9 +112,34 @@ import items from '~/assets/json/connection-unit.json';
 export default {
   name: 'ConnectionUnit',
   layout: 'admin-layout',
+  data() {
+    return {
+      items: items.map((item) => ({
+        ...item,
+        editable: false,
+      })),
+      orgMap: {
+        '國網中心-北部分部': {
+          orgNameZh: '國網中心-北部分部',
+          orgNameEn: 'NCT - TP',
+          gigaPoP: 'TPE',
+        },
+        '國網中心-中部分部': {
+          orgNameZh: '國網中心-中部分部',
+          orgNameEn: 'NCT - TXG',
+          gigaPoP: 'TXG',
+        },
+        '國網中心-南部分部': {
+          orgNameZh: '國網中心-南部分部',
+          orgNameEn: 'NCT - TNN',
+          gigaPoP: 'TNN',
+        },
+      },
+    };
+  },
   computed: {
-    items() {
-      return items;
+    orgOptions() {
+      return ['國網中心-北部分部', '國網中心-中部分部', '國網中心-南部分部'];
     },
     headers() {
       return [
@@ -98,7 +199,13 @@ export default {
           text: this.$t('interface.alerting'),
           value: 'isAlerting',
         },
+        { text: this.$t('operate'), value: 'operate', sortable: false },
       ];
+    },
+  },
+  methods: {
+    log(e) {
+      console.log(e);
     },
   },
 };

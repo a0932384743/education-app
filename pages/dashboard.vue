@@ -90,8 +90,8 @@
                 <td><v-icon :color="item.level">mdi-alert</v-icon></td>
                 <td nowrap="nowrap">{{ item.startTime }}</td>
                 <td nowrap="nowrap">{{ item.endTime }}</td>
-                <td>{{ item?.equipment || '-' }}</td>
-                <td>{{ item.desc }}</td>
+                <td :nowrap="!vuetify.breakpoint.mdAndUp">{{ item?.equipment || '-' }}</td>
+                <td :nowrap="!vuetify.breakpoint.mdAndUp">{{ item.desc }}</td>
               </tr>
             </template>
           </v-data-table>
@@ -121,14 +121,12 @@
                 <td nowrap="nowrap">{{ item.category }}</td>
                 <td><v-icon :color="item.level">mdi-alert</v-icon></td>
                 <td nowrap="nowrap">{{ item.startTime }}</td>
-                <td>{{ item?.equipment || '-' }}</td>
-                <td>{{ item.desc }}</td>
+                <td :nowrap="!vuetify.breakpoint.mdAndUp">{{ item?.equipment || '-' }}</td>
+                <td :nowrap="!vuetify.breakpoint.mdAndUp">{{ item.desc }}</td>
               </tr>
             </template>
           </v-data-table>
         </div>
-
-
       </chart-card>
     </grid-item>
   </grid-layout>
@@ -272,6 +270,9 @@ export default {
     };
   },
   computed: {
+    vuetify() {
+      return this.$vuetify;
+    },
     eventsCategory() {
       return events.map((item) => item.name);
     },
