@@ -365,7 +365,43 @@
       },
       {
         "id": 53,
-        "children": [],
+        "children": [
+          {
+            "id": 73,
+            "children": [],
+            "name": "連線單位最近三個月流出入比較圖(Top10)",
+            "name_en": "Comparison of Flow In and Out in the Last Three Months by Connection Unit(Top10)",
+            "url": "/report-search/international-circuit-report-query/flow-comparison"
+          },
+          {
+            "id":74,
+            "children": [],
+            "name": "美國電路-依照連線單位，最近一個月流出入圓餅圖(Top10)",
+            "name_en": "US Circuits - Flow In and Out Pie Chart by Connection Unit in the Last Month(Top10)",
+            "url": "/report-search/international-circuit-report-query/us-circuits"
+          },
+          {
+            "id": 75,
+            "children": [],
+            "name": "美國電路各年度每月之流出入比較趨勢圖",
+            "name_en": "Comparison Trend Chart of Monthly Flow In and Out for Each Year in US Circuits",
+            "url": "/report-search/international-circuit-report-query/us-circuits-trend"
+          },
+          {
+            "id": 76,
+            "children": [],
+            "name": "連線單位歷年出入比較圖(Top10)",
+            "name_en": "Comparison Chart of Flow In and Out Over the Years by Connection Unit(Top10)",
+            "url": "/report-search/international-circuit-report-query/connection-comparison"
+          },
+          {
+            "id": 77,
+            "children": [],
+            "name": "美國電路-依照連線單位，年度流出入圓餅圖(Top10)",
+            "name_en": "US Circuits - Flow In and Out Pie Chart by Connection Unit Annually (Top10)",
+            "url": "/report-search/international-circuit-report-query/us-circuits-connection"
+          }
+        ],
         "name": "國際電路報表查詢",
         "name_en": "International Circuit Report Query",
         "url": "/report-search/international-circuit-report-query"
