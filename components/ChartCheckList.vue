@@ -80,7 +80,7 @@ export default {
           top: '5%',
           left: 'center',
           textStyle: {
-            fontSize: 18,
+            fontSize: this.$vuetify.breakpoint.mdAndUp? 18 : 14,
           },
         },
         xAxis: {
