@@ -27,9 +27,9 @@
           >
             <template #[`item.device`]="{ item }">
               <td
-                :class="item.is_alert=== 'On'  ? 'success' : 'secondary'"
+                :class="item.is_alert === 'On' ? 'success' : 'secondary'"
                 nowrap="nowrap"
-                style="border-color:white !important;"
+                style="border-color: white !important; color: white !important"
               >
                 {{ item.device || '-' }}
               </td>
@@ -124,7 +124,7 @@
 </template>
 
 <script>
-import items from '~/assets/json/equipment-category-alert.json';
+import items from '~/assets/json/equipment-category-alert.json'
 
 export default {
   name: 'EquipmentCategory',
@@ -135,7 +135,7 @@ export default {
         ...item,
         editable: false,
       })),
-    };
+    }
   },
   computed: {
     headers() {
@@ -172,8 +172,8 @@ export default {
           text: this.$t('operate'),
           value: 'operate',
         },
-      ];
+      ]
     },
   },
-};
+}
 </script>

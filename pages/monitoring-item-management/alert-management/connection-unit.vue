@@ -29,7 +29,7 @@
               <td
                 :class="item.isAlerting=== 'On'  ? 'success' : 'secondary'"
                 nowrap="nowrap"
-                style="border-color:white !important;"
+                style="border-color:white !important;color:white;"
               >
                 {{ item.connectUnit || '-' }}
               </td>
