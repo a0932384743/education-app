@@ -58,6 +58,7 @@
             <template #[`item.device`]="{ item }">
               <td
                 :class="statusMap[item.status]"
+                style="border-color:white !important;color:white;"
                 nowrap="nowrap"
               >
                 {{ item.device || '-' }}

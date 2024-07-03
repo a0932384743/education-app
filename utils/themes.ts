@@ -10,7 +10,7 @@ export const lightTheme = {
   header: '#ffffff',
   footer: '#c4c4c4',
   aside: '#00201c',
-};
+}
 
 export const darkTheme = {
   error: '#b0566a',
@@ -24,4 +24,4 @@ export const darkTheme = {
   header: '#0b0d26',
   footer: '#0b0d26',
   aside: '#00201c',
-};
+}

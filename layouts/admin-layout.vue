@@ -34,7 +34,7 @@
           <v-icon ref="fullscreenEle">mdi-fullscreen</v-icon>
         </v-btn>
         <v-menu
-          v-if="vuetify.breakpoint.smAndDown"
+          v-if="vuetify.breakpoint.mdAndUp"
           transition="slide-y-transition"
           offset-y
           bottom
@@ -67,7 +67,7 @@
           </v-list>
         </v-menu>
         <v-menu
-          v-if="vuetify.breakpoint.smAndDown"
+          v-if="vuetify.breakpoint.mdAndUp"
           transition="slide-y-transition"
           offset-y
           bottom
@@ -89,7 +89,7 @@
           </v-list>
         </v-menu>
         <v-menu
-          v-if="!vuetify.breakpoint.smAndDown"
+          v-if="!vuetify.breakpoint.mdAndUp"
           min-width="150px"
           transition="slide-y-transition"
           offset-y

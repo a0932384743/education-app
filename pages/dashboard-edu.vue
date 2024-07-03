@@ -196,16 +196,16 @@
 </template>
 
 <script>
-import eventsNotCloseList from '~/assets/json/event-not-close.json';
-import eventsAlertList from '~/assets/json/event-alert.json';
-import events from '~/assets/json/device-event.json';
-import eventCategories from '~/assets/json/device-event-category.json';
-import cpus from '~/assets/json/device-cpu-stastic.json';
-import lives from '~/assets/json/device-live-stastic.json';
-import BarChartCard from '~/components/BarCahrtCard.vue';
-import ChartCard from '~/components/ChartCard.vue';
-import MapCard from '~/components/MapCard.vue';
-import { statusMap } from '~/utils/statusMap';
+import eventsNotCloseList from '~/assets/json/event-not-close.json'
+import eventsAlertList from '~/assets/json/event-alert.json'
+import events from '~/assets/json/device-event.json'
+import eventCategories from '~/assets/json/device-event-category.json'
+import cpus from '~/assets/json/device-cpu-stastic.json'
+import lives from '~/assets/json/device-live-stastic.json'
+import BarChartCard from '~/components/BarCahrtCard.vue'
+import ChartCard from '~/components/ChartCard.vue'
+import MapCard from '~/components/MapCard.vue'
+import { statusMap } from '~/utils/statusMap'
 
 export default {
   name: 'Dashboard',
@@ -294,14 +294,14 @@ export default {
           moved: false,
         },
       ],
-    };
+    }
   },
   computed: {
     vuetify() {
-      return this.$vuetify;
+      return this.$vuetify
     },
     eventsCategory() {
-      return events.map((item) => item.name);
+      return events.map((item) => item.name)
     },
     eventCategories() {
       return [
@@ -318,13 +318,13 @@ export default {
                     this.$vuetify.theme.isDark ? 'dark' : 'light'
                   ][statusMap[d.type] || d.type],
               },
-            };
+            }
           }),
           label: {
             show: false,
           },
         },
-      ];
+      ]
     },
     events() {
       return [
@@ -341,7 +341,7 @@ export default {
             },
           })),
         },
-      ];
+      ]
     },
     eventsNotCloseListHeader() {
       return [
@@ -377,7 +377,7 @@ export default {
           text: this.$t('event.description'),
           value: 'desc',
         },
-      ];
+      ]
     },
     eventsAlertListHeader() {
       return [
@@ -409,20 +409,20 @@ export default {
           text: this.$t('event.description'),
           value: 'desc',
         },
-      ];
+      ]
     },
   },
   watch: {
     '$vuetify.breakpoint.smAndUp'(value) {
-      this.updateDashboardList(value);
+      this.updateDashboardList(value)
     },
   },
   mounted() {
-    this.updateDashboardList(this.$vuetify.breakpoint.smAndUp);
+    this.updateDashboardList(this.$vuetify.breakpoint.smAndUp)
   },
   methods: {
     onLayoutUpdated(list) {
-      this.dashboardList = list;
+      this.dashboardList = list
     },
     updateDashboardList(value) {
       if (value) {
@@ -490,7 +490,7 @@ export default {
             y: 1,
             moved: false,
           },
-        ];
+        ]
       } else {
         this.dashboardList = [
           {
@@ -556,9 +556,9 @@ export default {
             y: 5,
             moved: false,
           },
-        ];
+        ]
       }
     },
   },
-};
+}
 </script>

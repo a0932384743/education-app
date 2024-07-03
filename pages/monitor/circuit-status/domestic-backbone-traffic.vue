@@ -64,17 +64,17 @@
               </div>
             </template>
             <template #[`item.device`]="{ item }">
-              <td :class="statusMap[item.status]">
+              <td :class="statusMap[item.status]" style="border-color:white !important;color:white;">
                 {{ item.device || '-' }}
               </td>
             </template>
             <template #[`item.interface`]="{ item }">
-              <td :class="statusMap[item.status]">
+              <td :class="statusMap[item.status]" style="border-color:white !important;color:white;">
                 {{ item.interface || '-' }}
               </td>
             </template>
             <template #[`item.desc`]="{ item }">
-              <td :class="statusMap[item.status]">
+              <td :class="statusMap[item.status]" style="border-color:white !important;color:white;">
                 {{ item.desc || '-' }}
               </td>
             </template>

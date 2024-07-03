@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { statusMap } from '~/utils/statusMap';
+import { statusMap } from '~/utils/statusMap'
 
 export default {
   name: 'IndexPage',
@@ -81,7 +81,7 @@ export default {
           moved: false,
         },
       ],
-    };
+    }
   },
   computed: {
     options() {
@@ -149,16 +149,16 @@ export default {
                     this.$vuetify.theme.isDark ? 'light' : 'dark'
                   ][statusMap[node.status]],
               },
-            };
+            }
           }),
         },
-      };
+      }
     },
   },
   methods: {
     onLayoutUpdated(list) {
-      this.dashboardList = list;
+      this.dashboardList = list
     },
   },
-};
+}
 </script>

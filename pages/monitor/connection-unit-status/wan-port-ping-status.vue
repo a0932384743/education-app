@@ -55,7 +55,7 @@
               <td
                 nowrap="nowrap"
                 :class="statusMap[item.status]"
-                style="border-color: white !important"
+                style="border-color:white !important;color:white;"
               >
                 {{ item.unit || '-' }}
               </td>
@@ -63,7 +63,7 @@
             <template #[`item.wanPortIp`]="{ item }">
               <td
                 :class="statusMap[item.status]"
-                style="border-color: white !important"
+                style="border-color:white !important;color:white;"
               >
                 {{ item.wanPortIp || '-' }}
               </td>

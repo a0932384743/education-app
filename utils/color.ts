@@ -13,8 +13,8 @@ export const colors = [
   'header',
   'aside',
   'secondary',
-  'footer'
-];
+  'footer',
+]
 
 export type ColorType =
   | 'red'
@@ -33,4 +33,4 @@ export type ColorType =
   | 'footer'
   | 'secondary'
 
-export default colors;
+export default colors

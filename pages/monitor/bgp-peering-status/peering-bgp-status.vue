@@ -55,7 +55,7 @@
               <td
                 :class="statusMap[item.status]"
                 :style="
-                  item.status !== 'none' && 'border-color:white !important'
+                  item.status !== 'none' && 'border-color:white !important;color:white;'
                 "
                 nowrap="nowrap"
               >
@@ -94,11 +94,11 @@
 </template>
 
 <script>
-import items from '~/assets/json/peering-bgp-status.json'
-import pieData from '~/assets/json/peering-bgp-status-statistics.json'
-import lineData from '~/assets/json/peering-bgp-status-history.json'
-import ChartCard from '~/components/ChartCard.vue'
-import { statusMap } from '~/utils/statusMap'
+import items from '~/assets/json/peering-bgp-status.json';
+import pieData from '~/assets/json/peering-bgp-status-statistics.json';
+import lineData from '~/assets/json/peering-bgp-status-history.json';
+import ChartCard from '~/components/ChartCard.vue';
+import { statusMap } from '~/utils/statusMap';
 
 export default {
   name: 'PeeringBgpStatus',
@@ -107,7 +107,7 @@ export default {
   data() {
     return {
       statusMap,
-    }
+    };
   },
   computed: {
     headers() {
@@ -152,18 +152,18 @@ export default {
           text: this.$t('submitted.check.time'),
           value: 'submitted_check_time',
         },
-      ]
+      ];
     },
 
     items() {
-      return items
+      return items;
     },
     lineData() {
-      return lineData
+      return lineData;
     },
     pieData() {
-      return pieData
+      return pieData;
     },
   },
-}
+};
 </script>
