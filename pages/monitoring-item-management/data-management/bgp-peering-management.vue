@@ -38,19 +38,19 @@
             fixed-header
             hide-default-footer
           >
-          <template #[`item.status`]="{ item }">
-            <v-chip
-              :small="true"
-              :color="statusMap[item.status]"
-              class="lighten-1 text--black align-content-center"
-            >
-              <v-icon size="15" :color="statusMap[item.status]"
-                >mdi-circle</v-icon
+            <template #[`item.status`]="{ item }">
+              <v-chip
+                :small="true"
+                :color="statusMap[item.status]"
+                class="lighten-1 text--black align-content-center"
               >
-              {{ item.status.toUpperCase() }}
-            </v-chip>
-          </template>
-        </v-data-table>
+                <v-icon size="15" :color="statusMap[item.status]"
+                  >mdi-circle</v-icon
+                >
+                {{ item.status.toUpperCase() }}
+              </v-chip>
+            </template>
+          </v-data-table>
         </template>
       </table-card>
     </v-col>
@@ -74,6 +74,7 @@ export default {
         {
           text: '編號',
           value: 'id',
+          width: 80,
         },
         {
           text: '狀態',

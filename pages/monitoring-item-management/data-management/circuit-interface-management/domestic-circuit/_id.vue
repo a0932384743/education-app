@@ -240,10 +240,10 @@
                     v-if="message === 'success'"
                     size="15"
                     :color="message"
-                  >mdi-check-circle</v-icon
+                    >mdi-check-circle</v-icon
                   >
                   <v-icon v-else size="15" :color="message"
-                  >mdi-close-circle</v-icon
+                    >mdi-close-circle</v-icon
                   >
                   {{ $t('upload.' + message) }}
                 </v-subheader>
@@ -359,7 +359,7 @@ export default {
             '僅支持JPEG,PNG和PDF格式.',
         ],
       },
-      categories: ['III', 'Research' , 'VPLS' , 'IPv4' , 'IPv6'],
+      categories: ['III', 'Research', 'VPLS', 'IPv4', 'IPv6'],
       brands: ['CISCO'],
       models: ['Model X', 'Model Y', 'Model Z'],
       dataCenters: ['科技大樓', '臺北', '台大', '臺北(資策會)'],

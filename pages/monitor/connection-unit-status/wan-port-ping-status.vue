@@ -55,7 +55,7 @@
               <td
                 nowrap="nowrap"
                 :class="statusMap[item.status]"
-                style="border-color:white !important;color:white;"
+                style="border-color: white !important; color: white"
               >
                 {{ item.unit || '-' }}
               </td>
@@ -63,7 +63,7 @@
             <template #[`item.wanPortIp`]="{ item }">
               <td
                 :class="statusMap[item.status]"
-                style="border-color:white !important;color:white;"
+                style="border-color: white !important; color: white"
               >
                 {{ item.wanPortIp || '-' }}
               </td>
@@ -115,7 +115,7 @@ export default {
   computed: {
     headers() {
       return [
-        { text: this.$t('id'), value: 'id' },
+        { text: this.$t('id'), value: 'id', width: 80 },
         { text: this.$t('connection.unit'), value: 'unit' },
         { text: this.$t('connection.unit.ip'), value: 'wanPortIp' },
         { text: this.$t('check.time'), value: 'checkTime' },

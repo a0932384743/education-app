@@ -36,7 +36,7 @@
             page,
             items,
             headerProps,
-            loading
+            loading,
           }"
         >
           <v-data-table
@@ -54,27 +54,36 @@
             <template #[`header.input`]="{ header }">
               <div class="d-inline-block text-center">
                 <div>{{ header.text }}</div>
-                <div>({{$t('average.per.min' , ['五'])}})</div>
+                <div>({{ $t('average.per.min', ['五']) }})</div>
               </div>
             </template>
             <template #[`header.output`]="{ header }">
               <div class="d-inline-block text-center">
                 <div>{{ header.text }}</div>
-                <div>({{$t('average.per.min' , ['五'])}})</div>
+                <div>({{ $t('average.per.min', ['五']) }})</div>
               </div>
             </template>
             <template #[`item.device`]="{ item }">
-              <td :class="statusMap[item.status]" style="border-color:white !important;color:white;">
+              <td
+                :class="statusMap[item.status]"
+                style="border-color: white !important; color: white"
+              >
                 {{ item.device || '-' }}
               </td>
             </template>
             <template #[`item.interface`]="{ item }">
-              <td :class="statusMap[item.status]" style="border-color:white !important;color:white;">
+              <td
+                :class="statusMap[item.status]"
+                style="border-color: white !important; color: white"
+              >
                 {{ item.interface || '-' }}
               </td>
             </template>
             <template #[`item.desc`]="{ item }">
-              <td :class="statusMap[item.status]" style="border-color:white !important;color:white;">
+              <td
+                :class="statusMap[item.status]"
+                style="border-color: white !important; color: white"
+              >
                 {{ item.desc || '-' }}
               </td>
             </template>
@@ -129,6 +138,7 @@ export default {
         {
           text: this.$t('id'),
           value: 'id',
+          width: 80,
         },
         {
           text: this.$t('device'),

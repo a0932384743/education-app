@@ -29,14 +29,20 @@
               <div class="d-inline-flex flex-column" style="gap: 0.4rem">
                 <a class="info--text text-no-wrap" href="#"
                   >{{ item.contact }}
-                  <v-icon size="20" class="mx-2" color="info">mdi-card-account-details-outline</v-icon></a
+                  <v-icon size="20" class="mx-2" color="info"
+                    >mdi-card-account-details-outline</v-icon
+                  ></a
                 >
-                <a class="info--text text-no-wrap" :href="`tel:${item.mobile}`">{{
-                  item.mobile
-                }}</a>
-                <a class="info--text text-no-wrap" :href="`tel:${item.phone}`">{{
-                  item.phone
-                }}</a>
+                <a
+                  class="info--text text-no-wrap"
+                  :href="`tel:${item.mobile}`"
+                  >{{ item.mobile }}</a
+                >
+                <a
+                  class="info--text text-no-wrap"
+                  :href="`tel:${item.phone}`"
+                  >{{ item.phone }}</a
+                >
               </div>
             </template>
             <template #[`item.config`]>
@@ -64,6 +70,7 @@ export default {
         {
           text: this.$t('id'),
           value: 'id',
+          width: 80,
         },
 
         {

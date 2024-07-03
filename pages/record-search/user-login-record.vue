@@ -111,7 +111,7 @@ export default {
   data: () => {
     return {
       headers: [
-        { text: '序號', value: 'id' },
+        { text: '序號', value: 'id', width: 80 },
         { text: '使用者代號', value: 'userId' },
         { text: 'IP來源', value: 'ip_address' },
         { text: '登入時間', value: 'login_time' },

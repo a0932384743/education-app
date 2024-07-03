@@ -52,13 +52,13 @@
             hide-default-footer
           >
             <template #[`header.cpu`]="{ header }">
-                {{ header.text }}(%)<br>
-                ({{ $t('average.per.min' , [5]) }})
+              {{ header.text }}(%)<br />
+              ({{ $t('average.per.min', [5]) }})
             </template>
             <template #[`item.device`]="{ item }">
               <td
                 :class="statusMap[item.status]"
-                style="border-color:white !important;color:white;"
+                style="border-color: white !important; color: white"
                 nowrap="nowrap"
               >
                 {{ item.device || '-' }}
@@ -72,9 +72,8 @@
                   height="10"
                 ></v-progress-linear>
               </div>
-              <div>{{ Math.round(item.cpu * 100 )}}%</div>
+              <div>{{ Math.round(item.cpu * 100) }}%</div>
             </template>
-
           </v-data-table>
         </template>
       </table-card>
@@ -103,6 +102,7 @@ export default {
         {
           text: this.$t('id'),
           value: 'id',
+          width: 80,
         },
         {
           text: this.$t('device'),

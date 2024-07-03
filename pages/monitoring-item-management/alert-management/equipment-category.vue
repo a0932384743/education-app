@@ -124,7 +124,7 @@
 </template>
 
 <script>
-import items from '~/assets/json/equipment-category-alert.json'
+import items from '~/assets/json/equipment-category-alert.json';
 
 export default {
   name: 'EquipmentCategory',
@@ -135,7 +135,7 @@ export default {
         ...item,
         editable: false,
       })),
-    }
+    };
   },
   computed: {
     headers() {
@@ -143,6 +143,7 @@ export default {
         {
           text: this.$t('device.id'),
           value: 'id',
+          width: 80,
         },
         {
           text: this.$t('device.name'),
@@ -172,8 +173,8 @@ export default {
           text: this.$t('operate'),
           value: 'operate',
         },
-      ]
+      ];
     },
   },
-}
+};
 </script>

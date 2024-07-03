@@ -10,7 +10,7 @@
             page,
             items,
             headerProps,
-            loading
+            loading,
           }"
         >
           <v-data-table

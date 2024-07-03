@@ -27,9 +27,9 @@
           >
             <template #[`item.connectUnit`]="{ item }">
               <td
-                :class="item.isAlerting=== 'On'  ? 'success' : 'secondary'"
+                :class="item.isAlerting === 'On' ? 'success' : 'secondary'"
                 nowrap="nowrap"
-                style="border-color:white !important;color:white;"
+                style="border-color: white !important; color: white"
               >
                 {{ item.connectUnit || '-' }}
               </td>
@@ -86,6 +86,7 @@ export default {
           text: this.$t('connect.unit.id'),
           value: 'id',
           width: 100
+          width: 80
         },
         {
           text: this.$t('connect.unit.name'),

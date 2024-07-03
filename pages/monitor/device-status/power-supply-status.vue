@@ -52,24 +52,22 @@
             hide-default-footer
           >
             <template #[`header.status`]="{ header }">
-              {{ header.text }}<br>({{$t('query.day.per.minute' , [5])}})
+              {{ header.text }}<br />({{ $t('query.day.per.minute', [5]) }})
             </template>
             <template #[`item.device`]="{ item }">
               <td
                 :class="statusMap[item.status]"
-                style="border-color:white !important;color:white;"
+                style="border-color: white !important; color: white"
                 nowrap="nowrap"
               >
                 {{ item.device || '-' }}
               </td>
             </template>
             <template #[`item.status`]="{ item }">
-              <v-chip
-                :small="true"
-                dark
-                :color="statusMap[item.status]"
-              >
-                {{ $t(item.status) }} ({{ item.status === 'normal' ? 'on' : 'off'}})
+              <v-chip :small="true" dark :color="statusMap[item.status]">
+                {{ $t(item.status) }} ({{
+                  item.status === 'normal' ? 'on' : 'off'
+                }})
               </v-chip>
             </template>
           </v-data-table>
@@ -100,6 +98,7 @@ export default {
         {
           text: this.$t('device.id'),
           value: 'id',
+          width: 80,
         },
         {
           text: this.$t('device'),
@@ -117,7 +116,6 @@ export default {
           text: this.$t('power.supply.status'),
           value: 'status',
         },
-
       ];
     },
     lineData() {
@@ -132,4 +130,3 @@ export default {
   },
 };
 </script>
-

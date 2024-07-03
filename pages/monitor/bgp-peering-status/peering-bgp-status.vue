@@ -55,7 +55,8 @@
               <td
                 :class="statusMap[item.status]"
                 :style="
-                  item.status !== 'none' && 'border-color:white !important;color:white;'
+                  item.status !== 'none' &&
+                  'border-color:white !important;color:white;'
                 "
                 nowrap="nowrap"
               >
@@ -115,6 +116,7 @@ export default {
         {
           text: this.$t('id'),
           value: 'id',
+          width: 80,
         },
         {
           text: this.$t('peering.name'),

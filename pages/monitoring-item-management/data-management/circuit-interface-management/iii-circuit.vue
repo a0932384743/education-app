@@ -223,9 +223,13 @@ export default {
   computed: {
     headers() {
       return [
-        { text: this.$t('interface.id'), value: 'id' },
+        { text: this.$t('interface.id'), value: 'id', width: 80 },
         { text: this.$t('type'), value: 'type' },
-        { text: this.$t('interface.description'), value: 'description' , width: 250},
+        {
+          text: this.$t('interface.description'),
+          value: 'description',
+          width: 250,
+        },
         { text: this.$t('interface.source'), value: 'source' },
         { text: this.$t('interface.destination'), value: 'destination' },
         { text: this.$t('interface.equipment'), value: 'equipment' },

@@ -49,6 +49,7 @@ export default {
         {
           text: '編號',
           value: 'id',
+          width: 80,
         },
         {
           text: '設備',

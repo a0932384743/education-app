@@ -104,7 +104,7 @@ export default {
   computed: {
     headers() {
       return [
-        { text: this.$t('id'), value: 'id' },
+        { text: this.$t('id'), value: 'id', width: 80 },
         { text: this.$t('connection.unit'), value: 'connectUnit' },
         { text: this.$t('device'), value: 'device' },
         { text: this.$t('interface'), value: 'interface' },

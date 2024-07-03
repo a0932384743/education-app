@@ -109,7 +109,7 @@ export default {
   computed: {
     headers() {
       return [
-        { text: this.$t('interface.id'), value: 'id' },
+        { text: this.$t('interface.id'), value: 'id', width: 80 },
         { text: this.$t('type'), value: 'type' },
         {
           text: this.$t('interface.description'),
@@ -130,6 +130,6 @@ export default {
         { text: this.$t('operate'), value: 'operate', sortable: false },
       ];
     },
-  }
+  },
 };
 </script>

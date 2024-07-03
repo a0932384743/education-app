@@ -107,6 +107,7 @@ export default {
         {
           text: 'VLAN ID',
           value: 'id',
+          width: 80,
         },
         {
           text: this.$t('unit.name'),

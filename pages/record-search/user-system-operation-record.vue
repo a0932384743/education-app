@@ -121,6 +121,7 @@ export default {
         {
           text: '編號',
           value: 'id',
+          width: 80,
         },
         {
           text: '使用者代號',

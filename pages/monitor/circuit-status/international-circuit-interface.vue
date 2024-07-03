@@ -54,7 +54,7 @@
             <template #[`item.equipment`]="{ item }">
               <td
                 :class="statusMap[item.quality]"
-                style="border-color:white !important;color:white;"
+                style="border-color: white !important; color: white"
               >
                 {{ item.equipment || '-' }}
               </td>
@@ -62,7 +62,7 @@
             <template #[`item.interface_num`]="{ item }">
               <td
                 :class="statusMap[item.quality]"
-                style="border-color:white !important;color:white;"
+                style="border-color: white !important; color: white"
               >
                 {{ item.interface_num || '-' }}
               </td>
@@ -108,6 +108,7 @@ export default {
         {
           text: this.$t('interface.id'),
           value: 'id',
+          width: 80,
         },
         {
           text: this.$t('interface.equipment'),

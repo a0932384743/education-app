@@ -118,6 +118,7 @@ export default {
         {
           text: this.$t('id'),
           value: 'id',
+          width: 80,
         },
         {
           text: this.$t('rr.server'),

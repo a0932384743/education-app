@@ -144,15 +144,15 @@
 </template>
 
 <script>
-import eventsNotCloseList from '~/assets/json/event-not-close.json'
-import eventsAlertList from '~/assets/json/event-alert.json'
+import eventsNotCloseList from '~/assets/json/event-not-close.json';
+import eventsAlertList from '~/assets/json/event-alert.json';
 
-import events from '~/assets/json/device-event.json'
-import cpus from '~/assets/json/device-cpu-stastic.json'
-import BarChartCard from '~/components/BarCahrtCard.vue'
-import ChartCard from '~/components/ChartCard.vue'
-import MapCard from '~/components/MapCard.vue'
-import { statusMap } from '~/utils/statusMap'
+import events from '~/assets/json/device-event.json';
+import cpus from '~/assets/json/device-cpu-stastic.json';
+import BarChartCard from '~/components/BarCahrtCard.vue';
+import ChartCard from '~/components/ChartCard.vue';
+import MapCard from '~/components/MapCard.vue';
+import { statusMap } from '~/utils/statusMap';
 
 export default {
   name: 'Dashboard',
@@ -278,14 +278,14 @@ export default {
           moved: false,
         },
       ],
-    }
+    };
   },
   computed: {
     vuetify() {
-      return this.$vuetify
+      return this.$vuetify;
     },
     eventsCategory() {
-      return events.map((item) => item.name)
+      return events.map((item) => item.name);
     },
     events() {
       return [
@@ -302,13 +302,14 @@ export default {
             },
           })),
         },
-      ]
+      ];
     },
     eventsNotCloseListHeader() {
       return [
         {
           text: this.$t('id'),
           value: 'id',
+          width: 80,
         },
         {
           text: this.$t('event.number'),
@@ -338,13 +339,14 @@ export default {
           text: this.$t('event.description'),
           value: 'desc',
         },
-      ]
+      ];
     },
     eventsAlertListHeader() {
       return [
         {
           text: this.$t('id'),
           value: 'id',
+          width: 80,
         },
         {
           text: this.$t('event.number'),
@@ -370,16 +372,16 @@ export default {
           text: this.$t('event.description'),
           value: 'desc',
         },
-      ]
+      ];
     },
   },
   watch: {
     '$vuetify.breakpoint.smAndUp'(value) {
-      this.updateDashboardList(value)
+      this.updateDashboardList(value);
     },
   },
   mounted() {
-    this.updateDashboardList(this.$vuetify.breakpoint.smAndUp)
+    this.updateDashboardList(this.$vuetify.breakpoint.smAndUp);
   },
   methods: {
     updateDashboardList(value) {
@@ -430,7 +432,7 @@ export default {
             y: 7,
             moved: false,
           },
-        ]
+        ];
       } else {
         this.dashboardList = [
           {
@@ -478,12 +480,12 @@ export default {
             y: 7,
             moved: false,
           },
-        ]
+        ];
       }
     },
     onLayoutUpdated(list) {
-      this.dashboardList = list
+      this.dashboardList = list;
     },
   },
-}
+};
 </script>

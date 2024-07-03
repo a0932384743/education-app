@@ -59,7 +59,7 @@
             <template #[`item.device`]="{ item }">
               <td
                 :class="statusMap[item.status]"
-                style="border-color:white !important;color:white;"
+                style="border-color: white !important; color: white"
                 nowrap="nowrap"
               >
                 {{ item.device || '-' }}
@@ -73,7 +73,7 @@
                   height="10"
                 ></v-progress-linear>
               </div>
-              <div>{{ Math.round(item.memory * 100 )}}%</div>
+              <div>{{ Math.round(item.memory * 100) }}%</div>
             </template>
           </v-data-table>
         </template>
@@ -103,6 +103,7 @@ export default {
         {
           text: this.$t('id'),
           value: 'id',
+          width: 80,
         },
         {
           text: this.$t('device'),
@@ -116,7 +117,6 @@ export default {
           text: this.$t('memory.usage'),
           value: 'memory',
         },
-
       ];
     },
     lineData() {

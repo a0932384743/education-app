@@ -6,5 +6,5 @@
 export default {
   name: 'ClosedCaseList',
   layout: 'admin-layout',
-}
+};
 </script>
