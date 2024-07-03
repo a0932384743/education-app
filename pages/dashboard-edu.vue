@@ -8,7 +8,6 @@
     is-resizable
     vertical-compact
     :use-css-transforms="true"
-    :responsive="true"
     @layout-updated="onLayoutUpdated"
   >
     <grid-item
@@ -145,8 +144,10 @@
                 <td><v-icon :color="item.level">mdi-alert</v-icon></td>
                 <td nowrap="nowrap">{{ item.startTime }}</td>
                 <td nowrap="nowrap">{{ item.endTime }}</td>
-                <td :nowrap="!vuetify.breakpoint.mdAndUp">{{ item?.equipment || '-' }}</td>
-                <td>{{ item.desc }}</td>
+                <td :nowrap="vuetify.breakpoint.smAndDown">
+                  {{ item?.equipment || '-' }}
+                </td>
+                <td :nowrap="vuetify.breakpoint.smAndDown">{{ item.desc }}</td>
               </tr>
             </template>
           </v-data-table>
@@ -173,15 +174,18 @@
               <tr
                 :class="item.level"
                 class="lighten-2"
-                style="border-color: inherit !important" b 
+                style="border-color: inherit !important"
+                b
               >
                 <td>{{ item.id }}</td>
                 <td nowrap="nowrap">{{ item.event }}</td>
                 <td nowrap="nowrap">{{ item.category }}</td>
                 <td><v-icon :color="item.level">mdi-alert</v-icon></td>
                 <td nowrap="nowrap">{{ item.startTime }}</td>
-                <td :nowrap="!vuetify.breakpoint.mdAndUp">{{ item?.equipment || '-' }}</td>
-                <td :nowrap="!vuetify.breakpoint.mdAndUp">{{ item.desc }}</td>
+                <td :nowrap="vuetify.breakpoint.smAndDown">
+                  {{ item?.equipment || '-' }}
+                </td>
+                <td :nowrap="vuetify.breakpoint.smAndDown">{{ item.desc }}</td>
               </tr>
             </template>
           </v-data-table>
@@ -408,9 +412,152 @@ export default {
       ];
     },
   },
+  watch: {
+    '$vuetify.breakpoint.smAndUp'(value) {
+      this.updateDashboardList(value);
+    },
+  },
+  mounted() {
+    this.updateDashboardList(this.$vuetify.breakpoint.smAndUp);
+  },
   methods: {
     onLayoutUpdated(list) {
       this.dashboardList = list;
+    },
+    updateDashboardList(value) {
+      if (value) {
+        this.dashboardList = [
+          {
+            name: 'TWAREN 400G骨幹網路即時監控狀態圖',
+            i: 1,
+            w: 4,
+            h: 2,
+            x: 0,
+            y: 0,
+            moved: false,
+          },
+          {
+            name: '未結案事件比例圖',
+            i: 2,
+            w: 4,
+            h: 1,
+            x: 4,
+            y: 0,
+            moved: false,
+          },
+          {
+            name: '未結案事件比例圖',
+            i: 3,
+            w: 4,
+            h: 1,
+            x: 4,
+            y: 1,
+            moved: false,
+          },
+          {
+            name: '至今尚未關閉事件',
+            i: 4,
+            w: 12,
+            h: 1,
+            x: 0,
+            y: 2,
+            moved: false,
+          },
+          {
+            name: '外部監控事件報警列表',
+            i: 5,
+            w: 12,
+            h: 1,
+            x: 0,
+            y: 3,
+            moved: false,
+          },
+          {
+            name: '設備存活狀態統計圖',
+            i: 6,
+            w: 4,
+            h: 1,
+            x: 8,
+            y: 0,
+            moved: false,
+          },
+          {
+            name: '設備存活狀態統計圖',
+            i: 7,
+            w: 4,
+            h: 1,
+            x: 8,
+            y: 1,
+            moved: false,
+          },
+        ];
+      } else {
+        this.dashboardList = [
+          {
+            name: 'TWAREN 400G骨幹網路即時監控狀態圖',
+            i: 1,
+            w: 12,
+            h: 2,
+            x: 0,
+            y: 0,
+            moved: false,
+          },
+          {
+            name: '未結案事件比例圖',
+            i: 2,
+            w: 12,
+            h: 1,
+            x: 0,
+            y: 2,
+            moved: false,
+          },
+          {
+            name: '未結案事件比例圖',
+            i: 3,
+            w: 12,
+            h: 1,
+            x: 0,
+            y: 3,
+            moved: false,
+          },
+          {
+            name: '至今尚未關閉事件',
+            i: 4,
+            w: 12,
+            h: 2,
+            x: 0,
+            y: 6,
+            moved: false,
+          },
+          {
+            name: '外部監控事件報警列表',
+            i: 5,
+            w: 12,
+            h: 2,
+            x: 0,
+            y: 8,
+            moved: false,
+          },
+          {
+            name: '設備存活狀態統計圖',
+            i: 6,
+            w: 12,
+            h: 1,
+            x: 0,
+            y: 4,
+            moved: false,
+          },
+          {
+            name: '設備存活狀態統計圖',
+            i: 7,
+            w: 12,
+            h: 1,
+            x: 0,
+            y: 5,
+            moved: false,
+          },
+        ];
+      }
     },
   },
 };
