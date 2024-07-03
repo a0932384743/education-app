@@ -14,7 +14,7 @@
       </chart-card>
     </v-col>
     <v-col class="text-center" :cols="12" :md="6">
-      <chart-card title="國際電路界接介面狀況趨勢圖">
+      <chart-card title="國際電路界接介面狀態趨勢圖">
         <chart-check-list :items="lineData">
           <template #default="{ options }">
             <v-chart

@@ -14,7 +14,7 @@
       </chart-card>
     </v-col>
     <v-col class="text-center" :cols="12" :md="6">
-      <chart-card title="Peering BGP狀況趨勢圖">
+      <chart-card title="Peering BGP狀態趨勢圖">
         <chart-check-list :items="lineData">
           <template #default="{ options }">
             <v-chart

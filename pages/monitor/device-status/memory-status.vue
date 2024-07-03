@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col class="text-center" :cols="12" :md="6">
-      <chart-card title="設備Memory狀況統計圖">
+      <chart-card title="設備Memory狀態統計圖">
         <chart-pie-list :items="pieData">
           <template #default="{ options }">
             <v-chart
@@ -14,7 +14,7 @@
       </chart-card>
     </v-col>
     <v-col class="text-center" :cols="12" :md="6">
-      <chart-card title="設備Memory狀況趨勢圖">
+      <chart-card title="設備Memory狀態趨勢圖">
         <chart-check-list :items="lineData">
           <template #default="{ options }">
             <v-chart
