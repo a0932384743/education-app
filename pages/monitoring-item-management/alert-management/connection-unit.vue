@@ -86,7 +86,6 @@ export default {
           text: this.$t('connect.unit.id'),
           value: 'id',
           width: 100
-          width: 80
         },
         {
           text: this.$t('connect.unit.name'),
