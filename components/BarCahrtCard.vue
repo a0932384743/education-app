@@ -123,6 +123,10 @@ export default {
           return {
             ...s,
             type: this.chartType || 'bar',
+            label: {
+              show: true,
+              formatter: this.chartType ==='pie' ? '{b}: {c}' : '{c}'
+            },
             itemStyle: {
               color:
                 this.$vuetify.theme.themes[

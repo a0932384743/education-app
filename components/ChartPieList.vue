@@ -65,8 +65,9 @@ export default {
           {
             avoidLabelOverlap: false,
             label: {
-              show: false,
-              position: 'center',
+              show: true,
+              position: 'inner',
+              formatter:  '{c}'
             },
             labelLine: {
               show: false,

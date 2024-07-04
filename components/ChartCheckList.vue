@@ -97,14 +97,13 @@ export default {
               return String(s) === String(d.name) || String(`${s}.yesterday`) === String(d.name);
             });
           })
-          .map((d) => ({
+          .map((d,index) => ({
             name: this.$t(`${d.name}.count`),
             type: 'line',
-            showSymbol: false,
             smooth: true,
             label: {
               show: true,
-              position: 'top',
+              position:  index % 2 ? 'top' : 'bottom'
             },
             data: d.value.slice(-this.range),
             itemStyle: {

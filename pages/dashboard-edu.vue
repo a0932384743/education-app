@@ -132,23 +132,82 @@
                 {{ header.text }}/Unit
               </div>
             </template>
-            <template #item="{ item }">
-              <tr
+            <template #[`item.id`]="{ item }">
+              <td
                 :class="item.level"
                 class="lighten-2"
                 style="border-color: inherit !important"
               >
-                <td>{{ item.id }}</td>
-                <td nowrap="nowrap">{{ item.event }}</td>
-                <td nowrap="nowrap">{{ item.category }}</td>
-                <td><v-icon :color="item.level">mdi-alert</v-icon></td>
-                <td nowrap="nowrap">{{ item.startTime }}</td>
-                <td nowrap="nowrap">{{ item.endTime }}</td>
-                <td :nowrap="vuetify.breakpoint.smAndDown">
-                  {{ item?.equipment || '-' }}
-                </td>
-                <td :nowrap="vuetify.breakpoint.smAndDown">{{ item.desc }}</td>
-              </tr>
+                {{ item.id }}
+              </td>
+            </template>
+            <template #[`item.event`]="{ item }">
+              <td
+                :class="item.level"
+                class="lighten-2"
+                style="border-color: inherit !important"
+                nowrap="nowrap"
+              >
+                {{ item.event }}
+              </td>
+            </template>
+            <template #[`item.category`]="{ item }">
+              <td
+                :class="item.level"
+                class="lighten-2"
+                style="border-color: inherit !important"
+                nowrap="nowrap"
+              >
+                {{ item.category }}
+              </td>
+            </template>
+            <template #[`item.level`]="{ item }">
+              <td
+                :class="item.level"
+                class="lighten-2"
+                style="border-color: inherit !important"
+                nowrap="nowrap"
+              >
+                <v-icon :color="item.level">mdi-alert</v-icon>
+              </td>
+            </template>
+            <template #[`item.startTime`]="{ item }">
+              <td
+                :class="item.level"
+                class="lighten-2"
+                style="border-color: inherit !important"
+                nowrap="nowrap"
+              >
+                {{ item.startTime }}
+              </td>
+            </template>
+            <template #[`item.endTime`]="{ item }">
+              <td
+                :class="item.level"
+                class="lighten-2"
+                style="border-color: inherit !important"
+                nowrap="nowrap"
+              >
+                {{ item.endTime }}
+              </td>
+            </template>
+            <template #[`item.equipment`]="{ item }">
+              <td
+                :class="item.level"
+                class="lighten-2"
+                style="border-color: inherit !important"
+              >
+                {{ item?.equipment || '-' }}
+              </td>
+            </template>
+            <template #[`item.desc`]="{ item }">
+              <td
+                :class="item.level"
+                class="lighten-2"
+                style="border-color: inherit !important"
+              >
+                {{ item?.desc || '-' }}
+              </td>
             </template>
           </v-data-table>
         </div>
@@ -170,23 +229,72 @@
             fixed-header
             hide-default-footer
           >
-            <template #item="{ item }">
-              <tr
+            <template #[`item.id`]="{ item }">
+              <td
                 :class="item.level"
                 class="lighten-2"
                 style="border-color: inherit !important"
-                b
               >
-                <td>{{ item.id }}</td>
-                <td nowrap="nowrap">{{ item.event }}</td>
-                <td nowrap="nowrap">{{ item.category }}</td>
-                <td><v-icon :color="item.level">mdi-alert</v-icon></td>
-                <td nowrap="nowrap">{{ item.startTime }}</td>
-                <td :nowrap="vuetify.breakpoint.smAndDown">
-                  {{ item?.equipment || '-' }}
-                </td>
-                <td :nowrap="vuetify.breakpoint.smAndDown">{{ item.desc }}</td>
-              </tr>
+                {{ item.id }}
+              </td>
+            </template>
+            <template #[`item.event`]="{ item }">
+              <td
+                :class="item.level"
+                class="lighten-2"
+                style="border-color: inherit !important"
+                nowrap="nowrap"
+              >
+                {{ item.event }}
+              </td>
+            </template>
+            <template #[`item.category`]="{ item }">
+              <td
+                :class="item.level"
+                class="lighten-2"
+                style="border-color: inherit !important"
+                nowrap="nowrap"
+              >
+                {{ item.category }}
+              </td>
+            </template>
+            <template #[`item.level`]="{ item }">
+              <td
+                :class="item.level"
+                class="lighten-2"
+                style="border-color: inherit !important"
+                nowrap="nowrap"
+              >
+                <v-icon :color="item.level">mdi-alert</v-icon>
+              </td>
+            </template>
+            <template #[`item.startTime`]="{ item }">
+              <td
+                :class="item.level"
+                class="lighten-2"
+                style="border-color: inherit !important"
+                nowrap="nowrap"
+              >
+                {{ item.startTime }}
+              </td>
+            </template>
+            <template #[`item.equipment`]="{ item }">
+              <td
+                :class="item.level"
+                class="lighten-2"
+                style="border-color: inherit !important"
+              >
+                {{ item?.equipment || '-' }}
+              </td>
+            </template>
+            <template #[`item.desc`]="{ item }">
+              <td
+                :class="item.level"
+                class="lighten-2"
+                style="border-color: inherit !important"
+              >
+                {{ item?.desc || '-' }}
+              </td>
             </template>
           </v-data-table>
         </div>
