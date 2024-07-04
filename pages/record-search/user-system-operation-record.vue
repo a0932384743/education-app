@@ -3,7 +3,7 @@
     <v-col class="text-center">
       <v-card>
         <v-card-title>
-          <span class="font-weight-bold">查詢條件</span>
+          <span class="font-weight-bold">{{ $t('condition.search') }}</span>
         </v-card-title>
         <v-divider />
         <v-card-text>

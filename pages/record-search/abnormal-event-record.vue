@@ -3,7 +3,7 @@
     <v-col class="text-center">
       <v-card>
         <v-card-title>
-          <span class="font-weight-bold">查詢條件</span>
+          <span class="font-weight-bold">{{ $t('condition.search') }}</span>
         </v-card-title>
         <v-divider />
         <v-card-text>
@@ -23,7 +23,7 @@
                   <template #activator="{ on, attrs }">
                     <v-text-field
                       v-model="startDate"
-                      label="開始時間"
+                      :label="$t('start.time')"
                       prepend-icon="mdi-calendar"
                       readonly
                       v-bind="attrs"
@@ -49,7 +49,7 @@
                   <template #activator="{ on, attrs }">
                     <v-text-field
                       v-model="endDate"
-                      label="結束時間"
+                      :label="$t('end.time')"
                       prepend-icon="mdi-calendar"
                       readonly
                       v-bind="attrs"
@@ -67,7 +67,7 @@
                 <v-select
                   v-model="category"
                   :items="categories"
-                  label="事件類別"
+                  :label="$t('event.category')"
                 ></v-select>
               </v-col>
               <!-- 嚴重等級 -->
@@ -75,14 +75,14 @@
                 <v-select
                   v-model="level"
                   :items="levels"
-                  label="嚴重等級"
+                  :label="$t('event.level')"
                 ></v-select>
               </v-col>
               <!-- 事件是否結束 -->
               <v-col cols="12" sm="6" md="4" lg="3" class="pt-1">
                 <v-switch
                   v-model="isEventEnded"
-                  label="事件是否結束"
+                  :label="$t('event.is.closed')"
                   class="mt-0"
                 ></v-switch>
               </v-col>
@@ -91,7 +91,9 @@
         </v-card-text>
         <!-- 查詢按鈕 -->
         <v-card-actions class="justify-end">
-          <v-btn color="primary" @click="onSearchEvents">查詢</v-btn>
+          <v-btn color="primary" @click="onSearchEvents">{{
+            $t('search')
+          }}</v-btn>
         </v-card-actions>
       </v-card>
     </v-col>
@@ -117,7 +119,29 @@
             :header-props="headerProps"
             fixed-header
             hide-default-footer
-          />
+          >
+            <template #item="{ item }">
+              <tr
+                :class="!item.endTime && 'error'"
+                class="lighten-2"
+                :style="
+                  item.endTime
+                    ? 'border-color: inherit !important'
+                    : 'border-color:white !important'
+                "
+              >
+                <td>{{ item.id }}</td>
+                <td nowrap="nowrap">{{ item.eventId }}</td>
+                <td>{{ item.category }}</td>
+                <td nowrap="nowrap">{{ item.level }}</td>
+                <td nowrap="nowrap">{{ item.startTime }}</td>
+                <td nowrap="nowrap">{{ item.endTime || $t('continued') }}</td>
+                <td nowrap="nowrap">{{ item.device }}</td>
+                <td nowrap="nowrap">{{ item.duration }}</td>
+                <td>{{ item.desc }}</td>
+              </tr>
+            </template>
+          </v-data-table>
         </template>
       </table-card>
     </v-col>
@@ -139,8 +163,12 @@ export default {
       isEventEnded: false,
       level: '',
       category: '',
-      categories: ['Network', 'Server', 'Database', 'Application', 'Power'],
-      levels: ['Critical', 'High', 'Medium', 'Low'],
+      categories: [
+        'EdgeDevicesPing',
+        'ConnectorTraffic',
+        'InternationalCircuitV4Ping',
+      ],
+      levels: ['MN', 'CR'],
       startDate: moment('2024-06-01').format('YYYY-MM-DD'),
       endDate: moment('2024-06-30').format('YYYY-MM-DD'),
     };
@@ -195,16 +223,17 @@ export default {
     onSearchEvents() {
       this.items = items.filter((item) => {
         return (
-          (!this.endDate ||
-            moment(item.endTime).isBefore(
-              moment(this.endDate).endOf('days')
-            )) &&
           (!this.startDate ||
             moment(item.startTime).isAfter(
               moment(this.startDate).startOf('days')
             )) &&
           (!this.category || item.category === this.category) &&
-          (!this.level || item.level === this.level)
+          (!this.level || item.level === this.level) &&
+          ((this.isEventEnded && item.endTime) ||
+            (!this.isEventEnded &&
+              moment(item.endTime || new Date()).isBefore(
+                moment(this.endDate).endOf('days')
+              )))
         );
       });
     },
