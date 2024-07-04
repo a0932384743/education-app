@@ -27,23 +27,25 @@
           >
             <template #[`item.device`]="{ item }">
               <td
-                :class="item.is_alert === 'On' ? 'success' : 'secondary'"
                 nowrap="nowrap"
-                style="border-color: white !important; color: white !important"
               >
                 {{ item.device || '-' }}
               </td>
             </template>
-            <template #[`item.is_alert`]="{ item }">
-              <div v-if="!item.editable">{{ item.is_alert }}</div>
-              <v-switch
+            <template #[`item.isAlerting`]="{ item }">
+              <div v-if="!item.editable">{{ item.isAlerting }}</div>
+              <v-btn
                 v-else
-                color="info"
-                class="mt-0"
-                :value="item.is_alert === 'on'"
-                hide-details
-                @change="item.is_alert = item.is_alert === 'on' ? 'off' : 'on'"
-              ></v-switch>
+                small
+                class="white--text"
+                :color="item.isAlerting === 'On' ? 'success' : 'danger'"
+                @click="
+                  item.isAlerting = item.isAlerting === 'On' ? 'Off' : 'On'
+                "
+              >
+                <v-icon size="20" dark>mdi-power</v-icon>
+                {{ item.isAlerting }}
+              </v-btn>
             </template>
             <template #[`item.cpu_utilization`]="{ item }">
               <div v-if="!item.editable">{{ item.cpu_utilization }}</div>
@@ -106,11 +108,7 @@
                 small
                 :disabled="Object.keys(item).some((key) => item[key] === '')"
                 :color="item.editable ? 'secondary' : 'info'"
-                @click="
-                  Object.keys(item).every((key) => item[key])
-                    ? (item.editable = !item.editable)
-                    : (item.editable = true)
-                "
+                @click="changeAlert(item)"
               >
                 <v-icon size="20">mdi-pencil</v-icon>
                 <span class="d-none d-sm-inline-block">{{ $t('edit') }}</span>
@@ -151,7 +149,7 @@ export default {
         },
         {
           text: this.$t('interface.alerting'),
-          value: 'is_alert',
+          value: 'isAlerting',
         },
         {
           text: this.$t('cpu.usage'),
@@ -175,6 +173,17 @@ export default {
         },
       ];
     },
+  },
+  methods:{
+    changeAlert(item){
+      Object.keys(item).every((key) => item[key])
+        ? (item.editable = !item.editable)
+        : (item.editable = true);
+
+      if(!item.editable){
+        this.$snackbar.info('更新成功');
+      }
+    }
   },
 };
 </script>

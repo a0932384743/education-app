@@ -25,26 +25,20 @@
             :loading="loading"
             hide-default-footer
           >
-            <template #[`item.connectUnit`]="{ item }">
-              <td
-                :class="item.isAlerting === 'On' ? 'success' : 'secondary'"
-                nowrap="nowrap"
-                style="border-color: white !important; color: white"
-              >
-                {{ item.connectUnit || '-' }}
-              </td>
-            </template>
             <template #[`item.isAlerting`]="{ item }">
               <div v-if="!item.editable">{{ item.isAlerting }}</div>
-              <v-switch
+              <v-btn
                 v-else
-                v-model="item.isAlerting"
                 small
-                false-value="Off"
-                true-value="On"
-                color="info"
-                label=""
-              />
+                class="white--text"
+                :color="item.isAlerting === 'On' ? 'success' : 'danger'"
+                @click="
+                  item.isAlerting = item.isAlerting === 'On' ? 'Off' : 'On'
+                "
+              >
+                <v-icon size="20" dark>mdi-power</v-icon>
+                {{ item.isAlerting }}
+              </v-btn>
             </template>
             <template #[`item.operate`]="{ item }">
               <v-btn
@@ -70,22 +64,16 @@
 
 <script>
 import items from '~/assets/json/connection-unit.json';
-import { statusMap } from '~/utils/statusMap';
 export default {
   name: 'ConnectionUnit',
   layout: 'admin-layout',
-  data() {
-    return {
-      statusMap,
-    };
-  },
   computed: {
     headers() {
       return [
         {
           text: this.$t('connect.unit.id'),
           value: 'id',
-          width: 100
+          width: 100,
         },
         {
           text: this.$t('connect.unit.name'),
