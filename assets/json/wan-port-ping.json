@@ -2,9 +2,9 @@
   {
     "checkTime": "2024-06-23 12:00:00",
     "id": 1,
-    "packageLossRate": "0",
+    "packageLossRate": 0,
     "pingResult": {
-      "avg": "15",
+      "avg": "0",
       "max": "20",
       "min": "10"
     },
@@ -15,7 +15,7 @@
   {
     "checkTime": "2024-06-23 12:01:00",
     "id": 2,
-    "packageLossRate": "1",
+    "packageLossRate": 1,
     "pingResult": {
       "avg": "18",
       "max": "25",
@@ -28,9 +28,9 @@
   {
     "checkTime": "2024-06-23 12:02:00",
     "id": 3,
-    "packageLossRate": "0",
+    "packageLossRate": 0,
     "pingResult": {
-      "avg": "17",
+      "avg": "0",
       "max": "22",
       "min": "11"
     },
@@ -41,7 +41,7 @@
   {
     "checkTime": "2024-06-23 12:03:00",
     "id": 4,
-    "packageLossRate": "2",
+    "packageLossRate": 2,
     "pingResult": {
       "avg": "19",
       "max": "26",
@@ -54,7 +54,7 @@
   {
     "checkTime": "2024-06-23 12:04:00",
     "id": 5,
-    "packageLossRate": "0",
+    "packageLossRate": 0,
     "pingResult": {
       "avg": "20",
       "max": "27",
@@ -67,7 +67,7 @@
   {
     "checkTime": "2024-06-23 12:05:00",
     "id": 6,
-    "packageLossRate": "3",
+    "packageLossRate": 3,
     "pingResult": {
       "avg": "22",
       "max": "30",
@@ -80,9 +80,9 @@
   {
     "checkTime": "2024-06-23 12:06:00",
     "id": 7,
-    "packageLossRate": "1",
+    "packageLossRate": 0,
     "pingResult": {
-      "avg": "14",
+      "avg": "0",
       "max": "19",
       "min": "10"
     },
@@ -93,7 +93,7 @@
   {
     "checkTime": "2024-06-23 12:07:00",
     "id": 8,
-    "packageLossRate": "40",
+    "packageLossRate": 40,
     "pingResult": {
       "avg": "16",
       "max": "21",
@@ -106,7 +106,7 @@
   {
     "checkTime": "2024-06-23 12:08:00",
     "id": 9,
-    "packageLossRate": "10",
+    "packageLossRate": 10,
     "pingResult": {
       "avg": "17",
       "max": "23",
@@ -119,7 +119,7 @@
   {
     "checkTime": "2024-06-23 12:09:00",
     "id": 10,
-    "packageLossRate": "0",
+    "packageLossRate": 0,
     "pingResult": {
       "avg": "18",
       "max": "24",
@@ -132,7 +132,7 @@
   {
     "checkTime": "2024-06-23 12:10:00",
     "id": 11,
-    "packageLossRate": "1",
+    "packageLossRate": 1,
     "pingResult": {
       "avg": "19",
       "max": "25",
@@ -145,9 +145,9 @@
   {
     "checkTime": "2024-06-23 12:11:00",
     "id": 12,
-    "packageLossRate": "0",
+    "packageLossRate": 0,
     "pingResult": {
-      "avg": "15",
+      "avg": "0",
       "max": "20",
       "min": "10"
     },
@@ -158,7 +158,7 @@
   {
     "checkTime": "2024-06-23 12:12:00",
     "id": 13,
-    "packageLossRate": "2",
+    "packageLossRate": 2,
     "pingResult": {
       "avg": "16",
       "max": "22",
@@ -171,7 +171,7 @@
   {
     "checkTime": "2024-06-23 12:13:00",
     "id": 14,
-    "packageLossRate": "60",
+    "packageLossRate": 60,
     "pingResult": {
       "avg": "17",
       "max": "23",
@@ -184,7 +184,7 @@
   {
     "checkTime": "2024-06-23 12:14:00",
     "id": 15,
-    "packageLossRate": "40",
+    "packageLossRate": 40,
     "pingResult": {
       "avg": "18",
       "max": "24",
@@ -197,7 +197,7 @@
   {
     "checkTime": "2024-06-23 12:15:00",
     "id": 16,
-    "packageLossRate": "0",
+    "packageLossRate": 0,
     "pingResult": {
       "avg": "19",
       "max": "25",
@@ -210,7 +210,7 @@
   {
     "checkTime": "2024-06-23 12:16:00",
     "id": 17,
-    "packageLossRate": "2",
+    "packageLossRate": 2,
     "pingResult": {
       "avg": "20",
       "max": "26",
@@ -223,9 +223,9 @@
   {
     "checkTime": "2024-06-23 12:17:00",
     "id": 18,
-    "packageLossRate": "0",
+    "packageLossRate": 0,
     "pingResult": {
-      "avg": "15",
+      "avg": "0",
       "max": "21",
       "min": "10"
     },
@@ -236,9 +236,9 @@
   {
     "checkTime": "2024-06-23 12:18:00",
     "id": 19,
-    "packageLossRate": "1",
+    "packageLossRate": 0,
     "pingResult": {
-      "avg": "16",
+      "avg": "0",
       "max": "22",
       "min": "11"
     },
@@ -249,7 +249,7 @@
   {
     "checkTime": "2024-06-23 12:19:00",
     "id": 20,
-    "packageLossRate": "0",
+    "packageLossRate": 0,
     "pingResult": {
       "avg": "17",
       "max": "23",

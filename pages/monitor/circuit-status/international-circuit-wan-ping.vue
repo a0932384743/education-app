@@ -1,5 +1,31 @@
 <template>
   <v-row>
+    <v-col class="text-center" :cols="12" :md="6">
+      <chart-card title="國際電路界接介面WAN Port IP Ping狀態統計圖">
+        <chart-pie-list :items="pieData">
+          <template #default="{ options }">
+            <v-chart
+              :options="options"
+              style="width: 100%; height: 250px"
+              autoresize
+            />
+          </template>
+        </chart-pie-list>
+      </chart-card>
+    </v-col>
+    <v-col class="text-center" :cols="12" :md="6">
+      <chart-card title="國際電路界接介面WAN Port IP Ping狀態趨勢圖">
+        <chart-check-list :items="lineData">
+          <template #default="{ options }">
+            <v-chart
+              :options="options"
+              style="width: 100%; height: 250px"
+              autoresize
+            />
+          </template>
+        </chart-check-list>
+      </chart-card>
+    </v-col>
     <v-col :cols="12">
       <table-card title="電路狀態-國際電路界接介面狀況" :items="items">
         <template
@@ -25,10 +51,31 @@
             fixed-header
             hide-default-footer
           >
-            <template #[`item.status`]="{ item }">
-              <v-chip :color="statusMap[item.status]" dark small>
-                {{ item.status.toUpperCase() }}
-              </v-chip>
+            <template #[`item.unit`]="{ item }">
+              <td
+                :class="item.packageLossRate ? 'success' : 'danger'"
+                nowrap="nowrap"
+                style="border-color: white !important; color: white !important"
+              >
+                {{ item.unit }}
+              </td>
+            </template>
+            <template #[`item.pingResult`]="{ item }">
+              <div class="d-inline-block">
+                Min: {{ item.pingResult.min }}(ms), Avg:
+                {{ item.pingResult.avg }}(ms), Max:
+                {{ item.pingResult.max }}(ms)
+              </div>
+            </template>
+            <template #[`item.packageLossRate`]="{ item }">
+              <div style="width: 100px" class="mt-2">
+                <v-progress-linear
+                  v-model="item.packageLossRate"
+                  :color="item.packageLossRate ? 'success' : 'error'"
+                  height="10"
+                ></v-progress-linear>
+              </div>
+              <div>{{ item.packageLossRate }}%</div>
             </template>
           </v-data-table>
         </template>
@@ -38,10 +85,14 @@
 </template>
 
 <script>
-import items from '~/assets/json/device-status.json';
+import lineData from '~/assets/json/international-circuit-interface-history.json';
+import items from '~/assets/json/wan-port-ping.json';
+import pieData from '~/assets/json/device-summary.json';
+import ChartCard from '~/components/ChartCard.vue';
 import { statusMap } from '~/utils/statusMap';
 export default {
-  name: 'InternationalCircuitInterface',
+  name: 'InternationalCircuitWanPing',
+  components: { ChartCard },
   layout: 'admin-layout',
   data() {
     return {
@@ -52,42 +103,41 @@ export default {
     headers() {
       return [
         {
-          text: this.$t('id'),
+          text: this.$t('interface.id'),
           value: 'id',
           width: 80,
         },
         {
-          text: this.$t('device'),
-          value: 'device',
+          text: this.$t('connect.unit'),
+          value: 'unit',
         },
         {
-          text: this.$t('interface'),
-          value: 'interface',
-        },
-        {
-          text: this.$t('interface.description'),
-          value: 'desc',
-        },
-        {
-          text: 'Input(Mbps)',
-          value: 'input',
-        },
-        {
-          text: 'Output(Mbps)',
-          value: 'output',
-        },
-        {
-          text: this.$t('interface.status'),
-          value: 'status',
+          text: this.$t('connection.unit.ip'),
+          value: 'wanPortIp',
         },
         {
           text: this.$t('check.time'),
           value: 'checkTime',
         },
+
+        {
+          text: this.$t('ping.result'),
+          value: 'pingResult',
+        },
+        {
+          text: this.$t('package.loss.rate'),
+          value: 'packageLossRate',
+        },
       ];
     },
     items() {
       return items;
+    },
+    lineData() {
+      return lineData;
+    },
+    pieData() {
+      return pieData;
     },
   },
 };

@@ -51,25 +51,19 @@
             fixed-header
             hide-default-footer
           >
-            <template #[`item.equipment`]="{ item }">
+
+            <template #[`item.description`]="{ item }">
               <td
-                :class="statusMap[item.quality]"
+                :class="statusMap[item.status]"
                 style="border-color: white !important; color: white"
+                nowrap="nowrap"
               >
-                {{ item.equipment || '-' }}
+                {{ item.description || '-' }}
               </td>
             </template>
-            <template #[`item.interface_num`]="{ item }">
-              <td
-                :class="statusMap[item.quality]"
-                style="border-color: white !important; color: white"
-              >
-                {{ item.interface_num || '-' }}
-              </td>
-            </template>
-            <template #[`item.quality`]="{ item }">
-              <v-chip :color="statusMap[item.quality]" dark small>
-                {{ item.quality.toUpperCase() }}
+            <template #[`item.status`]="{ item }">
+              <v-chip :color="statusMap[item.status]" dark small>
+                {{ item.status.toUpperCase() }}
               </v-chip>
             </template>
             <template #[`item.history`]>
@@ -111,37 +105,26 @@ export default {
           width: 80,
         },
         {
-          text: this.$t('interface.equipment'),
-          value: 'equipment',
-        },
-        {
-          text: this.$t('interface'),
-          value: 'interface_num',
-        },
-        {
           text: this.$t('interface.description'),
           value: 'description',
         },
         {
-          text: this.$t('interface.source'),
-          value: 'source',
+          text: this.$t('interface.equipment'),
+          value: 'device',
         },
         {
-          text: this.$t('interface.destination'),
-          value: 'destination',
+          text: this.$t('interface'),
+          value: 'interface',
         },
         {
           text: this.$t('check.time'),
           value: 'checkTime',
         },
         {
-          text: this.$t('interface.quality'),
-          value: 'quality',
+          text: this.$t('status'),
+          value: 'status',
         },
-        {
-          text: this.$t('history'),
-          value: 'history',
-        },
+
       ];
     },
     items() {
