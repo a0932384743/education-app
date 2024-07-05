@@ -85,21 +85,6 @@
               ]"
             ></v-text-field>
           </template>
-          <template #[`item.operate`]="{ item }">
-            <v-btn
-              small
-              :disabled="Object.keys(item).some((key) => item[key] === '')"
-              :color="item.editable ? 'secondary' : 'info'"
-              @click="
-                Object.keys(item).every((key) => item[key])
-                  ? (item.editable = !item.editable)
-                  : (item.editable = true)
-              "
-            >
-              <v-icon size="20">mdi-pencil</v-icon>
-              <span class="d-none d-sm-inline-block">{{ $t('edit') }}</span>
-            </v-btn>
-          </template>
         </v-data-table>
       </template>
     </table-card>
@@ -199,8 +184,7 @@ export default {
         {
           text: this.$t('interface.alerting'),
           value: 'isAlerting',
-        },
-        { text: this.$t('operate'), value: 'operate', sortable: false },
+        }
       ];
     },
   },

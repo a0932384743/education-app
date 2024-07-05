@@ -50,6 +50,7 @@
             :header-props="headerProps"
             fixed-header
             hide-default-footer
+            :item-class="setRowClass"
           >
             <template #[`header.input`]="{ header }">
               <div class="d-inline-block text-center">
@@ -179,6 +180,13 @@ export default {
     },
     pieData() {
       return pieData;
+    },
+  },
+  methods: {
+    setRowClass(item) {
+      if (this.$vuetify.breakpoint.smAndDown) {
+        return this.statusMap[item.status];
+      }
     },
   },
 };

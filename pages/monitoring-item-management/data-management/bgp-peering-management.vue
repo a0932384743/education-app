@@ -1,20 +1,7 @@
 <template>
   <v-row>
-    <v-col class="text-center" :cols="12">
-      <chart-card title="BGP Peering狀況監控統計圖">
-        <chart-pie-list :items="pieData">
-          <template #default="{ options }">
-            <v-chart
-              :options="options"
-              style="width: 100%; height: 250px"
-              autoresize
-            />
-          </template>
-        </chart-pie-list>
-      </chart-card>
-    </v-col>
     <v-col :cols="12">
-      <table-card title="監控項目管理-BGP Peering狀況" :items="items">
+      <table-card title="監控項目管理-BGP Peering管理" :items="items">
         <template
           #default="{
             search,
@@ -38,17 +25,72 @@
             fixed-header
             hide-default-footer
           >
+            <template #[`item.input`]="{ item }">
+              <div v-if="!item.editable">{{ item.input }}</div>
+              <v-text-field
+                v-else
+                v-model="item.input"
+                small
+                min="0"
+                type="number"
+                label=""
+                required
+                :rules="[
+                  (val) => (val || '').length > 0 || 'This field is required',
+                ]"
+              />
+            </template>
+            <template #[`item.output`]="{ item }">
+              <div v-if="!item.editable">{{ item.output }}</div>
+              <v-text-field
+                v-else
+                v-model="item.output"
+                small
+                min="0"
+                type="number"
+                label=""
+                required
+                :rules="[
+                  (val) => (val || '').length > 0 || 'This field is required',
+                ]"
+              />
+            </template>
+            <template #[`item.remark`]="{ item }">
+              <div v-if="!item.editable">{{ item.remark }}</div>
+              <v-text-field
+                v-else
+                v-model="item.remark"
+                small
+                label=""
+                required
+                :rules="[
+                  (val) => (val || '').length > 0 || 'This field is required',
+                ]"
+              />
+            </template>
             <template #[`item.status`]="{ item }">
               <v-chip
                 :small="true"
                 :color="statusMap[item.status]"
                 class="lighten-1 text--black align-content-center"
               >
-                <v-icon size="15" :color="statusMap[item.status]"
-                  >mdi-circle</v-icon
-                >
                 {{ item.status.toUpperCase() }}
               </v-chip>
+            </template>
+            <template #[`item.operate`]="{ item }">
+              <v-btn
+                small
+                :disabled="Object.keys(item).some((key) => item[key] === '')"
+                :color="item.editable ? 'secondary' : 'info'"
+                @click="
+                  Object.keys(item).every((key) => item[key])
+                    ? (item.editable = !item.editable)
+                    : (item.editable = true)
+                "
+              >
+                <v-icon size="20">mdi-pencil</v-icon>
+                <span class="d-none d-sm-inline-block">{{ $t('edit') }}</span>
+              </v-btn>
             </template>
           </v-data-table>
         </template>
@@ -59,37 +101,38 @@
 
 <script>
 import items from '~/assets/json/device-traffic.json';
-import pieData from '~/assets/json/device-summary.json';
-import ChartCard from '~/components/ChartCard.vue';
 import { statusMap } from '~/utils/statusMap';
 
 export default {
   name: 'BgpPeeringManagement',
-  components: { ChartCard },
   layout: 'admin-layout',
   data() {
     return {
       statusMap,
-      headers: [
+      items: items.map(item=>({
+       ...item,
+        editable: false,
+      }))
+    };
+  },
+  computed: {
+    headers() {
+      return [
         {
-          text: '編號',
+          text: this.$t('id'),
           value: 'id',
           width: 80,
         },
         {
-          text: '狀態',
-          value: 'status',
-        },
-        {
-          text: '設備',
+          text: this.$t('device'),
           value: 'device',
         },
         {
-          text: '介面',
+          text: this.$t('interface'),
           value: 'interface',
         },
         {
-          text: '介面敘述',
+          text: this.$t('interface.description'),
           value: 'desc',
         },
         {
@@ -101,22 +144,22 @@ export default {
           value: 'output',
         },
         {
-          text: '備註',
+          text: this.$t('remark'),
           value: 'remark',
         },
         {
-          text: '檢查時間',
+          text: this.$t('status'),
+          value: 'status',
+        },
+        {
+          text: this.$t('check.time'),
           value: 'checkTime',
         },
-      ],
-    };
-  },
-  computed: {
-    items() {
-      return items;
-    },
-    pieData() {
-      return pieData;
+        {
+          text: this.$t('operate'),
+          value: 'operate',
+        },
+      ];
     },
   },
 };

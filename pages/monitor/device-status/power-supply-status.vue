@@ -44,6 +44,7 @@
             :items="items"
             :search="search"
             :page="page"
+            :item-class="setRowClass"
             :items-per-page="itemPerPage"
             :footer-props="footerProps"
             :header-props="headerProps"
@@ -126,6 +127,13 @@ export default {
     },
     pieData() {
       return pieData;
+    },
+  },
+  methods: {
+    setRowClass(item) {
+      if (this.$vuetify.breakpoint.smAndDown) {
+        return this.statusMap[item.status];
+      }
     },
   },
 };

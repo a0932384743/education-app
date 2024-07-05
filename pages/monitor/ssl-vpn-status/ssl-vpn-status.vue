@@ -50,6 +50,7 @@
             fixed-header
             :loading="loading"
             hide-default-footer
+            :item-class="setRowClass"
           >
             <template #[`item.school`]="{ item }">
               <td
@@ -136,6 +137,13 @@ export default {
     },
     pieData() {
       return pieData;
+    },
+  },
+  methods: {
+    setRowClass(item) {
+      if (this.$vuetify.breakpoint.smAndDown) {
+        return this.statusMap[item.status];
+      }
     },
   },
 };

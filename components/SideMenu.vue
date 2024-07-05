@@ -20,15 +20,28 @@
         height: `${vuetify.application.top}px`,
       }"
     >
-      <v-list-item-content class="py-1">
+      <v-list-item-content class="py-1 d-inline-flex w-100 align-center flex-nowrap" style="gap:1rem;">
         <v-img
           class="mx-auto"
           contain
-          lazy-src="/logo-2.png"
-          max-width="120"
+          :max-width="
+            currentPath.includes('/dashboard-edu')
+              ? '50'
+              : '120'
+          "
           :alt="$t('app.welcome')"
-          src="/logo-2.png"
+          :src="
+            currentPath.includes('/dashboard-edu')
+              ? '/logo-3.png'
+              : '/logo-2.png'
+          "
         ></v-img>
+        <h3
+          v-if="currentPath.includes('/dashboard-edu')"
+          style="color: inherit !important"
+        >
+          {{ $t('app.welcome') }}
+        </h3>
       </v-list-item-content>
     </v-list-item>
     <v-list
@@ -40,12 +53,8 @@
         height: `calc(100% - ${vuetify.application.top}px)`,
       }"
     >
-      <v-list-item-group  active-class="info">
-        <side-menu-group
-          v-for="menu in menus"
-          :key="menu.id"
-          :menu="menu"
-        />
+      <v-list-item-group active-class="info">
+        <side-menu-group v-for="menu in menus" :key="menu.id" :menu="menu" />
       </v-list-item-group>
     </v-list>
   </v-navigation-drawer>
@@ -62,12 +71,10 @@ export default {
       required: true,
     },
   },
-  data() {
-    return {
-      activePath: '',
-    };
-  },
   computed: {
+    currentPath() {
+      return this.$router.currentRoute.path;
+    },
     sideMenuSettings() {
       return this.$store.getters['common/getSideMenuSetting'];
     },

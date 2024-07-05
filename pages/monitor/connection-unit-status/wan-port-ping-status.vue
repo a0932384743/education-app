@@ -50,6 +50,7 @@
             :header-props="headerProps"
             fixed-header
             hide-default-footer
+            :item-class="setRowClass"
           >
             <template #[`item.unit`]="{ item }">
               <td
@@ -131,6 +132,13 @@ export default {
     },
     pieData() {
       return pieData;
+    },
+  },
+  methods: {
+    setRowClass(item) {
+      if (this.$vuetify.breakpoint.smAndDown) {
+        return this.statusMap[item.status];
+      }
     },
   },
 };

@@ -49,6 +49,7 @@
             :footer-props="footerProps"
             :header-props="headerProps"
             fixed-header
+            :item-class="setRowClass"
             hide-default-footer
           >
             <template #[`item.peering_name`]="{ item }">
@@ -165,6 +166,13 @@ export default {
     },
     pieData() {
       return pieData;
+    },
+  },
+  methods: {
+    setRowClass(item) {
+      if (this.$vuetify.breakpoint.smAndDown) {
+        return this.statusMap[item.status];
+      }
     },
   },
 };

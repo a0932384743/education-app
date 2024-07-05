@@ -11,8 +11,8 @@
     "id": 2,
     "children": [],
     "icon": "mdi-view-dashboard",
-    "name": "Dashboard(教育部)",
-    "name_en": "Dashboard(Education)",
+    "name": "Dashboard",
+    "name_en": "Dashboard",
     "url": "/dashboard-edu"
   },
   {

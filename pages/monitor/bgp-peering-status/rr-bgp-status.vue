@@ -40,6 +40,7 @@
           }"
         >
           <v-data-table
+            :item-class="setRowClass"
             :loading="loading"
             :headers="headers"
             :items="items"
@@ -50,6 +51,7 @@
             :header-props="headerProps"
             fixed-header
             hide-default-footer
+
           >
             <template #[`item.rr_server`]="{ item }">
               <td
@@ -163,6 +165,13 @@ export default {
     },
     pieData() {
       return pieData;
+    },
+  },
+  methods: {
+    setRowClass(item) {
+      if (this.$vuetify.breakpoint.smAndDown) {
+        return this.statusMap[item.status];
+      }
     },
   },
 };

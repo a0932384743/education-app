@@ -75,6 +75,7 @@
             :items="eventsNotCloseList"
             fixed-header
             hide-default-footer
+            :item-class="setRowClass"
           >
             <template #[`header.equipment`]="{ header }">
               <div class="d-inline-block text-center">
@@ -177,6 +178,7 @@
             :items="eventsAlertList"
             fixed-header
             hide-default-footer
+            :item-class="setRowClass"
           >
             <template #[`item.id`]="{ item }">
               <td
@@ -493,6 +495,11 @@ export default {
     this.updateDashboardList(this.$vuetify.breakpoint.smAndUp);
   },
   methods: {
+    setRowClass(item) {
+      if (this.$vuetify.breakpoint.smAndDown) {
+        return `${item.level } lighten-2`;
+      }
+    },
     updateDashboardList(value) {
       if (value) {
         this.dashboardList = [

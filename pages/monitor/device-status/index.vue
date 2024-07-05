@@ -25,6 +25,7 @@
           :items="items"
           :search="search"
           :footer-props="footerProps"
+          :item-class="setRowClass"
         >
           <template #[`item.status`]="{ item }">
             <v-chip :color="item.status === 'down' ? 'danger' : 'success'" dark>
@@ -90,6 +91,13 @@ export default {
   computed: {
     items() {
       return deviceStatus;
+    },
+  },
+  methods: {
+    setRowClass(item) {
+      if (this.$vuetify.breakpoint.smAndDown) {
+        return item.status === 'down' ? 'danger' : 'success';
+      }
     },
   },
 };
