@@ -1,0 +1,68 @@
+[
+  {
+    "company": "CHT",
+    "email": "0800080148@cht.com.tw",
+    "fax": "",
+    "id": "1",
+    "mobile": "0800-080-148",
+    "phone": "0800-080-148",
+    "remark": "",
+    "title": "100G中華電信光纖線路報修窗口",
+    "user": "100G中華電信光纖線路報修窗口"
+  },
+  {
+    "company": "APTG",
+    "email": "NOC-DATA@aptg.com.tw",
+    "fax": "",
+    "id": "2",
+    "mobile": "0855558888#57950",
+    "phone": "",
+    "remark": "",
+    "title": "OOB",
+    "user": "APTG NOC"
+  },
+  {
+    "company": "APTG",
+    "email": "NOC-IP@aptg.com.tw",
+    "fax": "",
+    "id": "3",
+    "mobile": "0855558888#55210",
+    "phone": "",
+    "remark": "",
+    "title": "APOL Peering & BGP Routing",
+    "user": "NOC IP"
+  },
+  {
+    "company": "NCHC",
+    "email": "noc@twarem.net",
+    "fax": "06-5050-645",
+    "id": "4",
+    "mobile": "06-5050-940ext.620",
+    "phone": "0800-050-940",
+    "remark": "",
+    "title": "TWAREN維運中心",
+    "user": "TWAREN NOC"
+  },
+  {
+    "company": "CHT/TWGate",
+    "email": "twgate_noc@cht.com.tw",
+    "fax": "",
+    "id": "5",
+    "mobile": "07-227-1954",
+    "phone": "0800-731-544",
+    "remark": "",
+    "title": "TWGate維運中心",
+    "user": "TWAREN NOC"
+  },
+  {
+    "company": "APTG",
+    "email": "transmission_noc@aptg.com.tw",
+    "fax": "",
+    "id": "6",
+    "mobile": "02-555588888#57999",
+    "phone": "",
+    "remark": "",
+    "title": "100G傳輸網管",
+    "user": "傳輸網管"
+  }
+]
