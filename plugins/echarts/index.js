@@ -22,7 +22,7 @@ const geo = { ...taiwanGEO };
 const feature = usaGEO.features.map((f) => {
   f.geometry.coordinates = f.geometry.coordinates.map((coordinates) => {
     return coordinates.map((location) => {
-      return [145 + location[0] / 6, 20 + location[1] / 6];
+      return [128 + location[0] / 25, 22.5 + location[1] / 25];
     });
   });
   return f;

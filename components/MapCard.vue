@@ -43,12 +43,14 @@
           class="mx-auto"
           style="width: 100%; height: calc(100% - 70px)"
           autoresize
+          @georoam="updateZoom"
         />
       </v-card-text>
     </v-expand-transition>
   </v-card>
 </template>
 <script>
+import { colorBrightness } from '~/utils/color';
 import { statusMap } from '~/utils/statusMap';
 
 export default {
@@ -80,8 +82,6 @@ export default {
       statusMap,
       collapse: false,
       show: true,
-      currentZoom: 8,
-      dashOffset: 10,
       times: null,
     };
   },
@@ -92,16 +92,18 @@ export default {
           {
             map: this.map || 'geo',
             roam: true,
-            zoom: this.center ? 2 : this.currentZoom,
-            center: this.center || [126.9654, 25.5477],
+            zoom: this.center ? 2 : 14,
+            center: this.center || [123.0654, 23.5477],
             regions: this.nodes.map((node) => {
               return {
                 ...node,
                 itemStyle: {
-                  areaColor:
+                  areaColor: colorBrightness(
                     this.$vuetify.theme.themes[
                       this.$vuetify.theme.isDark ? 'light' : 'dark'
                     ][statusMap[node.status]],
+                    1.2
+                  ),
                 },
               };
             }),
@@ -150,11 +152,11 @@ export default {
                 lineStyle: {
                   animation: true,
                   type: 'dashed',
-                  dashOffset: this.dashOffset,
+                  dashOffset: 0,
                   color:
                     this.$vuetify.theme.themes[
                       this.$vuetify.theme.isDark ? 'light' : 'dark'
-                    ].info,
+                    ].success,
                   width: 5,
                   opacity: 0.6,
                   curveness: 0.1,
@@ -166,26 +168,56 @@ export default {
       };
     },
   },
+  mounted() {
+    if (this.times) {
+      clearInterval(this.time);
+    }
+
+    this.time = setInterval(() => {
+      if (this.$refs.map) {
+        const options = this.$refs.map.chart.getOption();
+        const { series }  = options;
+        series[1].data = series[1].data.map((d) => {
+          d.lineStyle.dashOffset += 10;
+          return d;
+        });
+        this.$refs.map.chart.setOption(
+          {
+            ...options,
+            series,
+          }
+        );
+      }
+    }, 1000);
+  },
+  destroyed() {
+    if (this.times) {
+      clearInterval(this.time);
+    }
+  },
   methods: {
     reload() {
-      this.currentZoom = 9;
       this.$refs.map.chart.dispatchAction({
         type: 'geoRoam',
-        zoom: this.currentZoom,
+        zoom: this.center ? 2 : 14,
       });
     },
     zoomIn() {
-      this.currentZoom -= 2;
+      const options = this.$refs.map.chart.getOption();
+      const {geo} = options;
+      const { zoom } = geo[0];
       this.$refs.map.chart.dispatchAction({
         type: 'geoRoam',
-        zoom: this.currentZoom,
+        zoom: zoom - 2,
       });
     },
     zoomOut() {
-      this.currentZoom += 2;
+      const options = this.$refs.map.chart.getOption();
+      const {geo} = options;
+      const { zoom } = geo[0];
       this.$refs.map.chart.dispatchAction({
         type: 'geoRoam',
-        zoom: this.currentZoom,
+        zoom: zoom + 2,
       });
     },
   },

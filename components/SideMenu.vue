@@ -20,15 +20,14 @@
         height: `${vuetify.application.top}px`,
       }"
     >
-      <v-list-item-content class="py-1 d-inline-flex w-100 align-center flex-nowrap" style="gap:1rem;">
+      <v-list-item-content
+        class="py-1 d-inline-flex w-100 align-center flex-nowrap"
+        style="gap: 1rem"
+      >
         <v-img
           class="mx-auto"
           contain
-          :max-width="
-            currentPath.includes('/dashboard-edu')
-              ? '50'
-              : '120'
-          "
+          :max-width="currentPath.includes('/dashboard-edu') ? '50' : '120'"
           :alt="$t('app.welcome')"
           :src="
             currentPath.includes('/dashboard-edu')
@@ -71,10 +70,12 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      currentPath: '',
+    };
+  },
   computed: {
-    currentPath() {
-      return this.$router.currentRoute.path;
-    },
     sideMenuSettings() {
       return this.$store.getters['common/getSideMenuSetting'];
     },
@@ -84,6 +85,15 @@ export default {
     menus() {
       return menus;
     },
+  },
+  watch: {
+    $route(to){
+      console.log(to)
+      this.currentPath = to.path;
+    },
+  },
+  mounted() {
+    this.currentPath = this.$router.currentRoute.path;
   },
   methods: {
     updateDrawer(value) {

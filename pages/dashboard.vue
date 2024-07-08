@@ -255,15 +255,15 @@
 </template>
 
 <script>
-import eventsNotCloseList from '~/assets/json/event-not-close.json';
-import eventsAlertList from '~/assets/json/event-alert.json';
+import eventsNotCloseList from '~/assets/json/event-not-close.json'
+import eventsAlertList from '~/assets/json/event-alert.json'
 
-import events from '~/assets/json/device-event.json';
-import cpus from '~/assets/json/device-cpu-stastic.json';
-import BarChartCard from '~/components/BarCahrtCard.vue';
-import ChartCard from '~/components/ChartCard.vue';
-import MapCard from '~/components/MapCard.vue';
-import { statusMap } from '~/utils/statusMap';
+import events from '~/assets/json/device-event.json'
+import cpus from '~/assets/json/device-cpu-stastic.json'
+import BarChartCard from '~/components/BarCahrtCard.vue'
+import ChartCard from '~/components/ChartCard.vue'
+import MapCard from '~/components/MapCard.vue'
+import { statusMap } from '~/utils/statusMap'
 
 export default {
   name: 'Dashboard',
@@ -272,79 +272,77 @@ export default {
   data() {
     return {
       nodes: [
-        { name: '台北市', value: [121.5654, 25.033, 50], status: 'normal' },
-        { name: '台中市', value: [120.6736, 24.1477, 50], status: 'normal' },
-        { name: '台南市', value: [120.2049, 22.9999, 60], status: 'abnormal' },
-        { name: '高雄市', value: [120.666, 23.0109, 50], status: 'normal' },
+        { name: '台北市', value: [121.524184, 25.046737, 3], status: 'normal' },
+        {
+          name: '淡水',
+          value: [121.503207, 25.200766, 0],
+          status: 'non-warning',
+        },
+        {
+          name: '陽明山',
+          value: [121.563715, 25.096987, 1],
+          status: 'non-warning',
+        },
+        { name: '新北市', value: [121.463386, 25.006809, 2], status: 'normal' },
+        { name: '桃園縣', value: [121.322603, 25.028983, 0], status: 'normal' },
+        { name: '大園', value: [121.230977, 25.059194, 3], status: 'normal' },
+        {
+          name: '宜蘭縣',
+          value: [121.768084, 24.758391, 3],
+          status: 'non-warning',
+        },
+        { name: '新竹縣', value: [120.949163, 24.811721,  0], status: 'normal' },
+        { name: '新竹市', value: [121.042898, 24.766474,  0], status: 'error' },
+        { name: '台中市', value: [120.6736, 24.1477, 0], status: 'normal' },
+        { name: '台南市', value: [120.2049, 22.9999, 1], status: 'error' },
+        { name: '高雄市', value: [120.666, 23.0109, 2], status: 'normal' },
+        { name: '台東縣', value: [120.98421, 22.90113, 3], status: 'normal' },
+        { name: '花蓮縣', value: [121.43969, 23.54531, 3], status: 'normal' },
+
         {
           name: 'New York',
-          value: [145 - 74.0059 / 6, 20 + 40.71282 / 6, 60],
-          status: 'abnormal',
+          value: [128 - 75.98665 / 25, 22.5 + 42.550516 / 25, 3],
+          status: 'non-warning',
+        },
+        {
+          name: 'Illinois',
+          value: [128 - 88.782984 / 25, 22.5 + 41.729062 / 25, 2],
+          status: 'non-warning',
         },
         {
           name: 'California',
-          value: [145 - 118.2437 / 6, 20 + 34.0522 / 6, 50],
-          status: 'normal',
-        },
-        {
-          name: 'Indiana',
-          value: [145 - 87.6298 / 6, 20 + 41.8781 / 6, 40],
-          status: 'non-warning',
-        },
-        {
-          name: 'Texas',
-
-          value: [145 - 95.3698 / 6, 20 + 29.7604 / 6, 60],
-          status: 'abnormal',
-        },
-        {
-          name: 'Arizona',
-          value: [145 - 112.074 / 6, 20 + 33.4484 / 6, 40],
-          status: 'non-warning',
+          value: [128 - 118.121125 / 25, 22.5 + 33.987429 / 25, 1],
+          status: 'error',
         },
       ],
       links: [
-        { source: '台北市', target: '台中市', value: 50 },
-        { source: '台北市', target: 'New York', value: 50, status: 'normal' },
-        { source: '台南市', target: 'New York', value: 50, status: 'normal' },
+        { source: '台北市', target: '台中市', value: 3 },
+        { source: '台北市', target: '新北市', value: 2 },
+        { source: '台北市', target: '陽明山', value: 1 },
+        { source: '台北市', target: '淡水', value: 0 },
+        { source: '台北市', target: '宜蘭縣', value: 3 },
+        { source: '台北市', target: '桃園縣', value: 1 },
+        { source: '桃園縣', target: '大園', value: 0 },
+        { source: '桃園縣', target: '新竹市', value: 1 },
+        { source: '新竹市', target: '新竹縣', value: 1 },
+        { source: '新竹市', target: '台中市', value: 1 },
+        { source: '台北市', target: 'California', value: 2 },
+        { source: '宜蘭縣', target: 'Illinois', value: 3 },
+        { source: '台中市', target: '台南市', value: 2 },
+        { source: '台南市', target: '高雄市', value: 0 },
+        { source: '高雄市', target: '台東縣', value: 0 },
+        { source: '花蓮縣', target: '宜蘭縣', value: 2 },
         {
-          source: '台中市',
-          target: 'Indiana',
-          value: 40,
-          status: 'non-warning',
-        },
-        { source: '台中市', target: '台南市', value: 50, status: 'normal' },
-        { source: '台南市', target: '高雄市', value: 50, status: 'normal' },
-        {
-          source: 'New York',
-          target: 'California',
-          value: 60,
-          status: 'normal',
-        },
-        {
-          source: 'New York',
-          target: 'Indiana',
-          value: 60,
+          source: 'California',
+          target: 'Illinois',
+          value: 2,
           status: 'abnormal',
         },
         {
           source: 'California',
-          target: 'Indiana',
-          value: 60,
+          target: 'New York',
+          value: 1,
           status: 'abnormal',
-        },
-        {
-          source: 'California',
-          target: 'Arizona',
-          value: 60,
-          status: 'abnormal',
-        },
-        { source: 'Indiana', target: 'Arizona', value: 60, status: 'abnormal' },
-        {
-          source: 'Arizona',
-          target: 'Texas',
-          value: 40,
-          status: 'non-warning',
         },
       ],
       eventsNotCloseList,
@@ -389,14 +387,14 @@ export default {
           moved: false,
         },
       ],
-    };
+    }
   },
   computed: {
     vuetify() {
-      return this.$vuetify;
+      return this.$vuetify
     },
     eventsCategory() {
-      return events.map((item) => item.name);
+      return events.map((item) => item.name)
     },
     events() {
       return [
@@ -413,7 +411,7 @@ export default {
             },
           })),
         },
-      ];
+      ]
     },
     eventsNotCloseListHeader() {
       return [
@@ -450,7 +448,7 @@ export default {
           text: this.$t('event.description'),
           value: 'desc',
         },
-      ];
+      ]
     },
     eventsAlertListHeader() {
       return [
@@ -483,21 +481,21 @@ export default {
           text: this.$t('event.description'),
           value: 'desc',
         },
-      ];
+      ]
     },
   },
   watch: {
     '$vuetify.breakpoint.smAndUp'(value) {
-      this.updateDashboardList(value);
+      this.updateDashboardList(value)
     },
   },
   mounted() {
-    this.updateDashboardList(this.$vuetify.breakpoint.smAndUp);
+    this.updateDashboardList(this.$vuetify.breakpoint.smAndUp)
   },
   methods: {
     setRowClass(item) {
       if (this.$vuetify.breakpoint.smAndDown) {
-        return `${item.level } lighten-2`;
+        return `${item.level} lighten-2`
       }
     },
     updateDashboardList(value) {
@@ -548,7 +546,7 @@ export default {
             y: 7,
             moved: false,
           },
-        ];
+        ]
       } else {
         this.dashboardList = [
           {
@@ -596,12 +594,12 @@ export default {
             y: 7,
             moved: false,
           },
-        ];
+        ]
       }
     },
     onLayoutUpdated(list) {
-      this.dashboardList = list;
+      this.dashboardList = list
     },
   },
-};
+}
 </script>

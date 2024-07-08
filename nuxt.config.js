@@ -20,8 +20,7 @@ export default {
     },
   },
   head: {
-    titleTemplate: '%s - TWAREN 100G INMS',
-    title: 'TWAREN 100G INMS',
+    titleTemplate: '%s',
     htmlAttrs: {
       lang: 'en',
     },
