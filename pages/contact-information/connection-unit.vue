@@ -104,18 +104,18 @@ export default {
         editable: false,
       })),
       orgMap: {
-        '國網中心-北部分部': {
-          orgNameZh: '國網中心-北部分部',
+        '國網中心-新竹本部': {
+          orgNameZh: '國網中心-新竹本部',
           orgNameEn: 'NCT - TP',
           gigaPoP: 'TPE',
         },
-        '國網中心-中部分部': {
-          orgNameZh: '國網中心-中部分部',
+        '國網中心-台中分部': {
+          orgNameZh: '國網中心-台中分部',
           orgNameEn: 'NCT - TXG',
           gigaPoP: 'TXG',
         },
-        '國網中心-南部分部': {
-          orgNameZh: '國網中心-南部分部',
+        '國網中心-台南分部': {
+          orgNameZh: '國網中心-台南分部',
           orgNameEn: 'NCT - TNN',
           gigaPoP: 'TNN',
         },
@@ -124,7 +124,7 @@ export default {
   },
   computed: {
     orgOptions() {
-      return ['國網中心-北部分部', '國網中心-中部分部', '國網中心-南部分部'];
+      return ['國網中心-新竹本部', '國網中心-台中分部', '國網中心-台南分部'];
     },
     headers() {
       return [

@@ -13,7 +13,7 @@
     "ipv6Route": "2001:db8::/32",
     "isAlerting": "On",
     "orgNameEn": "NCT-TP",
-    "orgNameZh": "國網中心-北部分部",
+    "orgNameZh": "國網中心-新竹本部",
     "whoisOrgID": "ORG001"
   },
   {
@@ -30,7 +30,7 @@
     "ipv6Route": "2001:db8:1::/32",
     "isAlerting": "Off",
     "orgNameEn": "NCT-TXG",
-    "orgNameZh": "國網中心-中部分部",
+    "orgNameZh": "國網中心-台中分部",
     "whoisOrgID": "ORG002"
   },
   {
@@ -47,7 +47,7 @@
     "ipv6Route": "2001:db8:2::/32",
     "isAlerting": "On",
     "orgNameEn": "NCT-TNN",
-    "orgNameZh": "國網中心-南部分部",
+    "orgNameZh": "國網中心-台南分部",
     "whoisOrgID": "ORG003"
   },
   {
@@ -64,7 +64,7 @@
     "ipv6Route": "2001:db8:3::/32",
     "isAlerting": "Off",
     "orgNameEn": "NCT-TNN",
-    "orgNameZh": "國網中心-南部分部",
+    "orgNameZh": "國網中心-台南分部",
     "whoisOrgID": "ORG004"
   },
   {
@@ -81,7 +81,7 @@
     "ipv6Route": "2001:db8:4::/32",
     "isAlerting": "On",
     "orgNameEn": "NCT-TNN",
-    "orgNameZh": "國網中心-南部分部",
+    "orgNameZh": "國網中心-台南分部",
     "whoisOrgID": "ORG005"
   },
   {
@@ -98,7 +98,7 @@
     "ipv6Route": "2001:db8:5::/32",
     "isAlerting": "Off",
     "orgNameEn": "NCT-TP",
-    "orgNameZh": "國網中心-北部分部",
+    "orgNameZh": "國網中心-新竹本部",
     "whoisOrgID": "ORG006"
   },
   {
@@ -115,7 +115,7 @@
     "ipv6Route": "2001:db8:6::/32",
     "isAlerting": "On",
     "orgNameEn": "NCT-TXG",
-    "orgNameZh": "國網中心-中部分部",
+    "orgNameZh": "國網中心-台中分部",
     "whoisOrgID": "ORG007"
   },
   {
@@ -132,7 +132,7 @@
     "ipv6Route": "2001:db8:7::/32",
     "isAlerting": "Off",
     "orgNameEn": "NCT-TP",
-    "orgNameZh": "國網中心-北部分部",
+    "orgNameZh": "國網中心-新竹本部",
     "whoisOrgID": "ORG008"
   },
   {
@@ -149,7 +149,7 @@
     "ipv6Route": "2001:db8:8::/32",
     "isAlerting": "On",
     "orgNameEn": "NCT-TNN",
-    "orgNameZh": "國網中心-南部分部",
+    "orgNameZh": "國網中心-台南分部",
     "whoisOrgID": "ORG009"
   },
   {
@@ -166,7 +166,7 @@
     "ipv6Route": "2001:db8:9::/32",
     "isAlerting": "Off",
     "orgNameEn": "NCT-TP",
-    "orgNameZh": "國網中心-北部分部",
+    "orgNameZh": "國網中心-新竹本部",
     "whoisOrgID": "ORG010"
   },
   {
@@ -183,7 +183,7 @@
     "ipv6Route": "2001:db8:10::/32",
     "isAlerting": "On",
     "orgNameEn": "NCT-TNN",
-    "orgNameZh": "國網中心-南部分部",
+    "orgNameZh": "國網中心-台南分部",
     "whoisOrgID": "ORG011"
   },
   {
@@ -200,7 +200,7 @@
     "ipv6Route": "2001:db8:11::/32",
     "isAlerting": "Off",
     "orgNameEn": "NCT-TNN",
-    "orgNameZh": "國網中心-南部分部",
+    "orgNameZh": "國網中心-台南分部",
     "whoisOrgID": "ORG012"
   },
   {
@@ -217,7 +217,7 @@
     "ipv6Route": "2001:db8:12::/32",
     "isAlerting": "On",
     "orgNameEn": "NCT-TXG",
-    "orgNameZh": "國網中心-中部分部",
+    "orgNameZh": "國網中心-台中分部",
     "whoisOrgID": "ORG013"
   },
   {
@@ -234,7 +234,7 @@
     "ipv6Route": "2001:db8:13::/32",
     "isAlerting": "Off",
     "orgNameEn": "NCT-TXG",
-    "orgNameZh": "國網中心-中部分部",
+    "orgNameZh": "國網中心-台中分部",
     "whoisOrgID": "ORG014"
   },
   {
@@ -251,7 +251,7 @@
     "ipv6Route": "2001:db8:14::/32",
     "isAlerting": "On",
     "orgNameEn": "NCT-TP",
-    "orgNameZh": "國網中心-北部分部",
+    "orgNameZh": "國網中心-新竹本部",
     "whoisOrgID": "ORG015"
   },
   {
@@ -268,7 +268,7 @@
     "ipv6Route": "2001:db8:15::/32",
     "isAlerting": "Off",
     "orgNameEn": "NCT-TNN",
-    "orgNameZh": "國網中心-南部分部",
+    "orgNameZh": "國網中心-台南分部",
     "whoisOrgID": "ORG016"
   },
   {
@@ -285,7 +285,7 @@
     "ipv6Route": "2001:db8:16::/32",
     "isAlerting": "On",
     "orgNameEn": "NCT-TXG",
-    "orgNameZh": "國網中心-中部分部",
+    "orgNameZh": "國網中心-台中分部",
     "whoisOrgID": "ORG017"
   },
   {
@@ -302,7 +302,7 @@
     "ipv6Route": "2001:db8:17::/32",
     "isAlerting": "Off",
     "orgNameEn": "NCT-TNN",
-    "orgNameZh": "國網中心-南部分部",
+    "orgNameZh": "國網中心-台南分部",
     "whoisOrgID": "ORG018"
   },
   {
@@ -319,7 +319,7 @@
     "ipv6Route": "2001:db8:18::/32",
     "isAlerting": "On",
     "orgNameEn": "NCT-TP",
-    "orgNameZh": "國網中心-北部分部",
+    "orgNameZh": "國網中心-新竹本部",
     "whoisOrgID": "ORG019"
   },
   {
@@ -336,7 +336,7 @@
     "ipv6Route": "2001:db8:19::/32",
     "isAlerting": "Off",
     "orgNameEn": "NCT-TXG",
-    "orgNameZh": "國網中心-中部分部",
+    "orgNameZh": "國網中心-台中分部",
     "whoisOrgID": "ORG020"
   },
   {
@@ -353,7 +353,7 @@
     "ipv6Route": "2001:db8:20::/32",
     "isAlerting": "On",
     "orgNameEn": "NCT-TP",
-    "orgNameZh": "國網中心-北部分部",
+    "orgNameZh": "國網中心-新竹本部",
     "whoisOrgID": "ORG021"
   },
   {
@@ -370,7 +370,7 @@
     "ipv6Route": "2001:db8:21::/32",
     "isAlerting": "Off",
     "orgNameEn": "NCT-TP",
-    "orgNameZh": "國網中心-北部分部",
+    "orgNameZh": "國網中心-新竹本部",
     "whoisOrgID": "ORG022"
   },
   {
@@ -387,7 +387,7 @@
     "ipv6Route": "2001:db8:22::/32",
     "isAlerting": "On",
     "orgNameEn": "NCT-TNN",
-    "orgNameZh": "國網中心-南部分部",
+    "orgNameZh": "國網中心-台南分部",
     "whoisOrgID": "ORG023"
   },
   {
@@ -404,7 +404,7 @@
     "ipv6Route": "2001:db8:23::/32",
     "isAlerting": "Off",
     "orgNameEn": "NCT-TXG",
-    "orgNameZh": "國網中心-中部分部",
+    "orgNameZh": "國網中心-台中分部",
     "whoisOrgID": "ORG024"
   },
   {
@@ -421,7 +421,7 @@
     "ipv6Route": "2001:db8:24::/32",
     "isAlerting": "On",
     "orgNameEn": "NCT-TNN",
-    "orgNameZh": "國網中心-南部分部",
+    "orgNameZh": "國網中心-台南分部",
     "whoisOrgID": "ORG025"
   }
 ]

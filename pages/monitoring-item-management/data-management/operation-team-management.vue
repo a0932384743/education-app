@@ -157,23 +157,37 @@
             />
           </template>
           <template #[`item.operate`]="{ item }">
-            <v-btn
-              small
-              :disabled="
-                Object.keys(item)
-                  .filter((key) => key === 'user' || key === 'company')
-                  .some((key) => item[key] === '')
-              "
-              :color="item.editable ? 'secondary' : 'info'"
-              @click="
-                Object.keys(item).every((key) => item[key])
-                  ? (item.editable = !item.editable)
-                  : (item.editable = true)
-              "
-            >
-              <v-icon size="20">mdi-pencil</v-icon>
-              <span class="d-none d-sm-inline-block">{{ $t('edit') }}</span>
-            </v-btn>
+            <div class="d-inline-flex" style="gap: 0.8rem">
+              <v-btn
+                small
+                :disabled="
+                  Object.keys(item)
+                    .filter((key) => key === 'user' || key === 'company')
+                    .some((key) => item[key] === '')
+                "
+                :color="item.editable ? 'secondary' : 'info'"
+                @click="
+                  Object.keys(item).every((key) => item[key])
+                    ? (item.editable = !item.editable)
+                    : (item.editable = true)
+                "
+              >
+                <v-icon size="20">mdi-pencil</v-icon>
+                <span class="d-none d-sm-inline-block">{{ $t('edit') }}</span>
+              </v-btn>
+              <v-btn
+                small
+                color="danger"
+                class="px-2"
+                @click="deleteUser(item)"
+              >
+                <v-icon class="white--text" size="20"
+                  >mdi-trash-can-outline</v-icon
+                ><span class="d-none d-sm-inline-block white--text">{{
+                  $t('delete')
+                }}</span>
+              </v-btn>
+            </div>
           </template>
         </v-data-table>
       </template>
@@ -239,6 +253,9 @@ export default {
     },
   },
   methods: {
+    deleteUser(item) {
+      this.items = this.items.filter((i) => i.id !== item.id);
+    },
     addUser() {
       this.items.push({
         company: '',

@@ -4,6 +4,7 @@
     "echarts": "^5.5.0",
     "echarts-gl": "^2.0.9",
     "echarts-wordcloud": "^2.1.0",
+    "jspdf": "^2.5.1",
     "moment": "github:moment/moment",
     "nuxt": "^2.15.8",
     "vue": "^2.7.10",
@@ -12,7 +13,8 @@
     "vue-i18n": "^8.28.2",
     "vue-server-renderer": "^2.7.10",
     "vue-template-compiler": "^2.7.10",
-    "vuetify": "^2.6.10"
+    "vuetify": "^2.6.10",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
