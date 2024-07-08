@@ -100,7 +100,7 @@ export default {
                 itemStyle: {
                   areaColor: colorBrightness(
                     this.$vuetify.theme.themes[
-                      this.$vuetify.theme.isDark ? 'light' : 'dark'
+                      this.$vuetify.theme.isDark ?  'dark' :  'light'
                     ][statusMap[node.status]],
                     1.2
                   ),
@@ -122,7 +122,7 @@ export default {
                   borderWidth: 2,
                   color:
                     this.$vuetify.theme.themes[
-                      this.$vuetify.theme.isDark ? 'light' : 'dark'
+                      this.$vuetify.theme.isDark ?  'dark' :  'light'
                     ][statusMap[node.status]],
                 },
               };
@@ -155,7 +155,7 @@ export default {
                   dashOffset: 0,
                   color:
                     this.$vuetify.theme.themes[
-                      this.$vuetify.theme.isDark ? 'light' : 'dark'
+                      this.$vuetify.theme.isDark ?  'dark' :  'light'
                     ].success,
                   width: 5,
                   opacity: 0.6,
