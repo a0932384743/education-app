@@ -509,10 +509,6 @@ export default {
           value: 'startTime',
         },
         {
-          text: this.$t('event.end.time'),
-          value: 'endTime',
-        },
-        {
           text: this.$t('interface.equipment'),
           value: 'equipment',
         },
