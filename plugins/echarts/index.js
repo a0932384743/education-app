@@ -12,8 +12,8 @@ import 'echarts-gl';
 
 import { registerMap, use } from 'echarts/core';
 import { CanvasRenderer } from 'echarts/renderers';
-import { LinesChart } from 'echarts/charts';
 import { GeoComponent } from 'echarts/components';
+
 import { Geo3DComponent } from 'echarts-gl/components';
 import usaGEO from 'assets/map/usa-geo.json';
 import taiwanGEO from 'assets/map/taiwan-geo.json';
@@ -35,5 +35,5 @@ registerMap('taiwanGEO', taiwanGEO);
 registerMap('geo', geo);
 
 // Register the required components
-use([CanvasRenderer, LinesChart, GeoComponent, Geo3DComponent]);
+use([CanvasRenderer , GeoComponent, Geo3DComponent]);
 Vue.component('VChart', ECharts);
