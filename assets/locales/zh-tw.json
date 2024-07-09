@@ -61,7 +61,7 @@
   "device.category": "設備類別",
   "device.desc": "設備描述",
   "device.id": "設備編號",
-  "device.location": "機構位置",
+  "device.location": "機櫃位置",
   "device.name": "設備名稱",
   "device.status": "設備狀態",
   "disabled": "啟用",
