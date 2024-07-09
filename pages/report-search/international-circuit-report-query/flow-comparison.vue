@@ -15,17 +15,19 @@ import jsPDF from 'jspdf';
 import * as XLSX from 'xlsx';
 import items from '~/assets/json/flow-comparison.json';
 export default {
-  name: 'FlowComparison',
+  name: 'UsCircuits',
   layout: 'admin-layout',
   computed: {
     options() {
       return {
         title: {
-          text: '2024-02,2024-01,2023-12 國外->連線單位(Top10)',
+          text: `2024-02,2024-01,2023-12${this.$vuetify.breakpoint.mdAndDown}`
+            ? '\n'
+            : '' + '國外->連線單位(Top10)',
           left: 'center', // Center the title
         },
         grid: {
-          left: 200,
+          left: 150,
         },
         tooltip: {
           trigger: 'axis',
@@ -99,6 +101,11 @@ export default {
         yAxis: {
           type: 'category',
           data: items.map((i) => i.name),
+          axisLabel: {
+            formatter: function (value) {
+              return `${value.substring(0, 10)}\n${value.substring(10)}` ;
+            }
+          }
         },
         series: [
           {

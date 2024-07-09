@@ -35,6 +35,7 @@ export default {
   },
   computed: {
     options() {
+      // eslint-disable-next-line vue/no-mutating-props,vue/no-side-effects-in-computed-properties
       const pieData = this.datas.sort((a, b) => {
         return b.value > a.value ? 1 : -1;
       });
@@ -110,7 +111,9 @@ export default {
 
       const option = {
         title: {
-          text: this.title,
+          text: this.$vuetify.breakpoint.mdAndDown
+            ? `${this.title.substring(0, 5)}\n${this.title.substring(5)}`
+            : this.title,
           left: 'center', // Center the title
         },
         legend: {
@@ -125,7 +128,7 @@ export default {
           show: true,
           formatter: (param) => {
             const item = legendBfb.filter((item) => item.name === param)[0];
-            const bfs = `${Number((item.value) * 100).toFixed(2)}%`;
+            const bfs = `${Number(item.value * 100).toFixed(2)}%`;
             return `${item.name}  (${bfs})`;
           },
         },
@@ -181,10 +184,7 @@ export default {
                 // Add the worksheet to the workbook
                 XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
                 // Save the workbook as an Excel file
-                XLSX.writeFile(
-                  wb,
-                  `${this.title}.xlsx`
-                );
+                XLSX.writeFile(wb, `${this.title}.xlsx`);
               },
             },
             myPdf: {
