@@ -316,6 +316,7 @@ import BarChartCard from '~/components/BarCahrtCard.vue';
 import ChartCard from '~/components/ChartCard.vue';
 import MapCard from '~/components/MapCard.vue';
 import { statusMap } from '~/utils/statusMap';
+import nodes from '~/assets/map/tw-node.json';
 
 export default {
   name: 'Dashboard',
@@ -323,34 +324,7 @@ export default {
   layout: 'admin-layout',
   data() {
     return {
-      nodes: [
-        { name: '台北市', value: [121.524184, 25.046737, 3], status: 'normal' },
-        {
-          name: '淡水',
-          value: [121.503207, 25.200766, 0],
-          status: 'non-warning',
-        },
-        {
-          name: '陽明山',
-          value: [121.563715, 25.096987, 1],
-          status: 'non-warning',
-        },
-        { name: '新北市', value: [121.463386, 25.006809, 2], status: 'normal' },
-        { name: '桃園縣', value: [121.322603, 25.028983, 0], status: 'normal' },
-        { name: '大園', value: [121.230977, 25.059194, 3], status: 'normal' },
-        {
-          name: '宜蘭縣',
-          value: [121.768084, 24.758391, 3],
-          status: 'non-warning',
-        },
-        { name: '新竹縣', value: [120.949163, 24.811721,  0], status: 'normal' },
-        { name: '新竹市', value: [121.042898, 24.766474,  0], status: 'error' },
-        { name: '台中市', value: [120.6736, 24.1477, 0], status: 'normal' },
-        { name: '台南市', value: [120.2049, 22.9999, 1], status: 'error' },
-        { name: '高雄市', value: [120.666, 23.0109, 2], status: 'normal' },
-        { name: '台東縣', value: [120.98421, 22.90113, 3], status: 'normal' },
-        { name: '花蓮縣', value: [121.43969, 23.54531, 3], status: 'normal' },
-      ],
+      nodes,
       links: [
         { source: '台北市', target: '台中市', value: 3 },
         { source: '台北市', target: '新北市', value: 2 },
@@ -563,7 +537,7 @@ export default {
   methods: {
     setRowClass(item) {
       if (this.$vuetify.breakpoint.smAndDown) {
-        return `${item.level } lighten-2`;
+        return `${item.level} lighten-2`;
       }
     },
     onLayoutUpdated(list) {
