@@ -56,7 +56,7 @@
             <template #[`item.description`]="{ item }">
               <td
                 :class="statusMap[item.status]"
-                style="border-color: white !important; color: white"
+                style="border-color: white !important;"
                 nowrap="nowrap"
               >
                 {{ item.description || '-' }}

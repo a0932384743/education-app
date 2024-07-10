@@ -52,44 +52,40 @@
             hide-default-footer
             :item-class="setRowClass"
           >
-            <template #[`item.device_name`]="{ item }">
+            <template #[`item.device`]="{ item }">
               <td
-                :class="{
-                  error:
-                    item.current_temperature < item.low_critical_temperature ||
-                    item.current_temperature > item.high_critical_temperature,
-                }"
+                :class="statusMap[item.status]"
+                :style="
+                  item.status !== 'none' && 'border-color:white !important;'
+                "
               >
-                {{ item.device_name }}
-              </td>
-            </template>
-            <template #[`item.location`]="{ item }">
-              <td
-                :class="{
-                  error:
-                    item.current_temperature < item.low_critical_temperature ||
-                    item.current_temperature > item.high_critical_temperature,
-                }"
-              >
-                {{ item.location }}
+                {{ item.device }}
               </td>
             </template>
             <template #[`item.current_temperature`]="{ item }">
-              <td
-                :class="{
-                  error:
-                    item.current_temperature < item.low_critical_temperature ||
-                    item.current_temperature > item.high_critical_temperature,
-                }"
-              >
-                {{ item.current_temperature || '-' }}°C
-              </td>
+              <div style="width: 100px" class="mt-2">
+                <v-progress-linear
+                  v-model="item.memory"
+                  :color="statusMap[item.status]"
+                  height="10"
+                ></v-progress-linear>
+              </div>
+              <div>{{ item.current_temperature || '-' }}°C</div>
             </template>
             <template #[`item.high_critical_temperature`]="{ item }">
               {{ item.high_critical_temperature || '-' }}°C
             </template>
             <template #[`item.low_critical_temperature`]="{ item }">
               {{ item.low_critical_temperature || '-' }}°C
+            </template>
+            <template #[`item.current_humidity`]="{ item }">
+              {{ item.current_humidity || '-' }}%
+            </template>
+            <template #[`item.high_critical_humidity`]="{ item }">
+              {{ item.high_critical_humidity || '-' }}%
+            </template>
+            <template #[`item.low_critical_humidity`]="{ item }">
+              {{ item.low_critical_humidity || '-' }}%
             </template>
           </v-data-table>
         </template>
@@ -101,19 +97,28 @@
 <script>
 import lineData from '~/assets/json/room-temperature-status-history.json';
 import items from '~/assets/json/room-temperature-status.json';
-import pieData from '~/assets/json/room-temperature-summary.json';
 import ChartCard from '~/components/ChartCard.vue';
+import { statusMap } from '~/utils/statusMap';
 
 export default {
   name: 'RoomTemperatureStatus',
   components: { ChartCard },
   layout: 'admin-layout',
+  data() {
+    return {
+      statusMap,
+    };
+  },
   computed: {
     headers() {
       return [
         {
+          text: this.$t('id'),
+          value: 'id',
+        },
+        {
           text: this.$t('device.name'),
-          value: 'device_name',
+          value: 'device',
         },
         {
           text: this.$t('device.location'),
@@ -131,6 +136,18 @@ export default {
           text: this.$t('low.critical.temperature'),
           value: 'low_critical_temperature',
         },
+        {
+          text: this.$t('current.humidity'),
+          value: 'current_humidity',
+        },
+        {
+          text: this.$t('high.critical.humidity'),
+          value: 'high_critical_humidity',
+        },
+        {
+          text: this.$t('low.critical.humidity'),
+          value: 'low_critical_humidity',
+        },
       ];
     },
     lineData() {
@@ -140,7 +157,12 @@ export default {
       return items;
     },
     pieData() {
-      return pieData;
+      return ['normal', 'abnormal', 'non-warning'].map((status) => {
+        return {
+          name: status,
+          value: items.filter((item) => item.status === status).length,
+        };
+      });
     },
   },
   methods: {

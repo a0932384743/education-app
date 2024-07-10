@@ -55,7 +55,7 @@
             <template #[`item.connectUnit`]="{ item }">
               <td
                 :class="statusMap[item.status]"
-                style="border-color: white !important; color: white"
+                style="border-color: white !important;"
               >
                 {{ item.connectUnit || '-' }}
               </td>
@@ -63,7 +63,7 @@
             <template #[`item.device`]="{ item }">
               <td
                 :class="statusMap[item.status]"
-                style="border-color: white !important; color: white"
+                style="border-color: white !important;"
               >
                 {{ item.device || '-' }}
               </td>

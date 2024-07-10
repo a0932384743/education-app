@@ -67,7 +67,7 @@
             <template #[`item.device`]="{ item }">
               <td
                 :class="statusMap[item.status]"
-                style="border-color: white !important; color: white"
+                style="border-color: white !important;"
               >
                 {{ item.device || '-' }}
               </td>
@@ -75,7 +75,7 @@
             <template #[`item.interface`]="{ item }">
               <td
                 :class="statusMap[item.status]"
-                style="border-color: white !important; color: white"
+                style="border-color: white !important;"
               >
                 {{ item.interface || '-' }}
               </td>
@@ -83,7 +83,7 @@
             <template #[`item.description`]="{ item }">
               <td
                 :class="statusMap[item.status]"
-                style="border-color: white !important; color: white"
+                style="border-color: white !important;"
               >
                 {{ item.description || '-' }}
               </td>

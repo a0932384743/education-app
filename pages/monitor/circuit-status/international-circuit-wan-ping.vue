@@ -56,7 +56,7 @@
               <td
                 :class="item.packageLossRate ? 'success' : 'danger'"
                 nowrap="nowrap"
-                style="border-color: white !important; color: white !important"
+                style="border-color: white !important;"
               >
                 {{ item.unit }}
               </td>

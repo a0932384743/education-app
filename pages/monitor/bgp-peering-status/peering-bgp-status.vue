@@ -57,7 +57,7 @@
                 :class="statusMap[item.status]"
                 :style="
                   item.status !== 'none' &&
-                  'border-color:white !important;color:white;'
+                  'border-color:white !important;'
                 "
                 nowrap="nowrap"
               >
