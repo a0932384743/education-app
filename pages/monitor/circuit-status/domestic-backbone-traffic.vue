@@ -55,13 +55,13 @@
             <template #[`header.input`]="{ header }">
               <div class="d-inline-block text-center">
                 <div>{{ header.text }}</div>
-                <div>({{ $t('average.per.min', ['五']) }})</div>
+                <div>({{ $t('average.per.min', ['5']) }})</div>
               </div>
             </template>
             <template #[`header.output`]="{ header }">
               <div class="d-inline-block text-center">
                 <div>{{ header.text }}</div>
-                <div>({{ $t('average.per.min', ['五']) }})</div>
+                <div>({{ $t('average.per.min', ['5']) }})</div>
               </div>
             </template>
             <template #[`item.device`]="{ item }">
