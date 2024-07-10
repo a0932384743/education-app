@@ -43,7 +43,6 @@
           class="mx-auto"
           style="width: 100%; height: calc(100% - 70px)"
           autoresize
-          @georoam="updateZoom"
         />
       </v-card-text>
     </v-expand-transition>
@@ -100,7 +99,7 @@ export default {
                 itemStyle: {
                   areaColor: colorBrightness(
                     this.$vuetify.theme.themes[
-                      this.$vuetify.theme.isDark ?  'dark' :  'light'
+                      this.$vuetify.theme.isDark ? 'dark' : 'light'
                     ][statusMap[node.status]],
                     1.2
                   ),
@@ -122,7 +121,7 @@ export default {
                   borderWidth: 2,
                   color:
                     this.$vuetify.theme.themes[
-                      this.$vuetify.theme.isDark ?  'dark' :  'light'
+                      this.$vuetify.theme.isDark ? 'dark' : 'light'
                     ][statusMap[node.status]],
                 },
               };
@@ -155,7 +154,7 @@ export default {
                   dashOffset: 0,
                   color:
                     this.$vuetify.theme.themes[
-                      this.$vuetify.theme.isDark ?  'dark' :  'light'
+                      this.$vuetify.theme.isDark ? 'dark' : 'light'
                     ].success,
                   width: 5,
                   opacity: 0.6,
@@ -176,19 +175,32 @@ export default {
     this.time = setInterval(() => {
       if (this.$refs.map) {
         const options = this.$refs.map.chart.getOption();
-        const { series }  = options;
+        const { series } = options;
         series[1].data = series[1].data.map((d) => {
           d.lineStyle.dashOffset += 10;
           return d;
         });
-        this.$refs.map.chart.setOption(
-          {
-            ...options,
-            series,
-          }
-        );
+        this.$refs.map.chart.setOption({
+          ...options,
+          series,
+        });
       }
     }, 1000);
+    this.$nextTick(function () {
+      this.$refs.map.chart.on('click', (params) => {
+        const options = this.$refs.map.chart.getOption();
+        const { geo } = options;
+        if (params.region?.value?.length > 2) {
+          geo[0].map = /^[A-Za-z]+$/.test(params.name) ? 'geo' : params.name;
+          geo[0].center = params.region?.value;
+        }
+
+        this.$refs.map.chart.setOption({
+          ...options,
+          geo,
+        });
+      });
+    });
   },
   destroyed() {
     if (this.times) {
@@ -197,27 +209,31 @@ export default {
   },
   methods: {
     reload() {
-      this.$refs.map.chart.dispatchAction({
-        type: 'geoRoam',
-        zoom: this.center ? 2 : 14,
+      const options = this.$refs.map.chart.getOption();
+      const { geo } = options;
+      geo[0].zoom = this.center ? 2 : 14;
+      geo[0].map = this.map || 'geo';
+      this.$refs.map.chart.setOption({
+        ...options,
+        geo,
       });
     },
     zoomIn() {
       const options = this.$refs.map.chart.getOption();
-      const {geo} = options;
-      const { zoom } = geo[0];
-      this.$refs.map.chart.dispatchAction({
-        type: 'geoRoam',
-        zoom: zoom - 2,
+      const { geo } = options;
+      geo[0].zoom -= 2;
+      this.$refs.map.chart.setOption({
+        ...options,
+        geo,
       });
     },
     zoomOut() {
       const options = this.$refs.map.chart.getOption();
-      const {geo} = options;
-      const { zoom } = geo[0];
-      this.$refs.map.chart.dispatchAction({
-        type: 'geoRoam',
-        zoom: zoom + 2,
+      const { geo } = options;
+      geo[0].zoom += 2;
+      this.$refs.map.chart.setOption({
+        ...options,
+        geo,
       });
     },
   },
