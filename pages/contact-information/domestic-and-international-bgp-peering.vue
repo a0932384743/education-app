@@ -41,7 +41,7 @@
           >
             <template #[`item.device`]="{ item }">
               <td
-                :class="statusMap[item.status]"
+                :class="`${statusMap[item.status]} lighten-2`"
                 :style="
                   item.status !== 'none' && 'border-color: inherit !important'
                 "
@@ -52,7 +52,7 @@
             </template>
             <template #[`item.interface`]="{ item }">
               <td
-                :class="statusMap[item.status]"
+                :class="`${statusMap[item.status]} lighten-2`"
                 :style="
                   item.status !== 'none' && 'border-color: inherit !important'
                 "
@@ -63,7 +63,7 @@
             </template>
             <template #[`item.desc`]="{ item }">
               <td
-                :class="statusMap[item.status]"
+                :class="`${statusMap[item.status]} lighten-2`"
                 :style="
                   item.status !== 'none' && 'border-color: inherit !important'
                 "
@@ -153,7 +153,7 @@ export default {
         },
         {
           text: this.$t('check.time'),
-          value: 'checkTime',
+          value: 'check_time',
         },
         {
           text: this.$t('operate'),
@@ -165,7 +165,7 @@ export default {
   methods: {
     setRowClass(item) {
       if (this.$vuetify.breakpoint.smAndDown) {
-        return this.statusMap[item.status];
+        return `${this.statusMap[item.status]} lighten-2`;
       }
     },
   },

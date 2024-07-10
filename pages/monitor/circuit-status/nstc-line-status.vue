@@ -28,7 +28,7 @@
           >
             <template #[`item.description`]="{ item }">
               <td
-                :class="statusMap[item.status]"
+                :class="`${statusMap[item.status]} lighten-2`"
                 style="border-color: inherit !important"
                 nowrap="nowrap"
               >
@@ -73,7 +73,7 @@
             :items="items"
             :search="search"
             :page="page"
-            :item-class="setRowClass"
+            :item-class="setRowClass1"
             :items-per-page="itemPerPage"
             :footer-props="footerProps"
             :header-props="headerProps"
@@ -84,10 +84,10 @@
               <td
                 :class="
                   item.status === 'non-warning'
-                    ? 'non-warning'
+                    ? 'non-warning lighten-2'
                     : item.packageLossRate
-                    ? 'success'
-                    : 'error'
+                    ? 'success lighten-2'
+                    : 'error lighten-2'
                 "
                 nowrap="nowrap"
                 style="border-color: inherit !important"
@@ -156,7 +156,7 @@
             </template>
             <template #[`item.device`]="{ item }">
               <td
-                :class="statusMap[item.status]"
+                :class="`${statusMap[item.status]} lighten-2`"
                 style="border-color: inherit !important"
               >
                 {{ item.device || '-' }}
@@ -164,7 +164,7 @@
             </template>
             <template #[`item.interface`]="{ item }">
               <td
-                :class="statusMap[item.status]"
+                :class="`${statusMap[item.status]} lighten-2`"
                 style="border-color: inherit !important"
               >
                 {{ item.interface || '-' }}
@@ -172,7 +172,7 @@
             </template>
             <template #[`item.description`]="{ item }">
               <td
-                :class="statusMap[item.status]"
+                :class="`${statusMap[item.status]} lighten-2`"
                 style="border-color: inherit !important"
               >
                 {{ item.description || '-' }}
@@ -241,7 +241,7 @@ export default {
         },
         {
           text: this.$t('check.time'),
-          value: 'checkTime',
+          value: 'check_time',
         },
         {
           text: this.$t('status'),
@@ -270,7 +270,7 @@ export default {
         },
         {
           text: this.$t('check.time'),
-          value: 'checkTime',
+          value: 'check_time',
         },
         {
           text: this.$t('input.usage'),
@@ -303,7 +303,7 @@ export default {
         },
         {
           text: this.$t('check.time'),
-          value: 'checkTime',
+          value: 'check_time',
         },
 
         {
@@ -323,11 +323,16 @@ export default {
   methods: {
     setRowClass(item) {
       if (this.$vuetify.breakpoint.smAndDown) {
+        return `${statusMap[item.status]} lighten-2`;
+      }
+    },
+    setRowClass1(item) {
+      if (this.$vuetify.breakpoint.smAndDown) {
         return item.status === 'non-warning'
-          ? 'non-warning'
+          ? 'non-warning lighten-2'
           : item.packageLossRate
-          ? 'success'
-          : 'error';
+          ? 'success lighten-2'
+          : 'error lighten-2';
       }
     },
   },

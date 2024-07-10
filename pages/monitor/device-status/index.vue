@@ -78,7 +78,7 @@ export default {
         },
         {
           text: '檢查時間',
-          value: 'checkTime',
+          value: 'check_time',
         },
       ],
       footerProps: {
@@ -96,7 +96,7 @@ export default {
   methods: {
     setRowClass(item) {
       if (this.$vuetify.breakpoint.smAndDown) {
-        return item.status === 'down' ? 'danger' : 'success';
+        return item.status === 'down' ? 'danger lighten-2' : 'success lighten-2';
       }
     },
   },

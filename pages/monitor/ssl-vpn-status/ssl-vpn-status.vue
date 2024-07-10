@@ -125,7 +125,7 @@ export default {
         },
         {
           text: this.$t('check.time'),
-          value: 'checkTime',
+          value: 'check_time',
         },
       ];
     },
@@ -140,9 +140,9 @@ export default {
     },
   },
   methods: {
-    setRowClass(item) {
+    setRowClass() {
       if (this.$vuetify.breakpoint.smAndDown) {
-        return this.statusMap[item.status];
+        return 'secondary lighten-1';
       }
     },
   },

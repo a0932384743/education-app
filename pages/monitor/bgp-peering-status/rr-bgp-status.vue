@@ -55,7 +55,7 @@
           >
             <template #[`item.rr_server`]="{ item }">
               <td
-                :class="statusMap[item.status]"
+                :class="`${statusMap[item.status]} lighten-2`"
                 :style="
                   item.status !== 'none' && 'border-color: inherit !important'
                 "
@@ -66,14 +66,19 @@
             </template>
             <template #[`item.rr_client`]="{ item }">
               <td
-                :class="statusMap[item.status]"
+                :class="`${statusMap[item.status]} lighten-2`"
                 :style="
-                  item.status !== 'none' && 'border-color: inherit !important'
+                 'border-color: inherit !important'
                 "
                 nowrap="nowrap"
               >
                 {{ item.rr_client }}
               </td>
+            </template>
+            <template #[`item.bgp_status`]="{ item }">
+              <v-chip :color="statusMap[item.status]" dark small>
+                {{ item.bgp_status.toUpperCase() }}
+              </v-chip>
             </template>
             <template #[`item.routes_received`]="{ item }">
               {{ item.routes_received.toLocaleString() }}
@@ -100,7 +105,6 @@
 
 <script>
 import items from '~/assets/json/rr-bgp-status.json';
-import pieData from '~/assets/json/rr-bgp-status-statistics.json';
 import lineData from '~/assets/json/rr-bgp-status-history.json';
 import ChartCard from '~/components/ChartCard.vue';
 import { statusMap } from '~/utils/statusMap';
@@ -164,13 +168,20 @@ export default {
       return lineData;
     },
     pieData() {
-      return pieData;
+      return ['normal', 'abnormal', 'non-warning'].map((status) => {
+        return {
+          name: status,
+          value:
+            items.filter((item) => item.status === status).length +
+            (status === 'normal' ? 70 : status === 'abnormal' ? 4 : 2),
+        };
+      });
     },
   },
   methods: {
     setRowClass(item) {
       if (this.$vuetify.breakpoint.smAndDown) {
-        return this.statusMap[item.status];
+        return `${this.statusMap[item.status]} lighten-2`;
       }
     },
   },

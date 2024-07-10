@@ -153,7 +153,7 @@ export default {
         },
         {
           text: this.$t('check.time'),
-          value: 'checkTime',
+          value: 'check_time',
         },
         {
           text: this.$t('operate'),

@@ -54,7 +54,7 @@
           >
             <template #[`item.connectUnit`]="{ item }">
               <td
-                :class="statusMap[item.status]"
+                :class="`${statusMap[item.status]} lighten-2`"
                 style="border-color: inherit !important;"
               >
                 {{ item.connectUnit || '-' }}
@@ -62,7 +62,7 @@
             </template>
             <template #[`item.device`]="{ item }">
               <td
-                :class="statusMap[item.status]"
+                :class="`${statusMap[item.status]} lighten-2`"
                 style="border-color: inherit !important;"
               >
                 {{ item.device || '-' }}
@@ -113,7 +113,7 @@ export default {
         { text: 'Output(Mbps)', value: 'output' },
         { text: this.$t('status'), value: 'status' },
         { text: this.$t('remark'), value: 'remark' },
-        { text: this.$t('check.time'), value: 'checkTime' },
+        { text: this.$t('check.time'), value: 'check_time' },
       ];
     },
     items() {
@@ -129,7 +129,7 @@ export default {
   methods: {
     setRowClass(item) {
       if (this.$vuetify.breakpoint.smAndDown) {
-        return this.statusMap[item.status];
+        return `${this.statusMap[item.status]} lighten-2`;
       }
     },
   },

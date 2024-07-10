@@ -55,7 +55,7 @@
             <template #[`item.unit`]="{ item }">
               <td
                 nowrap="nowrap"
-                :class="statusMap[item.status]"
+                :class="`${statusMap[item.status]} lighten-2`"
                 style="border-color: inherit !important;"
               >
                 {{ item.unit || '-' }}
@@ -63,7 +63,7 @@
             </template>
             <template #[`item.wanPortIp`]="{ item }">
               <td
-                :class="statusMap[item.status]"
+                :class="`${statusMap[item.status]} lighten-2`"
                 style="border-color: inherit !important;"
               >
                 {{ item.wanPortIp || '-' }}
@@ -118,7 +118,7 @@ export default {
         { text: this.$t('id'), value: 'id', width: 80 },
         { text: this.$t('connection.unit'), value: 'unit' },
         { text: this.$t('connection.unit.ip'), value: 'wanPortIp' },
-        { text: this.$t('check.time'), value: 'checkTime' },
+        { text: this.$t('check.time'), value: 'check_time' },
         { text: this.$t('ping.result'), value: 'pingResult' },
         { text: this.$t('package.loss.rate'), value: 'packageLossRate' },
       ];
@@ -148,7 +148,7 @@ export default {
   methods: {
     setRowClass(item) {
       if (this.$vuetify.breakpoint.smAndDown) {
-        return this.statusMap[item.status];
+        return `${this.statusMap[item.status]} lighten-2`;
       }
     },
   },

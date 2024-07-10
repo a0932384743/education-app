@@ -54,7 +54,7 @@
           >
             <template #[`item.connectUnit`]="{ item }">
               <td
-                :class="statusMap[item.status]"
+                :class="`${statusMap[item.status]} lighten-2`"
                 style="border-color: inherit !important;"
               >
                 {{ item.connectUnit || '-' }}
@@ -102,7 +102,7 @@ export default {
         { text: this.$t('IP'), value: 'ips' },
         { text: this.$t('giga.pop'), value: 'gigaPop' },
         { text: this.$t('status'), value: 'status' },
-        { text: this.$t('check.time'), value: 'checkTime' },
+        { text: this.$t('check.time'), value: 'check_time' },
       ];
     },
     items() {
@@ -118,7 +118,7 @@ export default {
   methods: {
     setRowClass(item) {
       if (this.$vuetify.breakpoint.smAndDown) {
-        return this.statusMap[item.status];
+        return `${this.statusMap[item.status]} lighten-2`;
       }
     },
   },

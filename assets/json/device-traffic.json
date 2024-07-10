@@ -8,7 +8,7 @@
     "output": 0.119906,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-05-30 11:40:00",
+    "check_time": "2024-05-30 11:40:00",
     "connectUnit": "臺北資策會"
   },
   {
@@ -20,7 +20,7 @@
     "output": 0.219906,
     "status": "non-warning",
     "remark": "N/A",
-    "checkTime": "2024-05-30 11:45:00",
+    "check_time": "2024-05-30 11:45:00",
     "connectUnit": "國網中心"
   },
   {
@@ -32,7 +32,7 @@
     "output": 0.214906,
     "status": "abnormal",
     "remark": "N/A",
-    "checkTime": "2024-05-30 11:50:00",
+    "check_time": "2024-05-30 11:50:00",
     "connectUnit": "臺北資策會"
   },
   {
@@ -44,7 +44,7 @@
     "output": 0.214906,
     "status": "non-warning",
     "remark": "N/A",
-    "checkTime": "2024-05-30 11:55:00",
+    "check_time": "2024-05-30 11:55:00",
     "connectUnit": "國網中心"
   },
   {
@@ -56,7 +56,7 @@
     "output": 0.214706,
     "status": "non-warning",
     "remark": "N/A",
-    "checkTime": "2024-05-30 12:00:00",
+    "check_time": "2024-05-30 12:00:00",
     "connectUnit": "臺北資策會"
   },
   {
@@ -68,7 +68,7 @@
     "output": 0.234706,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-05-30 12:05:00",
+    "check_time": "2024-05-30 12:05:00",
     "connectUnit": "國網中心"
   },
   {
@@ -80,7 +80,7 @@
     "output": 0.194706,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-05-30 12:10:00",
+    "check_time": "2024-05-30 12:10:00",
     "connectUnit": "臺北資策會"
   },
   {
@@ -92,7 +92,7 @@
     "output": 0.204706,
     "status": "non-warning",
     "remark": "N/A",
-    "checkTime": "2024-05-30 12:15:00",
+    "check_time": "2024-05-30 12:15:00",
     "connectUnit": "國網中心"
   },
   {
@@ -104,7 +104,7 @@
     "output": 0.224706,
     "status": "abnormal",
     "remark": "N/A",
-    "checkTime": "2024-05-30 12:20:00",
+    "check_time": "2024-05-30 12:20:00",
     "connectUnit": "臺北資策會"
   },
   {
@@ -116,7 +116,7 @@
     "output": 0.214706,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-05-30 12:25:00",
+    "check_time": "2024-05-30 12:25:00",
     "connectUnit": "國網中心"
   },
   {
@@ -128,7 +128,7 @@
     "output": 0.234706,
     "status": "non-warning",
     "remark": "N/A",
-    "checkTime": "2024-05-30 12:30:00",
+    "check_time": "2024-05-30 12:30:00",
     "connectUnit": "臺北資策會"
   },
   {
@@ -140,7 +140,7 @@
     "output": 0.214906,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-05-30 12:35:00",
+    "check_time": "2024-05-30 12:35:00",
     "connectUnit": "國網中心"
   },
   {
@@ -152,7 +152,7 @@
     "output": 0.224706,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-05-30 12:40:00",
+    "check_time": "2024-05-30 12:40:00",
     "connectUnit": "臺北資策會"
   },
   {
@@ -164,7 +164,7 @@
     "output": 0.204706,
     "status": "abnormal",
     "remark": "N/A",
-    "checkTime": "2024-05-30 12:45:00",
+    "check_time": "2024-05-30 12:45:00",
     "connectUnit": "國網中心"
   },
   {
@@ -176,7 +176,7 @@
     "output": 0.224706,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-05-30 12:50:00",
+    "check_time": "2024-05-30 12:50:00",
     "connectUnit": "臺北資策會"
   },
   {
@@ -188,7 +188,7 @@
     "output": 0.194706,
     "status": "non-warning",
     "remark": "N/A",
-    "checkTime": "2024-05-30 12:55:00",
+    "check_time": "2024-05-30 12:55:00",
     "connectUnit": "國網中心"
   },
   {
@@ -200,7 +200,7 @@
     "output": 0.234706,
     "status": "abnormal",
     "remark": "N/A",
-    "checkTime": "2024-05-30 13:00:00",
+    "check_time": "2024-05-30 13:00:00",
     "connectUnit": "臺北資策會"
   },
   {
@@ -212,7 +212,7 @@
     "output": 0.194706,
     "status": "non-warning",
     "remark": "N/A",
-    "checkTime": "2024-05-30 13:05:00",
+    "check_time": "2024-05-30 13:05:00",
     "connectUnit": "國網中心"
   },
   {
@@ -224,7 +224,7 @@
     "output": 0.204706,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-05-30 13:10:00",
+    "check_time": "2024-05-30 13:10:00",
     "connectUnit": "臺北資策會"
   },
   {
@@ -236,7 +236,7 @@
     "output": 0.224706,
     "status": "abnormal",
     "remark": "N/A",
-    "checkTime": "2024-05-30 13:15:00",
+    "check_time": "2024-05-30 13:15:00",
     "connectUnit": "國網中心"
   }
 ]

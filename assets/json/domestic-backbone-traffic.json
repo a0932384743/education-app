@@ -10,7 +10,7 @@
     "output": 0.421,
     "status": "abnormal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:00:00"
+    "check_time": "2024-06-24 10:00:00"
   },
   {
     "id": "3",
@@ -23,7 +23,7 @@
     "output": 0.347,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:01:00"
+    "check_time": "2024-06-24 10:01:00"
   },
   {
     "id": "4",
@@ -36,7 +36,7 @@
     "output": 0.372,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:02:00"
+    "check_time": "2024-06-24 10:02:00"
   },
   {
     "id": "5",
@@ -49,7 +49,7 @@
     "output": 0.386,
     "status": "abnormal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:03:00"
+    "check_time": "2024-06-24 10:03:00"
   },
   {
     "id": "6",
@@ -62,7 +62,7 @@
     "output": 0.408,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:04:00"
+    "check_time": "2024-06-24 10:04:00"
   },
   {
     "id": "7",
@@ -75,7 +75,7 @@
     "output": 0.373,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:05:00"
+    "check_time": "2024-06-24 10:05:00"
   },
   {
     "id": "8",
@@ -88,7 +88,7 @@
     "output": 0.384,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:06:00"
+    "check_time": "2024-06-24 10:06:00"
   },
   {
     "id": "9",
@@ -101,7 +101,7 @@
     "output": 0.357,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:07:00"
+    "check_time": "2024-06-24 10:07:00"
   },
   {
     "id": "10",
@@ -114,7 +114,7 @@
     "output": 0.387,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:08:00"
+    "check_time": "2024-06-24 10:08:00"
   },
   {
     "id": "11",
@@ -127,7 +127,7 @@
     "output": 0.398,
     "status": "abnormal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:09:00"
+    "check_time": "2024-06-24 10:09:00"
   },
   {
     "id": "12",
@@ -140,7 +140,7 @@
     "output": 0.351,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:10:00"
+    "check_time": "2024-06-24 10:10:00"
   },
   {
     "id": "13",
@@ -153,7 +153,7 @@
     "output": 0.366,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:11:00"
+    "check_time": "2024-06-24 10:11:00"
   },
   {
     "id": "14",
@@ -166,7 +166,7 @@
     "output": 0.338,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:12:00"
+    "check_time": "2024-06-24 10:12:00"
   },
   {
     "id": "15",
@@ -179,7 +179,7 @@
     "output": 0.373,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:13:00"
+    "check_time": "2024-06-24 10:13:00"
   },
   {
     "id": "16",
@@ -192,7 +192,7 @@
     "output": 0.391,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:14:00"
+    "check_time": "2024-06-24 10:14:00"
   },
   {
     "id": "17",
@@ -205,7 +205,7 @@
     "output": 0.351,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:15:00"
+    "check_time": "2024-06-24 10:15:00"
   },
   {
     "id": "18",
@@ -218,7 +218,7 @@
     "output": 0.378,
     "status": "abnormal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:16:00"
+    "check_time": "2024-06-24 10:16:00"
   },
   {
     "id": "19",
@@ -231,7 +231,7 @@
     "output": 0.338,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:17:00"
+    "check_time": "2024-06-24 10:17:00"
   },
   {
     "id": "20",
@@ -244,7 +244,7 @@
     "output": 0.354,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:18:00"
+    "check_time": "2024-06-24 10:18:00"
   },
   {
     "id": "21",
@@ -257,7 +257,7 @@
     "output": 0.385,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:19:00"
+    "check_time": "2024-06-24 10:19:00"
   },
   {
     "id": "22",
@@ -270,7 +270,7 @@
     "output": 0.362,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:20:00"
+    "check_time": "2024-06-24 10:20:00"
   },
   {
     "id": "23",
@@ -283,7 +283,7 @@
     "output": 0.373,
     "status": "abnormal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:21:00"
+    "check_time": "2024-06-24 10:21:00"
   },
   {
     "id": "24",
@@ -296,7 +296,7 @@
     "output": 0.350,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:22:00"
+    "check_time": "2024-06-24 10:22:00"
   },
   {
     "id": "25",
@@ -309,7 +309,7 @@
     "output": 0.338,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:23:00"
+    "check_time": "2024-06-24 10:23:00"
   },
   {
     "id": "26",
@@ -322,7 +322,7 @@
     "output": 0.373,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:24:00"
+    "check_time": "2024-06-24 10:24:00"
   },
   {
     "id": "27",
@@ -335,7 +335,7 @@
     "output": 0.391,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:25:00"
+    "check_time": "2024-06-24 10:25:00"
   },
   {
     "id": "28",
@@ -348,7 +348,7 @@
     "output": 0.348,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:26:00"
+    "check_time": "2024-06-24 10:26:00"
   },
   {
     "id": "29",
@@ -361,7 +361,7 @@
     "output": 0.378,
     "status": "abnormal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:27:00"
+    "check_time": "2024-06-24 10:27:00"
   },
   {
     "id": "30",
@@ -374,7 +374,7 @@
     "output": 0.365,
     "status": "normal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:28:00"
+    "check_time": "2024-06-24 10:28:00"
   },
   {
     "id": "31",
@@ -387,7 +387,7 @@
     "output": 0.351,
     "status": "abnormal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:29:00"
+    "check_time": "2024-06-24 10:29:00"
   },
   {
     "id": "32",
@@ -400,6 +400,6 @@
     "output": 0.366,
     "status": "abnormal",
     "remark": "N/A",
-    "checkTime": "2024-06-24 10:30:00"
+    "check_time": "2024-06-24 10:30:00"
   }
 ]

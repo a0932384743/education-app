@@ -54,7 +54,7 @@
           >
             <template #[`item.unit`]="{ item }">
               <td
-                :class=" item.status === 'non-warning' ? 'non-warning'  : (item.packageLossRate ? 'success' : 'error')"
+                :class="item.status === 'non-warning' ? 'non-warning lighten-2'  : (item.packageLossRate ? 'success lighten-2' : 'error lighten-2')"
                 nowrap="nowrap"
                 style="border-color: inherit !important;"
               >
@@ -117,7 +117,7 @@ export default {
         },
         {
           text: this.$t('check.time'),
-          value: 'checkTime',
+          value: 'check_time',
         },
 
         {
@@ -155,7 +155,7 @@ export default {
   methods: {
     setRowClass(item) {
       if (this.$vuetify.breakpoint.smAndDown) {
-        return item.status === 'non-warning' ? 'non-warning'  : (item.packageLossRate ? 'success' : 'error');
+        return item.status === 'non-warning lighten-2' ? 'non-warning lighten-2'  : (item.packageLossRate ? 'success lighten-2' : 'error lighten-2');
       }
     },
   },

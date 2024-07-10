@@ -54,7 +54,7 @@
           >
             <template #[`item.peering_name`]="{ item }">
               <td
-                :class="statusMap[item.status]"
+                :class="`${statusMap[item.status]} lighten-2`"
                 :style="
                   item.status !== 'none' &&
                   'border-color: inherit !important;'
@@ -66,7 +66,7 @@
             </template>
             <template #[`item.device`]="{ item }">
               <td
-                :class="statusMap[item.status]"
+                :class="`${statusMap[item.status]} lighten-2`"
                 :style="
                   item.status !== 'none' && 'border-color: inherit !important'
                 "
@@ -97,7 +97,6 @@
 
 <script>
 import items from '~/assets/json/peering-bgp-status.json';
-import pieData from '~/assets/json/peering-bgp-status-statistics.json';
 import lineData from '~/assets/json/peering-bgp-status-history.json';
 import ChartCard from '~/components/ChartCard.vue';
 import { statusMap } from '~/utils/statusMap';
@@ -165,13 +164,20 @@ export default {
       return lineData;
     },
     pieData() {
-      return pieData;
+      return ['normal', 'abnormal', 'non-warning'].map((status) => {
+        return {
+          name: status,
+          value:
+            items.filter((item) => item.status === status).length +
+            (status === 'normal' ? 70 : status === 'abnormal' ? 4 : 2),
+        };
+      });
     },
   },
   methods: {
     setRowClass(item) {
       if (this.$vuetify.breakpoint.smAndDown) {
-        return this.statusMap[item.status];
+        return `${this.statusMap[item.status]} lighten-2`;
       }
     },
   },

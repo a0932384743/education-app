@@ -8,7 +8,7 @@
     "routes_received": 1140302,
     "routes_received_high": 1020623,
     "routes_received_low": 596706,
-    "status": "none"
+    "status": "normal"
   },
   {
     "id": 2,
@@ -52,7 +52,7 @@
     "routes_received": 1187819,
     "routes_received_high": 1149754,
     "routes_received_low": 584877,
-    "status": "none"
+    "status": "normal"
   },
   {
     "id": 6,
@@ -63,7 +63,7 @@
     "routes_received": 819010,
     "routes_received_high": 870577,
     "routes_received_low": 542458,
-    "status": "none"
+    "status": "normal"
   },
   {
     "id": 7,
@@ -85,7 +85,7 @@
     "routes_received": 846164,
     "routes_received_high": 1150126,
     "routes_received_low": 598842,
-    "status": "none"
+    "status": "normal"
   },
   {
     "id": 9,
@@ -96,7 +96,7 @@
     "routes_received": 1139677,
     "routes_received_high": 964633,
     "routes_received_low": 564402,
-    "status": "none"
+    "status": "normal"
   },
   {
     "id": 10,
@@ -107,7 +107,7 @@
     "routes_received": 1055842,
     "routes_received_high": 886598,
     "routes_received_low": 511970,
-    "status": "none"
+    "status": "normal"
   },
   {
     "id": 11,
@@ -140,7 +140,7 @@
     "routes_received": 893584,
     "routes_received_high": 936633,
     "routes_received_low": 595316,
-    "status": "none"
+    "status": "normal"
   },
   {
     "id": 14,
@@ -162,7 +162,7 @@
     "routes_received": 881901,
     "routes_received_high": 1026863,
     "routes_received_low": 583416,
-    "status": "none"
+    "status": "non-warning"
   },
   {
     "id": 16,
@@ -173,7 +173,7 @@
     "routes_received": 1007382,
     "routes_received_high": 1134511,
     "routes_received_low": 588051,
-    "status": "none"
+    "status": "non-warning"
   },
   {
     "id": 17,
@@ -195,7 +195,7 @@
     "routes_received": 964946,
     "routes_received_high": 860796,
     "routes_received_low": 556085,
-    "status": "none"
+    "status": "non-warning"
   },
   {
     "id": 19,
@@ -206,7 +206,7 @@
     "routes_received": 1097112,
     "routes_received_high": 1121491,
     "routes_received_low": 561629,
-    "status": "none"
+    "status": "non-warning"
   },
   {
     "id": 20,
@@ -294,7 +294,7 @@
     "routes_received": 949199,
     "routes_received_high": 1199981,
     "routes_received_low": 564102,
-    "status": "none"
+    "status": "non-warning"
   },
   {
     "id": 28,
@@ -305,7 +305,7 @@
     "routes_received": 891954,
     "routes_received_high": 910057,
     "routes_received_low": 551705,
-    "status": "none"
+    "status": "non-warning"
   },
   {
     "id": 29,
@@ -316,7 +316,7 @@
     "routes_received": 995973,
     "routes_received_high": 896205,
     "routes_received_low": 568889,
-    "status": "none"
+    "status": "non-warning"
   },
   {
     "id": 30,
@@ -327,6 +327,6 @@
     "routes_received": 1043010,
     "routes_received_high": 868157,
     "routes_received_low": 500089,
-    "status": "none"
+    "status": "non-warning"
   }
 ]

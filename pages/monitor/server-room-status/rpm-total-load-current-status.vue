@@ -54,7 +54,7 @@
           >
             <template #[`item.device`]="{ item }">
               <td
-                :class="statusMap[item.status]"
+                :class="`${statusMap[item.status]} lighten-2`"
                 :style="
                   item.status !== 'none' && 'border-color: inherit !important;'
                 "
@@ -179,7 +179,7 @@ export default {
   methods: {
     setRowClass(item) {
       if (this.$vuetify.breakpoint.smAndDown) {
-        return this.statusMap[item.status];
+        return `${this.statusMap[item.status]} lighten-2`;
       }
     },
   },

@@ -58,7 +58,7 @@
             </template>
             <template #[`item.device`]="{ item }">
               <td
-                :class="statusMap[item.status]"
+                :class="`${statusMap[item.status]} lighten-2`"
                 style="border-color: inherit !important;"
                 nowrap="nowrap"
               >
@@ -111,7 +111,7 @@ export default {
         },
         {
           text: this.$t('check.time'),
-          value: 'checkTime',
+          value: 'check_time',
         },
         {
           text: this.$t('memory.usage'),
