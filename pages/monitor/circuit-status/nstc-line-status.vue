@@ -208,8 +208,8 @@
 </template>
 
 <script>
-import items from '~/assets/json/international-circuit-Interface.json'
-import { statusMap } from '~/utils/statusMap'
+import items from '~/assets/json/international-circuit-Interface.json';
+import { statusMap } from '~/utils/statusMap';
 
 export default {
   name: 'NstcLineStatus',
@@ -217,7 +217,7 @@ export default {
   data() {
     return {
       statusMap,
-    }
+    };
   },
   computed: {
     headers1() {
@@ -247,7 +247,7 @@ export default {
           text: this.$t('status'),
           value: 'status',
         },
-      ]
+      ];
     },
     headers3() {
       return [
@@ -284,7 +284,7 @@ export default {
           text: this.$t('remark'),
           value: 'remark',
         },
-      ]
+      ];
     },
     headers2() {
       return [
@@ -314,10 +314,10 @@ export default {
           text: this.$t('package.loss.rate'),
           value: 'packageLossRate',
         },
-      ]
+      ];
     },
     items() {
-      return items.filter((item) => item.unit.includes('國科會'))
+      return items.filter((item) => item.unit.includes('國科會'));
     },
   },
   methods: {
@@ -327,9 +327,9 @@ export default {
           ? 'non-warning'
           : item.packageLossRate
           ? 'success'
-          : 'error'
+          : 'error';
       }
     },
   },
-}
+};
 </script>
