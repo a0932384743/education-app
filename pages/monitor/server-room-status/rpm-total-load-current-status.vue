@@ -56,7 +56,7 @@
               <td
                 :class="statusMap[item.status]"
                 :style="
-                  item.status !== 'none' && 'border-color:white !important;'
+                  item.status !== 'none' && 'border-color: inherit !important;'
                 "
               >
                 {{ item.device }}

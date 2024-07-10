@@ -55,7 +55,7 @@
             <template #[`item.school`]="{ item }">
               <td
                 class="secondary lighten-1 font-weight-bold"
-                style="border-color: white !important"
+                style="border-color: inherit !important"
                 align="center"
               >
                 {{ item.school || '-' }}
@@ -64,7 +64,7 @@
             <template #[`item.gateway`]="{ item }">
               <td
                 class="secondary lighten-1 font-weight-bold"
-                style="border-color: white !important"
+                style="border-color: inherit !important"
               >
                 {{ item.gateway || '-' }}
               </td>

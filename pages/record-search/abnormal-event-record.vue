@@ -127,7 +127,7 @@
                 :style="
                   item.endTime
                     ? 'border-color: inherit !important'
-                    : 'border-color:white !important'
+                    : 'border-color: inherit !important'
                 "
               >
                 <td>{{ item.id }}</td>

@@ -47,6 +47,7 @@
   "connect.info": "Connection Information",
   "connect.success": "Connected Success",
   "connect.test": "Test Connection",
+  "connect.unit": "Connection Unit",
   "connect.unit.id": "Unit Id",
   "connect.unit.name": "Connection Unit",
   "connection.unit": "Connection Unit",

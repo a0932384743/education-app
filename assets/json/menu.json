@@ -319,7 +319,7 @@
       }
     ],
     "icon": "mdi-monitor",
-    "name": "監控狀態",
+    "name": "監控狀況",
     "name_en": "Monitoring Status",
     "url": "/monitor"
   },

@@ -43,7 +43,7 @@
               <td
                 :class="statusMap[item.status]"
                 :style="
-                  item.status !== 'none' && 'border-color:white !important'
+                  item.status !== 'none' && 'border-color: inherit !important'
                 "
                 nowrap="nowrap"
               >
@@ -54,7 +54,7 @@
               <td
                 :class="statusMap[item.status]"
                 :style="
-                  item.status !== 'none' && 'border-color:white !important'
+                  item.status !== 'none' && 'border-color: inherit !important'
                 "
                 nowrap="nowrap"
               >
@@ -65,7 +65,7 @@
               <td
                 :class="statusMap[item.status]"
                 :style="
-                  item.status !== 'none' && 'border-color:white !important'
+                  item.status !== 'none' && 'border-color: inherit !important'
                 "
                 nowrap="nowrap"
               >
@@ -90,7 +90,6 @@
 
 <script>
 import items from '~/assets/json/device-traffic.json';
-import pieData from '~/assets/json/device-summary.json';
 import ChartCard from '~/components/ChartCard.vue';
 import { statusMap } from '~/utils/statusMap';
 
@@ -108,7 +107,14 @@ export default {
       return items;
     },
     pieData() {
-      return pieData;
+      return ['normal', 'abnormal', 'non-warning'].map((status) => {
+        return {
+          name: status,
+          value:
+            items.filter((item) => item.status === status).length +
+            (status === 'normal' ? 310 : status === 'abnormal' ? 50 : 2),
+        };
+      });
     },
     headers() {
       return [

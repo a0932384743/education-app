@@ -57,7 +57,7 @@
               <td
                 :class="statusMap[item.status]"
                 :style="
-                  item.status !== 'none' && 'border-color:white !important'
+                  item.status !== 'none' && 'border-color: inherit !important'
                 "
                 nowrap="nowrap"
               >
@@ -68,7 +68,7 @@
               <td
                 :class="statusMap[item.status]"
                 :style="
-                  item.status !== 'none' && 'border-color:white !important'
+                  item.status !== 'none' && 'border-color: inherit !important'
                 "
                 nowrap="nowrap"
               >

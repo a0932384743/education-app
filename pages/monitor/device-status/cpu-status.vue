@@ -59,7 +59,7 @@
             <template #[`item.device`]="{ item }">
               <td
                 :class="statusMap[item.status]"
-                style="border-color: white !important;"
+                style="border-color: inherit !important;"
                 nowrap="nowrap"
               >
                 {{ item.device || '-' }}
@@ -84,7 +84,6 @@
 
 <script>
 import items from '~/assets/json/device-cpu-status.json';
-import pieData from '~/assets/json/device-summary.json';
 import lineData from '~/assets/json/cpu-status-history.json';
 import ChartCard from '~/components/ChartCard.vue';
 import { statusMap } from '~/utils/statusMap';
@@ -126,7 +125,14 @@ export default {
       return items;
     },
     pieData() {
-      return pieData;
+      return ['normal', 'abnormal', 'non-warning'].map((status) => {
+        return {
+          name: status,
+          value:
+            items.filter((item) => item.status === status).length +
+            (status === 'normal' ? 310 : status === 'abnormal' ? 50 : 2),
+        };
+      });
     },
   },
   methods: {

@@ -56,7 +56,7 @@
             <template #[`item.description`]="{ item }">
               <td
                 :class="statusMap[item.status]"
-                style="border-color: white !important;"
+                style="border-color: inherit !important;"
                 nowrap="nowrap"
               >
                 {{ item.description || '-' }}
@@ -84,10 +84,8 @@
 <script>
 import lineData from '~/assets/json/international-circuit-interface-history.json';
 import items from '~/assets/json/international-circuit-Interface.json';
-import pieData from '~/assets/json/device-summary.json';
 import ChartCard from '~/components/ChartCard.vue';
 import { statusMap } from '~/utils/statusMap';
-
 export default {
   name: 'InternationalCircuitInterface',
   components: { ChartCard },
@@ -135,13 +133,25 @@ export default {
       return lineData;
     },
     pieData() {
-      return pieData;
+      return ['normal', 'abnormal', 'non-warning'].map((status) => {
+        const map = {
+          normal: 'up',
+          abnormal: 'down',
+          'non-warning': 'non-warning',
+        };
+        return {
+          name: status,
+          value:
+            items.filter((item) => item.status === map[status]).length +
+            (status === 'normal' ? 310 : status === 'abnormal' ? 150 : 2),
+        };
+      });
     },
   },
   methods: {
     setRowClass(item) {
       if (this.$vuetify.breakpoint.smAndDown) {
-        return this.statusMap[item.status];
+        return item.status === 'non-warning' ? 'non-warning'  : (item.packageLossRate ? 'success' : 'error');
       }
     },
   },

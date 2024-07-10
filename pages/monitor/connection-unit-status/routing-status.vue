@@ -55,7 +55,7 @@
             <template #[`item.connectUnit`]="{ item }">
               <td
                 :class="statusMap[item.status]"
-                style="border-color: white !important;"
+                style="border-color: inherit !important;"
               >
                 {{ item.connectUnit || '-' }}
               </td>

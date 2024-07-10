@@ -67,7 +67,7 @@
             <template #[`item.device`]="{ item }">
               <td
                 :class="statusMap[item.status]"
-                style="border-color: white !important;"
+                style="border-color: inherit !important"
               >
                 {{ item.device || '-' }}
               </td>
@@ -75,7 +75,7 @@
             <template #[`item.interface`]="{ item }">
               <td
                 :class="statusMap[item.status]"
-                style="border-color: white !important;"
+                style="border-color: inherit !important"
               >
                 {{ item.interface || '-' }}
               </td>
@@ -83,7 +83,7 @@
             <template #[`item.desc`]="{ item }">
               <td
                 :class="statusMap[item.status]"
-                style="border-color: white !important;"
+                style="border-color: inherit !important"
               >
                 {{ item.desc || '-' }}
               </td>
@@ -119,7 +119,6 @@
 
 <script>
 import items from '~/assets/json/domestic-backbone-traffic.json';
-import pieData from '~/assets/json/domestic-backbone-traffic-statistics.json';
 import lineData from '~/assets/json/domestic-backbone-traffic-history.json';
 import ChartCard from '~/components/ChartCard.vue';
 import { statusMap } from '~/utils/statusMap';
@@ -171,7 +170,6 @@ export default {
         },
       ];
     },
-
     items() {
       return items;
     },
@@ -179,7 +177,14 @@ export default {
       return lineData;
     },
     pieData() {
-      return pieData;
+      return ['normal', 'abnormal', 'non-warning'].map((status) => {
+        return {
+          name: status,
+          value:
+            items.filter((item) => item.status === status).length +
+            (status === 'normal' ? 310 : status === 'abnormal' ? 50 : 2),
+        };
+      });
     },
   },
   methods: {
