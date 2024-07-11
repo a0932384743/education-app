@@ -26,31 +26,46 @@
             hide-default-footer
           >
             <template #[`header.ifindex`]="{ header }">
-              <div class="d-inline-flex align-center" style="gap: 0.5rem">
+              <div
+                class="d-inline-flex align-center flex-column"
+                style="gap: 0.5rem"
+              >
                 <div>{{ header.text }}</div>
                 <div>(ifindex)</div>
               </div>
             </template>
             <template #[`header.inflow_high_threshold`]="{ header }">
-              <div class="d-inline-flex align-center" style="gap: 0.5rem">
+              <div
+                class="d-inline-flex align-center flex-column"
+                style="gap: 0.5rem"
+              >
                 <div>{{ header.text }}</div>
                 <div>{{ $t('high.threshold') }}</div>
               </div>
             </template>
             <template #[`header.inflow_low_threshold`]="{ header }">
-              <div class="d-inline-flex align-center" style="gap: 0.5rem">
+              <div
+                class="d-inline-flex align-center flex-column"
+                style="gap: 0.5rem"
+              >
                 <div>{{ header.text }}</div>
                 <div>{{ $t('high.threshold') }}</div>
               </div>
             </template>
             <template #[`header.outflow_high_threshold`]="{ header }">
-              <div class="d-inline-flex align-center" style="gap: 0.5rem">
+              <div
+                class="d-inline-flex align-center flex-column"
+                style="gap: 0.5rem"
+              >
                 <div>{{ header.text }}</div>
                 <div>{{ $t('low.threshold') }}</div>
               </div>
             </template>
             <template #[`header.outflow_low_threshold`]="{ header }">
-              <div class="d-inline-flex align-center" style="gap: 0.5rem">
+              <div
+                class="d-inline-flex align-center flex-column"
+                style="gap: 0.5rem"
+              >
                 <div>{{ header.text }}</div>
                 <div>{{ $t('low.threshold') }}</div>
               </div>
@@ -93,7 +108,7 @@
 </template>
 
 <script>
-import items from '~/assets/json/domestic-circuit.json';
+import items from '~/assets/json/domestic-backbone-traffic.json';
 
 export default {
   name: 'DomesticCircuit',
@@ -118,9 +133,9 @@ export default {
         },
         { text: this.$t('interface.source'), value: 'source' },
         { text: this.$t('interface.destination'), value: 'destination' },
-        { text: this.$t('interface.equipment'), value: 'equipment' },
-        { text: this.$t('ifindex'), value: 'ifindex' },
-        { text: this.$t('port'), value: 'port' },
+        { text: this.$t('interface.equipment'), value: 'device', width: 350 },
+        { text: this.$t('ifindex'), value: 'ifindex', width: 150 },
+        { text: this.$t('port'), value: 'port', width: 150 },
         { text: this.$t('inflow'), value: 'inflow_high_threshold' },
         { text: this.$t('inflow'), value: 'inflow_low_threshold' },
         { text: this.$t('outflow'), value: 'outflow_high_threshold' },

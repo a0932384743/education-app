@@ -52,12 +52,12 @@
             hide-default-footer
             :item-class="setRowClass"
           >
-            <template #[`item.connectUnit`]="{ item }">
+            <template #[`item.unit`]="{ item }">
               <td
                 :class="`${statusMap[item.status]} lighten-2`"
                 style="border-color: inherit !important;"
               >
-                {{ item.connectUnit || '-' }}
+                {{ item.unit || '-' }}
               </td>
             </template>
             <template #[`item.ips`]="{ item }">
@@ -80,7 +80,6 @@
 
 <script>
 import items from '~/assets/json/routing-status.json';
-import pieData from '~/assets/json/routing-status-statistics.json';
 import lineData from '~/assets/json/routing-status-history.json';
 import ChartCard from '~/components/ChartCard.vue';
 import { statusMap } from '~/utils/statusMap';
@@ -98,11 +97,10 @@ export default {
     headers() {
       return [
         { text: this.$t('id'), value: 'id', width: 80 },
-        { text: this.$t('connection.unit'), value: 'connectUnit' },
-        { text: this.$t('IP'), value: 'ips' },
+        { text: this.$t('connection.unit'), value: 'unit' },
         { text: this.$t('giga.pop'), value: 'gigaPop' },
-        { text: this.$t('status'), value: 'status' },
         { text: this.$t('check.time'), value: 'check_time' },
+        { text: this.$t('IP'), value: 'ips' },
       ];
     },
     items() {
@@ -112,7 +110,19 @@ export default {
       return lineData;
     },
     pieData() {
-      return pieData;
+      return ['normal', 'abnormal', 'non-warning'].map((status) => {
+        const map = {
+          normal: 'up',
+          abnormal: 'down',
+          'non-warning': 'non-warning',
+        };
+        return {
+          name: status,
+          value:
+            items.filter((item) => item.status === map[status]).length +
+            (status === 'normal' ? 310 : status === 'abnormal' ? 150 : 2),
+        };
+      });
     },
   },
   methods: {

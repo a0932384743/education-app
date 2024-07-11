@@ -65,7 +65,7 @@
             <template #[`item.current_temperature`]="{ item }">
               <div style="width: 100px" class="mt-2">
                 <v-progress-linear
-                  v-model="item.memory"
+                  v-model="item.current_temperature"
                   :color="statusMap[item.status]"
                   height="10"
                 ></v-progress-linear>
@@ -79,13 +79,27 @@
               {{ item.low_critical_temperature || '-' }}°C
             </template>
             <template #[`item.current_humidity`]="{ item }">
-              {{ item.current_humidity || '-' }}%
+              <div style="width: 100px" class="mt-2">
+                <v-progress-linear
+                  v-model="item.current_humidity"
+                  :color="statusMap[item.status]"
+                  height="10"
+                ></v-progress-linear>
+                <div> {{ item.current_humidity || '-' }}%</div>
+              </div>
             </template>
             <template #[`item.high_critical_humidity`]="{ item }">
               {{ item.high_critical_humidity || '-' }}%
             </template>
             <template #[`item.low_critical_humidity`]="{ item }">
               {{ item.low_critical_humidity || '-' }}%
+            </template>
+            <template #[`item.history`]>
+              <td align="center">
+                <v-btn color="secondary" small dark>
+                  <v-icon>mdi-chart-areaspline</v-icon>
+                </v-btn>
+              </td>
             </template>
           </v-data-table>
         </template>
@@ -147,6 +161,10 @@ export default {
         {
           text: this.$t('low.critical.humidity'),
           value: 'low_critical_humidity',
+        },
+        {
+          text: this.$t('history'),
+          value: 'history',
         },
       ];
     },

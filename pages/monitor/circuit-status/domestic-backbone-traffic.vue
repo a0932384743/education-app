@@ -68,6 +68,7 @@
               <td
                 :class="`${statusMap[item.status]} lighten-2`"
                 style="border-color: inherit !important"
+                nowrap="nowrap"
               >
                 {{ item.device || '-' }}
               </td>
@@ -76,6 +77,7 @@
               <td
                 :class="`${statusMap[item.status]} lighten-2`"
                 style="border-color: inherit !important"
+                nowrap="nowrap"
               >
                 {{ item.interface || '-' }}
               </td>
@@ -151,10 +153,12 @@ export default {
         {
           text: this.$t('interface.description'),
           value: 'desc',
+          width: 250
         },
         {
           text: this.$t('check.time'),
           value: 'check_time',
+          width: 200
         },
         {
           text: this.$t('input.usage'),

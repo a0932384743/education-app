@@ -98,8 +98,8 @@
 </template>
 
 <script>
-import lineData from '~/assets/json/international-circuit-interface-history.json';
-import items from '~/assets/json/international-circuit-Interface.json';
+import lineData from '~/assets/json/routing-status-history.json';
+import items from '~/assets/json/routing-status.json';
 import ChartCard from '~/components/ChartCard.vue';
 import { statusMap } from '~/utils/statusMap';
 

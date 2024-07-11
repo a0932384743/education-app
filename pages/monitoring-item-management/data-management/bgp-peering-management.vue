@@ -25,72 +25,190 @@
             fixed-header
             hide-default-footer
           >
-            <template #[`item.input`]="{ item }">
-              <div v-if="!item.editable">{{ item.input }}</div>
-              <v-text-field
-                v-else
-                v-model="item.input"
-                small
-                min="0"
-                type="number"
-                label=""
-                required
-                :rules="[
-                  (val) => (val || '').length > 0 || 'This field is required',
-                ]"
-              />
+            <template #[`header.operate`]="{ header }">
+              <div class="d-inline-flex align-center" style="gap: 0.5rem">
+                <div>{{ header.text }}</div>
+                <v-btn small color="success" @click="onAdd()">
+                  <v-icon size="20">mdi-plus</v-icon>
+                </v-btn>
+              </div>
             </template>
-            <template #[`item.output`]="{ item }">
-              <div v-if="!item.editable">{{ item.output }}</div>
-              <v-text-field
-                v-else
-                v-model="item.output"
-                small
-                min="0"
-                type="number"
-                label=""
-                required
-                :rules="[
-                  (val) => (val || '').length > 0 || 'This field is required',
-                ]"
-              />
-            </template>
-            <template #[`item.remark`]="{ item }">
-              <div v-if="!item.editable">{{ item.remark }}</div>
-              <v-text-field
-                v-else
-                v-model="item.remark"
-                small
-                label=""
-                required
-                :rules="[
-                  (val) => (val || '').length > 0 || 'This field is required',
-                ]"
-              />
-            </template>
-            <template #[`item.status`]="{ item }">
-              <v-chip
-                :small="true"
-                :color="statusMap[item.status]"
-                class="lighten-1 text--black align-content-center"
+            <template #[`header.high_critical_peer`]="{ header }">
+              <div
+                class="d-inline-flex align-center flex-column"
+                style="gap: 0.5rem"
               >
-                {{ item.status.toUpperCase() }}
-              </v-chip>
+                <div>{{ header.text }}</div>
+                <div>(+25%)</div>
+              </div>
+            </template>
+            <template #[`header.low_critical_peer`]="{ header }">
+              <div
+                class="d-inline-flex align-center flex-column"
+                style="gap: 0.5rem"
+              >
+                <div>{{ header.text }}</div>
+                <div>(+25%)</div>
+              </div>
+            </template>
+            <template #[`item.contacts`]="{ item }">
+              <ul
+                v-if="!item.editable"
+                class="d-inline-flex flex-column"
+                style="list-style: none"
+              >
+                <li
+                  v-for="contacts in item.contacts"
+                  :key="contacts.name"
+                  class="d-flex flex-wrap"
+                  style="gap: 0.2rem"
+                >
+                  <div class="subtitle-2">{{ contacts.name }}</div>
+                  <a class="subtitle-2" :href="'mail:' + contacts?.mail">{{
+                    contacts.mail
+                  }}</a>
+                  <div class="subtitle-2">{{ contacts.phone }}</div>
+                </li>
+              </ul>
+
+              <ul v-else style="list-style: none">
+                <li
+                  v-for="(contacts, index) in item.contacts"
+                  :key="index"
+                  class="d-flex flex-column"
+                  style="gap: 0.2rem"
+                >
+                  <v-text-field
+                    v-model="contacts.name"
+                    small
+                    :label="$t('name')"
+                    required
+                    hide-details
+                  />
+                  <v-text-field
+                    v-model="contacts.mail"
+                    small
+                    :label="$t('mail')"
+                    required
+                    hide-details
+                  />
+                  <v-text-field
+                    v-model="contacts.phone"
+                    small
+                    :label="$t('phone')"
+                    required
+                    hide-details
+                  />
+                </li>
+                <li class="d-flex flex-column subtitle-2" style="gap: 0.2rem">
+                  <div>
+                    <v-btn
+                      class="flex-grow-0 mb-2"
+                      small
+                      color="success"
+                      @click="
+                        item.contacts.push({
+                          name: '',
+                          mail: '',
+                          phone: '',
+                        })
+                      "
+                    >
+                      <v-icon size="15">mdi-plus</v-icon>
+                    </v-btn>
+                  </div>
+                </li>
+              </ul>
+            </template>
+            <template #[`item.current_peer`]="{ item }">
+              <div v-if="!item.editable">{{ item.current_peer }}</div>
+              <v-text-field
+                v-else
+                v-model="item.current_peer"
+                small
+                label=""
+                required
+                type="number"
+                min="0"
+                max="9999"
+                :rules="[
+                  (val) => val > 0 || 'This field must be greater than 0',
+                ]"
+              />
+            </template>
+            <template #[`item.high_critical_peer`]="{ item }">
+              <div v-if="!item.editable">{{ item.high_critical_peer }}</div>
+              <v-text-field
+                v-else
+                v-model="item.high_critical_peer"
+                small
+                label=""
+                required
+                type="number"
+                min="0"
+                max="9999"
+                :rules="[
+                  (val) => val > 0 || 'This field must be greater than 0',
+                ]"
+              />
+            </template>
+            <template #[`item.low_critical_peer`]="{ item }">
+              <div v-if="!item.editable">{{ item.low_critical_peer }}</div>
+              <v-text-field
+                v-else
+                v-model="item.low_critical_peer"
+                small
+                label=""
+                required
+                type="number"
+                min="0"
+                max="2000"
+                :rules="[
+                  (val) => val > 0 || 'This field must be greater than 0',
+                ]"
+              />
+            </template>
+            <template #[`item.is_alert`]="{ item }">
+              <div v-if="!item.editable">{{ item.is_alert }}</div>
+              <v-switch
+                v-else
+                v-model="item.is_alert"
+                small
+                label=""
+                required
+                color="info"
+                :true-value="'Yes'"
+                :false-value="'No'"
+              />
             </template>
             <template #[`item.operate`]="{ item }">
-              <v-btn
-                small
-                :disabled="Object.keys(item).some((key) => item[key] === '')"
-                :color="item.editable ? 'secondary' : 'info'"
-                @click="
-                  Object.keys(item).every((key) => item[key])
-                    ? (item.editable = !item.editable)
-                    : (item.editable = true)
-                "
-              >
-                <v-icon size="20">mdi-pencil</v-icon>
-                <span class="d-none d-sm-inline-block">{{ $t('edit') }}</span>
-              </v-btn>
+              <div class="d-inline-flex" style="gap: 0.8rem">
+                <v-btn
+                  small
+                  :disabled="Object.keys(item).some((key) => item[key] === '')"
+                  :color="item.editable ? 'secondary' : 'info'"
+                  @click="
+                    Object.keys(item).every((key) => item[key])
+                      ? (item.editable = !item.editable)
+                      : (item.editable = true)
+                  "
+                >
+                  <v-icon size="20">mdi-pencil</v-icon>
+                  <span class="d-none d-sm-inline-block">{{ $t('edit') }}</span>
+                </v-btn>
+                <v-btn
+                  small
+                  color="danger"
+                  class="px-2"
+                  @click="onDelete(item)"
+                >
+                  <v-icon class="white--text" size="20"
+                    >mdi-trash-can-outline</v-icon
+                  ><span class="d-none d-sm-inline-block white--text">{{
+                    $t('delete')
+                  }}</span>
+                </v-btn>
+              </div>
             </template>
           </v-data-table>
         </template>
@@ -100,7 +218,8 @@
 </template>
 
 <script>
-import items from '~/assets/json/device-traffic.json';
+import moment from 'moment/moment';
+import items from '~/assets/json/peering-bgp-status.json';
 import { statusMap } from '~/utils/statusMap';
 
 export default {
@@ -109,10 +228,10 @@ export default {
   data() {
     return {
       statusMap,
-      items: items.map(item=>({
-       ...item,
+      items: items.map((item) => ({
+        ...item,
         editable: false,
-      }))
+      })),
     };
   },
   computed: {
@@ -124,42 +243,73 @@ export default {
           width: 80,
         },
         {
-          text: this.$t('device'),
+          text: this.$t('peering.name'),
+          value: 'peering_name',
+        },
+        {
+          text: this.$t('Peer IP'),
+          value: 'ip',
+        },
+        {
+          text: this.$t('peering.device'),
           value: 'device',
         },
         {
-          text: this.$t('interface'),
-          value: 'interface',
+          text: this.$t('contact.info'),
+          value: 'contacts',
         },
         {
-          text: this.$t('interface.description'),
-          value: 'desc',
+          text: this.$t('Peer ASN'),
+          value: 'current_peer',
         },
         {
-          text: 'Input(Mbps)',
-          value: 'input',
+          text: this.$t('high.critical.peer'),
+          value: 'high_critical_peer',
         },
         {
-          text: 'Output(Mbps)',
-          value: 'output',
+          text: this.$t('low.critical.peer'),
+          value: 'low_critical_peer',
         },
         {
-          text: this.$t('remark'),
-          value: 'remark',
-        },
-        {
-          text: this.$t('status'),
-          value: 'status',
-        },
-        {
-          text: this.$t('check.time'),
-          value: 'check_time',
+          text: this.$t('interface.alerting'),
+          value: 'is_alert',
         },
         {
           text: this.$t('operate'),
           value: 'operate',
         },
       ];
+    },
+  },
+  methods: {
+    onAdd() {
+      this.items.push({
+        id: this.items.length + 1,
+        bgp_check_time: moment().format('YYYY-MM-DD HH:mm:ss'),
+        bgp_status: 'established',
+        contacts: [
+          {
+            mail: '',
+            name: '',
+            phone: '',
+          },
+        ],
+        current_peer: 0,
+        device: '',
+        high_critical_peer: 900,
+        ip: '211.21.169.214',
+        is_alert: 'Yes',
+        low_critical_peer: 0,
+        peering_name: '',
+        received: 0,
+        received_check_time: moment().format('YYYY-MM-DD HH:mm:ss'),
+        status: 'normal',
+        submitted: 0,
+        submitted_check_time: moment().format('YYYY-MM-DD HH:mm:ss'),
+      });
+    },
+    onDelete(item) {
+      this.items = this.items.filter((i) => i.id !== item.id);
     },
   },
 };
