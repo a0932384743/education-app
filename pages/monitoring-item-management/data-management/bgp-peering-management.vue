@@ -33,6 +33,15 @@
                 </v-btn>
               </div>
             </template>
+            <template #[`header.contacts`]="{ header }">
+              <div
+                class="d-inline-flex align-center flex-column"
+                style="gap: 0.5rem"
+              >
+                <div>{{ header.text }}</div>
+                <div>(格式:聯絡人1,電話1、電話2,Email1、Email2,聯絡人2....)</div>
+              </div>
+            </template>
             <template #[`header.high_critical_peer`]="{ header }">
               <div
                 class="d-inline-flex align-center flex-column"
