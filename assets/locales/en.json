@@ -148,6 +148,8 @@
   "low.critical.kwh": "Low Critical System Power",
   "low.critical.temperature": "Low Critical Temperature",
   "low.critical.voltage": "Low Critical Voltage",
+  "high.critical.peer": "High Critical Peer",
+  "low.critical.peer": "Low Critical Peer",
   "low.temperature": "Temperature Low Threshold",
   "low.threshold": "Low Threshold",
   "memory": "Memory",
