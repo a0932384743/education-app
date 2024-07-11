@@ -29,7 +29,7 @@
             <template #[`header.operate`]="{ header }">
               <div class="d-inline-flex align-center" style="gap: 0.5rem">
                 <div>{{ header.text }}</div>
-                <v-btn small color="success" @click="addGiGaPops()">
+                <v-btn small color="success" @click="onAdd()">
                   <v-icon size="20">mdi-plus</v-icon>
                 </v-btn>
               </div>
@@ -158,7 +158,7 @@
                   small
                   color="danger"
                   class="px-2"
-                  @click="deleteGiGaPops(item)"
+                  @click="onDelete(item)"
                 >
                   <v-icon class="white--text" size="20"
                     >mdi-trash-can-outline</v-icon
@@ -175,7 +175,7 @@
   </v-row>
 </template>
 <script>
-import items from '~/assets/json/giga-pops.json';
+import items from '~/assets/json/giga-pops.json'
 
 export default {
   name: 'GigapopsManagement',
@@ -186,7 +186,7 @@ export default {
         ...item,
         editable: false,
       })),
-    };
+    }
   },
   computed: {
     headers() {
@@ -209,22 +209,22 @@ export default {
           value: 'address',
         },
         { text: this.$t('operate'), value: 'operate', sortable: false },
-      ];
-    },
-    methods: {
-      addGiGaPops() {
-        this.items.push({
-          id: this.items.length + 1,
-          address: '',
-          contacts: [],
-          giga_pops: '',
-          remark: '',
-        });
-      },
-      deleteGiGaPops(item) {
-        this.items = this.items.filter((i) => i.id !== item.id);
-      },
+      ]
     },
   },
-};
+  methods: {
+    onAdd() {
+      this.items.push({
+        id: this.items.length + 1,
+        address: '',
+        contacts: [],
+        giga_pops: '',
+        remark: '',
+      })
+    },
+    onDelet(item) {
+      this.items = this.items.filter((i) => i.id !== item.id)
+    },
+  },
+}
 </script>
