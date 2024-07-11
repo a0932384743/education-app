@@ -59,7 +59,7 @@
             <template #[`item.device`]="{ item }">
               <td
                 :class="`${statusMap[item.status]} lighten-2`"
-                style="border-color: inherit !important;"
+                style="border-color: inherit !important"
                 nowrap="nowrap"
               >
                 {{ item.device || '-' }}
@@ -68,7 +68,8 @@
             <template #[`item.cpu`]="{ item }">
               <div style="width: 100px" class="mt-2">
                 <v-progress-linear
-                  v-model="item.cpu"
+                  striped
+                  :value="item?.cpu * 100"
                   :color="statusMap[item.status]"
                   height="10"
                 ></v-progress-linear>

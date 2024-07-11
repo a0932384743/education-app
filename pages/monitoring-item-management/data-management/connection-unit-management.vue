@@ -1,180 +1,224 @@
 <template>
   <v-row>
-    <table-card title="連線單位-連線單位聯絡資料" :items="items">
-      <template
-        #default="{
-          search,
-          footerProps,
-          itemPerPage,
-          page,
-          items,
-          loading,
-          headerProps,
-        }"
+    <v-col cols="12">
+      <v-alert
+        border="left"
+        colored-border
+        color="warning accent-4"
+        elevation="2"
       >
-        <v-data-table
-          :fixed-header="true"
-          :headers="headers"
-          :items="items"
-          :search="search"
-          :page="page"
-          :loading="loading"
-          :items-per-page="itemPerPage"
-          :footer-props="footerProps"
-          :header-props="headerProps"
-          height="500px"
-          hide-default-footer
-        >
-          <template #[`header.operate`]="{ header }">
-            <div class="d-inline-flex align-center" style="gap: 0.5rem">
-              <div>{{ header.text }}</div>
-              <v-btn small color="success" @click="addConnectionUnit()">
-                <v-icon size="20">mdi-plus</v-icon>
-              </v-btn>
+        <ul style="list-style: none">
+          <li class="d-flex align-center" style="gap: 0.6rem">
+            <v-icon color="warning" size="15">mdi-alert</v-icon>
+            <div class="subtitle-2">
+              【聯絡資訊】欄位編輯格式<span class="red--text font-weight-bold"
+                >(不同聯絡人以;區隔)</span
+              >:聯絡人1,電話1、電話2,email1、email2;聯絡人2,....
             </div>
-          </template>
-          <template #[`item.whoisOrgID`]="{ item }">
-            <div v-if="!item.editable">{{ item.whoisOrgID }}</div>
-            <v-text-field
-              v-else
-              :value="item.whoisOrgID"
-              small
-              label="ORG"
-              required
-              :rules="[
-                (val) => (val || '').length > 0 || 'This field is required',
-              ]"
-              @change="item.whoisOrgID = 'ORG' + $event"
-            />
-          </template>
-          <template #[`item.orgNameZh`]="{ item }">
-            <div v-if="!item.editable">{{ item.orgNameZh }}</div>
-            <v-select
-              v-else
-              :value="item.orgNameZh"
-              small
-              :items="orgOptions"
-              required
-              :rules="[
-                (val) => (val || '').length > 0 || 'This field is required',
-              ]"
-              @change="
-                item.orgNameZh = $event
-                item.orgNameEn = orgMap[$event].orgNameEn
-                item.gigaPoP = orgMap[$event].gigaPoP
-              "
-            />
-          </template>
-          <template #[`item.bgpCommunity`]="{ item }">
-            <div v-if="!item.editable">{{ item.bgpCommunity }}</div>
-            <v-text-field
-              v-else
-              :value="item.bgpCommunity"
-              label=""
-              :rules="[
-                (val) => (val || '').length > 0 || 'This field is required',
-              ]"
-              @change="
-                item.bgpCommunity = $event.substr(0, 5) + ':' + $event.substr(5)
-              "
-            ></v-text-field>
-          </template>
+          </li>
+          <li class="d-flex align-center" style="gap: 0.6rem">
+            <v-icon color="warning" size="15">mdi-alert</v-icon>
+            <div class="subtitle-2">
+              【BGP Commumity】欄位編輯格式:xxxxxxxxx
+            </div>
+          </li>
+          <li class="d-flex align-center" style="gap: 0.6rem">
+            <v-icon color="warning" size="15">mdi-alert</v-icon>
+            <div class="subtitle-2">
+              【路由】欄位編輯格式<span class="red--text font-weight-bold">(兩筆以上以,區隔)</span
+              >:x.x.x.x/y
+            </div>
+          </li>
+          <li class="d-flex align-center" style="gap: 0.6rem">
+            <v-icon color="warning" size="15">mdi-alert</v-icon>
+            <div class="subtitle-2">
+              【介接設備(edge端)】及【介接ifindex(edge端)】欄位編輯描述:指與連線單位實體介接設備
+            </div>
+          </li>
+        </ul>
+      </v-alert>
+    </v-col>
+    <v-col cols="12">
+      <table-card title="連線單位-連線單位聯絡資料" :items="items">
+        <template
+          #default="{
+            search,
+            footerProps,
+            itemPerPage,
+            page,
+            items,
+            loading,
+            headerProps,
+          }"
+        >
+          <v-data-table
+            :fixed-header="true"
+            :headers="headers"
+            :items="items"
+            :search="search"
+            :page="page"
+            :loading="loading"
+            :items-per-page="itemPerPage"
+            :footer-props="footerProps"
+            :header-props="headerProps"
+            height="500px"
+            hide-default-footer
+          >
+            <template #[`header.operate`]="{ header }">
+              <div class="d-inline-flex align-center" style="gap: 0.5rem">
+                <div>{{ header.text }}</div>
+                <v-btn small color="success" @click="addConnectionUnit()">
+                  <v-icon size="20">mdi-plus</v-icon>
+                </v-btn>
+              </div>
+            </template>
+            <template #[`item.whoisOrgID`]="{ item }">
+              <div v-if="!item.editable">{{ item.whoisOrgID }}</div>
+              <v-text-field
+                v-else
+                :value="item.whoisOrgID"
+                small
+                label="ORG"
+                required
+                :rules="[
+                  (val) => (val || '').length > 0 || 'This field is required',
+                ]"
+                @change="item.whoisOrgID = 'ORG' + $event"
+              />
+            </template>
+            <template #[`item.orgNameZh`]="{ item }">
+              <div v-if="!item.editable">{{ item.orgNameZh }}</div>
+              <v-select
+                v-else
+                :value="item.orgNameZh"
+                small
+                :items="orgOptions"
+                required
+                :rules="[
+                  (val) => (val || '').length > 0 || 'This field is required',
+                ]"
+                @change="
+                  item.orgNameZh = $event
+                  item.orgNameEn = orgMap[$event].orgNameEn
+                  item.gigaPoP = orgMap[$event].gigaPoP
+                "
+              />
+            </template>
+            <template #[`item.bgpCommunity`]="{ item }">
+              <div v-if="!item.editable">{{ item.bgpCommunity }}</div>
+              <v-text-field
+                v-else
+                :value="item.bgpCommunity"
+                label=""
+                :rules="[
+                  (val) => (val || '').length > 0 || 'This field is required',
+                ]"
+                @change="
+                  item.bgpCommunity =
+                    $event.substr(0, 5) + ':' + $event.substr(5)
+                "
+              ></v-text-field>
+            </template>
 
-          <template #[`item.ipv4Route`]="{ item }">
-            <div v-if="!item.editable">{{ item.ipv4Route }}</div>
-            <v-text-field
-              v-else
-              v-model="item.ipv4Route"
-              label=""
-              :rules="[
-                (v) => !!v || 'IPv4 address is required',
-                (v) =>
-                  /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(\/\d{1,2})?$/.test(v) ||
-                  'Invalid IPv4 address format',
-              ]"
-            ></v-text-field>
-          </template>
-          <template #[`item.gigaPoP`]="{ item }">
-            <div v-if="!item.editable">{{ item.gigaPoP }}</div>
-            <v-select
-              v-else
-              v-model="item.gigaPoP"
-              class="d-inline-block"
-              :items="
-                ['TNN', 'TPE', 'HUN', 'MIA'].map((s) => {
-                  return {
-                    value: s,
-                    name: s,
-                  }
-                })
-              "
-              item-text="name"
-              item-value="value"
-              :label="$t('select.group')"
-            ></v-select>
-          </template>
-          <template #[`item.interfaceDevice`]="{ item }">
-            <div v-if="!item.editable">{{ item.interfaceDevice }}</div>
-            <v-select
-              v-else
-              v-model="item.interfaceDevice"
-              class="d-inline-block"
-              :items="
-                [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((s) => {
-                  return {
-                    value: 'TWAREN-TN-ASR9001-' + ('0' + s).substring(-2),
-                    name: 'TWAREN-TN-ASR9001-' + ('0' + s).substring(-2),
-                  }
-                })
-              "
-              item-text="name"
-              item-value="value"
-              :label="$t('select.group')"
-            ></v-select>
-          </template>
-          <template #[`item.interfaceDeviceIfindex`]="{ item }">
-            <div v-if="!item.editable">{{ item.interfaceDeviceIfindex }}</div>
-            <v-text-field
-              v-else
-              v-model="item.interfaceDeviceIfindex"
-              type="number"
-              label=""
-              :rules="[
-                (val) => (val || '').length > 0 || 'This field is required',
-              ]"
-            ></v-text-field>
-          </template>
-          <template #[`item.isAlerting`]="{ item }">
-            <div v-if="!item.editable">{{ item.isAlerting }}</div>
-            <v-btn
-              v-else
-              small
-              class="white--text"
-              :color="item.isAlerting === 'On' ? 'success' : 'danger'"
-              @click="item.isAlerting = item.isAlerting === 'On' ? 'Off' : 'On'"
-            >
-              <v-icon size="20" dark>mdi-power</v-icon>
-              {{ item.isAlerting }}
-            </v-btn>
-          </template>
-          <template #[`item.operate`]="{ item }">
-            <v-btn
-              small
-              :disabled="Object.keys(item).some((key) => item[key] === '')"
-              :color="item.editable ? 'secondary' : 'info'"
-              @click="
-                Object.keys(item).every((key) => item[key])
-                  ? (item.editable = !item.editable)
-                  : (item.editable = true)
-              "
-            >
-              <v-icon size="20">mdi-pencil</v-icon>
-              <span class="d-none d-sm-inline-block">{{ $t('edit') }}</span>
-            </v-btn>
-          </template>
-        </v-data-table>
-      </template>
-    </table-card>
+            <template #[`item.ipv4Route`]="{ item }">
+              <div v-if="!item.editable">{{ item.ipv4Route }}</div>
+              <v-text-field
+                v-else
+                v-model="item.ipv4Route"
+                label=""
+                :rules="[
+                  (v) => !!v || 'IPv4 address is required',
+                  (v) =>
+                    /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(\/\d{1,2})?$/.test(
+                      v
+                    ) || 'Invalid IPv4 address format',
+                ]"
+              ></v-text-field>
+            </template>
+            <template #[`item.gigaPoP`]="{ item }">
+              <div v-if="!item.editable">{{ item.gigaPoP }}</div>
+              <v-select
+                v-else
+                v-model="item.gigaPoP"
+                class="d-inline-block"
+                :items="
+                  ['TNN', 'TPE', 'HUN', 'MIA'].map((s) => {
+                    return {
+                      value: s,
+                      name: s,
+                    }
+                  })
+                "
+                item-text="name"
+                item-value="value"
+                :label="$t('select.group')"
+              ></v-select>
+            </template>
+            <template #[`item.interfaceDevice`]="{ item }">
+              <div v-if="!item.editable">{{ item.interfaceDevice }}</div>
+              <v-select
+                v-else
+                v-model="item.interfaceDevice"
+                class="d-inline-block"
+                :items="
+                  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((s) => {
+                    return {
+                      value: 'TWAREN-TN-ASR9001-' + ('0' + s).substring(-2),
+                      name: 'TWAREN-TN-ASR9001-' + ('0' + s).substring(-2),
+                    }
+                  })
+                "
+                item-text="name"
+                item-value="value"
+                :label="$t('select.group')"
+              ></v-select>
+            </template>
+            <template #[`item.interfaceDeviceIfindex`]="{ item }">
+              <div v-if="!item.editable">{{ item.interfaceDeviceIfindex }}</div>
+              <v-text-field
+                v-else
+                v-model="item.interfaceDeviceIfindex"
+                type="number"
+                label=""
+                :rules="[
+                  (val) => (val || '').length > 0 || 'This field is required',
+                ]"
+              ></v-text-field>
+            </template>
+            <template #[`item.isAlerting`]="{ item }">
+              <div v-if="!item.editable">{{ item.isAlerting }}</div>
+              <v-btn
+                v-else
+                small
+                class="white--text"
+                :color="item.isAlerting === 'On' ? 'success' : 'danger'"
+                @click="
+                  item.isAlerting = item.isAlerting === 'On' ? 'Off' : 'On'
+                "
+              >
+                <v-icon size="20" dark>mdi-power</v-icon>
+                {{ item.isAlerting }}
+              </v-btn>
+            </template>
+            <template #[`item.operate`]="{ item }">
+              <v-btn
+                small
+                :disabled="Object.keys(item).some((key) => item[key] === '')"
+                :color="item.editable ? 'secondary' : 'info'"
+                @click="
+                  Object.keys(item).every((key) => item[key])
+                    ? (item.editable = !item.editable)
+                    : (item.editable = true)
+                "
+              >
+                <v-icon size="20">mdi-pencil</v-icon>
+                <span class="d-none d-sm-inline-block">{{ $t('edit') }}</span>
+              </v-btn>
+            </template>
+          </v-data-table>
+        </template>
+      </table-card>
+    </v-col>
   </v-row>
 </template>
 

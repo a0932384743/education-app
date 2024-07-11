@@ -68,9 +68,10 @@
             <template #[`item.memory`]="{ item }">
               <div style="width: 100px" class="mt-2">
                 <v-progress-linear
-                  v-model="item.memory"
+                  :value="item.memory * 100"
                   :color="statusMap[item.status]"
                   height="10"
+                  striped
                 ></v-progress-linear>
               </div>
               <div>{{ Math.round(item.memory * 100) }}%</div>

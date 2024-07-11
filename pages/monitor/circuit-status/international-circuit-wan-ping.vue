@@ -71,6 +71,7 @@
             <template #[`item.packageLossRate`]="{ item }">
               <div style="width: 100px" class="mt-2">
                 <v-progress-linear
+                  striped
                   v-model="item.packageLossRate"
                   :color="item.packageLossRate ? 'success' : 'error'"
                   height="10"

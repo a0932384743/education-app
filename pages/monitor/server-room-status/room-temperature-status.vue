@@ -1,5 +1,9 @@
 <template>
   <v-row>
+    <temp-and-humi-history-model
+      :show="show"
+      @close:show="show = false"
+    />
     <v-col class="text-center" :cols="12" :md="6">
       <chart-card title="機房溫度狀態統計圖">
         <chart-pie-list :items="pieData">
@@ -65,7 +69,8 @@
             <template #[`item.current_temperature`]="{ item }">
               <div style="width: 100px" class="mt-2">
                 <v-progress-linear
-                  v-model="item.current_temperature"
+                  striped
+                  :value="item.current_temperature"
                   :color="statusMap[item.status]"
                   height="10"
                 ></v-progress-linear>
@@ -81,11 +86,12 @@
             <template #[`item.current_humidity`]="{ item }">
               <div style="width: 100px" class="mt-2">
                 <v-progress-linear
-                  v-model="item.current_humidity"
+                  :value="item.current_humidity"
+                  striped
                   :color="statusMap[item.status]"
                   height="10"
                 ></v-progress-linear>
-                <div> {{ item.current_humidity || '-' }}%</div>
+                <div>{{ item.current_humidity || '-' }}%</div>
               </div>
             </template>
             <template #[`item.high_critical_humidity`]="{ item }">
@@ -94,9 +100,17 @@
             <template #[`item.low_critical_humidity`]="{ item }">
               {{ item.low_critical_humidity || '-' }}%
             </template>
-            <template #[`item.history`]>
+            <template #[`item.history`]="item">
               <td align="center">
-                <v-btn color="secondary" small dark>
+                <v-btn
+                  color="secondary"
+                  small
+                  dark
+                  @click="
+                    show = true
+                    deviceId = item.id
+                  "
+                >
                   <v-icon>mdi-chart-areaspline</v-icon>
                 </v-btn>
               </td>
@@ -112,15 +126,18 @@
 import lineData from '~/assets/json/room-temperature-status-history.json';
 import items from '~/assets/json/room-temperature-status.json';
 import ChartCard from '~/components/ChartCard.vue';
+import TempAndHumiHistoryModel from '~/components/TempAndHumiHistoryModel.vue';
 import { statusMap } from '~/utils/statusMap';
 
 export default {
   name: 'RoomTemperatureStatus',
-  components: { ChartCard },
+  components: { TempAndHumiHistoryModel, ChartCard },
   layout: 'admin-layout',
   data() {
     return {
       statusMap,
+      show: false,
+      deviceId: '',
     };
   },
   computed: {
@@ -133,6 +150,7 @@ export default {
         {
           text: this.$t('device.name'),
           value: 'device',
+          width: 200,
         },
         {
           text: this.$t('device.location'),
