@@ -175,7 +175,7 @@
   </v-row>
 </template>
 <script>
-import items from '~/assets/json/giga-pops.json'
+import items from '~/assets/json/giga-pops.json';
 
 export default {
   name: 'GigapopsManagement',
@@ -186,7 +186,7 @@ export default {
         ...item,
         editable: false,
       })),
-    }
+    };
   },
   computed: {
     headers() {
@@ -209,7 +209,7 @@ export default {
           value: 'address',
         },
         { text: this.$t('operate'), value: 'operate', sortable: false },
-      ]
+      ];
     },
   },
   methods: {
@@ -220,11 +220,11 @@ export default {
         contacts: [],
         giga_pops: '',
         remark: '',
-      })
+      });
     },
-    onDelet(item) {
-      this.items = this.items.filter((i) => i.id !== item.id)
+    onDelete(item) {
+      this.items = this.items.filter((i) => i.id !== item.id);
     },
   },
-}
+};
 </script>
