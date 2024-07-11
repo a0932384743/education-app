@@ -80,6 +80,7 @@ export default {
           top: '5%',
           left: 'center',
           textStyle: {
+            color:  this.$vuetify.theme.isDark ? '#fff' : '#000',
             fontSize: this.$vuetify.breakpoint.mdAndUp? 18 : 14,
           },
         },

@@ -1,5 +1,6 @@
 <template>
   <v-row>
+    <v-col  :cols="12">
     <table-card title="維運團隊資料維護" :items="items">
       <template
         #default="{
@@ -152,11 +153,12 @@
         </v-data-table>
       </template>
     </table-card>
+    </v-col>
   </v-row>
 </template>
 
 <script>
-import items from '~/assets/json/maintenance-teams.json'
+import items from '~/assets/json/maintenance-teams.json';
 
 export default {
   name: 'MaintenanceTeam',
@@ -167,7 +169,7 @@ export default {
         ...item,
         editable: false,
       })),
-    }
+    };
   },
   computed: {
     headers() {
@@ -205,8 +207,8 @@ export default {
           text: this.$t('remark'),
           value: 'remark',
         },
-      ]
+      ];
     },
   },
-}
+};
 </script>
