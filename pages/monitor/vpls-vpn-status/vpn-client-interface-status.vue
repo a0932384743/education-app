@@ -118,7 +118,7 @@ export default {
   },
   methods: {
     setRowClass(item) {
-      console.log(this.$vuetify.breakpoint)
+      console.log(this.$vuetify.breakpoint);
       if (this.$vuetify.breakpoint.smAndDown) {
         return `${statusMap[item.status]} lighten-2`;
       }

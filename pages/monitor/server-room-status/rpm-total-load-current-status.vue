@@ -1,5 +1,9 @@
 <template>
   <v-row>
+    <load-history-model
+      :show="show"
+      @close:show="show = false"
+    />
     <v-col class="text-center" :cols="12" :md="6">
       <chart-card title="RPM總負載電流狀態統計圖">
         <chart-pie-list :items="pieData">
@@ -89,6 +93,20 @@
             <template #[`item.low_critical_kwh`]="{ item }">
               {{ item.low_critical_kwh || '-' }}kWH
             </template>
+            <template #[`item.history`]>
+              <td align="center">
+                <v-btn
+                  color="secondary"
+                  small
+                  dark
+                  @click="
+                    show = true
+                  "
+                >
+                  <v-icon>mdi-chart-areaspline</v-icon>
+                </v-btn>
+              </td>
+            </template>
           </v-data-table>
         </template>
       </table-card>
@@ -100,15 +118,18 @@
 import lineData from '~/assets/json/room-temperature-status-history.json';
 import items from '~/assets/json/rpm-load-status.json';
 import ChartCard from '~/components/ChartCard.vue';
+import LoadHistoryModel from '~/components/LoadHistoryModel.vue';
+
 import { statusMap } from '~/utils/statusMap';
 
 export default {
   name: 'RpmTotalLoadCurrentStatus',
-  components: { ChartCard },
+  components: { ChartCard , LoadHistoryModel },
   layout: 'admin-layout',
   data() {
     return {
       statusMap,
+      show: false,
     };
   },
   computed: {
@@ -158,6 +179,10 @@ export default {
         {
           text: this.$t('low.critical.kwh'),
           value: 'low_critical_kwh',
+        },
+        {
+          text: this.$t('history'),
+          value: 'history',
         },
       ];
     },

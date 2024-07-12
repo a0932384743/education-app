@@ -50,6 +50,7 @@
             fixed-header
             :loading="loading"
             hide-default-footer
+            :item-class="setRowClass"
           >
             <template #[`header.memory`]="{ header }">
               <div class="d-inline-block text-center">
@@ -85,7 +86,6 @@
 
 <script>
 import items from '~/assets/json/memory-status.json';
-import pieData from '~/assets/json/memory-status-summary.json';
 import lineData from '~/assets/json/memory-status-history.json';
 import ChartCard from '~/components/ChartCard.vue';
 import { statusMap } from '~/utils/statusMap';
@@ -127,7 +127,21 @@ export default {
       return items;
     },
     pieData() {
-      return pieData;
+      return ['normal', 'abnormal', 'non-warning'].map((status) => {
+        return {
+          name: status,
+          value:
+            items.filter((item) => item.status === status).length +
+            (status === 'normal' ? 70 : status === 'abnormal' ? 4 : 2),
+        };
+      });
+    },
+  },
+  methods: {
+    setRowClass(item) {
+      if (this.$vuetify.breakpoint.smAndDown) {
+        return `${this.statusMap[item.status]} lighten-2`;
+      }
     },
   },
 };

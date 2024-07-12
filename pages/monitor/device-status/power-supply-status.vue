@@ -80,7 +80,6 @@
 
 <script>
 import items from '~/assets/json/power-status.json';
-import pieData from '~/assets/json/power-status-summary.json';
 import lineData from '~/assets/json/power-status-history.json';
 import ChartCard from '~/components/ChartCard.vue';
 import { statusMap } from '~/utils/statusMap';
@@ -126,7 +125,14 @@ export default {
       return items;
     },
     pieData() {
-      return pieData;
+      return ['normal', 'abnormal', 'non-warning'].map((status) => {
+        return {
+          name: status,
+          value:
+            items.filter((item) => item.status === status).length +
+            (status === 'normal' ? 70 : status === 'abnormal' ? 4 : 2),
+        };
+      });
     },
   },
   methods: {

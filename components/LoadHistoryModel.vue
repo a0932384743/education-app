@@ -2,7 +2,7 @@
   <v-dialog :value="show" max-width="800px" @click:outside="onClose">
     <v-card>
       <v-card-title>
-        <span class="title">溫濕度歷史查詢</span>
+        <span class="title">RPM總負載電流歷史查詢</span>
       </v-card-title>
       <v-card-text>
         <v-row>
@@ -72,22 +72,25 @@
   </v-dialog>
 </template>
 <script>
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const date = Array.from(
   new Array(30),
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   (val, index) => `2024-06-${`0${index + 1}`.substr(-2)}`
 );
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const temp = Array.from(new Array(30), () =>
-  Number(Number(22 + Math.random()).toFixed(2))
-);
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const humi = Array.from(new Array(30), () =>
-  Number(Number(65 + Math.random()).toFixed(2))
+const voltage = Array.from(new Array(30), () =>
+  Number(200 + Math.random() * 30 - 30).toFixed(2) * 1
 );
 
+const current = Array.from(new Array(30), () =>
+  Number(1000 + Math.random() * 50 - Math.random() * 50).toFixed(2) * 1
+);
+
+const kwh = voltage.map((v, index) => {
+  return  Number(current[index] / v).toFixed(2)  * 1;
+});
+
 export default {
-  name: 'TempAndHumiHistoryModel',
+  name: 'LoadHistoryModel',
   props: {
     show: {
       type: Boolean,
@@ -101,8 +104,9 @@ export default {
       startDate: '2024-06-01',
       endDate: '2024-06-30',
       date,
-      temp,
-      humi,
+      voltage,
+      current,
+      kwh,
     };
   },
   computed: {
@@ -112,7 +116,10 @@ export default {
           trigger: 'axis',
         },
         legend: {
-          data: ['溫度', '濕度'],
+          data: ['電壓', '電流', '功率'],
+        },
+        grid:{
+          left: 100,
         },
         xAxis: {
           type: 'category',
@@ -122,24 +129,8 @@ export default {
         yAxis: [
           {
             type: 'value',
-            name: '溫度 (°C)',
+            name: '電壓(V)',
             position: 'left',
-            axisLine: {
-              lineStyle: {
-                color:
-                  this.$vuetify.theme.themes[
-                    this.$vuetify.theme.isDark ? 'dark' : 'light'
-                  ].warning,
-              },
-            },
-            axisLabel: {
-              formatter: '{value} °C',
-            },
-          },
-          {
-            type: 'value',
-            name: '濕度 (%)',
-            position: 'right',
             axisLine: {
               lineStyle: {
                 color:
@@ -149,34 +140,79 @@ export default {
               },
             },
             axisLabel: {
-              formatter: '{value} %',
+              formatter: '{value} V',
+            },
+          },
+          {
+            type: 'value',
+            name: '電流(A)',
+            position: 'left',
+            offset: 50,
+            axisLine: {
+              lineStyle: {
+                color:
+                  this.$vuetify.theme.themes[
+                    this.$vuetify.theme.isDark ? 'dark' : 'light'
+                  ].danger,
+              },
+            },
+            axisLabel: {
+              formatter: '{value} A',
+            },
+          },
+          {
+            type: 'value',
+            name: '功率(kWh)',
+            position: 'right',
+            axisLine: {
+              lineStyle: {
+                color:
+                  this.$vuetify.theme.themes[
+                    this.$vuetify.theme.isDark ? 'dark' : 'light'
+                  ].primary,
+              },
+            },
+            axisLabel: {
+              formatter: '{value} kWh',
             },
           },
         ],
         series: [
           {
-            name: '溫度',
+            name: '電壓',
             type: 'line',
             yAxisIndex: 0,
             itemStyle: {
               color:
                 this.$vuetify.theme.themes[
                   this.$vuetify.theme.isDark ? 'dark' : 'light'
-                ].warning,
+                ].info,
             },
-            data: this.temp,
+            data: this.voltage,
           },
           {
-            name: '濕度',
+            name: '電流',
             type: 'line',
             yAxisIndex: 1,
             itemStyle: {
               color:
                 this.$vuetify.theme.themes[
                   this.$vuetify.theme.isDark ? 'dark' : 'light'
-                ].info,
+                ].danger,
             },
-            data: this.humi,
+            data: this.current,
+          },
+          {
+            name: '功率',
+            type: 'line',
+            yAxisIndex: 2,
+            itemStyle: {
+              color:
+                this.$vuetify.theme.themes[
+                  this.$vuetify.theme.isDark ? 'dark' : 'light'
+                ].primary,
+            },
+            data: this.kwh,
           },
         ],
       };
@@ -190,8 +226,9 @@ export default {
       const startIndex = date.indexOf(this.startDate);
       const endIndex = date.indexOf(this.endDate);
       this.date = date.slice(startIndex, endIndex + 1);
-      this.temp = temp.slice(startIndex, endIndex + 1);
-      this.humi = humi.slice(startIndex, endIndex + 1);
+      this.voltage = voltage.slice(startIndex, endIndex + 1);
+      this.current = current.slice(startIndex, endIndex + 1);
+      this.kwh = kwh.slice(startIndex, endIndex + 1);
     },
   },
 };

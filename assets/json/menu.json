@@ -336,16 +336,9 @@
       {
         "id": 49,
         "children": [],
-        "name": "使用者系統操作紀錄",
-        "name_en": "User System Operation Record",
-        "url": "/record-search/user-system-operation-record"
-      },
-      {
-        "id": 50,
-        "children": [],
-        "name": "使用者登入紀錄",
-        "name_en": "User Login Record",
-        "url": "/record-search/user-login-record"
+        "name": "日誌記錄查詢",
+        "name_en": "Log Record",
+        "url": "/record-search/log-record"
       }
     ],
     "icon": "mdi-file",

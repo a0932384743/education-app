@@ -1,6 +1,0 @@
-
-[
-  { "value": 125, "name": "normal" },
-  { "value": 0, "name": "abnormal" },
-  { "value": 2, "name": "non-warning" }
-]

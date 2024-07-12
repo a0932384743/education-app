@@ -29,10 +29,10 @@
             <template #[`item.contacts`]="{ item }">
               <ul class="d-inline-flex flex-column" style="list-style: none">
                 <li
-                  class="d-flex flex-wrap"
-                  style="gap: 0.2rem"
                   v-for="contacts in item.contacts"
                   :key="contacts.name"
+                  class="d-flex flex-wrap"
+                  style="gap: 0.2rem"
                 >
                   <div class="subtitle-2">{{ contacts.name }}</div>
                   <a class="subtitle-2" :href="'mail:' + contacts?.mail">{{
@@ -52,7 +52,7 @@
   </v-row>
 </template>
 <script>
-import items from '~/assets/json/giga-pops.json'
+import items from '~/assets/json/giga-pops.json';
 
 export default {
   name: 'Gigapops',
@@ -63,7 +63,7 @@ export default {
         ...item,
         editable: false,
       })),
-    }
+    };
   },
   computed: {
     headers() {
@@ -85,8 +85,8 @@ export default {
           text: this.$t('address'),
           value: 'address',
         },
-      ]
+      ];
     },
   },
-}
+};
 </script>
