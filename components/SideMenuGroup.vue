@@ -1,6 +1,6 @@
 <template>
   <v-list-group
-    v-if="menu?.children && menu.children.length"
+    v-if="menu?.children && menu.children.filter(c=>!c.hidden).length"
     :key="menu.id"
     active-class="faded-info-background"
     :value.sync="active"
