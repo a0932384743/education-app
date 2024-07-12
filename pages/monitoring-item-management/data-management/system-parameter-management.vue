@@ -89,7 +89,6 @@
                 ]"
               />
             </template>
-
             <template #[`item.remark`]="{ item }">
               <div v-if="!item.editable">{{ item.remark }}</div>
               <v-text-field

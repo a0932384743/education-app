@@ -144,13 +144,13 @@
             </template>
             <template #[`item.operate`]="{ item }">
               <div class="d-inline-flex" style="gap: 0.8rem">
-                <v-btn v-if="item.level === 'CR'" small color="info">
+                <v-btn v-if="item.level === 'CR'" small color="info" @click="goToWorkOrderList(item)">
                   <v-icon size="20">mdi-magnify</v-icon>
                   <span class="d-none d-sm-inline-block">{{
                     $t('work.search')
                   }}</span>
                 </v-btn>
-                <v-btn v-if="item.level === 'MN'" small color="success">
+                <v-btn v-if="item.level === 'MN'" small color="success" @click="goToWorkOrderAdd(item)">
                   <v-icon class="white--text" size="20"
                     >mdi-plus</v-icon
                   ><span class="d-none d-sm-inline-block white--text">{{
@@ -264,6 +264,12 @@ export default {
     setRowClass(item) {
         return `${!item.endTime ? 'error' : ''} lighten-2`;
     },
+    goToWorkOrderAdd(item){
+      this.$router.push(`/work-order-management/add/${item.id}`);
+    },
+    goToWorkOrderList(item){
+      this.$router.push(`/work-order-management/${item.id}`);
+    }
   },
 };
 </script>

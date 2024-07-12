@@ -1,0 +1,16 @@
+[
+  {
+    "assign": "admin(admin)",
+    "closeTime": null,
+    "createTime": "2024-07-11 15:49",
+    "creator": "admin",
+    "desc": "Test",
+    "group": "管理者群組",
+    "id": 1,
+    "process": "2024-0711 15:49，admin轉派給admin處理:Test",
+    "resource": "EyeSee(192.168.34.196)",
+    "source": "00010246",
+    "status": "process",
+    "workId": 8
+  }
+]

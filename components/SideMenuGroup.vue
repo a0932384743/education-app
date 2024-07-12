@@ -21,7 +21,7 @@
       </v-list-item-content>
     </template>
     <side-menu-group
-      v-for="children in menu.children"
+      v-for="children in menu.children.filter(c=>!c.hidden)"
       :key="children.id"
       :menu="children"
       is-sub-menu
