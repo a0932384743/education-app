@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[46],{1228:function(n,t,e){"use strict";e.r(t);var l=e(873),c={name:"TwnicDnsServerInterface",layout:"admin-layout"},r=e(136),component=Object(r.a)(c,(function(){return(0,this._self._c)(l.a,{staticClass:"fill-height",attrs:{fluid:""}})}),[],!1,null,null,null);t.default=component.exports}}]);

@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[61],{1242:function(n,t,e){"use strict";e.r(t);var l=e(865),o={name:"VplsVpnPeerStatus",layout:"admin-layout"},c=e(136),component=Object(c.a)(o,(function(){return(0,this._self._c)(l.a)}),[],!1,null,null,null);t.default=component.exports}}]);

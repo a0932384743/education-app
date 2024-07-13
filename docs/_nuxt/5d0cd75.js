@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[72],{1261:function(t,l,n){"use strict";n.r(l);var e=n(873),c={name:"DomesticCircuit",layout:"admin-layout"},o=n(136),component=Object(o.a)(c,(function(){return(0,this._self._c)(e.a,{staticClass:"fill-height",attrs:{fluid:""}})}),[],!1,null,null,null);l.default=component.exports}}]);
