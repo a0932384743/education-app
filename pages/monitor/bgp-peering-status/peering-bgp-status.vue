@@ -107,7 +107,6 @@
 
 <script>
 import PeerHistoryModel from '@/components/PeerHistoryModel.vue';
-import TempAndHumiHistoryModel from '@/components/TempAndHumiHistoryModel.vue';
 import items from '~/assets/json/peering-bgp-status.json';
 import lineData from '~/assets/json/peering-bgp-status-history.json';
 import ChartCard from '~/components/ChartCard.vue';
@@ -115,7 +114,7 @@ import { statusMap } from '~/utils/statusMap';
 
 export default {
   name: 'PeeringBgpStatus',
-  components: { TempAndHumiHistoryModel, PeerHistoryModel, ChartCard },
+  components: { PeerHistoryModel, ChartCard },
   layout: 'admin-layout',
   data() {
     return {

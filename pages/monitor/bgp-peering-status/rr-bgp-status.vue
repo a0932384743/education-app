@@ -1,5 +1,6 @@
 <template>
   <v-row>
+    <peer-history-model :show="show" @close:show="show = false" />
     <v-col class="text-center" :cols="12" :md="6">
       <chart-card title="RR BGP狀況監控統計圖">
         <chart-pie-list :items="pieData">
@@ -91,7 +92,7 @@
             </template>
             <template #[`item.history`]>
               <td align="center">
-                <v-btn color="secondary" small dark>
+                <v-btn color="secondary" small dark @click="show=true">
                   <v-icon>mdi-chart-areaspline</v-icon>
                 </v-btn>
               </td>
@@ -116,6 +117,7 @@ export default {
   data() {
     return {
       statusMap,
+      show:false
     };
   },
   computed: {
