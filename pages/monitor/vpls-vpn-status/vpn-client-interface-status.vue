@@ -1,5 +1,31 @@
 <template>
   <v-row>
+    <v-col class="text-center" :cols="12" :md="6">
+      <chart-card title="VPN Client界接介面狀況監控統計圖">
+        <chart-pie-list :items="pieData">
+          <template #default="{ options }">
+            <v-chart
+              :options="options"
+              style="width: 100%; height: 250px"
+              autoresize
+            />
+          </template>
+        </chart-pie-list>
+      </chart-card>
+    </v-col>
+    <v-col class="text-center" :cols="12" :md="6">
+      <chart-card title="VPN Client界接介面狀態趨勢圖">
+        <chart-check-list :items="lineData">
+          <template #default="{ options }">
+            <v-chart
+              :options="options"
+              style="width: 100%; height: 250px"
+              autoresize
+            />
+          </template>
+        </chart-check-list>
+      </chart-card>
+    </v-col>
     <v-col cols="12">
       <table-card title="VPLS VPN狀態-VPN Client界接介面狀況" :items="items">
         <template
@@ -67,11 +93,14 @@
 </template>
 
 <script>
+import ChartCard from '@/components/ChartCard.vue';
 import { statusMap } from '~/utils/statusMap';
 import items from '~/assets/json/vpls-vpn-status.json';
+import lineData from '~/assets/json/peering-bgp-status-history.json';
 
 export default {
   name: 'VpnClientInterfaceStatus',
+  components: { ChartCard },
   layout: 'admin-layout',
   data() {
     return {
@@ -115,10 +144,27 @@ export default {
     items() {
       return items;
     },
+    lineData() {
+      return lineData;
+    },
+    pieData() {
+      return ['normal', 'abnormal', 'non-warning'].map((status) => {
+        const map = {
+          normal: 'up',
+          abnormal: 'down',
+          'non-warning': 'non-warning',
+        };
+        return {
+          name: status,
+          value:
+            items.filter((item) => item.status === map[status]).length +
+            (status === 'normal' ? 310 : status === 'abnormal' ? 150 : 2),
+        };
+      });
+    },
   },
   methods: {
     setRowClass(item) {
-      console.log(this.$vuetify.breakpoint);
       if (this.$vuetify.breakpoint.smAndDown) {
         return `${statusMap[item.status]} lighten-2`;
       }
