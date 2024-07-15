@@ -1,6 +1,6 @@
 [
   {
-    "bgpCommunity": "12345:67890",
+    "bgpCommunity": "18414:10002",
     "connectUnit": "國網中心 NCHC",
     "contactInfo": "TWAREN Duty 值班人員 (1)",
     "endpointIpv6Address": "2001:db8::1",
@@ -17,7 +17,7 @@
     "whoisOrgID": "ORG001"
   },
   {
-    "bgpCommunity": "12345:67891",
+    "bgpCommunity": "18414:10101",
     "connectUnit": "國科會",
     "contactInfo": "TWAREN Duty 值班人員 (2)",
     "endpointIpv6Address": "2001:db8:1::1",
@@ -26,7 +26,7 @@
     "interfaceDevice": "TWAREN-TN-ASR9001-02",
     "interfaceDeviceIfindex": 402,
     "interfacePortName": "Bundle-Ether2.1",
-    "ipv4Route": "192.168.2.0/24",
+    "ipv4Route": "192.168.2.0/24,0.0.0.0/22",
     "ipv6Route": "2001:db8:1::/32",
     "isAlerting": "Off",
     "orgNameEn": "NCT-TXG",
@@ -34,7 +34,7 @@
     "whoisOrgID": "ORG002"
   },
   {
-    "bgpCommunity": "12345:67892",
+    "bgpCommunity": "18414:10002",
     "connectUnit": "工業技術研究院",
     "contactInfo": "TWAREN Duty 值班人員 (3)",
     "endpointIpv6Address": "2001:db8:2::1",
@@ -43,7 +43,7 @@
     "interfaceDevice": "TWAREN-TN-ASR9001-03",
     "interfaceDeviceIfindex": 403,
     "interfacePortName": "Bundle-Ether3.1",
-    "ipv4Route": "192.168.3.0/24",
+    "ipv4Route": "192.168.30/24,0.0.0.0/22",
     "ipv6Route": "2001:db8:2::/32",
     "isAlerting": "On",
     "orgNameEn": "NCT-TNN",
@@ -51,7 +51,7 @@
     "whoisOrgID": "ORG003"
   },
   {
-    "bgpCommunity": "12345:67893",
+    "bgpCommunity": "18414:10003",
     "connectUnit": "台灣大學",
     "contactInfo": "TWAREN Duty 值班人員 (4)",
     "endpointIpv6Address": "2001:db8:3::1",
@@ -68,7 +68,7 @@
     "whoisOrgID": "ORG004"
   },
   {
-    "bgpCommunity": "12345:67894",
+    "bgpCommunity": "18414:10004",
     "connectUnit": "台灣清華大學",
     "contactInfo": "TWAREN Duty 值班人員 (5)",
     "endpointIpv6Address": "2001:db8:4::1",
@@ -85,7 +85,7 @@
     "whoisOrgID": "ORG005"
   },
   {
-    "bgpCommunity": "12345:67895",
+    "bgpCommunity": "18414:10005",
     "connectUnit": "國網中心 NCHC",
     "contactInfo": "TWAREN Duty 值班人員 (6)",
     "endpointIpv6Address": "2001:db8:5::1",
@@ -102,7 +102,7 @@
     "whoisOrgID": "ORG006"
   },
   {
-    "bgpCommunity": "12345:67896",
+    "bgpCommunity": "18414:10006",
     "connectUnit": "台灣交通大學",
     "contactInfo": "TWAREN Duty 值班人員 (7)",
     "endpointIpv6Address": "2001:db8:6::1",
@@ -119,7 +119,7 @@
     "whoisOrgID": "ORG007"
   },
   {
-    "bgpCommunity": "12345:67897",
+    "bgpCommunity": "18414:10007",
     "connectUnit": "台灣科技大學",
     "contactInfo": "TWAREN Duty 值班人員 (8)",
     "endpointIpv6Address": "2001:db8:7::1",
@@ -136,7 +136,7 @@
     "whoisOrgID": "ORG008"
   },
   {
-    "bgpCommunity": "12345:67898",
+    "bgpCommunity": "18414:10008",
     "connectUnit": "中央研究院",
     "contactInfo": "TWAREN Duty 值班人員 (9)",
     "endpointIpv6Address": "2001:db8:8::1",
@@ -153,7 +153,7 @@
     "whoisOrgID": "ORG009"
   },
   {
-    "bgpCommunity": "12345:67899",
+    "bgpCommunity": "18414:10009",
     "connectUnit": "國科會",
     "contactInfo": "TWAREN Duty 值班人員 (10)",
     "endpointIpv6Address": "2001:db8:9::1",
@@ -170,7 +170,7 @@
     "whoisOrgID": "ORG010"
   },
   {
-    "bgpCommunity": "12345:67900",
+    "bgpCommunity": "18414:67900",
     "connectUnit": "台灣大學",
     "contactInfo": "TWAREN Duty 值班人員 (11)",
     "endpointIpv6Address": "2001:db8:10::1",
@@ -187,7 +187,7 @@
     "whoisOrgID": "ORG011"
   },
   {
-    "bgpCommunity": "12345:67901",
+    "bgpCommunity": "18414:67901",
     "connectUnit": "台灣清華大學",
     "contactInfo": "TWAREN Duty 值班人員 (12)",
     "endpointIpv6Address": "2001:db8:11::1",
@@ -204,7 +204,7 @@
     "whoisOrgID": "ORG012"
   },
   {
-    "bgpCommunity": "12345:67902",
+    "bgpCommunity": "18414:67902",
     "connectUnit": "國網中心 NCHC",
     "contactInfo": "TWAREN Duty 值班人員 (13)",
     "endpointIpv6Address": "2001:db8:12::1",
@@ -221,7 +221,7 @@
     "whoisOrgID": "ORG013"
   },
   {
-    "bgpCommunity": "12345:67903",
+    "bgpCommunity": "18414:67903",
     "connectUnit": "台灣交通大學",
     "contactInfo": "TWAREN Duty 值班人員 (14)",
     "endpointIpv6Address": "2001:db8:13::1",
@@ -238,7 +238,7 @@
     "whoisOrgID": "ORG014"
   },
   {
-    "bgpCommunity": "12345:67904",
+    "bgpCommunity": "18414:67904",
     "connectUnit": "台灣科技大學",
     "contactInfo": "TWAREN Duty 值班人員 (15)",
     "endpointIpv6Address": "2001:db8:14::1",
@@ -255,7 +255,7 @@
     "whoisOrgID": "ORG015"
   },
   {
-    "bgpCommunity": "12345:67905",
+    "bgpCommunity": "18414:67905",
     "connectUnit": "中央研究院",
     "contactInfo": "TWAREN Duty 值班人員 (16)",
     "endpointIpv6Address": "2001:db8:15::1",
@@ -272,7 +272,7 @@
     "whoisOrgID": "ORG016"
   },
   {
-    "bgpCommunity": "12345:67906",
+    "bgpCommunity": "18414:67906",
     "connectUnit": "國科會",
     "contactInfo": "TWAREN Duty 值班人員 (17)",
     "endpointIpv6Address": "2001:db8:16::1",
@@ -289,7 +289,7 @@
     "whoisOrgID": "ORG017"
   },
   {
-    "bgpCommunity": "12345:67907",
+    "bgpCommunity": "18414:67907",
     "connectUnit": "台灣大學",
     "contactInfo": "TWAREN Duty 值班人員 (18)",
     "endpointIpv6Address": "2001:db8:17::1",
@@ -306,7 +306,7 @@
     "whoisOrgID": "ORG018"
   },
   {
-    "bgpCommunity": "12345:67908",
+    "bgpCommunity": "18414:67908",
     "connectUnit": "台灣清華大學",
     "contactInfo": "TWAREN Duty 值班人員 (19)",
     "endpointIpv6Address": "2001:db8:18::1",
@@ -323,7 +323,7 @@
     "whoisOrgID": "ORG019"
   },
   {
-    "bgpCommunity": "12345:67909",
+    "bgpCommunity": "18414:67909",
     "connectUnit": "國網中心 NCHC",
     "contactInfo": "TWAREN Duty 值班人員 (20)",
     "endpointIpv6Address": "2001:db8:19::1",
@@ -340,7 +340,7 @@
     "whoisOrgID": "ORG020"
   },
   {
-    "bgpCommunity": "12345:67910",
+    "bgpCommunity": "18414:67910",
     "connectUnit": "台灣交通大學",
     "contactInfo": "TWAREN Duty 值班人員 (21)",
     "endpointIpv6Address": "2001:db8:20::1",
@@ -357,7 +357,7 @@
     "whoisOrgID": "ORG021"
   },
   {
-    "bgpCommunity": "12345:67911",
+    "bgpCommunity": "18414:67911",
     "connectUnit": "台灣科技大學",
     "contactInfo": "TWAREN Duty 值班人員 (22)",
     "endpointIpv6Address": "2001:db8:21::1",
@@ -374,7 +374,7 @@
     "whoisOrgID": "ORG022"
   },
   {
-    "bgpCommunity": "12345:67912",
+    "bgpCommunity": "18414:67912",
     "connectUnit": "中央研究院",
     "contactInfo": "TWAREN Duty 值班人員 (23)",
     "endpointIpv6Address": "2001:db8:22::1",
@@ -391,7 +391,7 @@
     "whoisOrgID": "ORG023"
   },
   {
-    "bgpCommunity": "12345:67913",
+    "bgpCommunity": "18414:67913",
     "connectUnit": "國科會",
     "contactInfo": "TWAREN Duty 值班人員 (24)",
     "endpointIpv6Address": "2001:db8:23::1",
@@ -408,7 +408,7 @@
     "whoisOrgID": "ORG024"
   },
   {
-    "bgpCommunity": "12345:67914",
+    "bgpCommunity": "18414:67914",
     "connectUnit": "台灣大學",
     "contactInfo": "TWAREN Duty 值班人員 (25)",
     "endpointIpv6Address": "2001:db8:24::1",

@@ -284,8 +284,8 @@
           {
             "children": [],
             "id": 43,
-            "name": "Peering BGP狀況",
-            "name_en": "Peering BGP Status",
+            "name": "BGP Peering狀況",
+            "name_en": "BGP Peering Status",
             "url": "/monitor/bgp-peering-status/peering-bgp-status"
           },
           {

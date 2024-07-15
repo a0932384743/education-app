@@ -2,7 +2,7 @@
   <v-row>
     <peer-history-model :show="show" @close:show="show = false" />
     <v-col class="text-center" :cols="12" :md="6">
-      <chart-card title="Peering BGP狀況監控統計圖">
+      <chart-card title="BGP Peering狀況監控統計圖">
         <chart-pie-list :items="pieData">
           <template #default="{ options }">
             <v-chart
@@ -15,7 +15,7 @@
       </chart-card>
     </v-col>
     <v-col class="text-center" :cols="12" :md="6">
-      <chart-card title="Peering BGP狀態趨勢圖">
+      <chart-card title="BGP Peering狀態趨勢圖">
         <chart-check-list :items="lineData">
           <template #default="{ options }">
             <v-chart
@@ -28,7 +28,7 @@
       </chart-card>
     </v-col>
     <v-col :cols="12">
-      <table-card title="BGP Peering狀態-Peering BGP狀況" :items="items">
+      <table-card title="BGP Peering狀態-BGP Peering狀況" :items="items">
         <template
           #default="{
             search,

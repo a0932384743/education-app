@@ -77,6 +77,12 @@ const date = Array.from(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   (val, index) => `2024-06-${`0${index + 1}`.substr(-2)}`
 );
+
+// eslint-disable-next-line no-unused-vars
+const count = Array.from(new Array(30), () =>
+  Number( Number(2000 + Math.random() * 500).toFixed(2))
+);
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const idle = Array.from(new Array(30), () =>
   Number(Number(Math.random()).toFixed(2))
@@ -124,12 +130,16 @@ export default {
         openSent,
         openConfirm,
         established,
+        count
       },
     };
   },
   computed: {
     options() {
       return {
+        grid:{
+          top:100
+        },
         tooltip: {
           trigger: 'axis',
         },
@@ -141,6 +151,7 @@ export default {
             'BGP Status=OpenSent',
             'BGP Status=OpenConfirm',
             'BGP Status=Established',
+            'Hinet_TP'
           ],
         },
         xAxis: {
@@ -151,12 +162,38 @@ export default {
         yAxis: [
           {
             type: 'value',
+            name: '狀態統計',
+            position: 'left',
+            axisLine: {
+              lineStyle: {
+                color:this.$vuetify.theme.isDark ? '#fff' : '#000'
+              },
+            },
+            axisLabel: {
+              align: 'center',
+              formatter: '{value}',
+            },
+          },
+          {
+            type: 'value',
+            name: '路由筆數',
+            position: 'right',
+            axisLine: {
+              lineStyle: {
+                color:this.$vuetify.theme.isDark ? '#fff' : '#000'
+              },
+            },
+            axisLabel: {
+              align: 'center',
+              formatter: '{value}',
+            },
           },
         ],
         series: [
           {
             name: 'BGP Status=idle',
             type: 'bar',
+            yAxisIndex: 0,
             itemStyle: {
               color:
                 this.$vuetify.theme.themes[
@@ -168,6 +205,7 @@ export default {
           {
             name: 'BGP Status=Connect',
             type: 'bar',
+            yAxisIndex: 0,
             itemStyle: {
               color:
                 this.$vuetify.theme.themes[
@@ -179,6 +217,7 @@ export default {
           {
             name: 'BGP Status=Active',
             type: 'bar',
+            yAxisIndex: 0,
             itemStyle: {
               color:
                 this.$vuetify.theme.themes[
@@ -190,6 +229,7 @@ export default {
           {
             name: 'BGP Status=OpenSent',
             type: 'bar',
+            yAxisIndex: 0,
             itemStyle: {
               color:
                 this.$vuetify.theme.themes[
@@ -212,6 +252,7 @@ export default {
           {
             name: 'BGP Status=Established',
             type: 'bar',
+            yAxisIndex: 0,
             itemStyle: {
               color:
                 this.$vuetify.theme.themes[
@@ -219,6 +260,12 @@ export default {
                 ].secondary,
             },
             data: this.data.established,
+          },
+          {
+            name: 'Hinet_TP',
+            type: 'line',
+            yAxisIndex: 1,
+            data: this.data.count,
           },
         ],
       };
@@ -239,6 +286,7 @@ export default {
         openSent: openSent.slice(startIndex, endIndex + 1),
         openConfirm: openConfirm.slice(startIndex, endIndex + 1),
         established: established.slice(startIndex, endIndex + 1),
+        count: count.slice(startIndex, endIndex + 1),
       };
     },
   },

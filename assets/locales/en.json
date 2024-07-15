@@ -1,9 +1,9 @@
 {
-  "BGP Peering狀態-Peering BGP狀況": "BGP Peering Status - Peering BGP Status",
+  "BGP Peering狀態-BGP Peering狀況": "BGP Peering Status - BGP Peering Status",
   "BGP Peering狀態-RR BGP狀況": "BGP Peering Status - RR BGP Status",
   "BGP Peering狀況監控統計圖": "BGP Peering Status Monitoring Statistics Chart",
-  "Peering BGP狀態趨勢圖": "Peering BGP Status Trend Chart",
-  "Peering BGP狀況監控統計圖": "Peering BGP Status Monitoring Statistics Chart",
+  "BGP Peering狀態趨勢圖": "BGP Peering Status Trend Chart",
+  "BGP Peering狀況監控統計圖": "BGP Peering Status Monitoring Statistics Chart",
   "RPM總負載電流狀態統計圖": "RPM Total Load Current Status Statistics Chart",
   "RPM總負載電流狀態趨勢圖": "RPM Total Load Current Status Trend Chart",
   "RR BGP狀態趨勢圖": "RR BGP Status Trend Chart",
