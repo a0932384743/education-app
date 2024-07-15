@@ -1,5 +1,6 @@
 <template>
   <v-row>
+    <peer-history-model :show="show" @close:show="show = false" />
     <v-col class="text-center" :cols="12" :md="6">
       <chart-card title="Peering BGP狀況監控統計圖">
         <chart-pie-list :items="pieData">
@@ -56,8 +57,7 @@
               <td
                 :class="`${statusMap[item.status]} lighten-2`"
                 :style="
-                  item.status !== 'none' &&
-                  'border-color: inherit !important;'
+                  item.status !== 'none' && 'border-color: inherit !important;'
                 "
                 nowrap="nowrap"
               >
@@ -75,6 +75,11 @@
                 {{ item.device }}
               </td>
             </template>
+            <template #[`item.object`]="{ item }">
+              <div class="text-no-wrap" nowrap="nowrap">
+                {{ item.object }}
+              </div>
+            </template>
             <template #[`item.bgp_status`]="{ item }">
               <v-chip :color="statusMap[item.status]" dark small>
                 {{ item.bgp_status.toUpperCase() }}
@@ -88,7 +93,7 @@
             </template>
             <template #[`item.history`]>
               <td align="center">
-                <v-btn color="secondary" small dark>
+                <v-btn color="secondary" small dark @click="show=true">
                   <v-icon>mdi-chart-areaspline</v-icon>
                 </v-btn>
               </td>
@@ -101,6 +106,8 @@
 </template>
 
 <script>
+import PeerHistoryModel from '@/components/PeerHistoryModel.vue';
+import TempAndHumiHistoryModel from '@/components/TempAndHumiHistoryModel.vue';
 import items from '~/assets/json/peering-bgp-status.json';
 import lineData from '~/assets/json/peering-bgp-status-history.json';
 import ChartCard from '~/components/ChartCard.vue';
@@ -108,11 +115,12 @@ import { statusMap } from '~/utils/statusMap';
 
 export default {
   name: 'PeeringBgpStatus',
-  components: { ChartCard },
+  components: { TempAndHumiHistoryModel, PeerHistoryModel, ChartCard },
   layout: 'admin-layout',
   data() {
     return {
       statusMap,
+      show: false,
     };
   },
   computed: {
@@ -130,6 +138,10 @@ export default {
         {
           text: this.$t('peering.device'),
           value: 'device',
+        },
+        {
+          text: this.$t('Object Name'),
+          value: 'object',
         },
         {
           text: this.$t('bgp.status'),

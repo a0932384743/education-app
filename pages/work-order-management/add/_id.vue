@@ -1,6 +1,6 @@
 <template>
   <v-container class="fill-height">
-    <v-card>
+    <v-card class="mx-auto">
       <v-card-text class="px-5 px-md-15 py-5">
         <v-form ref="basic" v-model="form.valid">
           <v-row>
