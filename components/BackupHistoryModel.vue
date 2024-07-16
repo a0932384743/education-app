@@ -18,7 +18,7 @@
                 組態內容
               </div>
               <div class="flex-grow-1">
-                <div ref="xterm"></div>
+                <div ref="xterm" id="xterm"></div>
               </div>
             </div>
           </v-col>
@@ -56,9 +56,7 @@ export default {
     };
   },
   mounted() {
-    if (this.$refs.xterm) {
-      this.initXterm();
-    }
+    this.initXterm();
   },
   destroyed() {
     window.removeEventListener('resize', this.resizeScreen);
@@ -82,7 +80,7 @@ export default {
           lineHeight: 20,
         },
       });
-      term.open(this.$refs.xterm);
+      term.open(document.querySelector('#xterm'));
       term.loadAddon(this.fitAddon);
       window.addEventListener('resize', this.resizeScreen);
       window.dispatchEvent(new Event('resize'));
