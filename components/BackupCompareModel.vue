@@ -1,6 +1,6 @@
 <template>
   <v-dialog :value="show" max-width="800px" @click:outside="onClose">
-    <v-card>
+    <v-card class="fill-height">
       <v-card-title>
         <span class="title">檔案比對</span>
       </v-card-title>
@@ -90,9 +90,6 @@ export default {
       diffHtml: '',
     };
   },
-  mounted() {
-    this.generateDiffHtml();
-  },
   computed:{
     text1(){
       return `!
@@ -117,7 +114,7 @@ export default {
       !
       ip route 0.0.0.0 0.0.0.0 203.0.113.254
       !
-      end`
+      end`;
     },
     text2(){
       return `!
@@ -147,6 +144,9 @@ export default {
     diffString() {
       return Diff.createTwoFilesPatch(this.startDate , this.endDate, this.text1, this.text2);
     }
+  },
+  mounted() {
+    this.generateDiffHtml();
   },
   methods: {
     generateDiffHtml() {

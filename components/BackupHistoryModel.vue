@@ -7,18 +7,25 @@
       <v-card-text>
         <v-row>
           <v-col cols="12">
-            <div class="d-inline-flex w-100 align-center mb-2">
-              <div class="subtitle-1 font-weight-bold" style="width: 100px">
+            <div
+              class="d-inline-flex w-100 align-start align-sm-center mb-2 flex-sm-row flex-column"
+            >
+              <div class="subtitle-1 font-weight-bold" style="min-width: 100px">
                 備份日期
               </div>
               <div class="info--text flex-grow-1">{{ backupDate }}</div>
             </div>
-            <div class="d-inline-flex w-100 align-center mb-2">
-              <div class="subtitle-1 font-weight-bold" style="width: 100px">
+            <div
+              class="d-inline-flex w-100 align-start mb-2 flex-sm-row flex-column"
+            >
+              <div class="subtitle-1 font-weight-bold" style="min-width: 100px">
                 組態內容
               </div>
-              <div class="flex-grow-1">
-                <div ref="xterm" id="xterm"></div>
+              <div
+                class="flex-grow-1"
+                :class="vuetify.breakpoint.smAndDown && 'w-100'"
+              >
+                <div id="xterm" ref="xterm"></div>
               </div>
             </div>
           </v-col>
@@ -54,6 +61,11 @@ export default {
       count: 0,
       fitAddon: new FitAddon(),
     };
+  },
+  computed: {
+    vuetify() {
+      return this.$vuetify;
+    },
   },
   updated() {
     if (this.$refs.xterm) {

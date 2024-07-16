@@ -32,7 +32,7 @@
   "exclude": [
     "node_modules",
     ".nuxt",
-    "dist"
+    "docs"
   ],
   "include": [
     "types/*.d.ts",
