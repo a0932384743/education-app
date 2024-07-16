@@ -1,14 +1,12 @@
 <template>
   <v-row>
-    <backup-history-model
-      :show="show"
-      @close:show="show = false"
-    ></backup-history-model>
+    <backup-history-model :show="show" @close:show="show = false" />
+    <backup-compare-model :show="compare" @close:show="compare = false" />
     <v-col :cols="12" class="d-inline-flex justify-end" style="gap: 0.6rem">
       <v-btn color="info" @click="onAdd"
         ><v-icon color="white">mdi-menu-right</v-icon> 立即執行檢查與備份</v-btn
       >
-      <v-btn color="info"> 檔案比對 </v-btn>
+      <v-btn color="info" @click="compare = true"> 檔案比對 </v-btn>
     </v-col>
     <v-col :cols="12">
       <table-card :title="'歷史備份紀錄' + detail?.task" :items="items">
@@ -92,23 +90,25 @@
 </template>
 
 <script>
-import moment from 'moment';
-import BackupHistoryModel from '@/components/BackupHistoryModel.vue';
+import BackupCompareModel from '@/components/BackupCompareModel.vue'
+import moment from 'moment'
+import BackupHistoryModel from '@/components/BackupHistoryModel.vue'
 
 export default {
   name: 'DeviceConfigurationManagementEdit',
-  components: { BackupHistoryModel },
+  components: { BackupCompareModel, BackupHistoryModel },
   layout: 'admin-layout',
   data() {
     return {
       detail: null,
       items: [],
       show: false,
-    };
+      compare: false,
+    }
   },
   computed: {
     taskId() {
-      return this.$router.currentRoute.params?.id || '';
+      return this.$router.currentRoute.params?.id || ''
     },
     headers() {
       return [
@@ -126,11 +126,11 @@ export default {
           value: 'createTime',
         },
         { text: this.$t('operate'), value: 'operate', sortable: false },
-      ];
+      ]
     },
   },
   created() {
-    this.onSearch();
+    this.onSearch()
   },
   methods: {
     onAdd() {
@@ -138,26 +138,26 @@ export default {
         id: this.items.length + 1,
         createTime: moment().format('YYYY-MM-DD HH:mm:ss'),
         status: 'process',
-      };
-      this.items.push(item);
+      }
+      this.items.push(item)
       setTimeout(() => {
-        item.status = 'success';
-      }, 1000);
+        item.status = 'success'
+      }, 1000)
     },
     onSearch() {
       this.detail = this.$store.getters[
         'configuration/getConfigurationList'
-      ].filter((item) => item.id === Number(this.taskId))[0];
+      ].filter((item) => item.id === Number(this.taskId))[0]
     },
     onView() {
-      this.show = true;
+      this.show = true
     },
     onDownload(item) {
-      this.items = this.items.filter((w) => w.id !== item.id);
+      this.items = this.items.filter((w) => w.id !== item.id)
     },
     onDelete(item) {
-      this.items = this.items.filter((w) => w.id !== item.id);
+      this.items = this.items.filter((w) => w.id !== item.id)
     },
   },
-};
+}
 </script>
