@@ -51,6 +51,7 @@ export default {
       term: '',
       rows: 20,
       cols: 50,
+      count: 0,
       fitAddon: new FitAddon(),
     };
   },
@@ -84,7 +85,6 @@ export default {
         },
       });
       term.open(this.$refs.xterm);
-      term.prompt();
       term.loadAddon(this.fitAddon);
       window.addEventListener('resize', this.resizeScreen);
       window.dispatchEvent(new Event('resize'));
@@ -103,26 +103,32 @@ export default {
       if (term._initialized) return;
       // 初始化
       term._initialized = true;
-      term.writeln('\rBuilding configuration.\r\n\r\n' +
-        'Current configuration : 18990 bytes\r\n' +
-        '!\r\n' +
-        '! Last configuration change at 14:33:32 TWM Mon Jun 13 2023 by chtadmin\r\n' +
-        '! NVRAM configure last updated at 14:33:32 TWM Mon Jun 13 2023 by chtadmin\r\n' +
-        '!\r\n' +
-        'version 17.3\r\n' +
-        'service timestamp debug datetime localtime show-timezone\r\n' +
-        'service timestamp log datetime localtime show-timezone\r\n' +
-        'service password-encryption\r\n' +
-        'service call-home\r\n' +
-        'service unsupported-transceiver\r\n' +
-        'platform punt-keepalive disable-kernel-core\r\n' +
-        '!\r\n' +
-        'done\r\n');
-
+      term.writeln(' ');
+      term.writeln('Building configuration.');
+      term.writeln('Current configuration : 18990 bytes');
+      term.writeln('!');
+      term.writeln(
+        '! Last configuration change at 14:33:32 TWM Mon Jun 13 2023 by chtadmin'
+      );
+      term.writeln(
+        '! NVRAM configure last updated at 14:33:32 TWM Mon Jun 13 2023 by chtadmin'
+      );
+      term.writeln('!');
+      term.writeln('version 17.3');
+      term.writeln('service timestamp debug datetime localtime show-timezone');
+      term.writeln('service timestamp log datetime localtime show-timezone');
+      term.writeln('service password-encryption');
+      term.writeln('service call-home');
+      term.writeln('service unsupported-transceiver');
+      term.writeln('platform punt-keepalive disable-kernel-core');
+      term.writeln('!');
+      term.writeln('done');
+      term.onData((key) => {
+        if (key.length > 1) term.write(key);
+      });
       document.querySelectorAll('.xterm-rows div').forEach((ele, index) => {
         ele.setAttribute('data-line', index + 1);
       });
-      term.prompt();
     },
   },
 };
@@ -132,7 +138,7 @@ export default {
   content: attr(data-line);
   color: white;
   font-weight: bold;
-  width: 20px;
+  width: 25px;
   display: inline-block;
   font-size: 0.8rem;
 }
