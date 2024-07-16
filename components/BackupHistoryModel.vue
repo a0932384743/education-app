@@ -56,7 +56,11 @@ export default {
     };
   },
   mounted() {
-    this.initXterm();
+    setTimeout(()=>{
+      if (this.$refs.xterm) {
+        this.initXterm();
+      }
+    }, 100)
   },
   destroyed() {
     window.removeEventListener('resize', this.resizeScreen);
@@ -80,7 +84,7 @@ export default {
           lineHeight: 20,
         },
       });
-      term.open(document.querySelector('#xterm'));
+      term.open(this.$refs.xterm);
       term.loadAddon(this.fitAddon);
       window.addEventListener('resize', this.resizeScreen);
       window.dispatchEvent(new Event('resize'));
