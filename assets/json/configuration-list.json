@@ -1,0 +1,26 @@
+[
+  {
+    "backupCount": 22,
+    "brand": "Cisco",
+    "checkTime": "2024-06-22 02:00",
+    "id": 1,
+    "resource": "IXSMESW127\n(10.253.175.92)",
+    "task": "IXSMESW127"
+  },
+  {
+    "backupCount": 22,
+    "brand": "Cisco",
+    "checkTime": "2024-06-23 02:00",
+    "id": 2,
+    "resource": "IXSMESW107\n(10.253.175.92)",
+    "task": "IXSMESW107"
+  },
+  {
+    "backupCount": 22,
+    "brand": "Cisco",
+    "checkTime": "2024-06-24 02:00",
+    "id": 3,
+    "resource": "IXSMESW092\n(10.253.175.92)",
+    "task": "IXSMESW092"
+  }
+]

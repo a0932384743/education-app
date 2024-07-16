@@ -553,5 +553,12 @@
     "name": "工單管理",
     "name_en": "Work Order Management",
     "url": "/work-order-management"
+  },
+  {
+    "children": [],
+    "id": 80,
+    "name": "設備組態",
+    "name_en": "Device Configuration",
+    "url": "/device-configuration"
   }
 ]
