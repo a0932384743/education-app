@@ -55,12 +55,11 @@ export default {
       fitAddon: new FitAddon(),
     };
   },
-  mounted() {
-    setTimeout(()=>{
-      if (this.$refs.xterm) {
-        this.initXterm();
-      }
-    }, 100)
+  updated() {
+    if (this.$refs.xterm) {
+      this.$refs.xterm.innerHTML = '';
+      this.initXterm();
+    }
   },
   destroyed() {
     window.removeEventListener('resize', this.resizeScreen);
