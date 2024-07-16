@@ -56,11 +56,9 @@ export default {
     };
   },
   mounted() {
-    this.$nextTick(() => {
-      if (this.$refs.xterm) {
-        this.initXterm();
-      }
-    });
+    if (this.$refs.xterm) {
+      this.initXterm();
+    }
   },
   destroyed() {
     window.removeEventListener('resize', this.resizeScreen);
