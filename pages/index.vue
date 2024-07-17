@@ -15,7 +15,7 @@
       max-width="800"
     >
       <div class="subtitle-1 font-weight-bold">
-        <v-icon size="25">mdi-information-slab-symbol</v-icon>{{ $t('notify') }}:
+        <v-icon size="20">mdi-information-slab-symbol</v-icon>{{ $t('notify') }}:
       </div>
       <ul style="list-style: number">
         <li>
@@ -56,8 +56,8 @@
           <recaptcha-canvas/>
           <div class="d-inline-flex justify-space-between w-100 align-center mt-2">
             <v-checkbox
-              class="m-0"
               v-model="rememberMe"
+              class="m-0"
               :label="$t('remember.me')"
             ></v-checkbox>
             <v-btn text @click="forgotPassword">{{ $t('forgot.password') }}?</v-btn>
@@ -95,21 +95,20 @@ export default {
         (v) => !!v || 'Password is required',
         (v) => v.length >= 6 || 'Password must be at least 6 characters',
       ],
-    }
+    };
   },
   methods: {
     login() {
       if (this.$refs.form.validate()) {
-        // Handle login logic
-        alert('Login successful!')
+        this.$router.push('/dashboard');
       }
     },
     forgotPassword() {
       // Handle forgot password logic
-      alert('Forgot Password clicked')
+      alert('Forgot Password clicked');
     },
   },
-}
+};
 </script>
 
 <style scoped>

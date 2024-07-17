@@ -81,7 +81,7 @@
           <v-list>
             <v-list-item>
               <v-list-item-content>
-                <v-list-item-title class="subtitle-2">
+                <v-list-item-title class="subtitle-2" @click="logout">
                   <v-icon size="22"> mdi-logout </v-icon> Logout
                 </v-list-item-title>
               </v-list-item-content>
@@ -329,6 +329,9 @@ export default {
     this.initSearchInput();
   },
   methods: {
+    logout(){
+      this.$router.push('/');
+    },
     initSearchInput() {
       if (this.$refs.searchEle) {
         this.$refs.searchEle.$el
