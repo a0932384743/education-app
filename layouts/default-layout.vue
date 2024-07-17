@@ -48,9 +48,8 @@
         </v-list-item>
       </v-list>
     </v-menu>
-
     <v-main>
-        <Nuxt />
+        <Nuxt/>
     </v-main>
   </v-app>
 </template>

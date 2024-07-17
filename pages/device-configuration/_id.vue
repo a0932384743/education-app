@@ -90,9 +90,9 @@
 </template>
 
 <script>
-import BackupCompareModel from '@/components/BackupCompareModel.vue'
-import moment from 'moment'
-import BackupHistoryModel from '@/components/BackupHistoryModel.vue'
+import moment from 'moment';
+import BackupCompareModel from '@/components/BackupCompareModel.vue';
+import BackupHistoryModel from '@/components/BackupHistoryModel.vue';
 
 export default {
   name: 'DeviceConfigurationManagementEdit',
@@ -104,11 +104,11 @@ export default {
       items: [],
       show: false,
       compare: false,
-    }
+    };
   },
   computed: {
     taskId() {
-      return this.$router.currentRoute.params?.id || ''
+      return this.$router.currentRoute.params?.id || '';
     },
     headers() {
       return [
@@ -126,11 +126,11 @@ export default {
           value: 'createTime',
         },
         { text: this.$t('operate'), value: 'operate', sortable: false },
-      ]
+      ];
     },
   },
   created() {
-    this.onSearch()
+    this.onSearch();
   },
   methods: {
     onAdd() {
@@ -138,26 +138,26 @@ export default {
         id: this.items.length + 1,
         createTime: moment().format('YYYY-MM-DD HH:mm:ss'),
         status: 'process',
-      }
-      this.items.push(item)
+      };
+      this.items.push(item);
       setTimeout(() => {
-        item.status = 'success'
-      }, 1000)
+        item.status = 'success';
+      }, 1000);
     },
     onSearch() {
       this.detail = this.$store.getters[
         'configuration/getConfigurationList'
-      ].filter((item) => item.id === Number(this.taskId))[0]
+      ].filter((item) => item.id === Number(this.taskId))[0];
     },
     onView() {
-      this.show = true
+      this.show = true;
     },
     onDownload(item) {
-      this.items = this.items.filter((w) => w.id !== item.id)
+      this.items = this.items.filter((w) => w.id !== item.id);
     },
     onDelete(item) {
-      this.items = this.items.filter((w) => w.id !== item.id)
+      this.items = this.items.filter((w) => w.id !== item.id);
     },
   },
-}
+};
 </script>

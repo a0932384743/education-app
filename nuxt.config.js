@@ -40,9 +40,28 @@ export default {
   plugins: ['~/plugins/echarts', '~/plugins/draggable' , '~/plugins/snackbar'],
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
-
-  pageTransition: 'fade',
-
+  pageTransition: {
+    name: 'page',
+    mode: 'out-in',
+    enter(el, done) {
+      // 自定義進入動畫
+      el.style.opacity = 0;
+      setTimeout(() => {
+        el.style.transition = 'opacity 0.5s';
+        el.style.opacity = 1;
+        done();
+      }, 50);
+    },
+    leave(el, done) {
+      // 自定義離開動畫
+      el.style.opacity = 1;
+      setTimeout(() => {
+        el.style.transition = 'opacity 0.5s';
+        el.style.opacity = 0;
+        done();
+      }, 50);
+    }
+  },
   typescript: {
     typeCheck: false,
   },

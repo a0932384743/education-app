@@ -193,7 +193,7 @@
         </v-breadcrumbs>
       </v-row>
       <v-container fluid class="pt-5">
-        <Nuxt />
+        <Nuxt/>
       </v-container>
     </v-main>
     <v-footer

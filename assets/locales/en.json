@@ -154,6 +154,7 @@
   "login.hint.1": "Equipment Maintenance Notification - Optical equipment replacement at Taipei main node, estimated maintenance on 2024/06/19 01:00, expected impact until 2024/06/19 03:00, impact area: Taipei network",
   "login.hint.2": "System Upgrade Notification - Integrated network management system upgrade, estimated maintenance on 2024/06/19 01:00:00, expected impact until 2024/06/19 03:00, impact area: Customer service personnel",
   "login.hint.3": "Please log in to perform the functions",
+  "login.hint.4": "Please Enter OTP Code",
   "logout": "Logout",
   "low.critical.current": "Low Critical Total Load Current",
   "low.critical.humidity": "Low Critical Humidity",
