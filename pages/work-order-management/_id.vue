@@ -252,7 +252,6 @@ export default {
         {
           text: this.$t('work.desc'),
           value: 'desc',
-          width: 300,
         },
         {
           text: this.$t('work.source'),
@@ -269,7 +268,7 @@ export default {
         {
           text: this.$t('work.process'),
           value: 'process',
-          width: 350,
+          width: 300,
         },
         {
           text: this.$t('creator'),

@@ -9,7 +9,7 @@
       <v-btn color="info" @click="compare = true"> 檔案比對 </v-btn>
     </v-col>
     <v-col :cols="12">
-      <table-card :title="'歷史備份紀錄' + detail?.task" :items="items">
+      <table-card :title="'歷史備份紀錄' + (detail?.task || '-新增')" :items="items">
         <template
           #default="{
             search,

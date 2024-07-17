@@ -119,27 +119,45 @@
             :header-props="headerProps"
             fixed-header
             hide-default-footer
+            height="500px"
+            :item-class="setRowClass"
           >
-            <template #item="{ item }">
-              <tr
-                :class="!item.endTime && 'error'"
-                class="lighten-2"
-                :style="
-                  item.endTime
-                    ? 'border-color: inherit !important'
-                    : 'border-color: inherit !important'
-                "
-              >
-                <td>{{ item.id }}</td>
-                <td nowrap="nowrap">{{ item.eventId }}</td>
-                <td>{{ item.category }}</td>
-                <td nowrap="nowrap">{{ item.level }}</td>
-                <td nowrap="nowrap">{{ item.startTime }}</td>
-                <td nowrap="nowrap">{{ item.endTime || $t('continued') }}</td>
-                <td nowrap="nowrap">{{ item.device }}</td>
-                <td nowrap="nowrap">{{ item.duration }}</td>
-                <td>{{ item.desc }}</td>
-              </tr>
+            <template #[`item.eventId`]="{ item }">
+              <div class="text-no-wrap">{{ item?.eventId || '-' }}</div>
+            </template>
+            <template #[`item.level`]="{ item }">
+              <div class="text-no-wrap">{{ item?.level || '-' }}</div>
+            </template>
+            <template #[`item.startTime`]="{ item }">
+              <div class="text-no-wrap">{{ item?.startTime || '-' }}</div>
+            </template>
+            <template #[`item.endTime`]="{ item }">
+              <div class="text-no-wrap">
+                {{ item?.endTime || $t('continued') }}
+              </div>
+            </template>
+            <template #[`item.device`]="{ item }">
+              <div class="text-no-wrap">{{ item?.device }}</div>
+            </template>
+            <template #[`item.duration`]="{ item }">
+              <div class="text-no-wrap">{{ item?.duration }}</div>
+            </template>
+            <template #[`item.operate`]="{ item }">
+              <div class="d-inline-flex" style="gap: 0.8rem">
+                <v-btn v-if="item.level === 'CR'" small color="info" @click="goToWorkOrderList(item)">
+                  <v-icon size="20">mdi-magnify</v-icon>
+                  <span class="d-none d-sm-inline-block">{{
+                      $t('work.search')
+                    }}</span>
+                </v-btn>
+                <v-btn v-if="item.level === 'MN'" small color="success" @click="goToWorkOrderAdd(item)">
+                  <v-icon class="white--text" size="20"
+                  >mdi-plus</v-icon
+                  ><span class="d-none d-sm-inline-block white--text">{{
+                    $t('work.add')
+                  }}</span>
+                </v-btn>
+              </div>
             </template>
           </v-data-table>
         </template>
@@ -212,6 +230,12 @@ export default {
         {
           text: this.$t('event.description'),
           value: 'desc',
+          width: 300,
+        },
+        {
+          text: this.$t('work.processing'),
+          value: 'operate',
+          width: 100,
         },
       ];
     },
@@ -237,6 +261,15 @@ export default {
         );
       });
     },
+    setRowClass(item) {
+      return `${!item.endTime ? 'error' : ''} lighten-2`;
+    },
+    goToWorkOrderAdd(item){
+      this.$router.push(`/work-order-management/add/${item.id}`);
+    },
+    goToWorkOrderList(item){
+      this.$router.push(`/work-order-management/${item.id}`);
+    }
   },
 };
 </script>
