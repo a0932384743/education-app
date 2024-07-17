@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[45],{1084:function(t,l,n){"use strict";n.r(l);var e=n(764),o={name:"RpmTotalLoadCurrentStatus",layout:"admin-layout"},r=n(107),component=Object(r.a)(o,(function(){return(0,this._self._c)(e.a,{staticClass:"fill-height",attrs:{fluid:""}})}),[],!1,null,null,null);l.default=component.exports}}]);

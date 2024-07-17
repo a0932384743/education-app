@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[11],{1046:function(t,l,n){"use strict";n.r(l);var e=n(764),o={name:"ClosedCaseList",layout:"admin-layout"},c=n(107),component=Object(c.a)(o,(function(){return(0,this._self._c)(e.a,{staticClass:"fill-height",attrs:{fluid:""}})}),[],!1,null,null,null);l.default=component.exports}}]);

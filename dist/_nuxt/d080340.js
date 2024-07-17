@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[15],{1052:function(n,t,l){"use strict";l.r(t);var e=l(764),c={name:"MaintenanceTeam",layout:"admin-layout"},o=l(107),component=Object(o.a)(c,(function(){return(0,this._self._c)(e.a,{staticClass:"fill-height",attrs:{fluid:""}})}),[],!1,null,null,null);t.default=component.exports}}]);

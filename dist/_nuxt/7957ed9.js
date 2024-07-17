@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[24],{1064:function(t,n,e){"use strict";e.r(n);var l=e(764),c={name:"DomesticBackboneInterface",layout:"admin-layout"},o=e(107),component=Object(o.a)(c,(function(){return(0,this._self._c)(l.a,{staticClass:"fill-height",attrs:{fluid:""}})}),[],!1,null,null,null);n.default=component.exports}}]);
