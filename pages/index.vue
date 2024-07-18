@@ -8,27 +8,6 @@
     "
   >
     <template v-if="!isLogin">
-      <v-alert
-        transition="fade-transition"
-        border="left"
-        colored-border
-        color="warning accent-4"
-        elevation="2"
-        max-width="800"
-      >
-        <div class="subtitle-1 font-weight-bold">
-          <v-icon size="20">mdi-information-slab-symbol</v-icon
-          >{{ $t('notify') }}:
-        </div>
-        <ul style="list-style: number">
-          <li>
-            {{ $t('login.hint.1') }}
-          </li>
-          <li>
-            {{ $t('login.hint.2') }}
-          </li>
-        </ul>
-      </v-alert>
       <h1 class="text-center" transition="fade-transition">
         {{ $t('app.welcome') }}
       </h1>

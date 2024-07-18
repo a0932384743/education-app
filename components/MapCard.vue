@@ -49,8 +49,11 @@
   </v-card>
 </template>
 <script>
-import { colorBrightness } from '~/utils/color';
+import { colorBrightness } from '@/utils/color';
+import colors from 'vuetify/lib/util/colors';
 import { statusMap } from '~/utils/statusMap';
+import taiwanGEO from 'assets/map/taiwan-geo.json';
+import usaGEO from 'assets/map/usa-geo.json';
 
 export default {
   name: 'MapCard',
@@ -93,16 +96,12 @@ export default {
             roam: true,
             zoom: this.center ? 2 : 14,
             center: this.center || [123.0654, 23.5477],
-            regions: this.nodes.map((node) => {
+            regions: [...taiwanGEO.features , ...usaGEO.features].map((node,index) => {
+              const colorKeys = Object.keys(colors);
               return {
-                ...node,
+                ...node.properties,
                 itemStyle: {
-                  areaColor: colorBrightness(
-                    this.$vuetify.theme.themes[
-                      this.$vuetify.theme.isDark ? 'dark' : 'light'
-                    ][statusMap[node.status]],
-                    1.2
-                  ),
+                  areaColor: colors[colorKeys[index % colorKeys.length]].lighten4
                 },
               };
             }),
@@ -153,9 +152,9 @@ export default {
                   type: 'dashed',
                   dashOffset: 0,
                   color:
-                    this.$vuetify.theme.themes[
+                    colorBrightness(this.$vuetify.theme.themes[
                       this.$vuetify.theme.isDark ? 'dark' : 'light'
-                    ].success,
+                    ].success , 0.6),
                   width: 5,
                   opacity: 0.6,
                   curveness: 0.1,
@@ -168,6 +167,7 @@ export default {
     },
   },
   mounted() {
+    console.log(taiwanGEO);
     if (this.times) {
       clearInterval(this.time);
     }

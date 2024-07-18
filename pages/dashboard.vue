@@ -1,257 +1,279 @@
 <template>
-  <grid-layout
-    :layout.sync="dashboardList"
-    :col-num="12"
-    :row-num="6"
-    :row-height="250"
-    is-draggable
-    is-resizable
-    vertical-compact
-    :use-css-transforms="true"
-    @layout-updated="onLayoutUpdated"
-  >
-    <grid-item
-      drag-allow-from=".v-card__title"
-      :x="dashboardList[0].x"
-      :y="dashboardList[0].y"
-      :w="dashboardList[0].w"
-      :h="dashboardList[0].h"
-      :i="dashboardList[0].i"
+  <v-container fluid>
+    <v-alert
+      transition="fade-transition"
+      border="left"
+      colored-border
+      color="warning accent-4"
+      elevation="2"
     >
-      <map-card
-        title="TWAREN 400G骨幹網路即時監控狀態圖"
-        :links="links"
-        :nodes="nodes"
-      />
-    </grid-item>
-    <grid-item
-      drag-allow-from=".v-card__title"
-      :x="dashboardList[1].x"
-      :y="dashboardList[1].y"
-      :w="dashboardList[1].w"
-      :h="dashboardList[1].h"
-      :i="dashboardList[1].i"
+      <div class="subtitle-1 font-weight-bold">
+        <v-icon size="20">mdi-information-slab-symbol</v-icon
+        >{{ $t('notify') }}:
+      </div>
+      <ul style="list-style: number">
+        <li>
+          {{ $t('login.hint.1') }}
+        </li>
+        <li>
+          {{ $t('login.hint.2') }}
+        </li>
+      </ul>
+    </v-alert>
+    <grid-layout
+      :layout.sync="dashboardList"
+      :col-num="12"
+      :row-num="6"
+      :row-height="250"
+      is-draggable
+      is-resizable
+      vertical-compact
+      :use-css-transforms="true"
+      @layout-updated="onLayoutUpdated"
     >
-      <bar-chart-card
-        title="未結案比例統計圖表"
-        :items="events"
-        :legends-props="{
-          show: false,
-        }"
-        :x-axis="eventsCategory"
+      <grid-item
+        drag-allow-from=".v-card__title"
+        :x="dashboardList[0].x"
+        :y="dashboardList[0].y"
+        :w="dashboardList[0].w"
+        :h="dashboardList[0].h"
+        :i="dashboardList[0].i"
       >
-      </bar-chart-card>
-    </grid-item>
-    <grid-item
-      drag-allow-from=".v-card__title"
-      :x="dashboardList[2].x"
-      :y="dashboardList[2].y"
-      :w="dashboardList[2].w"
-      :h="dashboardList[2].h"
-      :i="dashboardList[2].i"
-    >
-      <bar-chart-card
-        title="設備存活狀態統計圖表"
-        :items="cpus"
-        :x-axis="cpus[0].category"
-        :series-props="{
-          stack: 'Total',
-        }"
+        <map-card
+          title="TWAREN 400G骨幹網路即時監控狀態圖"
+          :links="links"
+          :nodes="nodes"
+        />
+      </grid-item>
+      <grid-item
+        drag-allow-from=".v-card__title"
+        :x="dashboardList[1].x"
+        :y="dashboardList[1].y"
+        :w="dashboardList[1].w"
+        :h="dashboardList[1].h"
+        :i="dashboardList[1].i"
       >
-      </bar-chart-card>
-    </grid-item>
-    <grid-item
-      drag-allow-from=".v-card__title"
-      :x="dashboardList[3].x"
-      :y="dashboardList[3].y"
-      :w="dashboardList[3].w"
-      :h="dashboardList[3].h"
-      :i="dashboardList[3].i"
-    >
-      <chart-card title="至今尚未關閉事件">
-        <div class="overflow-auto fill-height">
-          <v-data-table
-            :headers="eventsNotCloseListHeader"
-            :items="eventsNotCloseList"
-            fixed-header
-            hide-default-footer
-            :item-class="setRowClass"
-          >
-            <template #[`header.equipment`]="{ header }">
-              <div class="d-inline-block text-center">
-                {{ header.text }}/Unit
-              </div>
-            </template>
-            <template #[`item.id`]="{ item }">
-              <td
-                :class="item.level"
-                class="lighten-2"
-                style="border-color: inherit !important"
-              >
-                {{ item.id }}
-              </td>
-            </template>
-            <template #[`item.event`]="{ item }">
-              <td
-                :class="item.level"
-                class="lighten-2"
-                style="border-color: inherit !important"
-                nowrap="nowrap"
-              >
-                {{ item.event }}
-              </td>
-            </template>
-            <template #[`item.category`]="{ item }">
-              <td
-                :class="item.level"
-                class="lighten-2"
-                style="border-color: inherit !important"
-                nowrap="nowrap"
-              >
-                {{ item.category }}
-              </td>
-            </template>
-            <template #[`item.level`]="{ item }">
-              <td
-                :class="item.level"
-                class="lighten-2"
-                style="border-color: inherit !important"
-                nowrap="nowrap"
-              >
-                <v-icon :color="item.level">mdi-alert</v-icon>
-              </td>
-            </template>
-            <template #[`item.startTime`]="{ item }">
-              <td
-                :class="item.level"
-                class="lighten-2"
-                style="border-color: inherit !important"
-                nowrap="nowrap"
-              >
-                {{ item.startTime }}
-              </td>
-            </template>
-            <template #[`item.endTime`]="{ item }">
-              <td
-                :class="item.level"
-                class="lighten-2"
-                style="border-color: inherit !important"
-                nowrap="nowrap"
-              >
-                {{ item.endTime }}
-              </td>
-            </template>
-            <template #[`item.equipment`]="{ item }">
-              <td
-                :class="item.level"
-                class="lighten-2"
-                style="border-color: inherit !important"
-              >
-                {{ item?.equipment || '-' }}
-              </td>
-            </template>
-            <template #[`item.desc`]="{ item }">
-              <td
-                :class="item.level"
-                class="lighten-2"
-                style="border-color: inherit !important"
-              >
-                {{ item?.desc || '-' }}
-              </td>
-            </template>
-          </v-data-table>
-        </div>
-      </chart-card>
-    </grid-item>
-    <grid-item
-      drag-allow-from=".v-card__title"
-      :x="dashboardList[4].x"
-      :y="dashboardList[4].y"
-      :w="dashboardList[4].w"
-      :h="dashboardList[4].h"
-      :i="dashboardList[4].i"
-    >
-      <chart-card title="外部監控事件報警列表">
-        <div class="overflow-auto fill-height">
-          <v-data-table
-            :headers="eventsAlertListHeader"
-            :items="eventsAlertList"
-            fixed-header
-            hide-default-footer
-            :item-class="setRowClass"
-          >
-            <template #[`item.id`]="{ item }">
-              <td
-                :class="item.level"
-                class="lighten-2"
-                style="border-color: inherit !important"
-              >
-                {{ item.id }}
-              </td>
-            </template>
-            <template #[`item.event`]="{ item }">
-              <td
-                :class="item.level"
-                class="lighten-2"
-                style="border-color: inherit !important"
-                nowrap="nowrap"
-              >
-                {{ item.event }}
-              </td>
-            </template>
-            <template #[`item.category`]="{ item }">
-              <td
-                :class="item.level"
-                class="lighten-2"
-                style="border-color: inherit !important"
-                nowrap="nowrap"
-              >
-                {{ item.category }}
-              </td>
-            </template>
-            <template #[`item.level`]="{ item }">
-              <td
-                :class="item.level"
-                class="lighten-2"
-                style="border-color: inherit !important"
-                nowrap="nowrap"
-              >
-                <v-icon :color="item.level">mdi-alert</v-icon>
-              </td>
-            </template>
-            <template #[`item.startTime`]="{ item }">
-              <td
-                :class="item.level"
-                class="lighten-2"
-                style="border-color: inherit !important"
-                nowrap="nowrap"
-              >
-                {{ item.startTime }}
-              </td>
-            </template>
-            <template #[`item.equipment`]="{ item }">
-              <td
-                :class="item.level"
-                class="lighten-2"
-                style="border-color: inherit !important"
-              >
-                {{ item?.equipment || '-' }}
-              </td>
-            </template>
-            <template #[`item.desc`]="{ item }">
-              <td
-                :class="item.level"
-                class="lighten-2"
-                style="border-color: inherit !important"
-              >
-                {{ item?.desc || '-' }}
-              </td>
-            </template>
-          </v-data-table>
-        </div>
-      </chart-card>
-    </grid-item>
-  </grid-layout>
+        <bar-chart-card
+          title="未結案比例統計圖表"
+          :items="events"
+          :legends-props="{
+            show: false,
+          }"
+          :x-axis="eventsCategory"
+        >
+        </bar-chart-card>
+      </grid-item>
+      <grid-item
+        drag-allow-from=".v-card__title"
+        :x="dashboardList[2].x"
+        :y="dashboardList[2].y"
+        :w="dashboardList[2].w"
+        :h="dashboardList[2].h"
+        :i="dashboardList[2].i"
+      >
+        <bar-chart-card
+          title="設備存活狀態統計圖表"
+          :items="cpus"
+          :x-axis="cpus[0].category"
+          :series-props="{
+            stack: 'Total',
+          }"
+        >
+        </bar-chart-card>
+      </grid-item>
+      <grid-item
+        drag-allow-from=".v-card__title"
+        :x="dashboardList[3].x"
+        :y="dashboardList[3].y"
+        :w="dashboardList[3].w"
+        :h="dashboardList[3].h"
+        :i="dashboardList[3].i"
+      >
+        <chart-card title="至今尚未關閉事件">
+          <div class="overflow-auto fill-height">
+            <v-data-table
+              :headers="eventsNotCloseListHeader"
+              :items="eventsNotCloseList"
+              fixed-header
+              hide-default-footer
+              :item-class="setRowClass"
+            >
+              <template #[`header.equipment`]="{ header }">
+                <div class="d-inline-block text-center">
+                  {{ header.text }}/Unit
+                </div>
+              </template>
+              <template #[`item.id`]="{ item }">
+                <td
+                  :class="item.level"
+                  class="lighten-2"
+                  style="border-color: inherit !important"
+                >
+                  {{ item.id }}
+                </td>
+              </template>
+              <template #[`item.event`]="{ item }">
+                <td
+                  :class="item.level"
+                  class="lighten-2"
+                  style="border-color: inherit !important"
+                  nowrap="nowrap"
+                >
+                  {{ item.event }}
+                </td>
+              </template>
+              <template #[`item.category`]="{ item }">
+                <td
+                  :class="item.level"
+                  class="lighten-2"
+                  style="border-color: inherit !important"
+                  nowrap="nowrap"
+                >
+                  {{ item.category }}
+                </td>
+              </template>
+              <template #[`item.level`]="{ item }">
+                <td
+                  :class="item.level"
+                  class="lighten-2"
+                  style="border-color: inherit !important"
+                  nowrap="nowrap"
+                >
+                  <v-icon :color="item.level">mdi-alert</v-icon>
+                </td>
+              </template>
+              <template #[`item.startTime`]="{ item }">
+                <td
+                  :class="item.level"
+                  class="lighten-2"
+                  style="border-color: inherit !important"
+                  nowrap="nowrap"
+                >
+                  {{ item.startTime }}
+                </td>
+              </template>
+              <template #[`item.endTime`]="{ item }">
+                <td
+                  :class="item.level"
+                  class="lighten-2"
+                  style="border-color: inherit !important"
+                  nowrap="nowrap"
+                >
+                  {{ item.endTime }}
+                </td>
+              </template>
+              <template #[`item.equipment`]="{ item }">
+                <td
+                  :class="item.level"
+                  class="lighten-2"
+                  style="border-color: inherit !important"
+                >
+                  {{ item?.equipment || '-' }}
+                </td>
+              </template>
+              <template #[`item.desc`]="{ item }">
+                <td
+                  :class="item.level"
+                  class="lighten-2"
+                  style="border-color: inherit !important"
+                >
+                  {{ item?.desc || '-' }}
+                </td>
+              </template>
+            </v-data-table>
+          </div>
+        </chart-card>
+      </grid-item>
+      <grid-item
+        drag-allow-from=".v-card__title"
+        :x="dashboardList[4].x"
+        :y="dashboardList[4].y"
+        :w="dashboardList[4].w"
+        :h="dashboardList[4].h"
+        :i="dashboardList[4].i"
+      >
+        <chart-card title="外部監控事件報警列表">
+          <div class="overflow-auto fill-height">
+            <v-data-table
+              :headers="eventsAlertListHeader"
+              :items="eventsAlertList"
+              fixed-header
+              hide-default-footer
+              :item-class="setRowClass"
+            >
+              <template #[`item.id`]="{ item }">
+                <td
+                  :class="item.level"
+                  class="lighten-2"
+                  style="border-color: inherit !important"
+                >
+                  {{ item.id }}
+                </td>
+              </template>
+              <template #[`item.event`]="{ item }">
+                <td
+                  :class="item.level"
+                  class="lighten-2"
+                  style="border-color: inherit !important"
+                  nowrap="nowrap"
+                >
+                  {{ item.event }}
+                </td>
+              </template>
+              <template #[`item.category`]="{ item }">
+                <td
+                  :class="item.level"
+                  class="lighten-2"
+                  style="border-color: inherit !important"
+                  nowrap="nowrap"
+                >
+                  {{ item.category }}
+                </td>
+              </template>
+              <template #[`item.level`]="{ item }">
+                <td
+                  :class="item.level"
+                  class="lighten-2"
+                  style="border-color: inherit !important"
+                  nowrap="nowrap"
+                >
+                  <v-icon :color="item.level">mdi-alert</v-icon>
+                </td>
+              </template>
+              <template #[`item.startTime`]="{ item }">
+                <td
+                  :class="item.level"
+                  class="lighten-2"
+                  style="border-color: inherit !important"
+                  nowrap="nowrap"
+                >
+                  {{ item.startTime }}
+                </td>
+              </template>
+              <template #[`item.equipment`]="{ item }">
+                <td
+                  :class="item.level"
+                  class="lighten-2"
+                  style="border-color: inherit !important"
+                >
+                  {{ item?.equipment || '-' }}
+                </td>
+              </template>
+              <template #[`item.desc`]="{ item }">
+                <td
+                  :class="item.level"
+                  class="lighten-2"
+                  style="border-color: inherit !important"
+                >
+                  {{ item?.desc || '-' }}
+                </td>
+              </template>
+            </v-data-table>
+          </div>
+        </chart-card>
+      </grid-item>
+    </grid-layout>
+  </v-container>
 </template>
 
 <script>

@@ -18,7 +18,6 @@ import { Geo3DComponent } from 'echarts-gl/components';
 import usaGEO from 'assets/map/usa-geo.json';
 import taiwanGEO from 'assets/map/taiwan-geo.json';
 import nt from 'assets/map/新北市鄉鎮.json';
-import tw from 'assets/map/台灣鄉鎮.json';
 import tp from 'assets/map/臺北市鄉鎮.json';
 import il from 'assets/map/宜蘭縣鄉鎮.json';
 import ty from 'assets/map/桃園市鄉鎮.json';
