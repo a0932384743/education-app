@@ -49,8 +49,8 @@
   </v-card>
 </template>
 <script>
-import { colorBrightness } from '@/utils/color';
 import colors from 'vuetify/lib/util/colors';
+import { colorBrightness } from '@/utils/color';
 import { statusMap } from '~/utils/statusMap';
 import taiwanGEO from 'assets/map/taiwan-geo.json';
 import usaGEO from 'assets/map/usa-geo.json';
@@ -96,15 +96,18 @@ export default {
             roam: true,
             zoom: this.center ? 2 : 14,
             center: this.center || [123.0654, 23.5477],
-            regions: [...taiwanGEO.features , ...usaGEO.features].map((node,index) => {
-              const colorKeys = Object.keys(colors);
-              return {
-                ...node.properties,
-                itemStyle: {
-                  areaColor: colors[colorKeys[index % colorKeys.length]].lighten4
-                },
-              };
-            }),
+            regions: [...taiwanGEO.features, ...usaGEO.features].map(
+              (node, index) => {
+                const colorKeys = Object.keys(colors);
+                return {
+                  ...node.properties,
+                  itemStyle: {
+                    areaColor:
+                      colors[colorKeys[index % colorKeys.length]].lighten4,
+                  },
+                };
+              }
+            ),
           },
         ],
         series: [
@@ -151,10 +154,12 @@ export default {
                   animation: true,
                   type: 'dashed',
                   dashOffset: 0,
-                  color:
-                    colorBrightness(this.$vuetify.theme.themes[
+                  color: colorBrightness(
+                    this.$vuetify.theme.themes[
                       this.$vuetify.theme.isDark ? 'dark' : 'light'
-                    ].success , 0.6),
+                    ].success,
+                    0.6
+                  ),
                   width: 5,
                   opacity: 0.6,
                   curveness: 0.1,
@@ -167,7 +172,6 @@ export default {
     },
   },
   mounted() {
-    console.log(taiwanGEO);
     if (this.times) {
       clearInterval(this.time);
     }
@@ -186,19 +190,18 @@ export default {
         });
       }
     }, 1000);
-    this.$nextTick(function () {
-      this.$refs.map.chart.on('click', (params) => {
-        const options = this.$refs.map.chart.getOption();
-        const { geo } = options;
-        if (params.region?.value?.length > 2) {
-          geo[0].map = /^[A-Za-z]+$/.test(params.name) ? 'geo' : params.name;
-          geo[0].center = params.region?.value;
-        }
 
-        this.$refs.map.chart.setOption({
-          ...options,
-          geo,
-        });
+    this.$refs.map.chart.on('click', (params) => {
+      const options = this.$refs.map.chart.getOption();
+      const { geo } = options;
+      if (this.nodes.find(n=>n.name === params.name )) {
+        geo[0].map = /^[A-Za-z]+$/.test(params.name) ? 'geo' : params.name;
+        geo[0].center =this.nodes.find(n=>n.name === params.name).value;
+      }
+
+      this.$refs.map.chart.setOption({
+        ...options,
+        geo,
       });
     });
   },
