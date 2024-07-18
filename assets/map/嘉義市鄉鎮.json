@@ -4271,9 +4271,9 @@
         "type": "MultiPolygon"
       },
       "properties": {
-        "名稱": "嘉義市西區",
+        "name": "嘉義市西區",
         "比例尺分母": 5000,
-        "行政區域代碼": 1002002
+        "COUNTYSN": 1002002
       },
       "type": "Feature"
     },
@@ -9840,9 +9840,9 @@
         "type": "MultiPolygon"
       },
       "properties": {
-        "名稱": "嘉義市東區",
+        "name": "嘉義市東區",
         "比例尺分母": 5000,
-        "行政區域代碼": 1002001
+        "COUNTYSN": 1002001
       },
       "type": "Feature"
     }
