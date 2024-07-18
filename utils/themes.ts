@@ -13,13 +13,13 @@ export const lightTheme = {
 }
 
 export const darkTheme = {
-  error: '#b0566a',
+  error: '#d5383b',
   primary: '#0807B7',
   info: '#3F7EA1',
-  success: '#A1FC88',
+  success: '#61c447',
   warning: '#F99C0A',
-  danger: '#d21101',
-  secondary: '#D0CDCA',
+  danger: '#c43225',
+  secondary: '#e0dad6',
   background: '#141844',
   header: '#0b0d26',
   footer: '#0b0d26',
