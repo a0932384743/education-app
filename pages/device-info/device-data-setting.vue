@@ -45,8 +45,8 @@
                 >
               </div>
             </template>
-            <template #[`item.config`]>
-              <v-btn small color="info">
+            <template #[`item.config`]="{ item }">
+              <v-btn small color="info" @click="goToDeviceConfiguration(item)">
                 <v-icon>mdi-magnify</v-icon>
                 <span class="d-none d-sm-inline-block">{{ $t('view') }}</span>
               </v-btn>
@@ -59,11 +59,14 @@
 </template>
 
 <script>
-import items from '~/assets/json/device-data-setting.json';
-
 export default {
   name: 'DeviceDataSetting',
   layout: 'admin-layout',
+  data() {
+    return {
+      items: [],
+    }
+  },
   computed: {
     headers() {
       return [
@@ -90,11 +93,19 @@ export default {
           value: 'contact',
         },
         { text: 'Config', value: 'config' },
-      ];
-    },
-    items() {
-      return items;
+      ]
     },
   },
-};
+  mounted() {
+    this.onSearch()
+  },
+  methods: {
+    goToDeviceConfiguration(item) {
+      this.$router.push(`/device-configuration/${item.id}`)
+    },
+    onSearch() {
+      this.items = this.$store.getters['configuration/getConfigurationList']
+    },
+  },
+}
 </script>

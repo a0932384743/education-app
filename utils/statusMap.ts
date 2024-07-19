@@ -1,5 +1,5 @@
 export const statusMap = {
-  normal: 'success',
+  normal: 'normal',
   abnormal: 'error',
   error: 'error',
   'non-warning': 'warning',

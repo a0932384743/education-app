@@ -1,5 +1,5 @@
 import { ActionTree, GetterTree, Module, MutationTree } from 'vuex';
-import list from '~/assets/json/configuration-list.json';
+import list from '~/assets/json/device-data-setting.json';
 
 interface StateInterface {
   prop: boolean

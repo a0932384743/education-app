@@ -21,6 +21,7 @@
       </ul>
     </v-alert>
     <grid-layout
+      v-if="dashboardList.length > 0"
       :layout.sync="dashboardList"
       :col-num="12"
       :row-num="6"
@@ -40,7 +41,7 @@
         :i="dashboardList[0].i"
       >
         <map-card
-          title="TWAREN 400G骨幹網路即時監控狀態圖"
+          :title="dashboardList[0].name"
           :links="links"
           :nodes="nodes"
         />
@@ -54,14 +55,11 @@
         :i="dashboardList[1].i"
       >
         <bar-chart-card
-          title="未結案比例統計圖表"
+          :title="dashboardList[1].name"
           :items="events"
-          :legends-props="{
-            show: false,
-          }"
+          :legends-props="{ show: false }"
           :x-axis="eventsCategory"
-        >
-        </bar-chart-card>
+        />
       </grid-item>
       <grid-item
         drag-allow-from=".v-card__title"
@@ -72,15 +70,67 @@
         :i="dashboardList[2].i"
       >
         <bar-chart-card
-          title="設備存活狀態統計圖表"
+          :title="dashboardList[2].name"
           :items="cpus"
           :x-axis="cpus[0].category"
           :series-props="{
             stack: 'Total',
           }"
-        >
-        </bar-chart-card>
+        />
       </grid-item>
+      <grid-item
+        v-if="dashboardList[5]"
+        drag-allow-from=".v-card__title"
+        :x="dashboardList[5].x"
+        :y="dashboardList[5].y"
+        :w="dashboardList[5].w"
+        :h="dashboardList[5].h"
+        :i="dashboardList[5].i"
+      >
+        <chart-card :title="dashboardList[5].name">
+          <div class="overflow-auto fill-height">
+            <v-data-table
+              :items="configurations"
+              :headers="configurationHeaders"
+              fixed-header
+              :items-per-page="5"
+              :hide-default-footer="configurations.length <= 5"
+            >
+              <template #[`item.contact`]="{ item }">
+                <div class="d-inline-flex flex-column" style="gap: 0.4rem">
+                  <a class="info--text text-no-wrap" href="#"
+                    >{{ item.contact }}
+                    <v-icon size="20" class="mx-2" color="info"
+                      >mdi-card-account-details-outline</v-icon
+                    ></a
+                  >
+                  <a
+                    class="info--text text-no-wrap"
+                    :href="`tel:${item.mobile}`"
+                    >{{ item.mobile }}</a
+                  >
+                  <a
+                    class="info--text text-no-wrap"
+                    :href="`tel:${item.phone}`"
+                    >{{ item.phone }}</a
+                  >
+                </div>
+              </template>
+              <template #[`item.config`]="{ item }">
+                <v-btn
+                  small
+                  color="info"
+                  @click="goToDeviceConfiguration(item)"
+                >
+                  <v-icon>mdi-magnify</v-icon>
+                  <span class="d-none d-sm-inline-block">{{ $t('view') }}</span>
+                </v-btn>
+              </template>
+            </v-data-table>
+          </div>
+        </chart-card>
+      </grid-item>
+
       <grid-item
         drag-allow-from=".v-card__title"
         :x="dashboardList[3].x"
@@ -95,7 +145,8 @@
               :headers="eventsNotCloseListHeader"
               :items="eventsNotCloseList"
               fixed-header
-              hide-default-footer
+              :items-per-page="5"
+              :hide-default-footer="eventsNotCloseList.length <= 5"
               :item-class="setRowClass"
             >
               <template #[`header.equipment`]="{ header }">
@@ -192,13 +243,14 @@
         :h="dashboardList[4].h"
         :i="dashboardList[4].i"
       >
-        <chart-card title="外部監控事件報警列表">
+        <chart-card :title="dashboardList[4].name">
           <div class="overflow-auto fill-height">
             <v-data-table
               :headers="eventsAlertListHeader"
               :items="eventsAlertList"
               fixed-header
-              hide-default-footer
+              :items-per-page="5"
+              :hide-default-footer="eventsAlertList.length <= 5"
               :item-class="setRowClass"
             >
               <template #[`item.id`]="{ item }">
@@ -272,24 +324,36 @@
           </div>
         </chart-card>
       </grid-item>
+      <grid-item
+        drag-allow-from=".v-card__title"
+        :x="dashboardList[6].x"
+        :y="dashboardList[6].y"
+        :w="dashboardList[6].w"
+        :h="dashboardList[6].h"
+        :i="dashboardList[6].i"
+      >
+        <graph-chart-card :title="dashboardList[2].name" />
+      </grid-item>
     </grid-layout>
   </v-container>
 </template>
 
 <script>
-import eventsNotCloseList from '~/assets/json/event-not-close.json';
-import eventsAlertList from '~/assets/json/event-alert.json';
-import nodes from '~/assets/map/tw-node.json';
-import events from '~/assets/json/device-event.json';
-import cpus from '~/assets/json/device-cpu-stastic.json';
-import BarChartCard from '~/components/BarCahrtCard.vue';
-import ChartCard from '~/components/ChartCard.vue';
-import MapCard from '~/components/MapCard.vue';
-import { statusMap } from '~/utils/statusMap';
+import eventsNotCloseList from '~/assets/json/event-not-close.json'
+import eventsAlertList from '~/assets/json/event-alert.json'
+import nodes from '~/assets/map/tw-node.json'
+import events from '~/assets/json/device-event.json'
+import cpus from '~/assets/json/device-cpu-stastic.json'
+import GraphChartCard from '~/components/GraphChartCard.vue'
+import BarChartCard from '~/components/BarCahrtCard.vue'
+
+import ChartCard from '~/components/ChartCard.vue'
+import MapCard from '~/components/MapCard.vue'
+import { statusMap } from '~/utils/statusMap'
 
 export default {
   name: 'Dashboard',
-  components: { ChartCard, BarChartCard, MapCard },
+  components: { ChartCard, BarChartCard, MapCard, GraphChartCard },
   layout: 'admin-layout',
   data() {
     return {
@@ -382,54 +446,48 @@ export default {
       ],
       eventsNotCloseList,
       eventsAlertList,
-      cpus,
-      dashboardList: [
-        {
-          name: 'TWAREN 400G骨幹網路即時監控狀態圖',
-          i: 1,
-          w: 8,
-          h: 2,
-          x: 0,
-          y: 0,
-          moved: false,
-        },
-        {
-          name: '未結案事件比例圖',
-          i: 2,
-          w: 4,
-          h: 1,
-          x: 8,
-          y: 0,
-          moved: false,
-        },
-        { name: '設備狀態統計圖', i: 3, w: 4, h: 1, x: 8, y: 1, moved: false },
-        {
-          name: '至今尚未關閉事件',
-          i: 4,
-          w: 12,
-          h: 1,
-          x: 0,
-          y: 5,
-          moved: false,
-        },
-        {
-          name: '外部監控事件報警列表',
-          i: 5,
-          w: 12,
-          h: 1,
-          x: 0,
-          y: 7,
-          moved: false,
-        },
-      ],
-    };
+      dashboardList: [],
+    }
   },
   computed: {
     vuetify() {
-      return this.$vuetify;
+      return this.$vuetify
     },
     eventsCategory() {
-      return events.map((item) => item.name);
+      return events.map((item) => item.name)
+    },
+    configurations() {
+      return this.$store.getters['configuration/getConfigurationList']
+    },
+    configurationHeaders() {
+      return [
+        {
+          text: this.$t('id'),
+          value: 'id',
+          width: 80,
+        },
+
+        {
+          text: this.$t('device.category'),
+          value: 'type',
+        },
+        {
+          text: this.$t('device.name'),
+          value: 'device',
+        },
+        { text: 'GigaPop', value: 'gigapop' },
+        { text: 'OOB IP', value: 'ip' },
+        { text: 'IPv4', value: 'ipv4' },
+        { text: 'IPv6', value: 'ipv6' },
+        {
+          text: this.$t('contact.info'),
+          value: 'contact',
+        },
+        { text: 'Config', value: 'config' },
+      ]
+    },
+    cpus() {
+      return cpus
     },
     events() {
       return [
@@ -446,7 +504,7 @@ export default {
             },
           })),
         },
-      ];
+      ]
     },
     eventsNotCloseListHeader() {
       return [
@@ -479,7 +537,7 @@ export default {
           text: this.$t('event.description'),
           value: 'desc',
         },
-      ];
+      ]
     },
     eventsAlertListHeader() {
       return [
@@ -512,21 +570,21 @@ export default {
           text: this.$t('event.description'),
           value: 'desc',
         },
-      ];
+      ]
     },
   },
   watch: {
     '$vuetify.breakpoint.smAndUp'(value) {
-      this.updateDashboardList(value);
+      this.updateDashboardList(value)
     },
   },
   mounted() {
-    this.updateDashboardList(this.$vuetify.breakpoint.smAndUp);
+    this.updateDashboardList(this.$vuetify.breakpoint.smAndUp)
   },
   methods: {
     setRowClass(item) {
       if (this.$vuetify.breakpoint.smAndDown) {
-        return `${item.level} lighten-2`;
+        return `${item.level} lighten-2`
       }
     },
     updateDashboardList(value) {
@@ -544,55 +602,7 @@ export default {
           {
             name: '未結案事件比例圖',
             i: 2,
-            w: 4,
-            h: 1,
-            x: 8,
-            y: 0,
-            moved: false,
-          },
-          {
-            name: '設備狀態統計圖',
-            i: 3,
-            w: 4,
-            h: 1,
-            x: 8,
-            y: 1,
-            moved: false,
-          },
-          {
-            name: '至今尚未關閉事件',
-            i: 4,
-            w: 12,
-            h: 1,
-            x: 0,
-            y: 5,
-            moved: false,
-          },
-          {
-            name: '外部監控事件報警列表',
-            i: 5,
-            w: 12,
-            h: 1,
-            x: 0,
-            y: 7,
-            moved: false,
-          },
-        ];
-      } else {
-        this.dashboardList = [
-          {
-            name: 'TWAREN 400G骨幹網路即時監控狀態圖',
-            i: 1,
-            w: 12,
-            h: 2,
-            x: 0,
-            y: 0,
-            moved: false,
-          },
-          {
-            name: '未結案事件比例圖',
-            i: 2,
-            w: 12,
+            w: 6,
             h: 1,
             x: 0,
             y: 2,
@@ -601,17 +611,17 @@ export default {
           {
             name: '設備狀態統計圖',
             i: 3,
-            w: 12,
+            w: 6,
             h: 1,
-            x: 0,
-            y: 3,
+            x: 6,
+            y: 2,
             moved: false,
           },
           {
             name: '至今尚未關閉事件',
             i: 4,
             w: 12,
-            h: 2,
+            h: 1,
             x: 0,
             y: 5,
             moved: false,
@@ -620,17 +630,88 @@ export default {
             name: '外部監控事件報警列表',
             i: 5,
             w: 12,
-            h: 2,
+            h: 1,
             x: 0,
-            y: 7,
+            y: 6,
             moved: false,
           },
-        ];
+          {
+            name: '教育部節點-設備資料',
+            i: 6,
+            w: 12,
+            h: 2,
+            x: 0,
+            y: 3,
+            moved: false,
+          },
+          { name: '拓樸圖', i: 7, w: 4, h: 2, x: 8, y: 0, moved: false },
+        ]
+      } else {
+        this.dashboardList = [
+          {
+            name: 'TWAREN 400G骨幹網路即時監控狀態圖',
+            i: 1,
+            w: 8,
+            h: 2,
+            x: 0,
+            y: 0,
+            moved: false,
+          },
+          {
+            name: '未結案事件比例圖',
+            i: 2,
+            w: 6,
+            h: 1,
+            x: 0,
+            y: 2,
+            moved: false,
+          },
+          {
+            name: '設備狀態統計圖',
+            i: 3,
+            w: 6,
+            h: 1,
+            x: 6,
+            y: 2,
+            moved: false,
+          },
+          {
+            name: '至今尚未關閉事件',
+            i: 4,
+            w: 12,
+            h: 1,
+            x: 0,
+            y: 5,
+            moved: false,
+          },
+          {
+            name: '外部監控事件報警列表',
+            i: 5,
+            w: 12,
+            h: 1,
+            x: 0,
+            y: 6,
+            moved: false,
+          },
+          {
+            name: '教育部節點-設備資料',
+            i: 6,
+            w: 12,
+            h: 2,
+            x: 0,
+            y: 3,
+            moved: false,
+          },
+          { name: '拓樸圖', i: 7, w: 4, h: 2, x: 8, y: 0, moved: false },
+        ]
       }
     },
     onLayoutUpdated(list) {
-      this.dashboardList = list;
+      this.dashboardList = list
+    },
+    goToDeviceConfiguration(item) {
+      this.$router.push(`/device-configuration/${item.id}`)
     },
   },
-};
+}
 </script>

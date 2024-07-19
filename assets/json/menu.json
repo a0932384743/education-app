@@ -315,6 +315,13 @@
         "name": "SSL VPN狀態",
         "name_en": "SSL VPN Status",
         "url": "/monitor/ssl-vpn-status"
+      },
+      {
+        "children": [],
+        "id": 82,
+        "name": "關聯式分析",
+        "name_en": "Correlation Analysis",
+        "url": "/monitor/correlation-analysis"
       }
     ],
     "icon": "mdi-monitor",
@@ -531,6 +538,13 @@
         "name": "告警管理",
         "name_en": "Alert Management",
         "url": "/monitoring-item-management/alert-management"
+      },
+      {
+        "children": [],
+        "id": 81,
+        "name": "拓樸圖管理",
+        "name_en": "Topological Management",
+        "url": "/monitoring-item-management/topological-management"
       }
     ],
     "id": 54,

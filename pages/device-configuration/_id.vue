@@ -9,7 +9,10 @@
       <v-btn color="info" @click="compare = true"> 檔案比對 </v-btn>
     </v-col>
     <v-col :cols="12">
-      <table-card :title="'歷史備份紀錄' + (detail?.task || '-新增')" :items="items">
+      <table-card
+        :title="'歷史備份紀錄' + (detail?.device || '-新增')"
+        :items="items"
+      >
         <template
           #default="{
             search,
@@ -129,6 +132,28 @@ export default {
       ];
     },
   },
+  watch: {
+    taskId:{
+      handler(value) {
+        const item = this.$store.getters[
+          'configuration/getConfigurationList'
+          ].find((item) => item.id === Number(value));
+
+        this.items = Array.from(Array(Number(item.backupCount)).keys()).map((v) => {
+          return {
+            id: v + 1,
+            createTime: moment()
+              .month(6)
+              .date(v + 2)
+              .format('YYYY-MM-DD HH:mm:ss'),
+            status: 'success',
+          };
+        });
+      },
+      deep: true,
+      immediate: true,
+    }
+  },
   created() {
     this.onSearch();
   },
@@ -147,7 +172,7 @@ export default {
     onSearch() {
       this.detail = this.$store.getters[
         'configuration/getConfigurationList'
-      ].filter((item) => item.id === Number(this.taskId))[0];
+      ].find((item) => item.id === Number(this.taskId));
     },
     onView() {
       this.show = true;
