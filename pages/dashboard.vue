@@ -332,7 +332,7 @@
         :h="dashboardList[6].h"
         :i="dashboardList[6].i"
       >
-        <graph-chart-card :title="dashboardList[2].name" />
+        <graph-chart-card :title="dashboardList[6].name" />
       </grid-item>
     </grid-layout>
   </v-container>
