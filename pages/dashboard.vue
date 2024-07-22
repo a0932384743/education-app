@@ -593,7 +593,7 @@ export default {
           {
             name: 'TWAREN 400G骨幹網路即時監控狀態圖',
             i: 1,
-            w: 8,
+            w: 6,
             h: 2,
             x: 0,
             y: 0,
@@ -644,7 +644,7 @@ export default {
             y: 3,
             moved: false,
           },
-          { name: '拓樸圖', i: 7, w: 4, h: 2, x: 8, y: 0, moved: false },
+          { name: '拓樸圖', i: 7, w: 6, h: 2, x: 6, y: 0, moved: false },
         ]
       } else {
         this.dashboardList = [
