@@ -65,7 +65,7 @@ export default {
   data() {
     return {
       items: [],
-    }
+    };
   },
   computed: {
     headers() {
@@ -93,19 +93,19 @@ export default {
           value: 'contact',
         },
         { text: 'Config', value: 'config' },
-      ]
+      ];
     },
   },
   mounted() {
-    this.onSearch()
+    this.onSearch();
   },
   methods: {
     goToDeviceConfiguration(item) {
-      this.$router.push(`/device-configuration/${item.id}`)
+      this.$router.push(`/device-configuration/${item.id}`);
     },
     onSearch() {
-      this.items = this.$store.getters['configuration/getConfigurationList']
+      this.items = this.$store.getters['configuration/getConfigurationList'];
     },
   },
-}
+};
 </script>

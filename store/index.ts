@@ -1,5 +1,6 @@
 import Vuex from 'vuex';
 import commonModule from './common';
+import maintenanceModule from '@/store/maintenance';
 import configurationModule from '@/store/configuration';
 import workModule from '~/store/work';
 const createStore = () => {
@@ -8,6 +9,7 @@ const createStore = () => {
       common: commonModule,
       work: workModule,
       configuration: configurationModule,
+      maintenance: maintenanceModule,
     },
   });
 };

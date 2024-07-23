@@ -196,17 +196,12 @@
 </template>
 
 <script>
-import items from '~/assets/json/maintenance-teams.json';
-
 export default {
   name: 'OperationTeamManagement',
   layout: 'admin-layout',
   data() {
     return {
-      items: items.map((item) => ({
-        ...item,
-        editable: false,
-      })),
+      items: [],
     };
   },
   computed: {
@@ -252,12 +247,31 @@ export default {
       ];
     },
   },
+  created() {
+    this.onSearch();
+  },
+  destroyed() {
+    this.$store.dispatch('maintenance/setMaintenanceList', this.items);
+  },
   methods: {
     deleteUser(item) {
-      this.items = this.items.filter((i) => i.id !== item.id);
+      this.$store.dispatch(
+        'maintenance/setMaintenanceList',
+        this.items.filter((i) => i.id !== item.id)
+      );
+    },
+    onSearch() {
+      this.items = this.$store.getters['maintenance/getMaintenanceList'].map(
+        (item) => {
+          return {
+            ...item,
+            editable: false,
+          };
+        }
+      );
     },
     addUser() {
-      this.items.push({
+      this.$store.dispatch('maintenance/addMaintenance', {
         company: '',
         email: '',
         fax: '',

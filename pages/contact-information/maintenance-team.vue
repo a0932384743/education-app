@@ -1,174 +1,169 @@
 <template>
   <v-row>
-    <v-col  :cols="12">
-    <table-card title="維運團隊資料" :items="items">
-      <template
-        #default="{
-          search,
-          footerProps,
-          itemPerPage,
-          page,
-          items,
-          loading,
-          headerProps,
-        }"
-      >
-        <v-data-table
-          :fixed-header="true"
-          :headers="headers"
-          :items="items"
-          :search="search"
-          :page="page"
-          :loading="loading"
-          :items-per-page="itemPerPage"
-          :footer-props="footerProps"
-          :header-props="headerProps"
-          height="500px"
-          hide-default-footer
+    <v-col :cols="12">
+      <table-card title="維運團隊資料" :items="items">
+        <template
+          #default="{
+            search,
+            footerProps,
+            itemPerPage,
+            page,
+            items,
+            loading,
+            headerProps,
+          }"
         >
-          <template #[`header.phone`]="{ header }">
-            <div class="d-inline-flex align-center flex-column">
-              <div>{{ header.text }}</div>
-              <div>{{ $t('placeholder.1') }}</div>
-            </div>
-          </template>
-          <template #[`header.mobile`]="{ header }">
-            <div class="d-inline-flex align-center flex-column">
-              <div>{{ header.text }}</div>
-              <div>{{ $t('placeholder.1') }}</div>
-            </div>
-          </template>
-          <template #[`header.fax`]="{ header }">
-            <div class="d-inline-flex align-center flex-column">
-              <div>{{ header.text }}</div>
-              <div>{{ $t('placeholder.1') }}</div>
-            </div>
-          </template>
+          <v-data-table
+            :fixed-header="true"
+            :headers="headers"
+            :items="items"
+            :search="search"
+            :page="page"
+            :loading="loading"
+            :items-per-page="itemPerPage"
+            :footer-props="footerProps"
+            :header-props="headerProps"
+            height="500px"
+            hide-default-footer
+          >
+            <template #[`header.phone`]="{ header }">
+              <div class="d-inline-flex align-center flex-column">
+                <div>{{ header.text }}</div>
+                <div>{{ $t('placeholder.1') }}</div>
+              </div>
+            </template>
+            <template #[`header.mobile`]="{ header }">
+              <div class="d-inline-flex align-center flex-column">
+                <div>{{ header.text }}</div>
+                <div>{{ $t('placeholder.1') }}</div>
+              </div>
+            </template>
+            <template #[`header.fax`]="{ header }">
+              <div class="d-inline-flex align-center flex-column">
+                <div>{{ header.text }}</div>
+                <div>{{ $t('placeholder.1') }}</div>
+              </div>
+            </template>
 
-          <template #[`item.user`]="{ item }">
-            <div v-if="!item.editable">{{ item.user }}</div>
-            <v-text-field
-              v-else
-              v-model="item.user"
-              small
-              label=""
-              required
-              :rules="[
-                (val) => (val || '').length > 0 || 'This field is required',
-              ]"
-            />
-          </template>
-          <template #[`item.email`]="{ item }">
-            <div v-if="!item.editable">{{ item.email }}</div>
-            <v-text-field
-              v-else
-              v-model="item.email"
-              small
-              label=""
-              required
-              :rules="[
-                (val) => (val || '').length > 0 || 'This field is required',
-                (v) => /.+@.+\..+/.test(v) || 'Email must be valid',
-              ]"
-            />
-          </template>
-          <template #[`item.phone`]="{ item }">
-            <div v-if="!item.editable">{{ item.phone }}</div>
-            <v-text-field
-              v-else
-              v-model="item.phone"
-              small
-              label=""
-              required
-              :rules="[
-                (val) => (val || '').length > 0 || 'This field is required',
-              ]"
-            />
-          </template>
-          <template #[`item.mobile`]="{ item }">
-            <div v-if="!item.editable">{{ item.mobile }}</div>
-            <v-text-field
-              v-else
-              v-model="item.mobile"
-              small
-              label=""
-              required
-              :rules="[
-                (val) => (val || '').length > 0 || 'This field is required',
-              ]"
-            />
-          </template>
-          <template #[`item.title`]="{ item }">
-            <div v-if="!item.editable">{{ item.title }}</div>
-            <v-text-field
-              v-else
-              v-model="item.title"
-              small
-              label=""
-              required
-              :rules="[
-                (val) => (val || '').length > 0 || 'This field is required',
-              ]"
-            />
-          </template>
-          <template #[`item.company`]="{ item }">
-            <div v-if="!item.editable">{{ item.company }}</div>
-            <v-text-field
-              v-else
-              v-model="item.company"
-              small
-              label=""
-              required
-              :rules="[
-                (val) => (val || '').length > 0 || 'This field is required',
-              ]"
-            />
-          </template>
-          <template #[`item.fax`]="{ item }">
-            <div v-if="!item.editable">{{ item.fax }}</div>
-            <v-text-field
-              v-else
-              v-model="item.fax"
-              small
-              label=""
-              required
-              :rules="[
-                (val) => (val || '').length > 0 || 'This field is required',
-              ]"
-            />
-          </template>
-          <template #[`item.remark`]="{ item }">
-            <div v-if="!item.editable">{{ item.remark }}</div>
-            <v-text-field
-              v-else
-              v-model="item.remark"
-              small
-              label=""
-              required
-              :rules="[
-                (val) => (val || '').length > 0 || 'This field is required',
-              ]"
-            />
-          </template>
-        </v-data-table>
-      </template>
-    </table-card>
+            <template #[`item.user`]="{ item }">
+              <div v-if="!item.editable">{{ item.user }}</div>
+              <v-text-field
+                v-else
+                v-model="item.user"
+                small
+                label=""
+                required
+                :rules="[
+                  (val) => (val || '').length > 0 || 'This field is required',
+                ]"
+              />
+            </template>
+            <template #[`item.email`]="{ item }">
+              <div v-if="!item.editable">{{ item.email }}</div>
+              <v-text-field
+                v-else
+                v-model="item.email"
+                small
+                label=""
+                required
+                :rules="[
+                  (val) => (val || '').length > 0 || 'This field is required',
+                  (v) => /.+@.+\..+/.test(v) || 'Email must be valid',
+                ]"
+              />
+            </template>
+            <template #[`item.phone`]="{ item }">
+              <div v-if="!item.editable">{{ item.phone }}</div>
+              <v-text-field
+                v-else
+                v-model="item.phone"
+                small
+                label=""
+                required
+                :rules="[
+                  (val) => (val || '').length > 0 || 'This field is required',
+                ]"
+              />
+            </template>
+            <template #[`item.mobile`]="{ item }">
+              <div v-if="!item.editable">{{ item.mobile }}</div>
+              <v-text-field
+                v-else
+                v-model="item.mobile"
+                small
+                label=""
+                required
+                :rules="[
+                  (val) => (val || '').length > 0 || 'This field is required',
+                ]"
+              />
+            </template>
+            <template #[`item.title`]="{ item }">
+              <div v-if="!item.editable">{{ item.title }}</div>
+              <v-text-field
+                v-else
+                v-model="item.title"
+                small
+                label=""
+                required
+                :rules="[
+                  (val) => (val || '').length > 0 || 'This field is required',
+                ]"
+              />
+            </template>
+            <template #[`item.company`]="{ item }">
+              <div v-if="!item.editable">{{ item.company }}</div>
+              <v-text-field
+                v-else
+                v-model="item.company"
+                small
+                label=""
+                required
+                :rules="[
+                  (val) => (val || '').length > 0 || 'This field is required',
+                ]"
+              />
+            </template>
+            <template #[`item.fax`]="{ item }">
+              <div v-if="!item.editable">{{ item.fax }}</div>
+              <v-text-field
+                v-else
+                v-model="item.fax"
+                small
+                label=""
+                required
+                :rules="[
+                  (val) => (val || '').length > 0 || 'This field is required',
+                ]"
+              />
+            </template>
+            <template #[`item.remark`]="{ item }">
+              <div v-if="!item.editable">{{ item.remark }}</div>
+              <v-text-field
+                v-else
+                v-model="item.remark"
+                small
+                label=""
+                required
+                :rules="[
+                  (val) => (val || '').length > 0 || 'This field is required',
+                ]"
+              />
+            </template>
+          </v-data-table>
+        </template>
+      </table-card>
     </v-col>
   </v-row>
 </template>
 
 <script>
-import items from '~/assets/json/maintenance-teams.json';
-
 export default {
   name: 'MaintenanceTeam',
   layout: 'admin-layout',
   data() {
     return {
-      items: items.map((item) => ({
-        ...item,
-        editable: false,
-      })),
+      items: [],
     };
   },
   computed: {
@@ -208,6 +203,21 @@ export default {
           value: 'remark',
         },
       ];
+    },
+  },
+  created() {
+    this.onSearch();
+  },
+  methods: {
+    onSearch() {
+      this.items = this.$store.getters['maintenance/getMaintenanceList'].map(
+        (item) => {
+          return {
+            ...item,
+            editable: false,
+          };
+        }
+      );
     },
   },
 };
