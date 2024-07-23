@@ -332,7 +332,7 @@
         :h="dashboardList[6].h"
         :i="dashboardList[6].i"
       >
-        <graph-chart-card :title="dashboardList[2].name" />
+        <graph-chart-card :title="dashboardList[6].name" />
       </grid-item>
     </grid-layout>
   </v-container>
@@ -651,7 +651,7 @@ export default {
           {
             name: 'TWAREN 400G骨幹網路即時監控狀態圖',
             i: 1,
-            w: 8,
+            w: 12,
             h: 2,
             x: 0,
             y: 0,
@@ -660,37 +660,37 @@ export default {
           {
             name: '未結案事件比例圖',
             i: 2,
-            w: 6,
+            w: 12,
             h: 1,
             x: 0,
-            y: 2,
+            y: 4,
             moved: false,
           },
           {
             name: '設備狀態統計圖',
             i: 3,
-            w: 6,
+            w: 12,
             h: 1,
-            x: 6,
-            y: 2,
+            x: 3,
+            y: 5,
             moved: false,
           },
           {
             name: '至今尚未關閉事件',
             i: 4,
             w: 12,
-            h: 1,
-            x: 0,
-            y: 5,
+            h: 2,
+            x: 4,
+            y: 6,
             moved: false,
           },
           {
             name: '外部監控事件報警列表',
             i: 5,
             w: 12,
-            h: 1,
-            x: 0,
-            y: 6,
+            h: 2,
+            x: 6,
+            y: 8,
             moved: false,
           },
           {
@@ -698,11 +698,11 @@ export default {
             i: 6,
             w: 12,
             h: 2,
-            x: 0,
-            y: 3,
+            x: 8,
+            y: 10,
             moved: false,
           },
-          { name: '拓樸圖', i: 7, w: 4, h: 2, x: 8, y: 0, moved: false },
+          { name: '拓樸圖', i: 7, w: 12, h: 2, x: 0, y: 2, moved: false },
         ]
       }
     },
