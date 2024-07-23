@@ -255,10 +255,8 @@ export default {
   },
   methods: {
     deleteUser(item) {
-      this.$store.dispatch(
-        'maintenance/setMaintenanceList',
-        this.items.filter((i) => i.id !== item.id)
-      );
+      this.items = this.items.filter((i) => i.id !== item.id);
+      this.$store.dispatch('maintenance/setMaintenanceList', this.items);
     },
     onSearch() {
       this.items = this.$store.getters['maintenance/getMaintenanceList'].map(
@@ -271,7 +269,7 @@ export default {
       );
     },
     addUser() {
-      this.$store.dispatch('maintenance/addMaintenance', {
+      this.items.push({
         company: '',
         email: '',
         fax: '',

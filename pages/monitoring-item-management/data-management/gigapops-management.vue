@@ -175,17 +175,12 @@
   </v-row>
 </template>
 <script>
-import items from '~/assets/json/giga-pops.json';
-
 export default {
   name: 'GigapopsManagement',
   layout: 'admin-layout',
   data() {
     return {
-      items: items.map((item) => ({
-        ...item,
-        editable: false,
-      })),
+      items: [],
     };
   },
   computed: {
@@ -212,18 +207,36 @@ export default {
       ];
     },
   },
+  created() {
+    this.onSearch();
+  },
+  destroyed() {
+    this.$store.dispatch('gigaPops/setGigaPopsList', this.items);
+  },
   methods: {
+    onSearch() {
+      this.items = this.$store.getters['gigaPops/getGigaPopsList'].map(
+        (item) => {
+          return {
+            ...item,
+            editable: false,
+          };
+        }
+      );
+    },
     onAdd() {
-      this.items.push({
+      this.items.add({
         id: this.items.length + 1,
         address: '',
         contacts: [],
         giga_pops: '',
         remark: '',
+        editable: true,
       });
     },
     onDelete(item) {
       this.items = this.items.filter((i) => i.id !== item.id);
+      this.$store.dispatch('gigaPops/setGigaPopsList', this.items);
     },
   },
 };

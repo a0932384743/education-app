@@ -190,7 +190,6 @@
 </template>
 
 <script>
-import moment from 'moment/moment';
 import items from '~/assets/json/peering-bgp-status.json';
 import { statusMap } from '~/utils/statusMap';
 

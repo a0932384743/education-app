@@ -92,17 +92,12 @@
 </template>
 
 <script>
-import items from '~/assets/json/connection-unit.json';
-
 export default {
   name: 'ConnectionUnit',
   layout: 'admin-layout',
   data() {
     return {
-      items: items.map((item) => ({
-        ...item,
-        editable: false,
-      })),
+      items: [],
       orgMap: {
         '國網中心-新竹本部': {
           orgNameZh: '國網中心-新竹本部',
@@ -184,13 +179,26 @@ export default {
         {
           text: this.$t('interface.alerting'),
           value: 'isAlerting',
-        }
+        },
       ];
     },
+  },
+  created() {
+    this.onSearch();
   },
   methods: {
     log(e) {
       console.log(e);
+    },
+    onSearch() {
+      this.items = this.$store.getters['connection/getConnectionList'].map(
+        (item) => {
+          return {
+            ...item,
+            editable: false,
+          };
+        }
+      );
     },
   },
 };

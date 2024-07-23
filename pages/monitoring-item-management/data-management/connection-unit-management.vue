@@ -25,7 +25,8 @@
           <li class="d-flex align-center" style="gap: 0.6rem">
             <v-icon color="warning" size="15">mdi-alert</v-icon>
             <div class="subtitle-2">
-              【路由】欄位編輯格式<span class="red--text font-weight-bold">(兩筆以上以,區隔)</span
+              【路由】欄位編輯格式<span class="red--text font-weight-bold"
+                >(兩筆以上以,區隔)</span
               >:x.x.x.x/y
             </div>
           </li>
@@ -320,7 +321,23 @@ export default {
       ];
     },
   },
+  destroyed() {
+    this.$store.dispatch('connection/setConnectionList', this.items);
+  },
+  created() {
+    this.onSearch();
+  },
   methods: {
+    onSearch() {
+      this.items = this.$store.getters['connection/getConnectionList'].map(
+        (item) => {
+          return {
+            ...item,
+            editable: false,
+          };
+        }
+      );
+    },
     addConnectionUnit() {
       this.items.push({
         id: this.items.length + 1,
@@ -339,6 +356,8 @@ export default {
         orgNameZh: '',
         whoisOrgID: '',
       });
+
+      this.$store.dispatch('connection/setConnectionList', this.items);
     },
   },
 };

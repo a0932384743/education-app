@@ -52,17 +52,12 @@
   </v-row>
 </template>
 <script>
-import items from '~/assets/json/giga-pops.json';
-
 export default {
   name: 'Gigapops',
   layout: 'admin-layout',
   data() {
     return {
-      items: items.map((item) => ({
-        ...item,
-        editable: false,
-      })),
+      items: [],
     };
   },
   computed: {
@@ -86,6 +81,21 @@ export default {
           value: 'address',
         },
       ];
+    },
+  },
+  created() {
+    this.onSearch();
+  },
+  methods: {
+    onSearch() {
+      this.items = this.$store.getters['gigaPops/getGigaPopsList'].map(
+        (item) => {
+          return {
+            ...item,
+            editable: false,
+          };
+        }
+      );
     },
   },
 };
