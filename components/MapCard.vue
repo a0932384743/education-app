@@ -95,6 +95,7 @@ export default {
             map: this.map || 'geo',
             roam: true,
             zoom: this.center ? 2 : 14,
+            aspectScale: 1,
             center: this.center || [123.0654, 23.5477],
             regions: [...taiwanGEO.features, ...usaGEO.features].map(
               (node, index) => {
