@@ -352,9 +352,9 @@ export default {
           target: target.name,
         });
         this.selectedNode = null;
+      }else{
+        this.selectedNode = this.nodes.find(n=>n.name === e.name);
       }
-      this.selectedNode = this.nodes.find(n=>n.name === e.name);
-
     },
     onNodeDrag(e){
       const node = this.nodes.find(n=>n.name === e.name) ;
