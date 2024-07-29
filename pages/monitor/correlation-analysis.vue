@@ -77,7 +77,7 @@
                           nowrap="nowrap"
                         >
                           <v-chip :color="statusMap[item.status]" dark small>
-                            {{ item.status.toUpperCase() }}
+                            {{ $t(item.status) }}
                           </v-chip>
                         </td>
                         <td nowrap="nowrap">
@@ -141,7 +141,7 @@
                       </td>
                       <td nowrap="nowrap">
                         <v-chip :color="statusMap[item.status]" dark small>
-                          {{ item.status.toUpperCase() }}
+                          {{ $t(item.status) }}
                         </v-chip>
                       </td>
                       <td nowrap="nowrap"></td>
@@ -169,7 +169,7 @@
                         </v-btn>
                       </div>
                       <v-chip :color="statusMap[item.status]" dark small>
-                        {{ item.status.toUpperCase() }}
+                        {{ $t(item.status) }}
                       </v-chip>
                     </v-card-title>
                     <v-divider></v-divider>

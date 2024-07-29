@@ -82,7 +82,7 @@
             </template>
             <template #[`item.bgp_status`]="{ item }">
               <v-chip :color="statusMap[item.status]" dark small>
-                {{ item.bgp_status.toUpperCase() }}
+                {{ $t(item.bgp_status) }}
               </v-chip>
             </template>
             <template #[`item.received`]="{ item }">

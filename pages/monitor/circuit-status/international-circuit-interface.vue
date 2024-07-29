@@ -64,7 +64,7 @@
             </template>
             <template #[`item.status`]="{ item }">
               <v-chip :color="statusMap[item.status]" dark small>
-                {{ item.status.toUpperCase() }}
+                {{ $t(item.status) }}
               </v-chip>
             </template>
             <template #[`item.history`]>

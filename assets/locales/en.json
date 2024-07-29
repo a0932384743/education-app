@@ -87,6 +87,7 @@
   "end.date": "End Date",
   "end.time": "End",
   "endpoint.ipv6.address": "Endpoint Interface IPv6 Address",
+  "established": "Established",
   "event": "Event",
   "event.category": "Category",
   "event.description": "Description",

@@ -87,6 +87,7 @@
   "end.date": "結束日期",
   "end.time": "結束時間",
   "endpoint.ipv6.address": "端點介面IPv6位址",
+  "established": "已建立",
   "event": "事件",
   "event.category": "事件類別",
   "event.description": "事件描述",
