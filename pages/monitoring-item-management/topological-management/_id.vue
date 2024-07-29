@@ -1,90 +1,137 @@
 <template>
-  <v-card v-show="show" class="mx-auto" :height="collapse ? 'auto' : '100%'">
-    <v-card-title class="info white--text flex-nowrap">
-      <span class="font-weight-bold text-truncate">{{ $t(title) }}</span>
-      <v-spacer></v-spacer>
-      <v-btn color="white" icon @click="collapse = !collapse">
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
-      <v-btn color="white" icon @click="show = false">
-        <v-icon>mdi-close</v-icon>
-      </v-btn>
-    </v-card-title>
-    <v-expand-transition>
-      <v-card-text
-        v-if="!collapse"
-        class="w-100"
-        style="height: calc(100% - 80px)"
-      >
-        <img v-if="false" src="/image/network.png" width="100%" height="100%" />
-        <v-chart
-          :options="options"
-          class="mx-auto"
-          style="width: 100%; height: 100%"
-          autoresize
-        />
-      </v-card-text>
-    </v-expand-transition>
-  </v-card>
+  <v-row style="height: calc(100vh - 220px)">
+    <v-col cols="3">
+      <v-list dense class="fill-height">
+        <v-list-group :value="true">
+          <template #activator>
+            <h3 class="w-100 info--text">節點</h3>
+          </template>
+          <v-list-item
+            v-for="(node, index) in nodeList"
+            :key="index"
+            style="gap: 1rem"
+            :class="selectedNode?.name === node?.name && 'info lighten-2'"
+          >
+            <img
+              :src="node.img"
+              width="30"
+              height="30"
+              style="object-fit: contain"
+              draggable="true"
+              @dragstart="selectedNode = node"
+              @dragend="onDragEnd"
+            />
+            <v-list-item-content>
+              <v-list-item-title>{{ node.name }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-group>
+      </v-list>
+    </v-col>
+    <v-col cols="9" @dragenter="isDrop = true" @dragleave.stop="isDrop = false">
+      <v-chart
+        ref="chart"
+        :options="options"
+        class="mx-auto"
+        style="width: 100%; height: 100%"
+        autoresize
+        @click="onNodeClick"
+        @mousedown="onNodeDrag"
+        @mouseup="onNodeDrag"
+      />
+    </v-col>
+  </v-row>
 </template>
-<script>
+
+<script lang="js">
 import { colorBrightness } from '@/utils/color';
 
+const nodeList = [
+  {
+    name: '伺服器',
+    img: '/image/icons/server.png',
+  },
+  {
+    name: '交換器',
+    img: '/image/icons/switch.png',
+  },
+  {
+    name: '防火牆',
+    img: '/image/icons/firewall.png',
+  },
+  {
+    name: '負載平衡',
+    img: '/image/icons/loadbalancer.png',
+  },
+  {
+    name: '光傳輸設備',
+    img: '/image/icons/device.png',
+  },
+  {
+    name: '儲存設備',
+    img: '/image/icons/database.png',
+  },
+  {
+    name: 'Internet',
+    img: '/image/icons/cloud.png',
+  },
+  {
+    name: '邊際路由器',
+    img: '/image/icons/router-2.png',
+  },
+  {
+    name: '骨幹路由器',
+    img: '/image/icons/router-1.png',
+  },
+
+];
 const nodes = [
   {
     name: '光傳輸設備',
     x: 500,
     y: 100,
-    value: 20,
     img: '/image/icons/device.png',
   },
   {
     name: 'Internet1',
     x: 350,
     y: 20,
-    value: 20,
     img: '/image/icons/cloud.png',
   },
   {
     name: 'Internet2',
     x: 650,
     y: 20,
-    value: 20,
     img: '/image/icons/cloud.png',
   },
   {
     name: '邊際路由器01',
     x: 350,
     y: 150,
-    value: 20,
     img: '/image/icons/router-2.png',
   },
   {
     name: '邊際路由器02',
     x: 650,
     y: 150,
-    value: 20,
     img: '/image/icons/router-2.png',
   },
   {
     name: '骨幹路由器01',
     x: 200,
     y: 350,
-    value: 20,
     img: '/image/icons/router-1.png',
   },
   {
     name: '骨幹路由器02',
     x: 400,
     y: 350,
-    value: 20,
     img: '/image/icons/router-1.png',
   },
   {
     name: '骨幹路由器03',
     x: 600,
     y: 350,
-    value: 20,
     img: '/image/icons/router-1.png',
   },
   {
@@ -98,32 +145,27 @@ const nodes = [
     name: '骨幹路由器交換器01',
     x: 300,
     y: 450,
-    value: 20,
     img: '/image/icons/switch.png',
   },
   {
     name: '骨幹路由器交換器02',
     x: 500,
     y: 500,
-    value: 20,
     img: '/image/icons/switch.png',
   },
   {
     name: '骨幹路由器交換器03',
     x: 700,
     y: 450,
-    value: 0,
     img: '/image/icons/switch.png',
   },
   {
     name: '骨幹路由器交換器04',
     x: 900,
     y: 500,
-    value: 0,
     img: '/image/icons/switch.png',
   },
 ];
-
 const lines = [
   {
     source: '光傳輸設備',
@@ -199,64 +241,22 @@ const lines = [
   },
 ];
 
-const category = [
-  {
-    name: '使用率<20%',
-    color: 'success',
-  },
-  {
-    name: '20%<使用率<40%',
-    color: 'info',
-  },
-  {
-    name: '40%<使用率<60%',
-    color: 'warning',
-  },
-  {
-    name: '60%<使用率<80%',
-    color: 'primary',
-  },
-  {
-    name: '80%<使用率',
-    color: 'danger',
-  },
-];
 export default {
-  name: 'GraphChartCard',
-  props: {
-    title: {
-      type: String,
-      required: true,
-    },
-  },
+  name: 'TopologicalManagementDetail',
+  layout: 'admin-layout',
   data() {
     return {
-      collapse: false,
-      show: true,
-      options: {
+      nodeList,
+      nodes,
+      lines,
+      selectedNode: null,
+      isDrop: false,
+    };
+  },computed:{
+    options() {
+      return {
         legend: {
-          data: category.map((c) => {
-            return {
-              ...c,
-              itemStyle: {
-                color: colorBrightness(
-                  this.$vuetify.theme.themes[
-                    this.$vuetify.theme.isDark ? 'dark' : 'light'
-                  ][c.color],
-                  1.3
-                ),
-              },
-            };
-          }),
-          orient: 'vertical',
-          left: '10%', // Adjust position as needed
-          top: 'center',
-          backgroundColor: 'rgba(255, 255, 255, 0.8)',
-          shadowColor: 'rgba(0, 0, 0, 0.5)',
-          shadowBlur: 10,
-          formatter(value) {
-            return value;
-          },
+          show: false
         },
         tooltip: {},
         series: [
@@ -273,67 +273,27 @@ export default {
             edgeLabel: {
               fontSize: 20,
             },
-            categories: category,
-            links: lines.reduce((array, value) => {
+            links: this.lines.reduce((array, value) => {
               array.push(value, {
                 source: value.target,
                 target: value.source,
               });
               return array;
             }, []),
-            data: nodes.map((data) => {
-              let color = colorBrightness(
+            data: this.nodes.map((data) => {
+              const color = colorBrightness(
                 this.$vuetify.theme.themes[
                   this.$vuetify.theme.isDark ? 'dark' : 'light'
-                ].success,
+                  ][data.name === this.selectedNode?.name ? 'success' : 'info'],
                 2
               );
-
-              if (data.value >= 20 && data.value < 40) {
-                color = colorBrightness(
-                  this.$vuetify.theme.themes[
-                    this.$vuetify.theme.isDark ? 'dark' : 'light'
-                  ].info,
-                  2
-                );
-              }
-
-              if (data.value >= 40 && data.value < 60) {
-                color = colorBrightness(
-                  this.$vuetify.theme.themes[
-                    this.$vuetify.theme.isDark ? 'dark' : 'light'
-                  ].warning,
-                  2
-                );
-              }
-
-              if (data.value >= 60 && data.value < 80) {
-                color = colorBrightness(
-                  this.$vuetify.theme.themes[
-                    this.$vuetify.theme.isDark ? 'dark' : 'light'
-                  ].primary,
-                  2
-                );
-              }
-              if (data.value >= 80) {
-                color = colorBrightness(
-                  this.$vuetify.theme.themes[
-                    this.$vuetify.theme.isDark ? 'dark' : 'light'
-                  ].danger,
-                  2
-                );
-              }
               return {
                 ...data,
+                draggable: true,
                 itemStyle: {
                   borderWidth: 2,
                   borderColor: '#aaa',
                   color,
-                },
-                tooltip: {
-                  formatter(value) {
-                    return `${value.name}，使用率:${value.value}%`;
-                  },
                 },
                 label: {
                   formatter(label) {
@@ -368,8 +328,52 @@ export default {
             },
           },
         ],
-      },
-    };
+      };
+    }
   },
+  methods:{
+    onDragEnd(e){
+      if(this.selectedNode){
+        this.nodes.push({
+          ...this.selectedNode,
+          name: this.selectedNode.name + (`0${  this.nodes.filter(n=>n.name.includes(this.selectedNode.name)).length}`).substr(-2),
+          x:e.x,
+          y:e.y
+      });
+      }
+      this.isDrop = false;
+      this.selectedNode = null;
+    },
+    onNodeClick(e){
+      if( this.selectedNode  && this.nodes.find(n=>n.name === this.selectedNode.name)){
+        const target =  this.nodes.find(n=>n.name === e.name);
+        this.lines.push({
+          source: this.selectedNode .name,
+          target: target.name,
+        });
+        this.selectedNode = null;
+      }
+      this.selectedNode = this.nodes.find(n=>n.name === e.name);
+
+    },
+    onNodeDrag(e){
+      const node = this.nodes.find(n=>n.name === e.name) ;
+      if(node){
+        if(!node.offsetX){
+          node.offsetX = e.event.offsetX;
+        }else{
+          node.x = node.x + e.event.offsetX -  node.offsetX +1 ;
+          node.offsetX = 0;
+        }
+        if(!node.offsetY){
+          node.offsetY = e.event.offsetY;
+        }else{
+          node.y = node.y + e.event.offsetY -  node.offsetY +1;
+          node.offsetY = 0;
+        }
+      }
+
+    },
+  }
 };
 </script>

@@ -56,11 +56,7 @@
                   small
                   :disabled="Object.keys(item).some((key) => item[key] === '')"
                   :color="item.editable ? 'secondary' : 'info'"
-                  @click="
-                    Object.keys(item).every((key) => item[key])
-                      ? (item.editable = !item.editable)
-                      : (item.editable = true)
-                  "
+                  @click="onAdd"
                 >
                   <v-icon size="20">mdi-pencil</v-icon>
                   <span class="d-none d-sm-inline-block">{{ $t('edit') }}</span>
@@ -132,14 +128,16 @@ export default {
       );
     },
     onAdd() {
-      this.items.push({
+      this.$router.push('/monitoring-item-management/topological-management/add')
+
+     /*  this.items.push({
         id: this.items.length + 1,
         name: '',
         creator: 'admin(admin)',
         createTime: moment().format('YYYY-MM-DD HH:mm:ss'),
         latestUpdateTime: moment().format('YYYY-MM-DD HH:mm:ss'),
         editable: true,
-      });
+      }); */
     },
     onDelete(item) {
       this.items = this.items.filter((i) => i.id !== item.id);
