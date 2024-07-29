@@ -258,7 +258,12 @@ export default {
         legend: {
           show: false
         },
-        tooltip: {},
+        tooltip: {
+          show: !!this.selectedNode,
+          formatter(){
+            return '請點擊進行連接';
+          }
+        },
         series: [
           {
             type: 'graph',
@@ -294,6 +299,16 @@ export default {
                   borderWidth: 2,
                   borderColor: '#aaa',
                   color,
+                },
+                emphasis:{
+                  itemStyle:{
+                    color: colorBrightness(
+                      this.$vuetify.theme.themes[
+                        this.$vuetify.theme.isDark ? 'dark' : 'light'
+                        ][this.selectedNode ? 'danger' : 'info'],
+                      this.selectedNode ? 3 : 2
+                    )
+                  }
                 },
                 label: {
                   formatter(label) {
