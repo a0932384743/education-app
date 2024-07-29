@@ -19,8 +19,14 @@
       {
         "device": "交換器A",
         "events": [
-          { "event": "N00003", "id": 1 },
-          { "event": "N00004", "id": 2 }
+          {
+            "event": "N00003",
+            "id": 1
+          },
+          {
+            "event": "N00004",
+            "id": 2
+          }
         ],
         "id": 3,
         "interface": "1/0/1",
@@ -42,7 +48,7 @@
       }
     ],
     "id": 1,
-    "status": "normal"
+    "status": "abnormal"
   },
   {
     "customer": "客戶2",
@@ -64,8 +70,14 @@
       {
         "device": "交換器B",
         "events": [
-          { "event": "N00005", "id": 1 },
-          { "event": "N00006", "id": 2 }
+          {
+            "event": "N00005",
+            "id": 1
+          },
+          {
+            "event": "N00006",
+            "id": 2
+          }
         ],
         "id": 3,
         "interface": "1/0/4",
@@ -87,7 +99,7 @@
       }
     ],
     "id": 2,
-    "status": "normal"
+    "status": "abnormal"
   },
   {
     "customer": "客戶3",
@@ -109,8 +121,14 @@
       {
         "device": "交換器A",
         "events": [
-          { "event": "N00003", "id": 1 },
-          { "event": "N00004", "id": 2 }
+          {
+            "event": "N00003",
+            "id": 1
+          },
+          {
+            "event": "N00004",
+            "id": 2
+          }
         ],
         "id": 3,
         "interface": "1/0/1",
@@ -132,7 +150,7 @@
       }
     ],
     "id": 3,
-    "status": "normal"
+    "status": "abnormal"
   },
   {
     "customer": "客戶4",
@@ -154,8 +172,14 @@
       {
         "device": "交換器A",
         "events": [
-          { "event": "N00003", "id": 1 },
-          { "event": "N00004", "id": 2 }
+          {
+            "event": "N00003",
+            "id": 1
+          },
+          {
+            "event": "N00004",
+            "id": 2
+          }
         ],
         "id": 3,
         "interface": "1/0/1",
@@ -177,7 +201,7 @@
       }
     ],
     "id": 4,
-    "status": "normal"
+    "status": "abnormal"
   },
   {
     "customer": "客戶5",
@@ -198,10 +222,7 @@
       },
       {
         "device": "交換器A",
-        "events": [
-          { "event": "N00003", "id": 1 },
-          { "event": "N00004", "id": 2 }
-        ],
+        "events": [],
         "id": 3,
         "interface": "1/0/1",
         "interface_desc": "TWAREN-SRX-01"
@@ -243,10 +264,7 @@
       },
       {
         "device": "交換器A",
-        "events": [
-          { "event": "N00003", "id": 1 },
-          { "event": "N00004", "id": 2 }
-        ],
+        "events": [],
         "id": 3,
         "interface": "1/0/1",
         "interface_desc": "TWAREN-SRX-01"
@@ -288,10 +306,7 @@
       },
       {
         "device": "交換器A",
-        "events": [
-          { "event": "N00003", "id": 1 },
-          { "event": "N00004", "id": 2 }
-        ],
+        "events": [],
         "id": 3,
         "interface": "1/0/1",
         "interface_desc": "TWAREN-SRX-01"
@@ -333,10 +348,7 @@
       },
       {
         "device": "交換器A",
-        "events": [
-          { "event": "N00003", "id": 1 },
-          { "event": "N00004", "id": 2 }
-        ],
+        "events": [],
         "id": 3,
         "interface": "1/0/1",
         "interface_desc": "TWAREN-SRX-01"
@@ -378,10 +390,7 @@
       },
       {
         "device": "交換器A",
-        "events": [
-          { "event": "N00003", "id": 1 },
-          { "event": "N00004", "id": 2 }
-        ],
+        "events": [],
         "id": 3,
         "interface": "1/0/1",
         "interface_desc": "TWAREN-SRX-01"
@@ -423,10 +432,7 @@
       },
       {
         "device": "交換器A",
-        "events": [
-          { "event": "N00003", "id": 1 },
-          { "event": "N00004", "id": 2 }
-        ],
+        "events": [],
         "id": 3,
         "interface": "1/0/1",
         "interface_desc": "TWAREN-SRX-01"
@@ -468,10 +474,7 @@
       },
       {
         "device": "交換器A",
-        "events": [
-          { "event": "N00003", "id": 1 },
-          { "event": "N00004", "id": 2 }
-        ],
+        "events": [],
         "id": 3,
         "interface": "1/0/1",
         "interface_desc": "TWAREN-SRX-01"
@@ -513,10 +516,7 @@
       },
       {
         "device": "交換器A",
-        "events": [
-          { "event": "N00003", "id": 1 },
-          { "event": "N00004", "id": 2 }
-        ],
+        "events": [],
         "id": 3,
         "interface": "1/0/1",
         "interface_desc": "TWAREN-SRX-01"
