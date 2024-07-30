@@ -327,7 +327,7 @@ export default {
                 ...data,
                 itemStyle: {
                   borderWidth: 2,
-                  borderColor: '#aaa',
+                  borderColor: this.$vuetify.theme.isDark ?  '#fff' : '#aaa',
                   color,
                 },
                 tooltip: {
@@ -356,7 +356,7 @@ export default {
                   },
                   align: 'center',
                   offset: [0, 12],
-                  color: '#aaa',
+                  color: this.$vuetify.theme.isDark ?  '#fff' : '#aaa',
                   borderWidth: 0,
                 },
               };
