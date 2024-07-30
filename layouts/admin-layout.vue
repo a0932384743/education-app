@@ -209,7 +209,7 @@
       padless
     >
       <v-col class="text-left">
-        Copyright © 2024 <a href="www.cht.com.tw">www.cht.com.tw</a> All rights
+        Copyright © 2024 <a href="www.cht.com.tw" class="info--text">www.cht.com.tw</a> All rights
         reserved.
       </v-col>
       <v-col class="text-right">Version 2.0.0-rc</v-col>
