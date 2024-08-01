@@ -11,7 +11,7 @@ export const lightTheme = {
   header: '#ffffff',
   footer: '#c4c4c4',
   aside: '#00201c',
-  total: '#000000'
+  total: '#000000',
 };
 
 export const darkTheme = {
@@ -27,5 +27,5 @@ export const darkTheme = {
   header: '#0b0d26',
   footer: '#0b0d26',
   aside: '#00201c',
-  total: '#ffffff'
+  total: '#ffffff',
 };

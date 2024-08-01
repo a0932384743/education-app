@@ -441,4 +441,8 @@ export default {
     animation: rotate 2s linear infinite;
   }
 }
+
+[class*="lighten-"].warning {
+  color: var(--v-total-darken4);
+}
 </style>

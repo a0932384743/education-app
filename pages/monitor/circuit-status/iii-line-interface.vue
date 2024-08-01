@@ -182,25 +182,25 @@
             </template>
             <template #[`item.input`]="{ item }">
               <div>{{ item.input }}(Mpbs)</div>
-              <v-sparkline
+              <small-line-chart
                 fill
                 :color="statusMap[item.status]"
-                :smooth="16"
+                :smooth="0"
                 :line-width="2"
                 :value="item?.inputHistory || []"
                 auto-draw
-              ></v-sparkline>
+              ></small-line-chart>
             </template>
             <template #[`item.output`]="{ item }">
               <div>{{ item.output }}(Mpbs)</div>
-              <v-sparkline
+              <small-line-chart
                 fill
                 :color="statusMap[item.status]"
-                :smooth="16"
+                :smooth="0"
                 :line-width="2"
                 :value="item?.outputHistory || []"
                 auto-draw
-              ></v-sparkline>
+              ></small-line-chart>
             </template>
           </v-data-table>
         </template>
@@ -210,12 +210,14 @@
 </template>
 
 <script>
+import SmallLineChart from '@/components/SmallLineChart.vue';
 import items from '~/assets/json/international-circuit-Interface.json';
 import { statusMap } from '~/utils/statusMap';
 
 export default {
   name: 'IiiLineInterface',
   layout: 'admin-layout',
+  components: { SmallLineChart },
   data() {
     return {
       statusMap,
