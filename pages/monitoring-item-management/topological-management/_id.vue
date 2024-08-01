@@ -249,7 +249,7 @@
           <v-btn color="info lighten-1">
             <v-tooltip bottom>
               <template #activator="{ on, attrs }">
-                <v-icon v-bind="attrs" v-on="on" color="white"
+                <v-icon v-bind="attrs" color="white" v-on="on"
                   >mdi-selection-ellipse-arrow-inside</v-icon
                 >
               </template>
@@ -260,7 +260,7 @@
           <v-btn color="info lighten-1">
             <v-tooltip bottom>
               <template #activator="{ on, attrs }">
-                <v-icon v-bind="attrs" v-on="on" color="white"
+                <v-icon v-bind="attrs" color="white" v-on="on"
                   >mdi-eye-outline</v-icon
                 >
               </template>
@@ -277,7 +277,7 @@
           >
             <v-tooltip bottom>
               <template #activator="{ on, attrs }">
-                <v-icon v-bind="attrs" v-on="on" color="white">{{
+                <v-icon v-bind="attrs" color="white" v-on="on">{{
                   showNodeLabel ? 'mdi-eye-off' : 'mdi-eye-outline'
                 }}</v-icon>
               </template>
@@ -289,7 +289,7 @@
           <v-btn color="info lighten-1" @click="onShowEditNodeModal">
             <v-tooltip bottom>
               <template #activator="{ on, attrs }">
-                <v-icon v-bind="attrs" v-on="on" color="white"
+                <v-icon v-bind="attrs" color="white" v-on="on"
                   >mdi-square-edit-outline</v-icon
                 >
               </template>
@@ -300,7 +300,7 @@
           <v-btn color="info lighten-1" @click="onShowEditLinkModal">
             <v-tooltip bottom>
               <template #activator="{ on, attrs }">
-                <v-icon v-bind="attrs" v-on="on" color="white"
+                <v-icon v-bind="attrs" color="white" v-on="on"
                   >mdi-square-edit-outline</v-icon
                 >
               </template>
@@ -311,7 +311,7 @@
           <v-btn color="info lighten-1" @click="onShowCreateLinkModal">
             <v-tooltip bottom>
               <template #activator="{ on, attrs }">
-                <v-icon v-bind="attrs" v-on="on" color="white"
+                <v-icon v-bind="attrs" color="white" v-on="on"
                   >mdi-transit-connection-horizontal</v-icon
                 >
               </template>
@@ -322,7 +322,7 @@
           <v-btn color="info lighten-1">
             <v-tooltip bottom>
               <template #activator="{ on, attrs }">
-                <v-icon v-bind="attrs" v-on="on" color="white"
+                <v-icon v-bind="attrs" color="white" v-on="on"
                   >mdi-graph</v-icon
                 >
               </template>
@@ -333,7 +333,7 @@
           <v-btn color="info lighten-1">
             <v-tooltip bottom>
               <template #activator="{ on, attrs }">
-                <v-icon v-bind="attrs" v-on="on" color="white"
+                <v-icon v-bind="attrs" color="white" v-on="on"
                   >mdi-reload</v-icon
                 >
               </template>
@@ -344,7 +344,7 @@
           <v-btn color="info lighten-1">
             <v-tooltip bottom>
               <template #activator="{ on, attrs }">
-                <v-icon v-bind="attrs" v-on="on" color="white"
+                <v-icon v-bind="attrs" color="white" v-on="on"
                   >mdi-content-save-all-outline</v-icon
                 >
               </template>

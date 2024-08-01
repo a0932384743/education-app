@@ -77,7 +77,7 @@
         </v-card-text>
         <!-- 查詢按鈕 -->
         <v-card-actions class="justify-end">
-          <v-btn color="primary" @click="onSearch">{{ $t('search') }}</v-btn>
+          <v-btn color="blue darken-4" dark @click="onSearch">{{ $t('search') }}</v-btn>
         </v-card-actions>
       </v-card>
     </v-col>

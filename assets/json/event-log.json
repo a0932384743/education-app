@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "creatTime": "2024-07-23 19:30:48.353",
+    "host": "192.168.38.201",
+    "level": "notice(5)",
+    "message": "<189> date=2024-07-23 time=19:30:48 devname='RDTE-FW1-01\" devid=\"FG6H1ETB21904281\" eventtime=1721734247442274106 tz=\"+ 0800\" logid=\"0000000020\" type=\"traffic\" subtype=\"forward\" level=\"notice\" vd=\"Traffic\" srcip= 192.16-8.32.64 srcport=23222 srcintf=\"VLAN 102Z srcintfrole=lan\" dstip= 10 175.242.165 dstport =5000 dstintf='port4' dstintfrole=' undefined\" srccountry= 'Reserved\" dstcountry - 'Resented\" sessionici -192290497 proto-6 action-''accept\" policyid - 284 polic-ytype-\"policy' poluuid- \"837fc.000-32cd -S1ef 3657- 1950f62b824b' policyname -\"To- ECoreCloud-SybaseD8_79239\" service= aTCP_5000\" trandisp=usnar transip=10.16.193.14 transport=23222 duration=1779 sentbyte= 1783 rcvdbyte=52 sentpkt=16 rcvdpkt=1 appcat=tunscanned\" sentclelta=1783 rcvddelta=52 devtype='Router mastersrcmac='b4:a8:b9:86:31:75' srcmac=\"b4:a8:b9:86:31:75' srcserver=0 "
+  },
+  {
+    "id": 2,
+    "creatTime": "2024-07-23 19:30:49.006",
+    "host": "192.168.38.201",
+    "level": "notice(5)",
+    "message": "<189>date=2024-07-23 time-19:30:49 devnarne=''RDTE-FW1-01\" devid=\"FG6H1E1121904281\" eventtirne =1721734248756362902 0800\" logid =1'0000000013\" type \"traffic\" subtype r\"forward\" Ievel='notice\" vd=\"Traffic\" srcip=192.168.32.69 srcport=53277 srcintf=\"VLAN_1022° srcintfrole=\"lan\" dstip=10.16.193.17 dstport=21 dstintf=\"VLAN_1022° dstintfrole=glan° srccountry=\"Reserved\" dstcountry='Reserved\" sessionid=192306765 proto=6 action=\"deny\" pollcyid=0 policytype=lpolicy\" service=\"FTP° trandisp=\"dnat\" tranip=192.168.32.67 tranport=21 duration=0 sentbyte=0 rcvdbyte=0 sentpkt=0 rcvdpkt=0 appcat=\"unscanned\" crscore=30 craction=131072 crlevel=\"high\" devtype=\"Router-mastersrcmac=\"b4:a8b9:86:31:75s srcmac=t4:88:b9:86:31:75\" srcserver "
+  }
+]

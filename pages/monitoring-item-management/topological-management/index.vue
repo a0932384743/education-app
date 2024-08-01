@@ -128,7 +128,7 @@ export default {
       );
     },
     onAdd() {
-      this.$router.push('/monitoring-item-management/topological-management/add')
+      this.$router.push('/monitoring-item-management/topological-management/add');
 
      /*  this.items.push({
         id: this.items.length + 1,

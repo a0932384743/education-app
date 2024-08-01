@@ -11,7 +11,7 @@
             item-value="id"
             :label="$t('select.group')"
           ></v-select>
-          <v-btn color="primary" @click="savePermissions">{{
+          <v-btn color="blue darken-4" dark @click="savePermissions">{{
             $t('save')
           }}</v-btn>
         </v-card-text>

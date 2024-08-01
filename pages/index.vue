@@ -57,7 +57,7 @@
           </v-form>
         </v-card-text>
         <v-card-actions>
-          <v-btn color="primary" class="w-100" @click="login"
+          <v-btn color="blue darken-4" dark dark class="w-100" @click="login"
             ><v-icon color="white">mdi-login</v-icon>{{ $t('login') }}</v-btn
           >
         </v-card-actions>
@@ -81,7 +81,7 @@
         </v-form>
       </v-card-text>
       <v-card-actions>
-        <v-btn color="primary" class="w-100" @click="goToHome">
+        <v-btn color="blue darken-4" dark dark class="w-100" @click="goToHome">
           <v-icon color="white">mdi-login</v-icon>{{ $t('submit') }}
         </v-btn>
       </v-card-actions>

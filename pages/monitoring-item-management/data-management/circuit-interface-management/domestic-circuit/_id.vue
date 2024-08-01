@@ -195,7 +195,7 @@
                   </v-subheader>
                   <v-btn
                     :loading="loading"
-                    color="primary"
+                    color="blue darken-4" dark
                     @click="testConnection"
                   >
                     {{ $t('connect.test') }}
@@ -250,7 +250,7 @@
                 <v-btn
                   :disabled="!file || loading"
                   :loading="loading"
-                  color="primary"
+                  color="blue darken-4" dark
                   @click="uploadFile"
                 >
                   {{ $t('select.file') }}
