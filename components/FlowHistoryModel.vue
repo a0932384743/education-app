@@ -112,7 +112,7 @@ export default {
             position: 'left',
             axisLabel: {
               formatter(value){
-                return value.toLocaleString()
+                return value.toLocaleString();
               },
             },
             min: 2000,
@@ -169,7 +169,7 @@ export default {
             position: 'left',
             axisLabel: {
               formatter(value){
-                return value.toLocaleString()
+                return value.toLocaleString();
               },
             },
             min: 2000,
@@ -226,7 +226,7 @@ export default {
             position: 'left',
             axisLabel: {
               formatter(value){
-                return value.toLocaleString()
+                return value.toLocaleString();
               },
             },
             min: 2000,
@@ -283,7 +283,7 @@ export default {
             position: 'left',
             axisLabel: {
               formatter(value){
-                return value.toLocaleString()
+                return value.toLocaleString();
               },
             },
             min: 2000,

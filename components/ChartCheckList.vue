@@ -88,9 +88,15 @@ export default {
           type: 'category',
           boundaryGap: false,
           data: this.items[0].time.slice(-this.range),
+          axisLabel: {
+            color: this.$vuetify.theme.isDark ? '#fff' : '#aaa'
+          },
         },
         yAxis: {
           type: 'value',
+          axisLabel: {
+            color: this.$vuetify.theme.isDark ? '#fff' : '#aaa'
+          },
         },
         series: this.items
           .filter((d) => {

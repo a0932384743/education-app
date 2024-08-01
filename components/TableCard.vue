@@ -74,7 +74,7 @@
           }}
         </div>
         <div class="align-self-center">
-          <v-pagination v-model="page" :length="totalPage" color="blue"/>
+          <v-pagination v-model="page" :length="totalPage" color="blue darken-4"/>
         </div>
       </div>
     </v-card-text>

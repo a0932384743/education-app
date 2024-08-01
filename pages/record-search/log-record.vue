@@ -216,15 +216,24 @@ export default {
           align: 'center',
           position: 'bottom',
           data: this.datas[0]?.time || time,
+          axisLabel: {
+            color: this.$vuetify.theme.isDark ? '#fff' : '#aaa'
+          },
         },
         yAxis: {
           name: '筆數',
           type: 'value',
           position: 'left',
+          axisLabel: {
+            color: this.$vuetify.theme.isDark ? '#fff' : '#aaa'
+          },
         },
         legend: {
           show: true,
           bottom: 0,
+          textStyle: {
+            color: this.$vuetify.theme.isDark ? '#fff' : '#aaa'
+          },
         },
         series: this.datas.map((s) => {
           return {

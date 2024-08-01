@@ -3,7 +3,7 @@ export const statusMap = {
   abnormal: 'error',
   error: 'error',
   'non-warning': 'warning',
-  total: 'black',
+  total: 'total',
   down: 'error',
   up: 'success',
 }
