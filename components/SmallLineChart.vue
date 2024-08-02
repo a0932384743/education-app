@@ -69,24 +69,23 @@ export default {
         const y = this.height - ((value - minValue) / range) * this.height;
         ctx.lineTo(x, y);
       });
-
-      ctx.strokeStyle =
-        this.$vuetify.theme.themes[
-          this.$vuetify.theme.isDark ? 'dark' : 'light'
-        ][this.color || 'secondary'];
-      ctx.lineWidth = 2;
+      const color =
+        this.color === 'success' ||
+        this.color === 'normal' ||
+        this.color === 'up'
+          ? '#92C1DC'
+          : this.$vuetify.theme.themes[
+              this.$vuetify.theme.isDark ? 'dark' : 'light'
+            ][this.color || 'secondary'];
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 1;
       ctx.stroke();
 
       // Fill the area under the line
       ctx.lineTo(this.width, this.height);
       ctx.lineTo(0, this.height);
       ctx.closePath();
-      ctx.fillStyle = colorBrightness(
-        this.$vuetify.theme.themes[
-          this.$vuetify.theme.isDark ? 'dark' : 'light'
-        ][this.color || 'secondary'],
-        1.6
-      );
+      ctx.fillStyle = `${color}6E`;
       ctx.fill();
     },
   },
