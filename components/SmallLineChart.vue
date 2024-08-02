@@ -76,7 +76,7 @@ export default {
           ? '#92C1DC'
           : this.$vuetify.theme.themes[
               this.$vuetify.theme.isDark ? 'dark' : 'light'
-            ][this.color || 'secondary'];
+            ].error;
       ctx.strokeStyle = color;
       ctx.lineWidth = 1;
       ctx.stroke();

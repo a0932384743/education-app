@@ -94,7 +94,7 @@
               <div>{{ item.input }}(Mpbs)</div>
               <small-line-chart
                 fill
-                :color="statusMap[item.status]"
+                color="success"
                 :smooth="0"
                 :line-width="2"
                 :value="item?.inputHistory || []"
