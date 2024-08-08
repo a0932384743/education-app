@@ -145,7 +145,7 @@
           },
           {
             "id": 23,
-            "name": "國內骨幹介面品質",
+            "name": "國內骨幹電路介面品質",
             "name_en": "Domestic Backbone Interface Quality",
             "url": "/monitor/circuit-status/domestic-backbone-interface-quality"
           }
