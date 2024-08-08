@@ -20,6 +20,114 @@
         </li>
       </ul>
     </v-alert>
+    <v-row class="px-2" dense>
+      <v-col cols="12" sm="6" md="3" class="h-100">
+        <v-card elevation="3" color="danger" class="lighten-1">
+          <v-card-text>
+            <div class="d-flex align-center">
+              <div class="flex-grow-1">
+                <h4 class="text-h4 font-weight-bold">15件</h4>
+                <p class="text-h5">嚴重事件</p>
+              </div>
+              <v-icon
+                class="flex-grow-0"
+                style="opacity: 0.5"
+                size="60"
+                color="secondary"
+              >
+                mdi-alert-circle
+              </v-icon>
+            </div>
+          </v-card-text>
+          <v-card-actions class="px-0 py-0">
+            <v-btn text class="w-100" style="background: #80808042" dark>
+              查看更多<v-icon size="15" dark> mdi-arrow-right-circle </v-icon>
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-col>
+      <v-col cols="12" sm="6" md="3" class="h-100">
+        <v-card elevation="3" color="danger" class="lighten-1">
+          <v-card-text>
+            <div class="d-flex align-center">
+              <div class="flex-grow-1">
+                <h4 class="text-h4 font-weight-bold">
+                  2 <small>失聯設備/40</small>
+                </h4>
+                <p class="text-h5">國內骨幹</p>
+              </div>
+              <v-icon
+                class="flex-grow-0"
+                style="opacity: 0.5"
+                size="60"
+                color="secondary"
+              >
+                mdi-server
+              </v-icon>
+            </div>
+          </v-card-text>
+          <v-card-actions class="px-0 py-0">
+            <v-btn text class="w-100" style="background: #80808042" dark>
+              查看更多<v-icon size="15" dark> mdi-arrow-right-circle </v-icon>
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-col>
+      <v-col cols="12" sm="6" md="3" class="h-100">
+        <v-card elevation="3" color="success" class="lighten-1">
+          <v-card-text>
+            <div class="d-flex align-center">
+              <div class="flex-grow-1">
+                <h4 class="text-h4 font-weight-bold">
+                  0 <small>失聯設備/10</small>
+                </h4>
+                <p class="text-h5">國際骨幹</p>
+              </div>
+              <v-icon
+                class="flex-grow-0"
+                style="opacity: 0.5"
+                size="60"
+                color="secondary"
+              >
+                mdi-chip
+              </v-icon>
+            </div>
+          </v-card-text>
+          <v-card-actions class="px-0 py-0">
+            <v-btn text class="w-100" style="background: #80808042" dark>
+              查看更多<v-icon size="15" dark> mdi-arrow-right-circle </v-icon>
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-col>
+      <v-col cols="12" sm="6" md="3" class="h-100">
+        <v-card elevation="3" color="warning" class="lighten-1">
+          <v-card-text>
+            <div class="d-flex align-center">
+              <div class="flex-grow-1">
+                <h4 class="text-h4 font-weight-bold">
+                  1 <small>失聯設備/10</small>
+                </h4>
+                <p class="text-h5">軟體資源</p>
+              </div>
+              <v-icon
+                class="flex-grow-0"
+                style="opacity: 0.5"
+                size="60"
+                color="secondary"
+              >
+                mdi-broadcast
+              </v-icon>
+            </div>
+          </v-card-text>
+          <v-card-actions class="px-0 py-0">
+            <v-btn text class="w-100" style="background: #80808042" dark>
+              查看更多<v-icon size="15" dark> mdi-arrow-right-circle </v-icon>
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-col>
+    </v-row>
     <grid-layout
       v-if="dashboardList.length > 0"
       :layout.sync="dashboardList"
