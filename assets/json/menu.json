@@ -445,7 +445,14 @@
             "url": "/monitoring-item-management/data-management/bgp-peering-management"
           },
           {
-            "children": [],
+            "children": [{
+              "children": [],
+              "id": 83,
+              "name": "VPLS VPN界接介面資料維護",
+              "name_en": "VPLS VPN Interface Management",
+              "url": "/monitoring-item-management/data-management/vpls-vpn-management"
+            }
+            ],
             "id": 60,
             "name": "VPLS VPN管理",
             "name_en": "VPLS VPN Management",

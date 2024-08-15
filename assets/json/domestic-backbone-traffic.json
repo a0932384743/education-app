@@ -2,8 +2,8 @@
   {
     "bandwidth": 1005,
     "check_time": "2024-06-24 10:00:00",
-    "desc": "INT#20_TWAREN-TP-ASR9006-01\nto CHI-4801l 10GE (2671UD80004)",
-    "description": "INT#20_TWAREN-TP-ASR9006-01\nto CHI-4801l 10GE (2671UD80004)",
+    "desc": "INT#20_TWAREN-TP-ASR9006-01\\nto CHI-4801l 10GE (2671UD80004)",
+    "description": "INT#20_TWAREN-TP-ASR9006-01\\nto CHI-4801l 10GE (2671UD80004)",
     "destination": "芝加哥",
     "device": "TWAREN-TP-ASR9006-01",
     "equipment": "TWAREN-TP-ASR9006-01",
@@ -46,13 +46,16 @@
     "remark": "N/A",
     "source": "台北",
     "status": "down",
-    "type": "III"
+    "type": "III",
+    "vpn_id": 135,
+    "vpn_name": "清華大學TWAREN SSL-VPN",
+    "vpn_node": "清華大學SSL-VPN-清華端"
   },
   {
     "bandwidth": 1010,
     "check_time": "2024-06-24 10:01:00",
-    "desc": "INT#21_TWAREN-HC-\nASR9006-01 to LA-4801 10GE\n(35UE80201)",
-    "description": "INT#21_TWAREN-HC-\nASR9006-01 to LA-4801 10GE\n(35UE80201)",
+    "desc": "INT#21_TWAREN-HC-\\nASR9006-01 to LA-4801 10GE\\n(35UE80201)",
+    "description": "INT#21_TWAREN-HC-\\nASR9006-01 to LA-4801 10GE\\n(35UE80201)",
     "destination": "洛杉磯",
     "device": "TWAREN-TP-ASR9006-01",
     "equipment": "TWAREN-TP-ASR9006-01",
@@ -95,13 +98,16 @@
     "remark": "N/A",
     "source": "新竹",
     "status": "up",
-    "type": "Research"
+    "type": "Research",
+    "vpn_id": 408,
+    "vpn_name": "衛服部到國衛院",
+    "vpn_node": "MOHW_WIN_VPN_清大端端"
   },
   {
     "bandwidth": 1008,
     "check_time": "2024-06-24 10:02:00",
-    "desc": "TWAREN-TP-ASR9006-01\nTe0/1/0/6 to\nTP_TWGate_Peering(2671UD800",
-    "description": "TWAREN-TP-ASR9006-01\nTe0/1/0/6 to\nTP_TWGate_Peering(2671UD800",
+    "desc": "TWAREN-TP-ASR9006-01\\nTe0/1/0/6 to\\nTP_TWGate_Peering(2671UD800",
+    "description": "TWAREN-TP-ASR9006-01\\nTe0/1/0/6 to\\nTP_TWGate_Peering(2671UD800",
     "destination": "台北TWGate",
     "device": "TWAREN-TP-ASR9006-01",
     "equipment": "TWAREN-TP-ASR9006-01",
@@ -144,13 +150,16 @@
     "remark": "N/A",
     "source": "台北",
     "status": "up",
-    "type": "IPv4"
+    "type": "IPv4",
+    "vpn_id": 408,
+    "vpn_name": "衛服部到國衛院",
+    "vpn_node": "MOHW_WIN_VPN_中研院端端"
   },
   {
     "bandwidth": 1011,
     "check_time": "2024-06-24 10:03:00",
-    "desc": "INT#19_TWAREN-HC-\nASR9006-01 to LA-4801\n10GE(2UT000562)",
-    "description": "INT#19_TWAREN-HC-\nASR9006-01 to LA-4801\n10GE(2UT000562)",
+    "desc": "INT#19_TWAREN-HC-\\nASR9006-01 to LA-4801\\n10GE(2UT000562)",
+    "description": "INT#19_TWAREN-HC-\\nASR9006-01 to LA-4801\\n10GE(2UT000562)",
     "destination": "洛杉磯",
     "device": "TWAREN-TP-ASR9006-01",
     "equipment": "TWAREN-TP-ASR9006-01",
@@ -193,13 +202,16 @@
     "remark": "N/A",
     "source": "新竹",
     "status": "down",
-    "type": "VPLS"
+    "type": "VPLS",
+    "vpn_id": 500,
+    "vpn_name": "國網中心內湖",
+    "vpn_node": "國網中心_新竹端_100G-1"
   },
   {
     "bandwidth": 1020,
     "check_time": "2024-06-24 10:04:00",
-    "desc": "INT#18_TWAREN-TP-ASR9006-01\nto CHI-4801 10GE(2UT000563)",
-    "description": "INT#18_TWAREN-TP-ASR9006-01\nto CHI-4801 10GE(2UT000563)",
+    "desc": "INT#18_TWAREN-TP-ASR9006-01\\nto CHI-4801 10GE(2UT000563)",
+    "description": "INT#18_TWAREN-TP-ASR9006-01\\nto CHI-4801 10GE(2UT000563)",
     "destination": "芝加哥",
     "device": "TWAREN-TRCT-ASR9006-01",
     "equipment": "TWAREN-TRICASR9006-05",
@@ -242,7 +254,10 @@
     "remark": "N/A",
     "source": "台北",
     "status": "up",
-    "type": "IPv6"
+    "type": "IPv6",
+    "vpn_id": 500,
+    "vpn_name": "國網中心內湖",
+    "vpn_node": "國網中心_台南端1"
   },
   {
     "bandwidth": 1007,
@@ -291,7 +306,10 @@
     "remark": "N/A",
     "source": "台北",
     "status": "up",
-    "type": "III"
+    "type": "III",
+    "vpn_id": 500,
+    "vpn_name": "國網中心內湖",
+    "vpn_node": "國網中心_台南端1"
   },
   {
     "bandwidth": 1009,
@@ -339,7 +357,10 @@
     "remark": "N/A",
     "source": "科技大樓",
     "status": "non-warning",
-    "type": "Research"
+    "type": "Research",
+    "vpn_id": 500,
+    "vpn_name": "國網中心內湖",
+    "vpn_node": "國網中心_台南端2"
   },
   {
     "bandwidth": 1013,
@@ -388,7 +409,10 @@
     "remark": "N/A",
     "source": "科技大樓",
     "status": "up",
-    "type": "IPv4"
+    "type": "IPv4",
+    "vpn_id": 500,
+    "vpn_name": "國網中心內湖",
+    "vpn_node": "國網中心_新竹端_100G-2"
   },
   {
     "bandwidth": 1004,
@@ -436,7 +460,10 @@
     "remark": "N/A",
     "source": "科技大樓",
     "status": "non-warning",
-    "type": "VPLS"
+    "type": "VPLS",
+    "vpn_id": 500,
+    "vpn_name": "國網中心內湖",
+    "vpn_node": "國網中心_台中端_100G-1"
   },
   {
     "bandwidth": 1025,
@@ -485,7 +512,10 @@
     "remark": "N/A",
     "source": "科技大樓",
     "status": "down",
-    "type": "IPv6"
+    "type": "IPv6",
+    "vpn_id": 500,
+    "vpn_name": "國網中心內湖",
+    "vpn_node": "國網中心_台中端_100G-2"
   },
   {
     "bandwidth": 1030,
@@ -534,7 +564,10 @@
     "remark": "N/A",
     "source": "科技大樓",
     "status": "up",
-    "type": "III"
+    "type": "III",
+    "vpn_id": 501,
+    "vpn_name": "國家衛生研究院",
+    "vpn_node": "國衛院_科技大樓端"
   },
   {
     "bandwidth": 1012,
@@ -583,7 +616,10 @@
     "remark": "N/A",
     "source": "科技大樓",
     "status": "up",
-    "type": "Research"
+    "type": "Research",
+    "vpn_id": 501,
+    "vpn_name": "國家衛生研究院",
+    "vpn_node": "國衛院_中研院端"
   },
   {
     "bandwidth": 1016,
@@ -632,7 +668,10 @@
     "remark": "N/A",
     "source": "科技大樓",
     "status": "up",
-    "type": "IPv4"
+    "type": "IPv4",
+    "vpn_id": 501,
+    "vpn_name": "國家衛生研究院",
+    "vpn_node": "國衛院_清大端"
   },
   {
     "bandwidth": 1018,
