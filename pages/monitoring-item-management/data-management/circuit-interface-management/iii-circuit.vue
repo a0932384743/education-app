@@ -40,13 +40,13 @@
             <template #[`header.inflow_low_threshold`]="{ header }">
               <div class="d-inline-flex align-center" style="gap: 0.5rem">
                 <div>{{ header.text }}</div>
-                <div>{{ $t('high.threshold') }}</div>
+                <div>{{ $t('low.threshold') }}</div>
               </div>
             </template>
             <template #[`header.outflow_high_threshold`]="{ header }">
               <div class="d-inline-flex align-center" style="gap: 0.5rem">
                 <div>{{ header.text }}</div>
-                <div>{{ $t('low.threshold') }}</div>
+                <div>{{ $t('high.threshold') }}</div>
               </div>
             </template>
             <template #[`header.outflow_low_threshold`]="{ header }">
