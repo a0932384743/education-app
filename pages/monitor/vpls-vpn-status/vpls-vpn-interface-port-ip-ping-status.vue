@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col class="text-center" :cols="12" :md="6">
-      <chart-card title="國際電路界接介面WAN Port IP Ping狀態統計圖">
+      <chart-card title="VPLS VPN界接介面Port IP Ping狀況監控統計圖">
         <chart-pie-list :items="pieData">
           <template #default="{ options }">
             <v-chart
@@ -14,7 +14,7 @@
       </chart-card>
     </v-col>
     <v-col class="text-center" :cols="12" :md="6">
-      <chart-card title="國際電路界接介面WAN Port IP Ping狀態趨勢圖">
+      <chart-card title="VPLS VPN界接介面Port IP Ping狀態趨勢圖">
         <chart-check-list :items="lineData">
           <template #default="{ options }">
             <v-chart
@@ -26,8 +26,8 @@
         </chart-check-list>
       </chart-card>
     </v-col>
-    <v-col :cols="12">
-      <table-card title="電路狀態-國際電路界接介面狀況" :items="items">
+    <v-col cols="12">
+      <table-card title="VPLS VPN狀態-VPLS VPN界接介面Port IP Ping狀況" :items="items">
         <template
           #default="{
             search,
@@ -35,8 +35,8 @@
             itemPerPage,
             page,
             items,
-            loading,
             headerProps,
+            loading,
           }"
         >
           <v-data-table
@@ -45,20 +45,38 @@
             :items="items"
             :search="search"
             :page="page"
+            :item-class="setRowClass"
             :items-per-page="itemPerPage"
             :footer-props="footerProps"
             :header-props="headerProps"
             fixed-header
             hide-default-footer
-            :item-class="setRowClass"
           >
-            <template #[`item.unit`]="{ item }">
+            <template #[`item.vpn_node`]="{ item }">
               <td
-                :class="item.status === 'non-warning' ? 'non-warning lighten-2'  : (item.packageLossRate ? 'success lighten-2' : 'error lighten-2')"
+                :class="`${statusMap[item.status]} lighten-2`"
+                style="border-color: inherit !important"
                 nowrap="nowrap"
-                style="border-color: inherit !important;"
               >
-                {{ item.unit }}
+                {{ item.vpn_node || '-' }}
+              </td>
+            </template>
+            <template #[`item.device`]="{ item }">
+              <td
+                :class="`${statusMap[item.status]} lighten-2`"
+                style="border-color: inherit !important"
+                nowrap="nowrap"
+              >
+                {{ item.device || '-' }}
+              </td>
+            </template>
+            <template #[`item.interface`]="{ item }">
+              <td
+                :class="`${statusMap[item.status]} lighten-2`"
+                style="border-color: inherit !important"
+                nowrap="nowrap"
+              >
+                {{ item.interface || '-' }}
               </td>
             </template>
             <template #[`item.pingResult`]="{ item }">
@@ -82,17 +100,19 @@
           </v-data-table>
         </template>
       </table-card>
+
     </v-col>
   </v-row>
 </template>
 
 <script>
-import lineData from '~/assets/json/international-circuit-interface-history.json';
-import items from '~/assets/json/international-circuit-Interface.json';
-import ChartCard from '~/components/ChartCard.vue';
+import ChartCard from '@/components/ChartCard.vue';
 import { statusMap } from '~/utils/statusMap';
+import items from '~/assets/json/vpls-vpn-status.json';
+import lineData from '~/assets/json/peering-bgp-status-history.json';
+
 export default {
-  name: 'InternationalCircuitWanPing',
+  name: 'VplsVpnInterfacePortIpPingStatus',
   components: { ChartCard },
   layout: 'admin-layout',
   data() {
@@ -104,17 +124,31 @@ export default {
     headers() {
       return [
         {
-          text: this.$t('interface.id'),
-          value: 'id',
+          text: this.$t('vpn.id'),
+          value: 'vpn_id',
           width: 80,
         },
         {
-          text: this.$t('connect.unit'),
-          value: 'unit',
+          text: this.$t('vpn.name'),
+          value: 'vpn_name',
+          cellClass: 'text-no-wrap'
         },
         {
-          text: this.$t('connection.unit.ip'),
-          value: 'wanPortIp',
+          text: this.$t('vpn.node'),
+          value: 'vpn_node',
+        },
+        {
+          text: this.$t('interface.device'),
+          value: 'device',
+        },
+        {
+          text: this.$t('interface'),
+          value: 'interface',
+        },
+        {
+          text: this.$t('connect.unit.port.ip'),
+          value: 'ip',
+        cellClass: 'text-no-wrap'
         },
         {
           text: this.$t('check.time'),
@@ -123,10 +157,12 @@ export default {
         {
           text: this.$t('ping.result'),
           value: 'pingResult',
+          cellClass: 'text-no-wrap'
         },
         {
           text: this.$t('package.loss.rate'),
-          value: 'packageLossRate',
+          value: 'packageLossRate'
+
         },
       ];
     },
@@ -155,7 +191,7 @@ export default {
   methods: {
     setRowClass(item) {
       if (this.$vuetify.breakpoint.smAndDown) {
-        return item.status === 'non-warning lighten-2' ? 'non-warning lighten-2'  : (item.packageLossRate ? 'success lighten-2' : 'error lighten-2');
+        return `${statusMap[item.status]} lighten-2`;
       }
     },
   },

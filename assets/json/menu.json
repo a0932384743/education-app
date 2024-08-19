@@ -214,6 +214,12 @@
             "name": "VPLS VPN Peer狀況",
             "name_en": "VPLS VPN Peer Status",
             "url": "/monitor/vpls-vpn-status/vpls-vpn-peer-status"
+          },{
+            "children": [],
+            "id": 84,
+            "name": "VPLS VPN界接介面Port IP Ping狀況",
+            "name_en": "VPLS VPN Interface Port IP Ping Status",
+            "url": "/monitor/vpls-vpn-status/vpls-vpn-interface-port-ip-ping-status"
           }
         ],
         "id": 31,

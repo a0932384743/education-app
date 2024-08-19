@@ -55,6 +55,7 @@
   "connect.success": "連線成功",
   "connect.test": "測試連線",
   "connect.unit": "連線單位",
+  "connect.unit.port.ip": "連線單位Port IP",
   "connect.unit.id": "連線單位編號",
   "connect.unit.name": "連線名稱",
   "connection.unit": "連線單位",

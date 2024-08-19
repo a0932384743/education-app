@@ -51,6 +51,13 @@
     ],
     "id": 135,
     "interface": "Gi0/6/0/15",
+    "ip": "211.79.59.2",
+    "packageLossRate": 0,
+    "pingResult": {
+      "avg": 5.14,
+      "max": 5.23,
+      "min": 4.99
+    },
     "status": "up",
     "vpn_id": 135,
     "vpn_name": "清華大學TWAREN SSL-VPN",
@@ -108,6 +115,13 @@
     ],
     "id": 136,
     "interface": "Gi0/6/0/13.1",
+    "ip": "211.79.59.54",
+    "packageLossRate": 0,
+    "pingResult": {
+      "avg": 1.39,
+      "max": 2.42,
+      "min": 0.88
+    },
     "status": "up",
     "vpn_id": 408,
     "vpn_name": "衛服部到國衛院",
@@ -165,6 +179,13 @@
     ],
     "id": 137,
     "interface": "Gi0/6/0/408",
+    "ip": "211.79.59.50",
+    "packageLossRate": 0,
+    "pingResult": {
+      "avg": 6.3,
+      "max": 6.48,
+      "min": 6.22
+    },
     "status": "up",
     "vpn_id": 408,
     "vpn_name": "衛服部到國衛院",
@@ -222,6 +243,13 @@
     ],
     "id": 138,
     "interface": "Bundle-Ether10.20",
+    "ip": "211.79.59.58",
+    "packageLossRate": 0,
+    "pingResult": {
+      "avg": 5.52,
+      "max": 7.35,
+      "min": 4.62
+    },
     "status": "up",
     "vpn_id": 500,
     "vpn_name": "國網中心內湖",
@@ -279,6 +307,13 @@
     ],
     "id": 139,
     "interface": "Bundle-Ether10.20",
+    "ip": "211.79.59.66",
+    "packageLossRate": 0,
+    "pingResult": {
+      "avg": 4.43,
+      "max": 4.63,
+      "min": 4.37
+    },
     "status": "up",
     "vpn_id": 500,
     "vpn_name": "國網中心內湖",
@@ -336,6 +371,13 @@
     ],
     "id": 140,
     "interface": "Bundle-Ether10.20",
+    "ip": "211.79.59.34",
+    "packageLossRate": 3,
+    "pingResult": {
+      "avg": 4.43,
+      "max": 6.48,
+      "min": 3.11
+    },
     "status": "up",
     "vpn_id": 500,
     "vpn_name": "國網中心內湖",
@@ -393,6 +435,13 @@
     ],
     "id": 141,
     "interface": "Bundle-Ether10.20",
+    "ip": "211.79.49.37",
+    "packageLossRate": 0,
+    "pingResult": {
+      "avg": 15,
+      "max": 19,
+      "min": 10
+    },
     "status": "up",
     "vpn_id": 500,
     "vpn_name": "國網中心內湖",
@@ -450,6 +499,13 @@
     ],
     "id": 142,
     "interface": "Bundle-Ether10.20",
+    "ip": "211.79.49.26",
+    "packageLossRate": 40,
+    "pingResult": {
+      "avg": 16,
+      "max": 21,
+      "min": 11
+    },
     "status": "up",
     "vpn_id": 500,
     "vpn_name": "國網中心內湖",
@@ -507,6 +563,13 @@
     ],
     "id": 143,
     "interface": "Bundle-Ether10.20",
+    "ip": "211.79.49.46",
+    "packageLossRate": 1,
+    "pingResult": {
+      "avg": 18,
+      "max": 24,
+      "min": 13
+    },
     "status": "up",
     "vpn_id": 500,
     "vpn_name": "國網中心內湖",
@@ -564,6 +627,13 @@
     ],
     "id": 144,
     "interface": "Bundle-Ether10.20",
+    "ip": "192.168.1.11",
+    "packageLossRate": 1,
+    "pingResult": {
+      "avg": 19,
+      "max": 25,
+      "min": 14
+    },
     "status": "up",
     "vpn_id": 500,
     "vpn_name": "國網中心內湖",
@@ -621,6 +691,13 @@
     ],
     "id": 145,
     "interface": "Te0/1/0/0.1",
+    "ip": "192.168.1.12",
+    "packageLossRate": 0,
+    "pingResult": {
+      "avg": 0,
+      "max": 20,
+      "min": 10
+    },
     "status": "up",
     "vpn_id": 501,
     "vpn_name": "國家衛生研究院",
@@ -678,6 +755,13 @@
     ],
     "id": 146,
     "interface": "Gi0/7/0/15.1",
+    "ip": "192.168.1.19",
+    "packageLossRate": 0,
+    "pingResult": {
+      "avg": 0,
+      "max": 22,
+      "min": 11
+    },
     "status": "up",
     "vpn_id": 501,
     "vpn_name": "國家衛生研究院",
@@ -735,6 +819,13 @@
     ],
     "id": 147,
     "interface": "Te0/6/7/7.1",
+    "ip": "192.168.1.20",
+    "packageLossRate": 0,
+    "pingResult": {
+      "avg": 17,
+      "max": 23,
+      "min": 12
+    },
     "status": "up",
     "vpn_id": 501,
     "vpn_name": "國家衛生研究院",
