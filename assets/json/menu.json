@@ -176,6 +176,12 @@
             "url": "/monitor/device-status/power-supply-status"
           },
           {
+            "id": 85,
+            "name": "設備風扇狀況",
+            "name_en": "Device Fan Status",
+            "url": "/monitor/device-status/fan-status"
+          },
+          {
             "id": 28,
             "name": "骨幹設備IP Ping狀況",
             "name_en": "Backbone Device IP Ping Status",

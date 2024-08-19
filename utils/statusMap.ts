@@ -6,4 +6,4 @@ export const statusMap = {
   total: 'total',
   down: 'error',
   up: 'success',
-}
+};
