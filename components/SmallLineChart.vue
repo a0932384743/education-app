@@ -5,8 +5,6 @@
 </template>
 
 <script>
-import moment from 'moment/moment';
-import { colorBrightness } from '@/utils/color';
 
 export default {
   name: 'SmallLineChart',
