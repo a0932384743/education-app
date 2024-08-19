@@ -3,180 +3,200 @@
     "id": 1,
     "device": "TWAREN-TP-ASR1234-01",
     "isAlerting": "On",
-    "cpu_utilization": 80,
+    "cpu_utilizatiOn": 80,
     "temp_high": 75,
     "temp_low": 20,
-    "memory_utilization": 70
+    "memory_utilizatiOn": 70,
+    "power": "On"
   },
   {
     "id": 2,
     "device": "TWAREN-TP-ASR5678-02",
     "isAlerting": "Off",
-    "cpu_utilization": 50,
+    "cpu_utilizatiOn": 50,
     "temp_high": 70,
     "temp_low": 18,
-    "memory_utilization": 60
+    "memory_utilizatiOn": 60,
+    "power": "On"
   },
   {
     "id": 3,
     "device": "TWAREN-TP-ASR9012-03",
     "isAlerting": "On",
-    "cpu_utilization": 90,
+    "cpu_utilizatiOn": 90,
     "temp_high": 85,
     "temp_low": 25,
-    "memory_utilization": 85
+    "memory_utilizatiOn": 85,
+    "power": "On"
   },
   {
     "id": 4,
     "device": "TWAREN-TP-ASR3456-04",
     "isAlerting": "On",
-    "cpu_utilization": 75,
+    "cpu_utilizatiOn": 75,
     "temp_high": 78,
     "temp_low": 22,
-    "memory_utilization": 68
+    "memory_utilizatiOn": 68,
+    "power": "On"
   },
   {
     "id": 5,
     "device": "TWAREN-TP-ASR7890-05",
     "isAlerting": "Off",
-    "cpu_utilization": 60,
+    "cpu_utilizatiOn": 60,
     "temp_high": 72,
     "temp_low": 19,
-    "memory_utilization": 50
+    "memory_utilizatiOn": 50,
+    "power": "On"
   },
   {
     "id": 6,
     "device": "TWAREN-TP-ASR2345-06",
     "isAlerting": "On",
-    "cpu_utilization": 85,
+    "cpu_utilizatiOn": 85,
     "temp_high": 80,
     "temp_low": 23,
-    "memory_utilization": 72
+    "memory_utilizatiOn": 72,
+    "power": "On"
   },
   {
     "id": 7,
     "device": "TWAREN-TP-ASR6789-07",
     "isAlerting": "On",
-    "cpu_utilization": 95,
+    "cpu_utilizatiOn": 95,
     "temp_high": 88,
     "temp_low": 27,
-    "memory_utilization": 90
+    "memory_utilizatiOn": 90,
+    "power": "On"
   },
   {
     "id": 8,
     "device": "TWAREN-TP-ASR0123-08",
     "isAlerting": "Off",
-    "cpu_utilization": 55,
+    "cpu_utilizatiOn": 55,
     "temp_high": 68,
     "temp_low": 17,
-    "memory_utilization": 45
+    "memory_utilizatiOn": 45,
+    "power": "On"
   },
   {
     "id": 9,
     "device": "TWAREN-TP-ASR4567-09",
     "isAlerting": "On",
-    "cpu_utilization": 70,
+    "cpu_utilizatiOn": 70,
     "temp_high": 76,
     "temp_low": 21,
-    "memory_utilization": 65
+    "memory_utilizatiOn": 65,
+    "power": "On"
   },
   {
     "id": 10,
     "device": "TWAREN-TP-ASR8901-10",
     "isAlerting": "On",
-    "cpu_utilization": 88,
+    "cpu_utilizatiOn": 88,
     "temp_high": 82,
     "temp_low": 24,
-    "memory_utilization": 75
+    "memory_utilizatiOn": 75,
+    "power": "On"
   },
   {
     "id": 11,
     "device": "TWAREN-TP-ASR2345-11",
     "isAlerting": "On",
-    "cpu_utilization": 92,
+    "cpu_utilizatiOn": 92,
     "temp_high": 87,
     "temp_low": 26,
-    "memory_utilization": 88
+    "memory_utilizatiOn": 88,
+    "power": "On"
   },
   {
     "id": 12,
     "device": "TWAREN-TP-ASR6789-12",
     "isAlerting": "Off",
-    "cpu_utilization": 45,
+    "cpu_utilizatiOn": 45,
     "temp_high": 65,
     "temp_low": 15,
-    "memory_utilization": 42
+    "memory_utilizatiOn": 42,
+    "power": "On"
   },
   {
     "id": 13,
     "device": "TWAREN-TP-ASR0123-13",
     "isAlerting": "On",
-    "cpu_utilization": 78,
+    "cpu_utilizatiOn": 78,
     "temp_high": 79,
     "temp_low": 22,
-    "memory_utilization": 70
+    "memory_utilizatiOn": 70,
+    "power": "On"
   },
   {
     "id": 14,
     "device": "TWAREN-TP-ASR4567-14",
     "isAlerting": "On",
-    "cpu_utilization": 82,
+    "cpu_utilizatiOn": 82,
     "temp_high": 83,
     "temp_low": 23,
-    "memory_utilization": 80
+    "memory_utilizatiOn": 80,
+    "power": "On"
   },
   {
     "id": 15,
     "device": "TWAREN-TP-ASR8901-15",
     "isAlerting": "Off",
-    "cpu_utilization": 58,
+    "cpu_utilizatiOn": 58,
     "temp_high": 71,
     "temp_low": 18,
-    "memory_utilization": 55
+    "memory_utilizatiOn": 55,
+    "power": "On"
   },
   {
     "id": 16,
     "device": "TWAREN-TP-ASR2345-16",
     "isAlerting": "On",
-    "cpu_utilization": 89,
+    "cpu_utilizatiOn": 89,
     "temp_high": 81,
     "temp_low": 25,
-    "memory_utilization": 82
+    "memory_utilizatiOn": 82,
+    "power": "On"
   },
   {
     "id": 17,
     "device": "TWAREN-TP-ASR6789-17",
     "isAlerting": "On",
-    "cpu_utilization": 93,
+    "cpu_utilizatiOn": 93,
     "temp_high": 89,
     "temp_low": 28,
-    "memory_utilization": 89
+    "memory_utilizatiOn": 89,
+    "power": "On"
   },
   {
     "id": 18,
     "device": "TWAREN-TP-ASR0123-18",
     "isAlerting": "Off",
-    "cpu_utilization": 52,
+    "cpu_utilizatiOn": 52,
     "temp_high": 69,
     "temp_low": 16,
-    "memory_utilization": 50
+    "memory_utilizatiOn": 50,
+    "power": "On"
   },
   {
     "id": 19,
     "device": "TWAREN-TP-ASR4567-19",
     "isAlerting": "On",
-    "cpu_utilization": 73,
+    "cpu_utilizatiOn": 73,
     "temp_high": 77,
     "temp_low": 20,
-    "memory_utilization": 67
+    "memory_utilizatiOn": 67,
+    "power": "On"
   },
   {
     "id": 20,
     "device": "TWAREN-TP-ASR8901-20",
     "isAlerting": "On",
-    "cpu_utilization": 86,
+    "cpu_utilizatiOn": 86,
     "temp_high": 84,
     "temp_low": 24,
-    "memory_utilization": 78
+    "memory_utilizatiOn": 78,
+    "power": "On"
   }
 ]

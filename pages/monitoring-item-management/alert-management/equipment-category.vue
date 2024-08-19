@@ -103,6 +103,21 @@
                 ]"
               />
             </template>
+            <template #[`item.power`]="{ item }">
+              <div v-if="!item.editable">{{$t(item.power === 'On' ? 'normal' : 'close')}} ({{ item.power }})</div>
+              <v-btn
+                v-else
+                small
+                class="white--text"
+                :color="item.power === 'On' ? 'success' : 'danger'"
+                @click="
+                  item.power = item.power === 'On' ? 'Off' : 'On'
+                "
+              >
+                <v-icon size="20" dark>mdi-power</v-icon>
+                {{ item.power }}
+              </v-btn>
+            </template>
             <template #[`item.operate`]="{ item }">
               <v-btn
                 small
@@ -166,6 +181,10 @@ export default {
         {
           text: this.$t('low.temperature'),
           value: 'temp_low',
+        },
+        {
+          text: this.$t('power.module'),
+          value: 'power',
         },
         {
           text: this.$t('operate'),
