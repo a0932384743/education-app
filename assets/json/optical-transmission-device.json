@@ -1,0 +1,252 @@
+[
+  {
+    "check_time": "2024-08-20 16:00:44",
+    "device": "MX10008-400G-0/0/1",
+    "id": 1,
+    "optical_signal_to_noise_ratio": 47,
+    "pre_fec_bit_error_rate": "0.41E-12",
+    "received_power": -84,
+    "status": "normal",
+    "uncorrectable_bit_errors": 0
+  },
+  {
+    "check_time": "2024-08-20 16:15:44",
+    "device": "MX10008-400G-0/0/1",
+    "id": 2,
+    "optical_signal_to_noise_ratio": 34,
+    "pre_fec_bit_error_rate": "8.04E-12",
+    "received_power": -69,
+    "status": "normal",
+    "uncorrectable_bit_errors": 0
+  },
+  {
+    "check_time": "2024-08-20 16:30:44",
+    "device": "MX10008-400G-0/0/1",
+    "id": 3,
+    "optical_signal_to_noise_ratio": 79,
+    "pre_fec_bit_error_rate": "1.29E-12",
+    "received_power": -30,
+    "status": "normal",
+    "uncorrectable_bit_errors": 0
+  },
+  {
+    "check_time": "2024-08-20 16:45:44",
+    "device": "MX10008-400G-0/0/1",
+    "id": 4,
+    "optical_signal_to_noise_ratio": 67,
+    "pre_fec_bit_error_rate": "0.79E-12",
+    "received_power": -81,
+    "status": "normal",
+    "uncorrectable_bit_errors": 0
+  },
+  {
+    "check_time": "2024-08-20 17:00:44",
+    "device": "MX10008-400G-0/0/1",
+    "id": 5,
+    "optical_signal_to_noise_ratio": 49,
+    "pre_fec_bit_error_rate": "4.50E-12",
+    "received_power": -14,
+    "status": "normal",
+    "uncorrectable_bit_errors": 0
+  },
+  {
+    "check_time": "2024-08-20 17:15:44",
+    "device": "MX10008-400G-0/0/1",
+    "id": 6,
+    "optical_signal_to_noise_ratio": 74,
+    "pre_fec_bit_error_rate": "9.93E-12",
+    "received_power": 0,
+    "status": "normal",
+    "uncorrectable_bit_errors": 0
+  },
+  {
+    "check_time": "2024-08-20 17:30:44",
+    "device": "MX10008-400G-0/0/1",
+    "id": 7,
+    "optical_signal_to_noise_ratio": 96,
+    "pre_fec_bit_error_rate": "8.09E-12",
+    "received_power": -30,
+    "status": "normal",
+    "uncorrectable_bit_errors": 0
+  },
+  {
+    "check_time": "2024-08-20 17:45:44",
+    "device": "MX10008-400G-0/0/1",
+    "id": 8,
+    "optical_signal_to_noise_ratio": 82,
+    "pre_fec_bit_error_rate": "2.28E-12",
+    "received_power": -74,
+    "status": "normal",
+    "uncorrectable_bit_errors": 0
+  },
+  {
+    "check_time": "2024-08-20 18:00:44",
+    "device": "MX10008-400G-0/0/1",
+    "id": 9,
+    "optical_signal_to_noise_ratio": 12,
+    "pre_fec_bit_error_rate": "0.85E-12",
+    "received_power": -83,
+    "status": "normal",
+    "uncorrectable_bit_errors": 0
+  },
+  {
+    "check_time": "2024-08-20 18:15:44",
+    "device": "MX10008-400G-0/0/1",
+    "id": 10,
+    "optical_signal_to_noise_ratio": 17,
+    "pre_fec_bit_error_rate": "0.34E-12",
+    "received_power": -37,
+    "status": "normal",
+    "uncorrectable_bit_errors": 0
+  },
+  {
+    "check_time": "2024-08-20 18:30:44",
+    "device": "MX10008-400G-0/0/1",
+    "id": 11,
+    "optical_signal_to_noise_ratio": 17,
+    "pre_fec_bit_error_rate": "5.33E-12",
+    "received_power": -1,
+    "status": "normal",
+    "uncorrectable_bit_errors": 0
+  },
+  {
+    "check_time": "2024-08-20 18:45:44",
+    "device": "MX10008-400G-0/0/1",
+    "id": 12,
+    "optical_signal_to_noise_ratio": 64,
+    "pre_fec_bit_error_rate": "4.07E-12",
+    "received_power": -99,
+    "status": "normal",
+    "uncorrectable_bit_errors": 0
+  },
+  {
+    "check_time": "2024-08-20 19:00:44",
+    "device": "MX10008-400G-0/0/1",
+    "id": 13,
+    "optical_signal_to_noise_ratio": 64,
+    "pre_fec_bit_error_rate": "7.92E-12",
+    "received_power": -10,
+    "status": "normal",
+    "uncorrectable_bit_errors": 0
+  },
+  {
+    "check_time": "2024-08-20 19:15:44",
+    "device": "MX10008-400G-0/0/1",
+    "id": 14,
+    "optical_signal_to_noise_ratio": 65,
+    "pre_fec_bit_error_rate": "3.08E-12",
+    "received_power": -9,
+    "status": "normal",
+    "uncorrectable_bit_errors": 0
+  },
+  {
+    "check_time": "2024-08-20 19:30:44",
+    "device": "MX10008-400G-0/0/1",
+    "id": 15,
+    "optical_signal_to_noise_ratio": 89,
+    "pre_fec_bit_error_rate": "8.00E-12",
+    "received_power": -16,
+    "status": "normal",
+    "uncorrectable_bit_errors": 0
+  },
+  {
+    "check_time": "2024-08-20 19:45:44",
+    "device": "MX10008-400G-0/0/1",
+    "id": 16,
+    "optical_signal_to_noise_ratio": 68,
+    "pre_fec_bit_error_rate": "9.02E-12",
+    "received_power": -18,
+    "status": "normal",
+    "uncorrectable_bit_errors": 0
+  },
+  {
+    "check_time": "2024-08-20 20:00:44",
+    "device": "MX10008-400G-0/0/1",
+    "id": 17,
+    "optical_signal_to_noise_ratio": 59,
+    "pre_fec_bit_error_rate": "6.78E-12",
+    "received_power": -13,
+    "status": "normal",
+    "uncorrectable_bit_errors": 0
+  },
+  {
+    "check_time": "2024-08-20 20:15:44",
+    "device": "MX10008-400G-0/0/1",
+    "id": 18,
+    "optical_signal_to_noise_ratio": 36,
+    "pre_fec_bit_error_rate": "1.57E-12",
+    "received_power": -51,
+    "status": "normal",
+    "uncorrectable_bit_errors": 0
+  },
+  {
+    "check_time": "2024-08-20 20:30:44",
+    "device": "MX10008-400G-0/0/1",
+    "id": 19,
+    "optical_signal_to_noise_ratio": 61,
+    "pre_fec_bit_error_rate": "2.14E-12",
+    "received_power": -30,
+    "status": "normal",
+    "uncorrectable_bit_errors": 0
+  },
+  {
+    "check_time": "2024-08-20 20:45:44",
+    "device": "MX10008-400G-0/0/1",
+    "id": 20,
+    "optical_signal_to_noise_ratio": 60,
+    "pre_fec_bit_error_rate": "2.56E-12",
+    "received_power": -69,
+    "status": "normal",
+    "uncorrectable_bit_errors": 0
+  },
+  {
+    "check_time": "2024-08-20 21:00:44",
+    "device": "MX10008-400G-0/0/1",
+    "id": 21,
+    "optical_signal_to_noise_ratio": 64,
+    "pre_fec_bit_error_rate": "9.09E-12",
+    "received_power": -78,
+    "status": "normal",
+    "uncorrectable_bit_errors": 0
+  },
+  {
+    "check_time": "2024-08-20 21:15:44",
+    "device": "MX10008-400G-0/0/1",
+    "id": 22,
+    "optical_signal_to_noise_ratio": 4,
+    "pre_fec_bit_error_rate": "8.26E-12",
+    "received_power": -63,
+    "status": "normal",
+    "uncorrectable_bit_errors": 0
+  },
+  {
+    "check_time": "2024-08-20 21:30:44",
+    "device": "MX10008-400G-0/0/1",
+    "id": 23,
+    "optical_signal_to_noise_ratio": 64,
+    "pre_fec_bit_error_rate": "5.36E-12",
+    "received_power": -8,
+    "status": "normal",
+    "uncorrectable_bit_errors": 0
+  },
+  {
+    "check_time": "2024-08-20 21:45:44",
+    "device": "MX10008-400G-0/0/1",
+    "id": 24,
+    "optical_signal_to_noise_ratio": 5,
+    "pre_fec_bit_error_rate": "4.41E-12",
+    "received_power": -77,
+    "status": "normal",
+    "uncorrectable_bit_errors": 0
+  },
+  {
+    "check_time": "2024-08-20 22:00:44",
+    "device": "MX10008-400G-0/0/1",
+    "id": 25,
+    "optical_signal_to_noise_ratio": 78,
+    "pre_fec_bit_error_rate": "8.38E-12",
+    "received_power": -79,
+    "status": "normal",
+    "uncorrectable_bit_errors": 0
+  }
+]

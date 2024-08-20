@@ -198,6 +198,12 @@
             "name": "機房電源設備與溫控設備IP Ping 狀況",
             "name_en": "Data Center Power and Temperature Control Equipment IP Ping Status",
             "url": "/monitor/device-status/data-center-ip-ping-status"
+          },
+          {
+            "id": 86,
+            "name": "光傳輸元件監控狀況",
+            "name_en": "Optical Transmission Device Monitoring Status",
+            "url": "/monitor/device-status/optical-transmission-device-monitoring-status"
           }
         ],
         "id": 24,
@@ -564,6 +570,13 @@
         "name": "網路流量拓樸圖管理",
         "name_en": "Topological Management",
         "url": "/monitoring-item-management/topological-management"
+      },
+      {
+        "children": [],
+        "id": 87,
+        "name": "光傳輸元件監控管理",
+        "name_en": "Optical Transmission Device Monitoring and Management",
+        "url": "/monitoring-item-management/optical-transmission-device-monitoring-and-management"
       },
       {
         "children": [  {
