@@ -63,10 +63,17 @@
 </template>
 
 <script>
-import items from '~/assets/json/connection-unit.json';
 export default {
   name: 'ConnectionUnit',
   layout: 'admin-layout',
+  data(){
+    return {
+      items:[],
+    };
+  },
+  mounted(){
+    this.items = this.$store.getters['connection/getConnectionList'].map((item) => ({ ...item, editable: false }));
+  },
   computed: {
     headers() {
       return [
@@ -83,15 +90,16 @@ export default {
           text: this.$t('interface.alerting'),
           value: 'isAlerting',
         },
+
         {
           text: this.$t('operate'),
           value: 'operate',
         },
       ];
-    },
-    items() {
-      return items.map((item) => ({ ...item, editable: false }));
-    },
+    }
+  },
+  destroyed() {
+    this.$store.dispatch('configuration/setConfigurationList' , this.items);
   },
 };
 </script>

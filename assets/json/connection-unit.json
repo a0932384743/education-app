@@ -3,6 +3,7 @@
     "bgpCommunity": "18414:10002",
     "connectUnit": "國網中心 NCHC",
     "contactInfo": "TWAREN Duty 值班人員 (1)",
+    "declaredCount": 9280,
     "endpointIpv6Address": "2001:db8::1",
     "gigaPoP": "TPE",
     "id": 1,
@@ -14,12 +15,14 @@
     "isAlerting": "On",
     "orgNameEn": "NCT-TP",
     "orgNameZh": "國網中心-新竹本部",
+    "receivedCount": 4067,
     "whoisOrgID": "ORG001"
   },
   {
     "bgpCommunity": "18414:10101",
     "connectUnit": "國科會",
     "contactInfo": "TWAREN Duty 值班人員 (2)",
+    "declaredCount": 4890,
     "endpointIpv6Address": "2001:db8:1::1",
     "gigaPoP": "TXG",
     "id": 2,
@@ -31,12 +34,14 @@
     "isAlerting": "Off",
     "orgNameEn": "NCT-TXG",
     "orgNameZh": "國網中心-台中分部",
+    "receivedCount": 5061,
     "whoisOrgID": "ORG002"
   },
   {
     "bgpCommunity": "18414:10002",
     "connectUnit": "工業技術研究院",
     "contactInfo": "TWAREN Duty 值班人員 (3)",
+    "declaredCount": 8204,
     "endpointIpv6Address": "2001:db8:2::1",
     "gigaPoP": "KHH",
     "id": 3,
@@ -48,12 +53,14 @@
     "isAlerting": "On",
     "orgNameEn": "NCT-TNN",
     "orgNameZh": "國網中心-台南分部",
+    "receivedCount": 1783,
     "whoisOrgID": "ORG003"
   },
   {
     "bgpCommunity": "18414:10003",
     "connectUnit": "台灣大學",
     "contactInfo": "TWAREN Duty 值班人員 (4)",
+    "declaredCount": 7651,
     "endpointIpv6Address": "2001:db8:3::1",
     "gigaPoP": "HUN",
     "id": 4,
@@ -65,12 +72,14 @@
     "isAlerting": "Off",
     "orgNameEn": "NCT-TNN",
     "orgNameZh": "國網中心-台南分部",
+    "receivedCount": 58,
     "whoisOrgID": "ORG004"
   },
   {
     "bgpCommunity": "18414:10004",
     "connectUnit": "台灣清華大學",
     "contactInfo": "TWAREN Duty 值班人員 (5)",
+    "declaredCount": 2730,
     "endpointIpv6Address": "2001:db8:4::1",
     "gigaPoP": "TNN",
     "id": 5,
@@ -82,12 +91,14 @@
     "isAlerting": "On",
     "orgNameEn": "NCT-TNN",
     "orgNameZh": "國網中心-台南分部",
+    "receivedCount": 8304,
     "whoisOrgID": "ORG005"
   },
   {
     "bgpCommunity": "18414:10005",
     "connectUnit": "國網中心 NCHC",
     "contactInfo": "TWAREN Duty 值班人員 (6)",
+    "declaredCount": 281,
     "endpointIpv6Address": "2001:db8:5::1",
     "gigaPoP": "MIA",
     "id": 6,
@@ -99,12 +110,14 @@
     "isAlerting": "Off",
     "orgNameEn": "NCT-TP",
     "orgNameZh": "國網中心-新竹本部",
+    "receivedCount": 8176,
     "whoisOrgID": "ORG006"
   },
   {
     "bgpCommunity": "18414:10006",
     "connectUnit": "台灣交通大學",
     "contactInfo": "TWAREN Duty 值班人員 (7)",
+    "declaredCount": 7013,
     "endpointIpv6Address": "2001:db8:6::1",
     "gigaPoP": "CYI",
     "id": 7,
@@ -116,12 +129,14 @@
     "isAlerting": "On",
     "orgNameEn": "NCT-TXG",
     "orgNameZh": "國網中心-台中分部",
+    "receivedCount": 9293,
     "whoisOrgID": "ORG007"
   },
   {
     "bgpCommunity": "18414:10007",
     "connectUnit": "台灣科技大學",
     "contactInfo": "TWAREN Duty 值班人員 (8)",
+    "declaredCount": 1576,
     "endpointIpv6Address": "2001:db8:7::1",
     "gigaPoP": "ILA",
     "id": 8,
@@ -133,12 +148,14 @@
     "isAlerting": "Off",
     "orgNameEn": "NCT-TP",
     "orgNameZh": "國網中心-新竹本部",
+    "receivedCount": 7375,
     "whoisOrgID": "ORG008"
   },
   {
     "bgpCommunity": "18414:10008",
     "connectUnit": "中央研究院",
     "contactInfo": "TWAREN Duty 值班人員 (9)",
+    "declaredCount": 5657,
     "endpointIpv6Address": "2001:db8:8::1",
     "gigaPoP": "TTT",
     "id": 9,
@@ -150,12 +167,14 @@
     "isAlerting": "On",
     "orgNameEn": "NCT-TNN",
     "orgNameZh": "國網中心-台南分部",
+    "receivedCount": 9185,
     "whoisOrgID": "ORG009"
   },
   {
     "bgpCommunity": "18414:10009",
     "connectUnit": "國科會",
     "contactInfo": "TWAREN Duty 值班人員 (10)",
+    "declaredCount": 8981,
     "endpointIpv6Address": "2001:db8:9::1",
     "gigaPoP": "HSZ",
     "id": 10,
@@ -167,12 +186,14 @@
     "isAlerting": "Off",
     "orgNameEn": "NCT-TP",
     "orgNameZh": "國網中心-新竹本部",
+    "receivedCount": 4696,
     "whoisOrgID": "ORG010"
   },
   {
     "bgpCommunity": "18414:67900",
     "connectUnit": "台灣大學",
     "contactInfo": "TWAREN Duty 值班人員 (11)",
+    "declaredCount": 9684,
     "endpointIpv6Address": "2001:db8:10::1",
     "gigaPoP": "PIF",
     "id": 11,
@@ -184,12 +205,14 @@
     "isAlerting": "On",
     "orgNameEn": "NCT-TNN",
     "orgNameZh": "國網中心-台南分部",
+    "receivedCount": 6250,
     "whoisOrgID": "ORG011"
   },
   {
     "bgpCommunity": "18414:67901",
     "connectUnit": "台灣清華大學",
     "contactInfo": "TWAREN Duty 值班人員 (12)",
+    "declaredCount": 8853,
     "endpointIpv6Address": "2001:db8:11::1",
     "gigaPoP": "TTT",
     "id": 12,
@@ -201,12 +224,14 @@
     "isAlerting": "Off",
     "orgNameEn": "NCT-TNN",
     "orgNameZh": "國網中心-台南分部",
+    "receivedCount": 564,
     "whoisOrgID": "ORG012"
   },
   {
     "bgpCommunity": "18414:67902",
     "connectUnit": "國網中心 NCHC",
     "contactInfo": "TWAREN Duty 值班人員 (13)",
+    "declaredCount": 5299,
     "endpointIpv6Address": "2001:db8:12::1",
     "gigaPoP": "HSZ",
     "id": 13,
@@ -218,12 +243,14 @@
     "isAlerting": "On",
     "orgNameEn": "NCT-TXG",
     "orgNameZh": "國網中心-台中分部",
+    "receivedCount": 4380,
     "whoisOrgID": "ORG013"
   },
   {
     "bgpCommunity": "18414:67903",
     "connectUnit": "台灣交通大學",
     "contactInfo": "TWAREN Duty 值班人員 (14)",
+    "declaredCount": 9460,
     "endpointIpv6Address": "2001:db8:13::1",
     "gigaPoP": "ILA",
     "id": 14,
@@ -235,12 +262,14 @@
     "isAlerting": "Off",
     "orgNameEn": "NCT-TXG",
     "orgNameZh": "國網中心-台中分部",
+    "receivedCount": 1120,
     "whoisOrgID": "ORG014"
   },
   {
     "bgpCommunity": "18414:67904",
     "connectUnit": "台灣科技大學",
     "contactInfo": "TWAREN Duty 值班人員 (15)",
+    "declaredCount": 3719,
     "endpointIpv6Address": "2001:db8:14::1",
     "gigaPoP": "TPE",
     "id": 15,
@@ -252,12 +281,14 @@
     "isAlerting": "On",
     "orgNameEn": "NCT-TP",
     "orgNameZh": "國網中心-新竹本部",
+    "receivedCount": 4688,
     "whoisOrgID": "ORG015"
   },
   {
     "bgpCommunity": "18414:67905",
     "connectUnit": "中央研究院",
     "contactInfo": "TWAREN Duty 值班人員 (16)",
+    "declaredCount": 9823,
     "endpointIpv6Address": "2001:db8:15::1",
     "gigaPoP": "TXG",
     "id": 16,
@@ -269,12 +300,14 @@
     "isAlerting": "Off",
     "orgNameEn": "NCT-TNN",
     "orgNameZh": "國網中心-台南分部",
+    "receivedCount": 9581,
     "whoisOrgID": "ORG016"
   },
   {
     "bgpCommunity": "18414:67906",
     "connectUnit": "國科會",
     "contactInfo": "TWAREN Duty 值班人員 (17)",
+    "declaredCount": 223,
     "endpointIpv6Address": "2001:db8:16::1",
     "gigaPoP": "MIA",
     "id": 17,
@@ -286,12 +319,14 @@
     "isAlerting": "On",
     "orgNameEn": "NCT-TXG",
     "orgNameZh": "國網中心-台中分部",
+    "receivedCount": 244,
     "whoisOrgID": "ORG017"
   },
   {
     "bgpCommunity": "18414:67907",
     "connectUnit": "台灣大學",
     "contactInfo": "TWAREN Duty 值班人員 (18)",
+    "declaredCount": 6517,
     "endpointIpv6Address": "2001:db8:17::1",
     "gigaPoP": "KHH",
     "id": 18,
@@ -303,12 +338,14 @@
     "isAlerting": "Off",
     "orgNameEn": "NCT-TNN",
     "orgNameZh": "國網中心-台南分部",
+    "receivedCount": 8361,
     "whoisOrgID": "ORG018"
   },
   {
     "bgpCommunity": "18414:67908",
     "connectUnit": "台灣清華大學",
     "contactInfo": "TWAREN Duty 值班人員 (19)",
+    "declaredCount": 351,
     "endpointIpv6Address": "2001:db8:18::1",
     "gigaPoP": "HUN",
     "id": 19,
@@ -320,12 +357,14 @@
     "isAlerting": "On",
     "orgNameEn": "NCT-TP",
     "orgNameZh": "國網中心-新竹本部",
+    "receivedCount": 444,
     "whoisOrgID": "ORG019"
   },
   {
     "bgpCommunity": "18414:67909",
     "connectUnit": "國網中心 NCHC",
     "contactInfo": "TWAREN Duty 值班人員 (20)",
+    "declaredCount": 8727,
     "endpointIpv6Address": "2001:db8:19::1",
     "gigaPoP": "CYI",
     "id": 20,
@@ -337,12 +376,14 @@
     "isAlerting": "Off",
     "orgNameEn": "NCT-TXG",
     "orgNameZh": "國網中心-台中分部",
+    "receivedCount": 3960,
     "whoisOrgID": "ORG020"
   },
   {
     "bgpCommunity": "18414:67910",
     "connectUnit": "台灣交通大學",
     "contactInfo": "TWAREN Duty 值班人員 (21)",
+    "declaredCount": 6153,
     "endpointIpv6Address": "2001:db8:20::1",
     "gigaPoP": "TNN",
     "id": 21,
@@ -354,12 +395,14 @@
     "isAlerting": "On",
     "orgNameEn": "NCT-TP",
     "orgNameZh": "國網中心-新竹本部",
+    "receivedCount": 3043,
     "whoisOrgID": "ORG021"
   },
   {
     "bgpCommunity": "18414:67911",
     "connectUnit": "台灣科技大學",
     "contactInfo": "TWAREN Duty 值班人員 (22)",
+    "declaredCount": 1874,
     "endpointIpv6Address": "2001:db8:21::1",
     "gigaPoP": "PIF",
     "id": 22,
@@ -371,12 +414,14 @@
     "isAlerting": "Off",
     "orgNameEn": "NCT-TP",
     "orgNameZh": "國網中心-新竹本部",
+    "receivedCount": 6851,
     "whoisOrgID": "ORG022"
   },
   {
     "bgpCommunity": "18414:67912",
     "connectUnit": "中央研究院",
     "contactInfo": "TWAREN Duty 值班人員 (23)",
+    "declaredCount": 3937,
     "endpointIpv6Address": "2001:db8:22::1",
     "gigaPoP": "HSZ",
     "id": 23,
@@ -388,12 +433,14 @@
     "isAlerting": "On",
     "orgNameEn": "NCT-TNN",
     "orgNameZh": "國網中心-台南分部",
+    "receivedCount": 3192,
     "whoisOrgID": "ORG023"
   },
   {
     "bgpCommunity": "18414:67913",
     "connectUnit": "國科會",
     "contactInfo": "TWAREN Duty 值班人員 (24)",
+    "declaredCount": 6019,
     "endpointIpv6Address": "2001:db8:23::1",
     "gigaPoP": "ILA",
     "id": 24,
@@ -405,12 +452,14 @@
     "isAlerting": "Off",
     "orgNameEn": "NCT-TXG",
     "orgNameZh": "國網中心-台中分部",
+    "receivedCount": 8414,
     "whoisOrgID": "ORG024"
   },
   {
     "bgpCommunity": "18414:67914",
     "connectUnit": "台灣大學",
     "contactInfo": "TWAREN Duty 值班人員 (25)",
+    "declaredCount": 236,
     "endpointIpv6Address": "2001:db8:24::1",
     "gigaPoP": "TTT",
     "id": 25,
@@ -422,6 +471,7 @@
     "isAlerting": "On",
     "orgNameEn": "NCT-TNN",
     "orgNameZh": "國網中心-台南分部",
+    "receivedCount": 7525,
     "whoisOrgID": "ORG025"
   }
 ]
