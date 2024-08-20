@@ -157,15 +157,6 @@ export default {
           cellClass: 'text-no-wrap',
         },
         {
-          text: this.$t('check.time'),
-          value: 'check_time',
-          cellClass: 'text-no-wrap',
-        },
-        {
-          text: this.$t('package.loss.rate'),
-          value: 'packageLossRate',
-        },
-        {
           text: this.$t('package.loss.rate.low'),
           value: 'packageLossRate_low',
         },
