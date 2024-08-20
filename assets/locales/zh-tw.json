@@ -194,6 +194,8 @@
   "outflow": "流出",
   "output.usage": "Output使用量",
   "package.loss.rate": "Package Loss Rate(%)",
+  "package.loss.rate.high": "Package Loss Rate高臨界值(%)",
+  "package.loss.rate.low": "Package Loss Rate低臨界值(%)",
   "param.code": "參數代號",
   "param.desc": "參數描述",
   "param.name": "參數名稱",

@@ -58,7 +58,7 @@
             </template>
             <template #[`item.device`]="{ item }">
               <td
-                :class="`${statusMap[item.status]} lighten-2`"
+                :class="`${statusMap[item.status]} lighten-1 `"
                 style="border-color: inherit !important"
                 nowrap="nowrap"
               >
@@ -67,7 +67,9 @@
             </template>
             <template #[`item.fanStatus`]="{ item }">
               <svg
-                :fill="item.fanStatus === 'On' ? '#26a13a' : '#c53030'"
+                :fill="$vuetify.theme.themes[
+                    $vuetify.theme.isDark ? 'dark' : 'light'
+                  ][item.fanStatus === 'On' ? 'success' : 'danger']"
                 height="40px"
                 width="40px"
                 version="1.1"
@@ -168,7 +170,7 @@ export default {
   methods: {
     setRowClass(item) {
       if (this.$vuetify.breakpoint.smAndDown) {
-        return `${this.statusMap[item.status]} lighten-2`;
+        return `${this.statusMap[item.status]} lighten-1 `;
       }
     },
   },

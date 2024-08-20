@@ -157,7 +157,7 @@
               <template #[`item.id`]="{ item }">
                 <td
                   :class="item.level"
-                  class="lighten-2"
+                  class="lighten-1 "
                   style="border-color: inherit !important"
                 >
                   {{ item.id }}
@@ -166,7 +166,7 @@
               <template #[`item.event`]="{ item }">
                 <td
                   :class="item.level"
-                  class="lighten-2"
+                  class="lighten-1 "
                   style="border-color: inherit !important"
                   nowrap="nowrap"
                 >
@@ -176,7 +176,7 @@
               <template #[`item.category`]="{ item }">
                 <td
                   :class="item.level"
-                  class="lighten-2"
+                  class="lighten-1 "
                   style="border-color: inherit !important"
                   nowrap="nowrap"
                 >
@@ -186,7 +186,7 @@
               <template #[`item.level`]="{ item }">
                 <td
                   :class="item.level"
-                  class="lighten-2"
+                  class="lighten-1 "
                   style="border-color: inherit !important"
                   nowrap="nowrap"
                 >
@@ -196,7 +196,7 @@
               <template #[`item.startTime`]="{ item }">
                 <td
                   :class="item.level"
-                  class="lighten-2"
+                  class="lighten-1 "
                   style="border-color: inherit !important"
                   nowrap="nowrap"
                 >
@@ -206,7 +206,7 @@
               <template #[`item.endTime`]="{ item }">
                 <td
                   :class="item.level"
-                  class="lighten-2"
+                  class="lighten-1 "
                   style="border-color: inherit !important"
                   nowrap="nowrap"
                 >
@@ -216,7 +216,7 @@
               <template #[`item.equipment`]="{ item }">
                 <td
                   :class="item.level"
-                  class="lighten-2"
+                  class="lighten-1 "
                   style="border-color: inherit !important"
                 >
                   {{ item?.equipment || '-' }}
@@ -225,7 +225,7 @@
               <template #[`item.desc`]="{ item }">
                 <td
                   :class="item.level"
-                  class="lighten-2"
+                  class="lighten-1 "
                   style="border-color: inherit !important"
                 >
                   {{ item?.desc || '-' }}
@@ -255,7 +255,7 @@
               <template #[`item.id`]="{ item }">
                 <td
                   :class="item.level"
-                  class="lighten-2"
+                  class="lighten-1 "
                   style="border-color: inherit !important"
                 >
                   {{ item.id }}
@@ -264,7 +264,7 @@
               <template #[`item.event`]="{ item }">
                 <td
                   :class="item.level"
-                  class="lighten-2"
+                  class="lighten-1 "
                   style="border-color: inherit !important"
                   nowrap="nowrap"
                 >
@@ -274,7 +274,7 @@
               <template #[`item.category`]="{ item }">
                 <td
                   :class="item.level"
-                  class="lighten-2"
+                  class="lighten-1 "
                   style="border-color: inherit !important"
                   nowrap="nowrap"
                 >
@@ -284,7 +284,7 @@
               <template #[`item.level`]="{ item }">
                 <td
                   :class="item.level"
-                  class="lighten-2"
+                  class="lighten-1 "
                   style="border-color: inherit !important"
                   nowrap="nowrap"
                 >
@@ -294,7 +294,7 @@
               <template #[`item.startTime`]="{ item }">
                 <td
                   :class="item.level"
-                  class="lighten-2"
+                  class="lighten-1 "
                   style="border-color: inherit !important"
                   nowrap="nowrap"
                 >
@@ -304,7 +304,7 @@
               <template #[`item.equipment`]="{ item }">
                 <td
                   :class="item.level"
-                  class="lighten-2"
+                  class="lighten-1 "
                   style="border-color: inherit !important"
                 >
                   {{ item?.equipment || '-' }}
@@ -313,7 +313,7 @@
               <template #[`item.desc`]="{ item }">
                 <td
                   :class="item.level"
-                  class="lighten-2"
+                  class="lighten-1 "
                   style="border-color: inherit !important"
                 >
                   {{ item?.desc || '-' }}
@@ -598,7 +598,7 @@ export default {
   methods: {
     setRowClass(item) {
       if (this.$vuetify.breakpoint.smAndDown) {
-        return `${item.level} lighten-2`;
+        return `${item.level} lighten-1 `;
       }
     },
     onLayoutUpdated(list) {

@@ -272,7 +272,7 @@ export default {
   methods: {
     setRowClass(item) {
       if (this.$vuetify.breakpoint.smAndDown) {
-        return `${this.statusMap[item.status]} lighten-2`;
+        return `${this.statusMap[item.status]} lighten-1 `;
       }
     },
   },

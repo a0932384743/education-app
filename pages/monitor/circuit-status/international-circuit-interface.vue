@@ -55,7 +55,7 @@
 
             <template #[`item.description`]="{ item }">
               <td
-                :class="`${statusMap[item.status]} lighten-2`"
+                :class="`${statusMap[item.status]} lighten-1 `"
                 style="border-color: inherit !important;"
                 nowrap="nowrap"
               >
@@ -151,7 +151,7 @@ export default {
   methods: {
     setRowClass(item) {
       if (this.$vuetify.breakpoint.smAndDown) {
-        return item.status === 'non-warning lighten-2' ? 'non-warning lighten-2'  : (item.packageLossRate ? 'success lighten-2' : 'error lighten-2');
+        return item.status === 'non-warning lighten-1 ' ? 'non-warning lighten-1 '  : (item.packageLossRate ? 'success lighten-1 ' : 'error lighten-1 ');
       }
     },
   },

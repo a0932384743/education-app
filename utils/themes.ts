@@ -12,6 +12,7 @@ export const lightTheme = {
   footer: '#c4c4c4',
   aside: '#00201c',
   total: '#000000',
+  text: '#f3f3f3'
 };
 
 export const darkTheme = {
@@ -28,4 +29,5 @@ export const darkTheme = {
   footer: '#0b0d26',
   aside: '#00201c',
   total: '#ffffff',
+  text: '#0g0g0g'
 };

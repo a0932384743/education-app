@@ -57,7 +57,7 @@
             </template>
             <template #[`item.device`]="{ item }">
               <td
-                :class="`${statusMap[item.status]} lighten-2`"
+                :class="`${statusMap[item.status]} lighten-1 `"
                 style="border-color: inherit !important;"
                 nowrap="nowrap"
               >
@@ -138,7 +138,7 @@ export default {
   methods: {
     setRowClass(item) {
       if (this.$vuetify.breakpoint.smAndDown) {
-        return `${this.statusMap[item.status]} lighten-2`;
+        return `${this.statusMap[item.status]} lighten-1 `;
       }
     },
   },

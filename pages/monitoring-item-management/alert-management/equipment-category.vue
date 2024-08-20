@@ -198,7 +198,6 @@ export default {
       Object.keys(item).every((key) => item[key])
         ? (item.editable = !item.editable)
         : (item.editable = true);
-
       if(!item.editable){
         this.$snackbar.info('更新成功');
       }

@@ -96,7 +96,7 @@ export default {
   methods: {
     setRowClass(item) {
       if (this.$vuetify.breakpoint.smAndDown) {
-        return item.status === 'down' ? 'danger lighten-2' : 'success lighten-2';
+        return item.status === 'down' ? 'danger lighten-1 ' : 'success lighten-1 ';
       }
     },
   },

@@ -1,5 +1,6 @@
 import Vuex from 'vuex';
 import commonModule from './common';
+import VPLSModule from '@/store/vpls';
 import TopologicalModule from '@/store/topological';
 import connectionModule from '@/store/connections';
 import gigaPopsModule from '@/store/gigapops';
@@ -17,6 +18,7 @@ const createStore = () => {
       gigaPops: gigaPopsModule,
       connection: connectionModule,
       topological: TopologicalModule,
+      vpls:VPLSModule
     },
   });
 };

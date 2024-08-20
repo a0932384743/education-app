@@ -54,7 +54,7 @@
           >
             <template #[`item.device`]="{ item }">
               <td
-                :class="`${statusMap[item.status]} lighten-2`"
+                :class="`${statusMap[item.status]} lighten-1 `"
                 style="border-color: inherit !important"
                 nowrap="nowrap"
               >
@@ -63,7 +63,7 @@
             </template>
             <template #[`item.interface`]="{ item }">
               <td
-                :class="`${statusMap[item.status]} lighten-2`"
+                :class="`${statusMap[item.status]} lighten-1 `"
                 style="border-color: inherit !important"
                 nowrap="nowrap"
               >
@@ -166,7 +166,7 @@ export default {
   },
   methods: {
     setRowClass(item) {
-      return `${statusMap[item.status]} lighten-2`;
+      return `${statusMap[item.status]} lighten-1 `;
     },
   },
 };

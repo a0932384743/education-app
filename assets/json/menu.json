@@ -564,6 +564,19 @@
         "name": "網路流量拓樸圖管理",
         "name_en": "Topological Management",
         "url": "/monitoring-item-management/topological-management"
+      },
+      {
+        "children": [  {
+          "children": [],
+          "id": 86,
+          "name": "VPLS VPN界接介面狀況維護管理",
+          "name_en": "VPLS VPN Interface Status Maintenance Management",
+          "url": "/monitoring-item-management/vpls-vpn-management/vpls-vpn-interface-status-maintenance-management"
+        }],
+        "id": 85,
+        "name": "VPLS VPN管理",
+        "name_en": "VPLS VPN Management",
+        "url": "/monitoring-item-management/vpls-vpn-management"
       }
     ],
     "id": 54,

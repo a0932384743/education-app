@@ -54,7 +54,7 @@
           >
             <template #[`item.school`]="{ item }">
               <td
-                class="secondary lighten-1 font-weight-bold"
+                class="secondary lighten-1  font-weight-bold"
                 style="border-color: inherit !important"
                 align="center"
               >
@@ -63,7 +63,7 @@
             </template>
             <template #[`item.gateway`]="{ item }">
               <td
-                class="secondary lighten-1 font-weight-bold"
+                class="secondary lighten-1  font-weight-bold"
                 style="border-color: inherit !important"
               >
                 {{ item.gateway || '-' }}
@@ -74,7 +74,7 @@
               <v-chip
                 :small="true"
                 :color="statusMap[item.status]"
-                class="lighten-1 text--black align-content-center"
+                class="lighten-1  align-content-center"
               >
                 {{ item.status.toUpperCase() }}
               </v-chip>
@@ -153,7 +153,7 @@ export default {
   methods: {
     setRowClass() {
       if (this.$vuetify.breakpoint.smAndDown) {
-        return 'secondary lighten-1';
+        return 'secondary lighten-1 ';
       }
     },
   },

@@ -262,7 +262,7 @@ export default {
       });
     },
     setRowClass(item) {
-      return `${!item.endTime ? 'error' : ''} lighten-2`;
+      return `${!item.endTime ? 'error' : ''} lighten-1 `;
     },
     goToWorkOrderAdd(item){
       this.$router.push(`/work-order-management/add/${item.id}`);

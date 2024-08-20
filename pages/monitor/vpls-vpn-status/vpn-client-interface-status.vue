@@ -54,7 +54,7 @@
           >
             <template #[`item.vpn_node`]="{ item }">
               <td
-                :class="`${statusMap[item.status]} lighten-2`"
+                :class="`${statusMap[item.status]} lighten-1 `"
                 style="border-color: inherit !important"
                 nowrap="nowrap"
               >
@@ -63,7 +63,7 @@
             </template>
             <template #[`item.device`]="{ item }">
               <td
-                :class="`${statusMap[item.status]} lighten-2`"
+                :class="`${statusMap[item.status]} lighten-1 `"
                 style="border-color: inherit !important"
                 nowrap="nowrap"
               >
@@ -72,7 +72,7 @@
             </template>
             <template #[`item.interface`]="{ item }">
               <td
-                :class="`${statusMap[item.status]} lighten-2`"
+                :class="`${statusMap[item.status]} lighten-1 `"
                 style="border-color: inherit !important"
                 nowrap="nowrap"
               >
@@ -95,7 +95,6 @@
 <script>
 import ChartCard from '@/components/ChartCard.vue';
 import { statusMap } from '~/utils/statusMap';
-import items from '~/assets/json/vpls-vpn-status.json';
 import lineData from '~/assets/json/peering-bgp-status-history.json';
 
 export default {
@@ -142,7 +141,7 @@ export default {
       ];
     },
     items() {
-      return items;
+      return this.$store.getters['vpls/getVPLSList'];
     },
     lineData() {
       return lineData;
@@ -157,7 +156,7 @@ export default {
         return {
           name: status,
           value:
-            items.filter((item) => item.status === map[status]).length +
+            this.items.filter((item) => item.status === map[status]).length +
             (status === 'normal' ? 310 : status === 'abnormal' ? 150 : 2),
         };
       });
@@ -166,7 +165,7 @@ export default {
   methods: {
     setRowClass(item) {
       if (this.$vuetify.breakpoint.smAndDown) {
-        return `${statusMap[item.status]} lighten-2`;
+        return `${statusMap[item.status]} lighten-1 `;
       }
     },
   },

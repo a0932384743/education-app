@@ -171,7 +171,7 @@ export default {
   },
   methods: {
     setRowClass(item) {
-      return `${statusMap[item.interface_status]} lighten-2`;
+      return `${statusMap[item.interface_status]} lighten-1 `;
     },
   },
 };

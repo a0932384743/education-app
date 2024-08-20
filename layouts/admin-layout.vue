@@ -442,7 +442,7 @@ export default {
   }
 }
 
-[class*="lighten-"].warning {
-  color: var(--v-total-darken4);
+[class*="lighten-"].warning , [class*="lighten-"].warning .v-chip__content {
+  color: var(--v-total-darken4) !important;
 }
 </style>

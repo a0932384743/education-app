@@ -66,7 +66,7 @@
             </template>
             <template #[`item.device`]="{ item }">
               <td
-                :class="`${statusMap[item.status]} lighten-2`"
+                :class="`${statusMap[item.status]} lighten-1 `"
                 style="border-color: inherit !important"
               >
                 {{ item.device || '-' }}
@@ -74,7 +74,7 @@
             </template>
             <template #[`item.interface`]="{ item }">
               <td
-                :class="`${statusMap[item.status]} lighten-2`"
+                :class="`${statusMap[item.status]} lighten-1 `"
                 style="border-color: inherit !important"
               >
                 {{ item.interface || '-' }}
@@ -82,7 +82,7 @@
             </template>
             <template #[`item.description`]="{ item }">
               <td
-                :class="`${statusMap[item.status]} lighten-2`"
+                :class="`${statusMap[item.status]} lighten-1 `"
                 style="border-color: inherit !important"
               >
                 {{ item.description || '-' }}
@@ -197,7 +197,7 @@ export default {
   methods: {
     setRowClass(item) {
       if (this.$vuetify.breakpoint.smAndDown) {
-        return `${this.statusMap[item.status]} lighten-2`;
+        return `${this.statusMap[item.status]} lighten-1 `;
       }
     },
   },

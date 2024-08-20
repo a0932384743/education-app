@@ -192,6 +192,8 @@
   "outflow": "Outflow",
   "output.usage": "Output",
   "package.loss.rate": "Package Loss Rate (%)",
+  "package.loss.rate.high": "Package Loss Rate High Threshold(%)",
+  "package.loss.rate.low": "Package Loss Rate Low Threshold(%)",
   "param.code": "Param Code",
   "param.desc": "Description",
   "param.name": "Parameter",
