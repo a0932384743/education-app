@@ -1,0 +1,202 @@
+[
+  {
+    "battery_capacity": 8.47,
+    "battery_health": "abnormal",
+    "battery_voltage": 164,
+    "device": "TP-UPS-01",
+    "id": 1,
+    "mains_power_interruption": "normal"
+  },
+  {
+    "battery_capacity": 14.03,
+    "battery_health": "normal",
+    "battery_voltage": 207,
+    "device": "TP-UPS-11",
+    "id": 2,
+    "mains_power_interruption": "abnormal"
+  },
+  {
+    "battery_capacity": 92.23,
+    "battery_health": "normal",
+    "battery_voltage": 251.9,
+    "device": "TP-UPS-21",
+    "id": 3,
+    "mains_power_interruption": "abnormal"
+  },
+  {
+    "battery_capacity": 85.95,
+    "battery_health": "normal",
+    "battery_voltage": 96.9,
+    "device": "TP-UPS-31",
+    "id": 4,
+    "mains_power_interruption": "abnormal"
+  },
+  {
+    "battery_capacity": 57.58,
+    "battery_health": "abnormal",
+    "battery_voltage": 59.1,
+    "device": "TP-UPS-41",
+    "id": 5,
+    "mains_power_interruption": "normal"
+  },
+  {
+    "battery_capacity": 15.75,
+    "battery_health": "abnormal",
+    "battery_voltage": 266.6,
+    "device": "TP-UPS-51",
+    "id": 6,
+    "mains_power_interruption": "abnormal"
+  },
+  {
+    "battery_capacity": 82.68,
+    "battery_health": "abnormal",
+    "battery_voltage": 166,
+    "device": "TP-UPS-61",
+    "id": 7,
+    "mains_power_interruption": "abnormal"
+  },
+  {
+    "battery_capacity": 54.61,
+    "battery_health": "normal",
+    "battery_voltage": 117.8,
+    "device": "TP-UPS-71",
+    "id": 8,
+    "mains_power_interruption": "abnormal"
+  },
+  {
+    "battery_capacity": 66.45,
+    "battery_health": "normal",
+    "battery_voltage": 184.6,
+    "device": "TP-UPS-81",
+    "id": 9,
+    "mains_power_interruption": "normal"
+  },
+  {
+    "battery_capacity": 75.53,
+    "battery_health": "normal",
+    "battery_voltage": 261.7,
+    "device": "TP-UPS-91",
+    "id": 10,
+    "mains_power_interruption": "normal"
+  },
+  {
+    "battery_capacity": 40.87,
+    "battery_health": "abnormal",
+    "battery_voltage": 144.9,
+    "device": "TP-UPS-01",
+    "id": 11,
+    "mains_power_interruption": "normal"
+  },
+  {
+    "battery_capacity": 72.44,
+    "battery_health": "normal",
+    "battery_voltage": 110.4,
+    "device": "TP-UPS-11",
+    "id": 12,
+    "mains_power_interruption": "abnormal"
+  },
+  {
+    "battery_capacity": 71.78,
+    "battery_health": "normal",
+    "battery_voltage": 200.3,
+    "device": "TP-UPS-21",
+    "id": 13,
+    "mains_power_interruption": "normal"
+  },
+  {
+    "battery_capacity": 3.46,
+    "battery_health": "normal",
+    "battery_voltage": 2.6,
+    "device": "TP-UPS-31",
+    "id": 14,
+    "mains_power_interruption": "normal"
+  },
+  {
+    "battery_capacity": 31.9,
+    "battery_health": "abnormal",
+    "battery_voltage": 42.4,
+    "device": "TP-UPS-41",
+    "id": 15,
+    "mains_power_interruption": "abnormal"
+  },
+  {
+    "battery_capacity": 60.7,
+    "battery_health": "normal",
+    "battery_voltage": 205.4,
+    "device": "TP-UPS-51",
+    "id": 16,
+    "mains_power_interruption": "normal"
+  },
+  {
+    "battery_capacity": 64.89,
+    "battery_health": "normal",
+    "battery_voltage": 237.5,
+    "device": "TP-UPS-61",
+    "id": 17,
+    "mains_power_interruption": "abnormal"
+  },
+  {
+    "battery_capacity": 51.28,
+    "battery_health": "abnormal",
+    "battery_voltage": 181.1,
+    "device": "TP-UPS-71",
+    "id": 18,
+    "mains_power_interruption": "abnormal"
+  },
+  {
+    "battery_capacity": 95.71,
+    "battery_health": "abnormal",
+    "battery_voltage": 236.4,
+    "device": "TP-UPS-81",
+    "id": 19,
+    "mains_power_interruption": "normal"
+  },
+  {
+    "battery_capacity": 95.4,
+    "battery_health": "normal",
+    "battery_voltage": 237.9,
+    "device": "TP-UPS-91",
+    "id": 20,
+    "mains_power_interruption": "abnormal"
+  },
+  {
+    "battery_capacity": 31.48,
+    "battery_health": "normal",
+    "battery_voltage": 58.3,
+    "device": "TP-UPS-01",
+    "id": 21,
+    "mains_power_interruption": "abnormal"
+  },
+  {
+    "battery_capacity": 77.03,
+    "battery_health": "abnormal",
+    "battery_voltage": 153.2,
+    "device": "TP-UPS-11",
+    "id": 22,
+    "mains_power_interruption": "abnormal"
+  },
+  {
+    "battery_capacity": 84.53,
+    "battery_health": "abnormal",
+    "battery_voltage": 212.3,
+    "device": "TP-UPS-21",
+    "id": 23,
+    "mains_power_interruption": "normal"
+  },
+  {
+    "battery_capacity": 32.54,
+    "battery_health": "normal",
+    "battery_voltage": 291,
+    "device": "TP-UPS-31",
+    "id": 24,
+    "mains_power_interruption": "normal"
+  },
+  {
+    "battery_capacity": 52.95,
+    "battery_health": "normal",
+    "battery_voltage": 154,
+    "device": "TP-UPS-41",
+    "id": 25,
+    "mains_power_interruption": "normal"
+  }
+]

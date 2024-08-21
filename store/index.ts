@@ -1,5 +1,7 @@
 import Vuex from 'vuex';
 import commonModule from './common';
+import UPSModule from '@/store/ups';
+import PDUModule from '@/store/pdu';
 import OpticalModule from '@/store/optical';
 import VPLSModule from '@/store/vpls';
 import TopologicalModule from '@/store/topological';
@@ -20,7 +22,9 @@ const createStore = () => {
       connection: connectionModule,
       topological: TopologicalModule,
       vpls:VPLSModule,
-      optical:OpticalModule
+      optical:OpticalModule,
+      pdu:PDUModule,
+      ups:UPSModule
     },
   });
 };

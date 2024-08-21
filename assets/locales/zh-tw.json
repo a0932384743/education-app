@@ -203,6 +203,9 @@
   "param.name": "參數名稱",
   "param.value": "參數值",
   "password": "密碼",
+  "pdu.current": "PDU總負載電流量",
+  "pdu.kwh": "PDU功率",
+  "pdu.voltage": "PDU電壓量",
   "peering.device": "Peering設備",
   "peering.name": "Peering名稱",
   "period": "期間",
@@ -336,5 +339,9 @@
   "電路介面管理-國內電路界接介面資料維護": "電路介面管理-國內電路界接介面資料維護",
   "電路介面管理-資策會界接介面資料維護": "電路介面管理-資策會界接介面資料維護",
   "電路狀態-國內骨幹電路狀態": "電路狀態-國內骨幹電路狀態",
-  "電路狀態-國際電路界接介面狀況": "電路狀態-國際電路界接介面狀況"
+  "電路狀態-國際電路界接介面狀況": "電路狀態-國際電路界接介面狀況",
+  "battery.health": "電池健康度",
+  "battery.capacity": "電池容量",
+  "mains.power.interruption": "市電中斷",
+  "battery.voltage": "電池電位"
 }

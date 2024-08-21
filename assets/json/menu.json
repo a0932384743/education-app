@@ -226,7 +226,8 @@
             "name": "VPLS VPN Peer狀況",
             "name_en": "VPLS VPN Peer Status",
             "url": "/monitor/vpls-vpn-status/vpls-vpn-peer-status"
-          },{
+          },
+          {
             "children": [],
             "id": 84,
             "name": "VPLS VPN界接介面Port IP Ping狀況",
@@ -261,6 +262,20 @@
             "name": "RPM總負載電流狀況",
             "name_en": "RPM Total Load Current Status",
             "url": "/monitor/server-room-status/rpm-total-load-current-status"
+          },
+          {
+            "children": [],
+            "id": 87,
+            "name": "PDU總負載電流狀況",
+            "name_en": "PDU Total Load Current Status",
+            "url": "/monitor/server-room-status/pdu-total-load-current-status"
+          },
+          {
+            "children": [],
+            "id": 88,
+            "name": "UPS不斷電系統狀況",
+            "name_en": "UPS Uninterruptible Power Supply Status",
+            "url": "/monitor/server-room-status/ups-uninterruptible-power-supply-status"
           }
         ],
         "id": 34,
@@ -463,13 +478,14 @@
             "url": "/monitoring-item-management/data-management/bgp-peering-management"
           },
           {
-            "children": [{
-              "children": [],
-              "id": 83,
-              "name": "VPLS VPN界接介面資料維護",
-              "name_en": "VPLS VPN Interface Management",
-              "url": "/monitoring-item-management/data-management/vpls-vpn-management"
-            }
+            "children": [
+              {
+                "children": [],
+                "id": 83,
+                "name": "VPLS VPN界接介面資料維護",
+                "name_en": "VPLS VPN Interface Management",
+                "url": "/monitoring-item-management/data-management/vpls-vpn-management"
+              }
             ],
             "id": 60,
             "name": "VPLS VPN管理",
@@ -573,19 +589,42 @@
       },
       {
         "children": [],
+        "id": 89,
+        "name": "溫溼度感應器管理",
+        "name_en": "Temperature and Humidity Sensor Management",
+        "url": "/monitoring-item-management/temperature-and-humidity-sensor-management"
+      },
+      {
+        "children": [],
+        "id": 90,
+        "name": "PDU智慧排插管理",
+        "name_en": "PDU Smart Power Strip Management",
+        "url": "/monitoring-item-management/pdu-smart-power-strip-management"
+      },
+      {
+        "children": [],
+        "id": 91,
+        "name": "UPS不斷電系統管理",
+        "name_en": "UPS Uninterruptible Power System Management",
+        "url": "/monitoring-item-management/ups-uninterruptible-power-system-management"
+      },
+      {
+        "children": [],
         "id": 87,
         "name": "光傳輸元件監控管理",
         "name_en": "Optical Transmission Device Monitoring and Management",
         "url": "/monitoring-item-management/optical-transmission-device-monitoring-and-management"
       },
       {
-        "children": [  {
-          "children": [],
-          "id": 86,
-          "name": "VPLS VPN界接介面狀況維護管理",
-          "name_en": "VPLS VPN Interface Status Maintenance Management",
-          "url": "/monitoring-item-management/vpls-vpn-management/vpls-vpn-interface-status-maintenance-management"
-        }],
+        "children": [
+          {
+            "children": [],
+            "id": 86,
+            "name": "VPLS VPN界接介面狀況維護管理",
+            "name_en": "VPLS VPN Interface Status Maintenance Management",
+            "url": "/monitoring-item-management/vpls-vpn-management/vpls-vpn-interface-status-maintenance-management"
+          }
+        ],
         "id": 85,
         "name": "VPLS VPN管理",
         "name_en": "VPLS VPN Management",

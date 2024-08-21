@@ -79,20 +79,17 @@ const date = Array.from(
 );
 const voltage = Array.from(
   new Array(30),
-  () => Number(200 + Math.random() * 30 - 30).toFixed(2) * 1
+  () => Number(80 + Math.random() * 30 - 30).toFixed(2) * 1
 );
 
 const current = Array.from(
   new Array(30),
-  () => Number(1000 + Math.random() * 50 - Math.random() * 50).toFixed(2) * 1
+  () => Number(50 + Math.random() * 50 - Math.random() * 50).toFixed(2) * 1
 );
 
-const kwh = voltage.map((v, index) => {
-  return Number(current[index] / v).toFixed(2) * 1;
-});
 
 export default {
-  name: 'LoadHistoryModel',
+  name: 'PowerHistoryModel',
   props: {
     show: {
       type: Boolean,
@@ -100,7 +97,7 @@ export default {
     },
     title: {
       type: String,
-      default: 'RPM總負載電流歷史查詢',
+      default: 'UPS不斷電系統歷史查詢',
     },
   },
   data() {
@@ -112,7 +109,6 @@ export default {
       date,
       voltage,
       current,
-      kwh,
     };
   },
   computed: {
@@ -122,7 +118,7 @@ export default {
           trigger: 'axis',
         },
         legend: {
-          data: ['電壓', '電流', '功率'],
+          data: ['電位', '電容'],
         },
         grid: {
           left: 100,
@@ -135,8 +131,8 @@ export default {
         yAxis: [
           {
             type: 'value',
-            name: '電壓(V)',
-            position: 'left',
+            name: '電位(&)',
+            position: 'right',
             axisLine: {
               lineStyle: {
                 color:
@@ -146,12 +142,12 @@ export default {
               },
             },
             axisLabel: {
-              formatter: '{value} V',
+              formatter: '{value} %',
             },
           },
           {
             type: 'value',
-            name: '電流(A)',
+            name: '電容(V)',
             position: 'left',
             offset: 50,
             axisLine: {
@@ -163,29 +159,13 @@ export default {
               },
             },
             axisLabel: {
-              formatter: '{value} A',
-            },
-          },
-          {
-            type: 'value',
-            name: '功率(kWh)',
-            position: 'right',
-            axisLine: {
-              lineStyle: {
-                color:
-                  this.$vuetify.theme.themes[
-                    this.$vuetify.theme.isDark ? 'dark' : 'light'
-                  ].primary,
-              },
-            },
-            axisLabel: {
-              formatter: '{value} kWh',
+              formatter: '{value} V',
             },
           },
         ],
         series: [
           {
-            name: '電壓',
+            name: '電位',
             type: 'line',
             yAxisIndex: 0,
             itemStyle: {
@@ -197,7 +177,7 @@ export default {
             data: this.voltage,
           },
           {
-            name: '電流',
+            name: '電容',
             type: 'line',
             yAxisIndex: 1,
             itemStyle: {
@@ -207,18 +187,6 @@ export default {
                 ].danger,
             },
             data: this.current,
-          },
-          {
-            name: '功率',
-            type: 'line',
-            yAxisIndex: 2,
-            itemStyle: {
-              color:
-                this.$vuetify.theme.themes[
-                  this.$vuetify.theme.isDark ? 'dark' : 'light'
-                ].primary,
-            },
-            data: this.kwh,
           },
         ],
       };
@@ -234,7 +202,6 @@ export default {
       this.date = date.slice(startIndex, endIndex + 1);
       this.voltage = voltage.slice(startIndex, endIndex + 1);
       this.current = current.slice(startIndex, endIndex + 1);
-      this.kwh = kwh.slice(startIndex, endIndex + 1);
     },
   },
 };
