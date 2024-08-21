@@ -1,5 +1,6 @@
 import Vuex from 'vuex';
 import commonModule from './common';
+import tempAndHumiModule from '@/store/tempAndHumi';
 import UPSModule from '@/store/ups';
 import PDUModule from '@/store/pdu';
 import OpticalModule from '@/store/optical';
@@ -24,7 +25,8 @@ const createStore = () => {
       vpls:VPLSModule,
       optical:OpticalModule,
       pdu:PDUModule,
-      ups:UPSModule
+      ups:UPSModule,
+      tempAndHumi:tempAndHumiModule
     },
   });
 };

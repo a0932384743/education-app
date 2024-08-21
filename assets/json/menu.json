@@ -591,7 +591,7 @@
         "children": [],
         "id": 89,
         "name": "溫溼度感應器管理",
-        "name_en": "Temperature and Humidity Sensor Management",
+        "name_en": "Temperature and Humidity Management",
         "url": "/monitoring-item-management/temperature-and-humidity-sensor-management"
       },
       {

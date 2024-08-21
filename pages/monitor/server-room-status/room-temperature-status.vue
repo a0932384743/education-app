@@ -124,7 +124,6 @@
 
 <script>
 import lineData from '~/assets/json/room-temperature-status-history.json';
-import items from '~/assets/json/room-temperature-status.json';
 import ChartCard from '~/components/ChartCard.vue';
 import TempAndHumiHistoryModel from '~/components/TempAndHumiHistoryModel.vue';
 import { statusMap } from '~/utils/statusMap';
@@ -190,13 +189,13 @@ export default {
       return lineData;
     },
     items() {
-      return items;
+      return this.$store.getters['tempAndHumi/getTempAndHumiList'];
     },
     pieData() {
       return ['normal', 'abnormal', 'non-warning'].map((status) => {
         return {
           name: status,
-          value: items.filter((item) => item.status === status).length,
+          value: this.items.filter((item) => item.status === status).length,
         };
       });
     },
