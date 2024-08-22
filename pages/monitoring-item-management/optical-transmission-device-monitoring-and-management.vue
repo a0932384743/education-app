@@ -26,10 +26,10 @@
             hide-default-footer
             :item-class="setRowClass"
           >
-            <template #[`header.pre_fec_bit_error_rate`]="{ header }">
+            <template #[`header.pre_fec_bit_error_rate_alert`]="{ header }">
               <span v-html="header.text"></span>
             </template>
-            <template #[`header.uncorrectable_bit_errors`]="{ header }">
+            <template #[`header.uncorrectable_bit_errors_alert`]="{ header }">
               <span v-html="header.text"></span>
             </template>
             <template #[`header.operate`]="{ header }">
@@ -40,11 +40,13 @@
                 </v-btn>
               </div>
             </template>
-            <template #[`item.received_power`]="{ item }">
-              <div v-if="!item.editable">{{ item.received_power }} dBM</div>
+            <template #[`item.received_power_alert`]="{ item }">
+              <div v-if="!item.editable">
+                {{ item.received_power_alert }} dBm
+              </div>
               <v-text-field
                 v-else
-                v-model="item.received_power"
+                v-model="item.received_power_alert"
                 type="number"
                 small
                 label=""
@@ -54,13 +56,13 @@
                 ]"
               />
             </template>
-            <template #[`item.optical_signal_to_noise_ratio`]="{ item }">
+            <template #[`item.optical_signal_to_noise_ratio_alert`]="{ item }">
               <div v-if="!item.editable">
-                {{ item.optical_signal_to_noise_ratio }} dB
+                {{ item.optical_signal_to_noise_ratio_alert }} dB
               </div>
               <v-text-field
                 v-else
-                v-model="item.optical_signal_to_noise_ratio"
+                v-model="item.optical_signal_to_noise_ratio_alert"
                 type="number"
                 small
                 label=""
@@ -70,11 +72,13 @@
                 ]"
               />
             </template>
-            <template #[`item.pre_fec_bit_error_rate`]="{ item }">
-              <div v-if="!item.editable">{{ item.pre_fec_bit_error_rate }}</div>
+            <template #[`item.pre_fec_bit_error_rate_alert`]="{ item }">
+              <div v-if="!item.editable">
+                {{ item.pre_fec_bit_error_rate_alert }}
+              </div>
               <v-text-field
                 v-else
-                v-model="item.pre_fec_bit_error_rate"
+                v-model="item.pre_fec_bit_error_rate_alert"
                 small
                 label=""
                 required
@@ -83,13 +87,13 @@
                 ]"
               />
             </template>
-            <template #[`item.uncorrectable_bit_errors`]="{ item }">
+            <template #[`item.uncorrectable_bit_errors_alert`]="{ item }">
               <div v-if="!item.editable">
-                {{ item.uncorrectable_bit_errors }}
+                {{ item.uncorrectable_bit_errors_alert }}
               </div>
               <v-text-field
                 v-else
-                v-model="item.uncorrectable_bit_errors"
+                v-model="item.uncorrectable_bit_errors_alert"
                 type="number"
                 small
                 label=""
@@ -106,7 +110,7 @@
                   :disabled="Object.keys(item).some((key) => item[key] === '')"
                   :color="item.editable ? 'secondary' : 'info'"
                   @click="
-                    Object.keys(item).every((key) => item[key])
+                    Object.keys(item).every((key) => item[key] !== '')
                       ? (item.editable = !item.editable)
                       : (item.editable = true)
                   "
@@ -136,15 +140,16 @@
 </template>
 
 <script>
-import moment from 'moment';
-import { statusMap } from '~/utils/statusMap';
+import moment from 'moment'
+import { statusMap } from '~/utils/statusMap'
 export default {
   name: 'OpticalTransmissionDeviceMonitoringStatus',
   layout: 'admin-layout',
   data() {
     return {
       statusMap,
-    };
+      items: [],
+    }
   },
   computed: {
     headers() {
@@ -165,37 +170,37 @@ export default {
         },
         {
           text: this.$t('received.power'),
-          value: 'received_power',
+          value: 'received_power_alert',
         },
         {
           text: this.$t('optical.signal.to.noise.ratio'),
-          value: 'optical_signal_to_noise_ratio',
+          value: 'optical_signal_to_noise_ratio_alert',
         },
         {
           text: this.$t('pre.fec.bit.error.rate'),
-          value: 'pre_fec_bit_error_rate',
+          value: 'pre_fec_bit_error_rate_alert',
         },
         {
           text: this.$t('uncorrectable.bit.errors'),
-          value: 'uncorrectable_bit_errors',
+          value: 'uncorrectable_bit_errors_alert',
         },
         { text: this.$t('operate'), value: 'operate', sortable: false },
-      ];
-    },
-    items() {
-      return this.$store.getters['optical/getOpticalList'].map((l) => ({
-        ...l,
-        editable: false,
-      }));
+      ]
     },
   },
+  created() {
+    this.items = this.$store.getters['optical/getOpticalList'].map((l) => ({
+      ...l,
+      editable: false,
+    }))
+  },
   destroyed() {
-    this.$store.dispatch('optical/setOpticalList', this.items);
+    this.$store.dispatch('optical/setOpticalList', this.items)
   },
   methods: {
     setRowClass() {
       if (this.$vuetify.breakpoint.smAndDown) {
-        return '';
+        return ''
       }
     },
     onAdd() {
@@ -209,11 +214,11 @@ export default {
         status: 'normal',
         uncorrectable_bit_errors: 0,
         editable: true,
-      });
+      })
     },
     onDelete(item) {
-      this.items = this.items.filter((i) => i.id !== item.id);
+      this.items = this.items.filter((i) => i.id !== item.id)
     },
   },
-};
+}
 </script>

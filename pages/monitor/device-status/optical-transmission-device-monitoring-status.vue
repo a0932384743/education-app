@@ -68,10 +68,10 @@
               </td>
             </template>
             <template #[`item.received_power`]="{ item }">
-              {{item.received_power}} dBM
+              {{ item.received_power }} dBm
             </template>
             <template #[`item.optical_signal_to_noise_ratio`]="{ item }">
-              {{item.optical_signal_to_noise_ratio}} dB
+              {{ item.optical_signal_to_noise_ratio }} dB
             </template>
           </v-data-table>
         </template>
@@ -108,7 +108,7 @@ export default {
         {
           text: this.$t('check.time'),
           value: 'check_time',
-          cellClass: 'text-no-wrap'
+          cellClass: 'text-no-wrap',
         },
         {
           text: this.$t('received.power'),
@@ -132,7 +132,36 @@ export default {
       return lineData;
     },
     items() {
-      return this.$store.getters['optical/getOpticalList'];
+      return this.$store.getters['optical/getOpticalList'].map((l) => {
+        let status = 'non-warning';
+        if (l.is_alert) {
+          let alertCount = 0;
+          if (
+            l.optical_signal_to_noise_ratio >
+            l.optical_signal_to_noise_ratio_alert
+          ) {
+            alertCount = alertCount + 1;
+          }
+          if (l.pre_fec_bit_error_rate > l.pre_fec_bit_error_rate_alert) {
+            alertCount = alertCount + 1;
+          }
+          if (l.received_power > l.received_power_alert) {
+            alertCount = alertCount + 1;
+          }
+          if (l.uncorrectable_bit_errors > l.uncorrectable_bit_errors_alert) {
+            alertCount = alertCount + 1;
+          }
+          if (alertCount > 1) {
+            status = 'abnormal';
+          } else {
+            status = 'normal';
+          }
+        }
+        return {
+          ...l,
+          status,
+        };
+      });
     },
     pieData() {
       return ['normal', 'abnormal', 'non-warning'].map((status) => {

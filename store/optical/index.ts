@@ -12,6 +12,12 @@ type Optical = {
   pre_fec_bit_error_rate: string
   received_power: number
   uncorrectable_bit_errors: number
+  optical_signal_to_noise_ratio_alert: string
+  pre_fec_bit_error_rate_alert: string
+  received_power_alert: number
+  uncorrectable_bit_errors_alert: number
+  status:string
+  is_alert:boolean
 }
 
 type State = {
