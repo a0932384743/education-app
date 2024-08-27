@@ -91,7 +91,7 @@
                 <v-progress-linear
                   v-model="item.packageLossRate"
                   striped
-                  :color="item.packageLossRate ? 'success' : 'error'"
+                  :color="item.packageLossRate ? 'normal' : 'error'"
                   height="10"
                 ></v-progress-linear>
               </div>
