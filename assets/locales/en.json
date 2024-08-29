@@ -37,6 +37,9 @@
   "bandwidth": "Bandwidth",
   "bandwidth.usage": "Bandwidth Usage",
   "basic.setting": "Basic Settings",
+  "battery.capacity": "Battery Capacity",
+  "battery.health": "Battery Health",
+  "battery.voltage": "Battery Voltage",
   "bgp.community": "BGP Community",
   "bgp.status": "BGP Status",
   "bgp.status.check.time": "BGP Status Check Time",
@@ -95,6 +98,7 @@
   "established": "Established",
   "event": "Event",
   "event.category": "Category",
+  "event.count": "Event Count",
   "event.description": "Description",
   "event.device": "Device",
   "event.duration": "Duration",
@@ -171,6 +175,7 @@
   "low.critical.voltage": "Low Critical Voltage",
   "low.temperature": "Temperature Low Threshold",
   "low.threshold": "Low Threshold",
+  "mains.power.interruption": "Mains Power Interruption",
   "memory": "Memory",
   "memory.usage": "Memory Usage",
   "minutes": "{0} Min.",
@@ -334,9 +339,5 @@
   "電路介面管理-國內電路-新增資通設備": "Circuit Interface Management - Domestic Circuit - Add Telecommunication Equipment",
   "電路介面管理-國內電路界接介面資料維護": "Circuit Interface Management - Domestic Circuit Interface Data Maintenance",
   "電路介面管理-資策會界接介面資料維護": "Circuit Interface Management - III-NCNU Interface Data Maintenance",
-  "電路狀態-國內骨幹電路狀態": "Circuit Status-Domestic Backbone Circuit Status",
-  "battery.health": "Battery Health",
-  "battery.capacity": "Battery Capacity",
-  "mains.power.interruption": "Mains Power Interruption",
-  "battery.voltage": "Battery Voltage"
+  "電路狀態-國內骨幹電路狀態": "Circuit Status-Domestic Backbone Circuit Status"
 }

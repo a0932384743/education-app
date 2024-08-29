@@ -5,6 +5,7 @@
     "contactInfo": "TWAREN Duty 值班人員 (1)",
     "declaredCount": 9280,
     "endpointIpv6Address": "2001:db8::1",
+    "eventCount": 9,
     "gigaPoP": "TPE",
     "id": 1,
     "interfaceDevice": "TWAREN-TN-ASR9001-01",
@@ -16,6 +17,7 @@
     "orgNameEn": "NCT-TP",
     "orgNameZh": "國網中心-新竹本部",
     "receivedCount": 4067,
+    "status": "normal",
     "whoisOrgID": "ORG001"
   },
   {
@@ -24,6 +26,7 @@
     "contactInfo": "TWAREN Duty 值班人員 (2)",
     "declaredCount": 4890,
     "endpointIpv6Address": "2001:db8:1::1",
+    "eventCount": 1,
     "gigaPoP": "TXG",
     "id": 2,
     "interfaceDevice": "TWAREN-TN-ASR9001-02",
@@ -35,6 +38,7 @@
     "orgNameEn": "NCT-TXG",
     "orgNameZh": "國網中心-台中分部",
     "receivedCount": 5061,
+    "status": "abnormal",
     "whoisOrgID": "ORG002"
   },
   {
@@ -43,6 +47,7 @@
     "contactInfo": "TWAREN Duty 值班人員 (3)",
     "declaredCount": 8204,
     "endpointIpv6Address": "2001:db8:2::1",
+    "eventCount": 7,
     "gigaPoP": "KHH",
     "id": 3,
     "interfaceDevice": "TWAREN-TN-ASR9001-03",
@@ -54,6 +59,7 @@
     "orgNameEn": "NCT-TNN",
     "orgNameZh": "國網中心-台南分部",
     "receivedCount": 1783,
+    "status": "normal",
     "whoisOrgID": "ORG003"
   },
   {
@@ -62,6 +68,7 @@
     "contactInfo": "TWAREN Duty 值班人員 (4)",
     "declaredCount": 7651,
     "endpointIpv6Address": "2001:db8:3::1",
+    "eventCount": 4,
     "gigaPoP": "HUN",
     "id": 4,
     "interfaceDevice": "TWAREN-TN-ASR9001-04",
@@ -73,6 +80,7 @@
     "orgNameEn": "NCT-TNN",
     "orgNameZh": "國網中心-台南分部",
     "receivedCount": 58,
+    "status": "normal",
     "whoisOrgID": "ORG004"
   },
   {
@@ -81,6 +89,7 @@
     "contactInfo": "TWAREN Duty 值班人員 (5)",
     "declaredCount": 2730,
     "endpointIpv6Address": "2001:db8:4::1",
+    "eventCount": 10,
     "gigaPoP": "TNN",
     "id": 5,
     "interfaceDevice": "TWAREN-TN-ASR9001-05",
@@ -92,6 +101,7 @@
     "orgNameEn": "NCT-TNN",
     "orgNameZh": "國網中心-台南分部",
     "receivedCount": 8304,
+    "status": "abnormal",
     "whoisOrgID": "ORG005"
   },
   {
@@ -100,6 +110,7 @@
     "contactInfo": "TWAREN Duty 值班人員 (6)",
     "declaredCount": 281,
     "endpointIpv6Address": "2001:db8:5::1",
+    "eventCount": 9,
     "gigaPoP": "MIA",
     "id": 6,
     "interfaceDevice": "TWAREN-TN-ASR9001-06",
@@ -111,6 +122,7 @@
     "orgNameEn": "NCT-TP",
     "orgNameZh": "國網中心-新竹本部",
     "receivedCount": 8176,
+    "status": "normal",
     "whoisOrgID": "ORG006"
   },
   {
@@ -119,6 +131,7 @@
     "contactInfo": "TWAREN Duty 值班人員 (7)",
     "declaredCount": 7013,
     "endpointIpv6Address": "2001:db8:6::1",
+    "eventCount": 1,
     "gigaPoP": "CYI",
     "id": 7,
     "interfaceDevice": "TWAREN-TN-ASR9001-07",
@@ -130,6 +143,7 @@
     "orgNameEn": "NCT-TXG",
     "orgNameZh": "國網中心-台中分部",
     "receivedCount": 9293,
+    "status": "abnormal",
     "whoisOrgID": "ORG007"
   },
   {
@@ -138,6 +152,7 @@
     "contactInfo": "TWAREN Duty 值班人員 (8)",
     "declaredCount": 1576,
     "endpointIpv6Address": "2001:db8:7::1",
+    "eventCount": 9,
     "gigaPoP": "ILA",
     "id": 8,
     "interfaceDevice": "TWAREN-TN-ASR9001-08",
@@ -149,6 +164,7 @@
     "orgNameEn": "NCT-TP",
     "orgNameZh": "國網中心-新竹本部",
     "receivedCount": 7375,
+    "status": "normal",
     "whoisOrgID": "ORG008"
   },
   {
@@ -157,6 +173,7 @@
     "contactInfo": "TWAREN Duty 值班人員 (9)",
     "declaredCount": 5657,
     "endpointIpv6Address": "2001:db8:8::1",
+    "eventCount": 3,
     "gigaPoP": "TTT",
     "id": 9,
     "interfaceDevice": "TWAREN-TN-ASR9001-09",
@@ -168,6 +185,7 @@
     "orgNameEn": "NCT-TNN",
     "orgNameZh": "國網中心-台南分部",
     "receivedCount": 9185,
+    "status": "normal",
     "whoisOrgID": "ORG009"
   },
   {
@@ -176,6 +194,7 @@
     "contactInfo": "TWAREN Duty 值班人員 (10)",
     "declaredCount": 8981,
     "endpointIpv6Address": "2001:db8:9::1",
+    "eventCount": 5,
     "gigaPoP": "HSZ",
     "id": 10,
     "interfaceDevice": "TWAREN-TN-ASR9001-10",
@@ -187,6 +206,7 @@
     "orgNameEn": "NCT-TP",
     "orgNameZh": "國網中心-新竹本部",
     "receivedCount": 4696,
+    "status": "normal",
     "whoisOrgID": "ORG010"
   },
   {
@@ -195,6 +215,7 @@
     "contactInfo": "TWAREN Duty 值班人員 (11)",
     "declaredCount": 9684,
     "endpointIpv6Address": "2001:db8:10::1",
+    "eventCount": 3,
     "gigaPoP": "PIF",
     "id": 11,
     "interfaceDevice": "TWAREN-TN-ASR9001-11",
@@ -206,6 +227,7 @@
     "orgNameEn": "NCT-TNN",
     "orgNameZh": "國網中心-台南分部",
     "receivedCount": 6250,
+    "status": "normal",
     "whoisOrgID": "ORG011"
   },
   {
@@ -214,6 +236,7 @@
     "contactInfo": "TWAREN Duty 值班人員 (12)",
     "declaredCount": 8853,
     "endpointIpv6Address": "2001:db8:11::1",
+    "eventCount": 3,
     "gigaPoP": "TTT",
     "id": 12,
     "interfaceDevice": "TWAREN-TN-ASR9001-12",
@@ -225,6 +248,7 @@
     "orgNameEn": "NCT-TNN",
     "orgNameZh": "國網中心-台南分部",
     "receivedCount": 564,
+    "status": "normal",
     "whoisOrgID": "ORG012"
   },
   {
@@ -233,6 +257,7 @@
     "contactInfo": "TWAREN Duty 值班人員 (13)",
     "declaredCount": 5299,
     "endpointIpv6Address": "2001:db8:12::1",
+    "eventCount": 10,
     "gigaPoP": "HSZ",
     "id": 13,
     "interfaceDevice": "TWAREN-TN-ASR9001-13",
@@ -244,6 +269,7 @@
     "orgNameEn": "NCT-TXG",
     "orgNameZh": "國網中心-台中分部",
     "receivedCount": 4380,
+    "status": "normal",
     "whoisOrgID": "ORG013"
   },
   {
@@ -252,6 +278,7 @@
     "contactInfo": "TWAREN Duty 值班人員 (14)",
     "declaredCount": 9460,
     "endpointIpv6Address": "2001:db8:13::1",
+    "eventCount": 7,
     "gigaPoP": "ILA",
     "id": 14,
     "interfaceDevice": "TWAREN-TN-ASR9001-14",
@@ -263,6 +290,7 @@
     "orgNameEn": "NCT-TXG",
     "orgNameZh": "國網中心-台中分部",
     "receivedCount": 1120,
+    "status": "normal",
     "whoisOrgID": "ORG014"
   },
   {
@@ -271,6 +299,7 @@
     "contactInfo": "TWAREN Duty 值班人員 (15)",
     "declaredCount": 3719,
     "endpointIpv6Address": "2001:db8:14::1",
+    "eventCount": 6,
     "gigaPoP": "TPE",
     "id": 15,
     "interfaceDevice": "TWAREN-TN-ASR9001-15",
@@ -282,6 +311,7 @@
     "orgNameEn": "NCT-TP",
     "orgNameZh": "國網中心-新竹本部",
     "receivedCount": 4688,
+    "status": "normal",
     "whoisOrgID": "ORG015"
   },
   {
@@ -290,6 +320,7 @@
     "contactInfo": "TWAREN Duty 值班人員 (16)",
     "declaredCount": 9823,
     "endpointIpv6Address": "2001:db8:15::1",
+    "eventCount": 9,
     "gigaPoP": "TXG",
     "id": 16,
     "interfaceDevice": "TWAREN-TN-ASR9001-16",
@@ -301,6 +332,7 @@
     "orgNameEn": "NCT-TNN",
     "orgNameZh": "國網中心-台南分部",
     "receivedCount": 9581,
+    "status": "normal",
     "whoisOrgID": "ORG016"
   },
   {
@@ -309,6 +341,7 @@
     "contactInfo": "TWAREN Duty 值班人員 (17)",
     "declaredCount": 223,
     "endpointIpv6Address": "2001:db8:16::1",
+    "eventCount": 1,
     "gigaPoP": "MIA",
     "id": 17,
     "interfaceDevice": "TWAREN-TN-ASR9001-17",
@@ -320,6 +353,7 @@
     "orgNameEn": "NCT-TXG",
     "orgNameZh": "國網中心-台中分部",
     "receivedCount": 244,
+    "status": "normal",
     "whoisOrgID": "ORG017"
   },
   {
@@ -328,6 +362,7 @@
     "contactInfo": "TWAREN Duty 值班人員 (18)",
     "declaredCount": 6517,
     "endpointIpv6Address": "2001:db8:17::1",
+    "eventCount": 1,
     "gigaPoP": "KHH",
     "id": 18,
     "interfaceDevice": "TWAREN-TN-ASR9001-18",
@@ -339,6 +374,7 @@
     "orgNameEn": "NCT-TNN",
     "orgNameZh": "國網中心-台南分部",
     "receivedCount": 8361,
+    "status": "normal",
     "whoisOrgID": "ORG018"
   },
   {
@@ -347,6 +383,7 @@
     "contactInfo": "TWAREN Duty 值班人員 (19)",
     "declaredCount": 351,
     "endpointIpv6Address": "2001:db8:18::1",
+    "eventCount": 9,
     "gigaPoP": "HUN",
     "id": 19,
     "interfaceDevice": "TWAREN-TN-ASR9001-19",
@@ -358,6 +395,7 @@
     "orgNameEn": "NCT-TP",
     "orgNameZh": "國網中心-新竹本部",
     "receivedCount": 444,
+    "status": "normal",
     "whoisOrgID": "ORG019"
   },
   {
@@ -366,6 +404,7 @@
     "contactInfo": "TWAREN Duty 值班人員 (20)",
     "declaredCount": 8727,
     "endpointIpv6Address": "2001:db8:19::1",
+    "eventCount": 1,
     "gigaPoP": "CYI",
     "id": 20,
     "interfaceDevice": "TWAREN-TN-ASR9001-20",
@@ -377,6 +416,7 @@
     "orgNameEn": "NCT-TXG",
     "orgNameZh": "國網中心-台中分部",
     "receivedCount": 3960,
+    "status": "normal",
     "whoisOrgID": "ORG020"
   },
   {
@@ -385,6 +425,7 @@
     "contactInfo": "TWAREN Duty 值班人員 (21)",
     "declaredCount": 6153,
     "endpointIpv6Address": "2001:db8:20::1",
+    "eventCount": 8,
     "gigaPoP": "TNN",
     "id": 21,
     "interfaceDevice": "TWAREN-TN-ASR9001-21",
@@ -396,6 +437,7 @@
     "orgNameEn": "NCT-TP",
     "orgNameZh": "國網中心-新竹本部",
     "receivedCount": 3043,
+    "status": "normal",
     "whoisOrgID": "ORG021"
   },
   {
@@ -404,6 +446,7 @@
     "contactInfo": "TWAREN Duty 值班人員 (22)",
     "declaredCount": 1874,
     "endpointIpv6Address": "2001:db8:21::1",
+    "eventCount": 8,
     "gigaPoP": "PIF",
     "id": 22,
     "interfaceDevice": "TWAREN-TN-ASR9001-22",
@@ -415,6 +458,7 @@
     "orgNameEn": "NCT-TP",
     "orgNameZh": "國網中心-新竹本部",
     "receivedCount": 6851,
+    "status": "normal",
     "whoisOrgID": "ORG022"
   },
   {
@@ -423,6 +467,7 @@
     "contactInfo": "TWAREN Duty 值班人員 (23)",
     "declaredCount": 3937,
     "endpointIpv6Address": "2001:db8:22::1",
+    "eventCount": 7,
     "gigaPoP": "HSZ",
     "id": 23,
     "interfaceDevice": "TWAREN-TN-ASR9001-23",
@@ -434,6 +479,7 @@
     "orgNameEn": "NCT-TNN",
     "orgNameZh": "國網中心-台南分部",
     "receivedCount": 3192,
+    "status": "abnormal",
     "whoisOrgID": "ORG023"
   },
   {
@@ -442,6 +488,7 @@
     "contactInfo": "TWAREN Duty 值班人員 (24)",
     "declaredCount": 6019,
     "endpointIpv6Address": "2001:db8:23::1",
+    "eventCount": 5,
     "gigaPoP": "ILA",
     "id": 24,
     "interfaceDevice": "TWAREN-TN-ASR9001-24",
@@ -453,6 +500,7 @@
     "orgNameEn": "NCT-TXG",
     "orgNameZh": "國網中心-台中分部",
     "receivedCount": 8414,
+    "status": "normal",
     "whoisOrgID": "ORG024"
   },
   {
@@ -461,6 +509,7 @@
     "contactInfo": "TWAREN Duty 值班人員 (25)",
     "declaredCount": 236,
     "endpointIpv6Address": "2001:db8:24::1",
+    "eventCount": 0,
     "gigaPoP": "TTT",
     "id": 25,
     "interfaceDevice": "TWAREN-TN-ASR9001-25",
@@ -472,6 +521,7 @@
     "orgNameEn": "NCT-TNN",
     "orgNameZh": "國網中心-台南分部",
     "receivedCount": 7525,
+    "status": "normal",
     "whoisOrgID": "ORG025"
   }
 ]

@@ -37,6 +37,9 @@
   "bandwidth": "頻寬",
   "bandwidth.usage": "使用頻寬",
   "basic.setting": "基本設定",
+  "battery.capacity": "電池容量",
+  "battery.health": "電池健康度",
+  "battery.voltage": "電池電位",
   "bgp.community": "BGP Community",
   "bgp.status": "BGP狀態",
   "bgp.status.check.time": "BGP狀態檢查時間",
@@ -95,6 +98,7 @@
   "established": "已建立",
   "event": "事件",
   "event.category": "事件類別",
+  "event.count": "事件數",
   "event.description": "事件描述",
   "event.device": "介接設備/單位",
   "event.duration": "事件持續時間",
@@ -172,6 +176,7 @@
   "low.critical.voltage": "電壓低臨界值",
   "low.temperature": "溫度低門檻值",
   "low.threshold": "低臨界值",
+  "mains.power.interruption": "市電中斷",
   "memory": "記憶體",
   "memory.usage": "記憶體使用率",
   "minutes": "{0}分鐘",
@@ -339,9 +344,5 @@
   "電路介面管理-國內電路界接介面資料維護": "電路介面管理-國內電路界接介面資料維護",
   "電路介面管理-資策會界接介面資料維護": "電路介面管理-資策會界接介面資料維護",
   "電路狀態-國內骨幹電路狀態": "電路狀態-國內骨幹電路狀態",
-  "電路狀態-國際電路界接介面狀況": "電路狀態-國際電路界接介面狀況",
-  "battery.health": "電池健康度",
-  "battery.capacity": "電池容量",
-  "mains.power.interruption": "市電中斷",
-  "battery.voltage": "電池電位"
+  "電路狀態-國際電路界接介面狀況": "電路狀態-國際電路界接介面狀況"
 }
