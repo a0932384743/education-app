@@ -26,56 +26,52 @@
         </template>
       </v-simple-table>
     </v-card>
+    <h3 class="text-center bold">設備節點</h3>
+    <div class="w-100">
+      <v-chart
+        ref="chart"
+        :options="options"
+        class="mx-auto"
+        style="width: 100%; height: 350px"
+      />
+    </div>
     <h3 class="text-center bold">
-      PING測試 <v-chip color="success" class="ma-2" label>測試</v-chip>
+      {{ item.interfaceDevice }} PING測試 <v-chip color="success" class="ma-2" label>測試</v-chip>
     </h3>
     <v-card>
       <v-simple-table fixed-header height="300px">
         <template #default>
           <thead>
             <tr>
-              <th class="text-left">事件類型</th>
-              <th class="text-left">事件描述</th>
-              <th class="text-end">發生時間</th>
+              <th class="text-left">PING目標</th>
+              <th class="text-left">Min(ms)</th>
+              <th class="text-left">Avg(ms)</th>
+              <th class="text-left">Max(ms)</th>
+              <th class="text-left">Stddev(ms)</th>
+              <th class="text-left">Packket Loss</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>設備離線</td>
-              <td>{{ item.interfaceDevice }} 離線</td>
-              <td class="text-end">今天 10:02:27</td>
+              <td>103.124.72.0</td>
+              <td>5.274</td>
+              <td>6.703</td>
+              <td>9.528</td>
+              <td>1.998</td>
+              <td>10%</td>
             </tr>
             <tr>
-              <td>設備離線</td>
-              <td>{{ item.interfaceDevice }} 流量異常</td>
-              <td class="text-end">今天 09:02:27</td>
+              <td>103.124.72.0</td>
+              <td>5.274</td>
+              <td>6.703</td>
+              <td>9.528</td>
+              <td>1.998</td>
+              <td>10%</td>
             </tr>
           </tbody>
         </template>
       </v-simple-table>
     </v-card>
-    <h3 class="text-center bold">設備節點</h3>
-    <v-stepper alt-labels class="mb-10">
-      <v-stepper-header>
-        <v-stepper-step step="" color="danger" complete>
-          <samll class="subtitle-2 text-no-wrap"
-            >{{ item.interfaceDevice }}-01</samll
-          >
-        </v-stepper-step>
-        <v-divider></v-divider>
-        <v-stepper-step step="" color="success" complete>
-          <samll class="subtitle-2 text-no-wrap"
-            >{{ item.interfaceDevice }}-02</samll
-          >
-        </v-stepper-step>
-        <v-divider></v-divider>
-        <v-stepper-step step="" color="success" complete>
-          <samll class="subtitle-2 text-no-wrap">
-            {{ item.interfaceDevice }}-03</samll
-          >
-        </v-stepper-step>
-      </v-stepper-header>
-    </v-stepper>
     <h3 class="text-center bold">{{ item.interfaceDevice }} 過往流量比較</h3>
     <div class="d-inline-flex flex-wrap" style="gap: 1rem">
       <v-select
@@ -135,6 +131,7 @@
 
 <script>
 import SmallLineChart from '@/components/SmallLineChart.vue';
+import { colorBrightness } from '@/utils/color';
 
 export default {
   name: 'EventAlert',
@@ -183,6 +180,156 @@ export default {
         },
       ],
     };
+  },
+  computed: {
+    interfaceName(){
+      const arr = this.item.interfaceDevice.split('-');
+      arr.pop();
+      return arr.join('-');
+    },
+    options() {
+      return {
+        legend: {
+          show: false
+        },
+        series: [
+          {
+            type: 'graph',
+            layout: 'none',
+            symbolSize: 50,
+            roam: true,
+            label: {
+              show: true
+            },
+            edgeSymbol: ['circle', 'arrow'],
+            edgeSymbolSize: [4, 10],
+            edgeLabel: {
+              fontSize: 20
+            },
+            links:[
+              {
+                source: `${this.interfaceName}-01`,
+                target: 'cloud',
+                lineStyle: {
+                  cap:'butt',
+                  join: 'miter',
+                  color: '#0098fd',
+                  width: 5,
+                  type: [5, 10],
+                  dashOffset: 5
+                }
+              },
+              {
+                source: `${this.interfaceName}-02`,
+                target: 'cloud',
+                lineStyle: {
+                  cap:'butt',
+                  join: 'miter',
+                  color: '#0098fd',
+                  width: 5,
+                  type: [5, 10],
+                  dashOffset: 5
+                }
+              },
+              {
+                source: `${this.interfaceName}-03`,
+                target: 'cloud',
+                lineStyle: {
+                  cap:'butt',
+                  join: 'miter',
+                  color: '#0098fd',
+                  width: 5,
+                  type: [5, 10],
+                  dashOffset: 5
+                }
+              },
+
+            ],
+            data: [
+              {
+                name: `${this.interfaceName}-01`,
+                x: 300,
+                y: 100,
+                itemStyle: {
+                  borderWidth: 2,
+                  borderColor: this.$vuetify.theme.isDark ? '#fff' : '#aaa',
+                  color: colorBrightness(this.$vuetify.theme.themes[
+                    this.$vuetify.theme.isDark ? 'dark' : 'light'
+                    ].success,1.2)
+                },
+                label: {
+                  align: 'center',
+                  offset: [0, 35],
+                  color: this.$vuetify.theme.isDark ? '#fff' : '#000000',
+                  borderWidth: 0
+                }
+              },
+              {
+                name: `${this.interfaceName }-02`,
+                x: 800,
+                y: 100,
+                itemStyle: {
+                  borderWidth: 2,
+                  borderColor: this.$vuetify.theme.isDark ? '#fff' : '#aaa',
+                  color: colorBrightness(this.$vuetify.theme.themes[
+                    this.$vuetify.theme.isDark ? 'dark' : 'light'
+                    ].success,1.2)
+                },
+                label: {
+                  align: 'center',
+                  offset: [0, 35],
+                  color: this.$vuetify.theme.isDark ? '#fff' : '#000000',
+                  borderWidth: 0
+                }
+              },
+              {
+                name: `${this.interfaceName }-03`,
+                x: 550,
+                y: 200,
+                itemStyle: {
+                  borderWidth: 2,
+                  borderColor: this.$vuetify.theme.isDark ? '#fff' : '#aaa',
+                  color:colorBrightness( this.$vuetify.theme.themes[
+                    this.$vuetify.theme.isDark ? 'dark' : 'light'
+                    ].danger , 1.2)
+                },  draggable: true,
+                label: {
+                  align: 'center',
+                  offset: [0, 35],
+                  color: this.$vuetify.theme.isDark ? '#fff' : '#000000',
+                  borderWidth: 0
+                }
+              },
+              {
+                itemStyle: {
+                  borderWidth: 0,
+                  color: '#FFFFFF00'
+                },
+                name: 'cloud',
+                x: 550,
+                y: 100,
+                label: {
+                  formatter: () => {
+                    return '{img|}\n\n';
+                  },
+                  rich: {
+                    img: {
+                      height: 100,
+                      width: 100,
+                      backgroundColor: {
+                        image: '/image/icons/cloud.png'
+                      }
+                    },
+                  },
+                  align: 'center',
+                  borderWidth: 0
+                }
+              }
+            ]
+          }
+        ]
+      };
+    }
   },
 };
 </script>
