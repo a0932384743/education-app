@@ -68,7 +68,12 @@
           </v-col>
 
           <v-col cols="12" sm="4">
-            <v-text-field v-model="ce_A" label="CE"></v-text-field>
+            <v-select
+              v-model="ce_B"
+              color="info"
+              label="ce_A"
+              :items="['ae0']"
+            ></v-select>
           </v-col>
         </v-row>
       </v-card>
@@ -111,7 +116,7 @@
               v-model="ce_B"
               color="info"
               label="CE"
-              :items="['xe-1/3/0']"
+              :items="['ae0']"
             ></v-select>
           </v-col>
         </v-row>
