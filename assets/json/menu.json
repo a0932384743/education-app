@@ -665,5 +665,24 @@
     "name": "設備組態",
     "name_en": "Device Configuration",
     "url": "/device-configuration"
+  },
+  {
+    "children": [{
+      "children": [],
+      "id": 93,
+      "name": "VPN自動供裝查詢",
+      "name_en": "VPN Auto Provisioning Search",
+      "url": "/vpn-auto-provisioning/search"
+    },{
+      "children": [],
+      "id": 94,
+      "name": "VPN自動供裝設定",
+      "name_en": "VPN Auto Provisioning Settings",
+      "url": "/vpn-auto-provisioning/settings"
+    }],
+    "id": 92,
+    "name": "VPN自動供裝",
+    "name_en": "VPN Auto Provisioning",
+    "url": "/vpn-auto-provisioning"
   }
 ]
