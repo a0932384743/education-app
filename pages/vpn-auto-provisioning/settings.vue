@@ -22,12 +22,12 @@
               color="info"
               label="VLAN ID"
               :items="[
-                '100 (已指配)',
-                '101 (已指配)',
-                '102 (已指配)',
-                '103',
-                '104',
-                '105',
+                { text: '100 (已指配)', disabled: true },
+                { text: '101 (已指配)', disabled: true },
+                { text: '102 (已指配)', disabled: true },
+                { text: '103', disabled: false },
+                { text: '104', disabled: false },
+                { text: '105', disabled: false },
               ]"
             ></v-select>
           </v-col>
@@ -69,7 +69,7 @@
 
           <v-col cols="12" sm="4">
             <v-select
-              v-model="ce_B"
+              v-model="ce_A"
               color="info"
               label="ce_A"
               :items="['ae0']"
@@ -141,7 +141,7 @@ export default {
       pe1_B: '',
       pe2_B: '',
       ce_B: '',
-    }
+    };
   },
-}
+};
 </script>
