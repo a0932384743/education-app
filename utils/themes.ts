@@ -9,7 +9,9 @@ export const lightTheme = {
   secondary: '#D0CDCA',
   background: '#FFFFFF',
   header: '#ffffff',
-  footer: '#c4c4c4',
+  footer: '#333333',
+  indigo: '#3F51B5',
+  cyan: '#00BCD4',
   aside: '#00201c',
   total: '#000000',
   text: '#f3f3f3'
@@ -25,8 +27,10 @@ export const darkTheme = {
   danger: '#f14545',
   secondary: '#e0dad6',
   background: '#141844',
-  header: '#0b0d26',
-  footer: '#0b0d26',
+  header: '#ffffff',
+  footer: '#333333',
+  indigo: '#3F51B5',
+  cyan: '#00BCD4',
   aside: '#00201c',
   total: '#ffffff',
   text: '#0g0g0g'

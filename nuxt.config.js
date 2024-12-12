@@ -27,17 +27,17 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'TWAREN 100G INMS' },
+      { hid: 'description', name: 'description', content: 'AERO POWER' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['~/assets/css/scrollbar.css', '~/assets/css/switch.css' , '~/assets/css/custom.css'],
+  css: ['~/assets/css/custom.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/echarts', '~/plugins/draggable' , '~/plugins/snackbar'],
+  plugins: ['~/plugins/snackbar'],
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
   pageTransition: {
