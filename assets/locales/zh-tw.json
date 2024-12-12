@@ -1,3 +1,15 @@
 {
- "app.name": "超聯通風"
+  "About.Company": "關於公司",
+  "About.Us": "關於我們",
+  "Articles": "文章",
+  "Contact.Us": "聯絡我們",
+  "Downloads": "下載",
+  "EVAP.FAN": "蒸發風扇",
+  "FAQs": "常見問題",
+  "Global.Layout": "全球布局",
+  "HVLS.FAN": "大風量低速風扇",
+  "Home": "首頁",
+  "Product": "產品",
+  "Resource": "資源",
+  "app.name": "超聯興業有限公司"
 }

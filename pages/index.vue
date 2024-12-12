@@ -1,5 +1,7 @@
 <template>
   <div>
+    <panel-fan/>
+    <aero-power-page/>
     <air-supply-fan/>
     <eva-porative/>
     <product-inquiry />

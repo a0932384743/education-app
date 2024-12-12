@@ -4,7 +4,7 @@
       <v-container ref="header" fluid>
         <div class="d-flex align-center">
           <!-- Logo Section -->
-          <v-img src="/logo.png" alt="Logo" max-width="150px" contain />
+          <v-img :src="currentLocale=== 'ENGLISH' ? 'logo-zh.svg': 'logo-en.svg'" alt="Logo" max-width="200px" contain />
           <v-btn icon class="d-md-none" @click="showMenu = !showMenu">
             <v-icon light color="black">mdi-menu</v-icon>
           </v-btn>
@@ -19,14 +19,15 @@
                 color="white"
                 :to="m.url"
                 class="menu-item"
-                >{{ m.name }}</v-btn
+                >{{ $t(m.name) }}</v-btn
               >
               <v-menu
                 v-else
                 :key="'lg_' + m.name"
                 bottom
-                content-class="mt-13"
+                content-class="pt-5 bg-none"
                 rounded="0"
+                offset-y
                 transition="slide-y-transition"
                 open-on-hover
               >
@@ -37,10 +38,10 @@
                     v-bind="attrs"
                     class="menu-item"
                     v-on="on"
-                    >{{ m.name }}</v-btn
+                    >{{ $t(m.name) }}</v-btn
                   >
                 </template>
-                <v-list class="py-0 rounded-0" color="indigo darken-1">
+                <v-list class="rounded-0" color="indigo darken-3">
                   <v-list-item
                     v-for="c in m.children"
                     :key="'lg_c' + m.name + '_' + c.name"
@@ -49,7 +50,7 @@
                     link
                     :to="c.url"
                   >
-                    <v-list-item-title>{{ c.name }}</v-list-item-title>
+                    <v-list-item-title>{{ $t(c.name) }}</v-list-item-title>
                   </v-list-item>
                 </v-list>
               </v-menu>
@@ -87,7 +88,7 @@
               <v-list-item-icon>
                 <v-icon>mdi-home</v-icon>
               </v-list-item-icon>
-              <v-list-item-title>{{ m.name }}</v-list-item-title>
+              <v-list-item-title>{{ $t(m.name) }}</v-list-item-title>
             </v-list-item>
             <v-list-group
               v-else
@@ -99,7 +100,7 @@
             >
               <template #activator>
                 <v-list-item-content>
-                  <v-list-item-title>{{ m.name }}</v-list-item-title>
+                  <v-list-item-title>{{ $t(m.name) }}</v-list-item-title>
                 </v-list-item-content>
               </template>
 
@@ -110,7 +111,7 @@
                 class="sub-menu"
               >
                 <v-list-item-content>
-                  <v-list-item-title>{{ c.name }}</v-list-item-title>
+                  <v-list-item-title>{{ $t(c.name) }}</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
             </v-list-group>
@@ -139,16 +140,16 @@ export default {
           children: [],
         },
         {
-          name: 'About Company',
+          name: 'About.Company',
           url: '/about-company',
           children: [
             {
-              name: 'About Us',
+              name: 'About.Us',
               url: '/about-company/about-us',
               children: [],
             },
             {
-              name: 'Global Layout',
+              name: 'Global.Layout',
               url: '/about-company/global-layout',
               children: [],
             },
@@ -157,15 +158,35 @@ export default {
         {
           name: 'Product',
           url: '/product',
-          children: [],
+          children: [{
+            name: 'HVLS.FAN',
+            url: '/product/hvls-fan',
+            children: [],
+          },{
+            name: 'EVAP.FAN',
+            url: '/product/evap-fan',
+            children: [],
+          }],
         },
         {
           name: 'Resource',
           url: '/resource',
-          children: [],
+          children: [{
+            name: 'Articles',
+            url: '/resource/articles',
+            children: [],
+          },{
+            name: 'Downloads',
+            url: '/resource/downloads',
+            children: [],
+          },{
+            name: 'FAQs',
+            url: '/resource/faqs',
+            children: [],
+          }],
         },
         {
-          name: 'Contact Us',
+          name: 'Contact.Us',
           url: '/contact-us',
           children: [],
         },
@@ -330,5 +351,10 @@ export default {
   position: fixed;
   top: 0;
   z-index: 1000;
+}
+
+.bg-none{
+  background-color: transparent !important;
+  box-shadow: none !important;
 }
 </style>

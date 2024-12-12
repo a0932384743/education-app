@@ -1,7 +1,7 @@
 <template>
   <v-container class="py-8 px-12 white bg" fluid>
     <h3 class="font-weight-bold text-h3 mb-4 white--text">AIR SUPPLY FAN</h3>
-    <p style="font-size: 14px;max-width: calc(100% - 3rem)" class="white--text">
+    <p style="font-size: 14px;max-width: calc(100% - 10rem)" class="white--text">
       Leveraging the high-temperature and corrosion resistance of FRP
       (Fiber-Reinforced Plastic), these fans are perfect for livestock
       facilities or evaporative media systems. They provide excellent air
