@@ -4,7 +4,12 @@
       <v-container ref="header" fluid>
         <div class="d-flex align-center">
           <!-- Logo Section -->
-          <v-img :src="currentLocale=== 'ENGLISH' ? 'logo-zh.svg': 'logo-en.svg'" alt="Logo" max-width="200px" contain />
+          <v-img
+            :src="currentLocale === 'ENGLISH' ? 'logo-zh.svg' : 'logo-en.svg'"
+            alt="Logo"
+            max-width="350px"
+            contain
+          />
           <v-btn icon class="d-md-none" @click="showMenu = !showMenu">
             <v-icon light color="black">mdi-menu</v-icon>
           </v-btn>
@@ -18,7 +23,7 @@
                 text
                 color="white"
                 :to="m.url"
-                class="menu-item"
+                class="menu-item text-lg-h6 text-subtitle-1 text-uppercase"
                 >{{ $t(m.name) }}</v-btn
               >
               <v-menu
@@ -36,7 +41,7 @@
                     text
                     color="white"
                     v-bind="attrs"
-                    class="menu-item"
+                    class="menu-item text-lg-h6 text-subtitle-1"
                     v-on="on"
                     >{{ $t(m.name) }}</v-btn
                   >
@@ -50,7 +55,10 @@
                     link
                     :to="c.url"
                   >
-                    <v-list-item-title>{{ $t(c.name) }}</v-list-item-title>
+                    <v-list-item-title
+                      class="text-lg-h6 text-subtitle-1 text-uppercase"
+                      >{{ $t(c.name) }}</v-list-item-title
+                    >
                   </v-list-item>
                 </v-list>
               </v-menu>
@@ -74,7 +82,7 @@
           elevation="0"
           class="shadow-bottom rounded-0 d-md-none"
           :style="{
-            top: $refs.header.clientHeight + 15 + 'px',
+            top: $refs.header.clientHeight - 20 + 'px',
           }"
           style="width: 100%; position: absolute; left: 0"
         >
@@ -88,7 +96,9 @@
               <v-list-item-icon>
                 <v-icon>mdi-home</v-icon>
               </v-list-item-icon>
-              <v-list-item-title>{{ $t(m.name) }}</v-list-item-title>
+              <v-list-item-title class="text-uppercase">{{
+                $t(m.name)
+              }}</v-list-item-title>
             </v-list-item>
             <v-list-group
               v-else
@@ -100,7 +110,9 @@
             >
               <template #activator>
                 <v-list-item-content>
-                  <v-list-item-title>{{ $t(m.name) }}</v-list-item-title>
+                  <v-list-item-title class="text-uppercase">{{
+                    $t(m.name)
+                  }}</v-list-item-title>
                 </v-list-item-content>
               </template>
 
@@ -111,7 +123,9 @@
                 class="sub-menu"
               >
                 <v-list-item-content>
-                  <v-list-item-title>{{ $t(c.name) }}</v-list-item-title>
+                  <v-list-item-title class="text-uppercase">{{
+                    $t(c.name)
+                  }}</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
             </v-list-group>
@@ -130,63 +144,179 @@
 export default {
   name: 'DefaultLayout',
   layout: 'DefaultLayout',
-  data() {
+  asyncData(){
     return {
-      showMenu: false,
       menus: [
         {
-          name: 'Home',
+          name: 'home',
           url: '/',
           children: [],
         },
         {
-          name: 'About.Company',
+          name: 'about.company',
           url: '/about-company',
           children: [
             {
-              name: 'About.Us',
+              name: 'about.us',
               url: '/about-company/about-us',
               children: [],
             },
             {
-              name: 'Global.Layout',
+              name: 'global.layout',
               url: '/about-company/global-layout',
               children: [],
             },
           ],
         },
         {
-          name: 'Product',
+          name: 'product',
           url: '/product',
-          children: [{
-            name: 'HVLS.FAN',
-            url: '/product/hvls-fan',
-            children: [],
-          },{
-            name: 'EVAP.FAN',
-            url: '/product/evap-fan',
-            children: [],
-          }],
+          children: [
+            {
+              name: 'hvls.fan',
+              url: '/product/hvls-fan',
+              children: [],
+            },
+            {
+              name: 'evap.fan',
+              url: '/product/evap-fan',
+              children: [],
+            },
+            {
+              name: 'exhaust.fan',
+              url: '/product/exhaust-fan',
+              children: [],
+            },
+            {
+              name: 'air.supply.fan',
+              url: '/product/air-supply-fan',
+              children: [],
+            },
+            {
+              name: 'controllers',
+              url: '/product/controllers',
+              children: [],
+            },
+            {
+              name: 'accessories',
+              url: '/product/accessories',
+              children: [],
+            },
+          ],
         },
         {
-          name: 'Resource',
+          name: 'resource',
           url: '/resource',
-          children: [{
-            name: 'Articles',
-            url: '/resource/articles',
-            children: [],
-          },{
-            name: 'Downloads',
-            url: '/resource/downloads',
-            children: [],
-          },{
-            name: 'FAQs',
-            url: '/resource/faqs',
-            children: [],
-          }],
+          children: [
+            {
+              name: 'articles',
+              url: '/resource/articles',
+              children: [],
+            },
+            {
+              name: 'downloads',
+              url: '/resource/downloads',
+              children: [],
+            },
+            {
+              name: 'faqs',
+              url: '/resource/faqs',
+              children: [],
+            },
+          ],
         },
         {
-          name: 'Contact.Us',
+          name: 'contact.us',
+          url: '/contact-us',
+          children: [],
+        },
+      ],
+    };
+  },
+  data() {
+    return {
+      showMenu: false,
+      menus: [
+        {
+          name: 'home',
+          url: '/',
+          children: [],
+        },
+        {
+          name: 'about.company',
+          url: '/about-company',
+          children: [
+            {
+              name: 'about.us',
+              url: '/about-company/about-us',
+              children: [],
+            },
+            {
+              name: 'global.layout',
+              url: '/about-company/global-layout',
+              children: [],
+            },
+          ],
+        },
+        {
+          name: 'product',
+          url: '/product',
+          children: [
+            {
+              name: 'hvls.fan',
+              url: '/product/hvls-fan',
+              children: [],
+            },
+            {
+              name: 'evap.fan',
+              url: '/product/evap-fan',
+              children: [],
+            },
+            {
+              name: 'exhaust.fan',
+              url: '/product/exhaust-fan',
+              children: [],
+            },
+            {
+              name: 'air.supply.fan',
+              url: '/product/air-supply-fan',
+              children: [],
+            },
+            {
+              name: 'controllers',
+              url: '/product/controllers',
+              children: [],
+            },
+            {
+              name: 'accessories',
+              url: '/product/accessories',
+              children: [],
+            },
+          ],
+        },
+        {
+          name: 'resource',
+          url: '/resource',
+          children: [
+            {
+              name: 'articles',
+              url: '/resource/articles',
+              children: [],
+            },
+            {
+              name: 'downloads',
+              url: '/resource/downloads',
+              children: [],
+            },
+            {
+              name: 'faqs',
+              url: '/resource/faqs',
+              children: [],
+            },
+          ],
+        },
+        {
+          name: 'contact.us',
           url: '/contact-us',
           children: [],
         },
@@ -222,14 +352,14 @@ export default {
   }
 
   &.v-btn--active .v-btn__content {
-    color: orange !important;
+    color: var(--v-orange-base) !important;
   }
 
   &:hover {
     background-color: transparent;
     color: transparent;
     & > .v-btn__content {
-      color: orange !important;
+      color: var(--v-orange-base) !important;
     }
 
     &::after {
@@ -266,7 +396,7 @@ export default {
       right: 0;
       bottom: -12px;
       height: 16px;
-      background-color: var(--v-indigo-darken3);
+      background-color: var(--v-blue-base);
       transform: skew(-25deg);
       z-index: 2;
       border-radius: 0;
@@ -306,7 +436,7 @@ export default {
   }
 
   &:hover .v-list-item__title {
-    color: orange !important;
+    color: var(--) !important;
   }
 
   &:hover .v-list-item__title::after {
@@ -317,7 +447,7 @@ export default {
     right: 0;
     bottom: 0;
     height: 2px;
-    background-color: orange;
+    background-color: var(--v-orange-base);
     z-index: 1;
     border-radius: 0;
     opacity: 1;
@@ -336,7 +466,7 @@ export default {
 
 ::v-deep .v-btn.lang-btn {
   border-radius: 0 !important;
-  background-color: var(--v-indigo-darken3);
+  background-color: var(--v-blue-base);
   height: auto;
   padding: 5px 20px 5px 35px;
   clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 25% -55%, 5% 0%);
@@ -353,7 +483,7 @@ export default {
   z-index: 1000;
 }
 
-.bg-none{
+.bg-none {
   background-color: transparent !important;
   box-shadow: none !important;
 }

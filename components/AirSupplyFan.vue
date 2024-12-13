@@ -1,15 +1,8 @@
 <template>
-  <v-container class="py-8 px-12 white bg" fluid>
-    <h3 class="font-weight-bold text-h3 mb-4 white--text">AIR SUPPLY FAN</h3>
-    <p style="font-size: 14px;max-width: calc(100% - 10rem)" class="white--text">
-      Leveraging the high-temperature and corrosion resistance of FRP
-      (Fiber-Reinforced Plastic), these fans are perfect for livestock
-      facilities or evaporative media systems. They provide excellent air
-      circulation, even in hard-to-reach areas, with easy installation and
-      direct-drive motors for minimal noise. They also allow
-      post-installation angle adjustments and can be upgraded to a brushless
-      DC motor. Additionally, an optional mobile base offers flexible
-      airflow direction.
+  <v-container class="py-10 px-12 white bg d-flex flex-column" fluid>
+    <h3 class="font-weight-bold text-md-h2 text-h4 mb-0 white--text animate__animated animate__slideInLeft text-uppercase">{{$t('air.supply.fan')}}</h3>
+    <p style="font-size: 14px;max-width: 800px;z-index: 5" class="white--text animate__animated animate__fadeInUp">
+      {{$t('message6')}}
     </p>
   </v-container>
 </template>

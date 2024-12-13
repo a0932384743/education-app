@@ -5,15 +5,27 @@
         <!-- 左邊公司資訊 -->
         <v-col cols="12" sm="6" md="4" class="text-left">
           <h5 class="font-weight-bold title mb-8">
-            Aeropower Ventilation Co., Ltd.
+            {{ $t('app.info') }}
           </h5>
-          <p class="text-subtitle-2 mb-0">No.171, Wufu W. Rd., Wufong Dist.,</p>
-          <p class="text-subtitle-2 mb-0">Taichung City 41355, Taiwan</p>
+          <p class="text-subtitle-2 mb-0">{{ $t('app.address1') }}</p>
+          <p class="text-subtitle-2 mb-0">{{ $t('app.address2') }}</p>
           <div class="my-14" />
 
-          <p class="text-subtitle-1 mb-0">TEL: 04-23320088</p>
-          <p class="text-subtitle-1 mb-0">FAX: 04-23320066</p>
-          <p class="text-subtitle-1 mb-0">E-mail: aeropower651@gmail.com</p>
+          <a
+            class="text-subtitle-1 mb-0 white--text text-decoration-none fill-width"
+            href="tel:04-23320088"
+            >{{ $t('tel') }}: 04-23320088</a
+          >
+          <a
+            class="text-subtitle-1 mb-0 white--text text-decoration-none fill-width"
+            href="fax:04-23320088"
+            >{{ $t('fax') }}: 04-23320066</a
+          >
+          <a
+            class="text-subtitle-1 mb-0 white--text text-decoration-none fill-width"
+            href="mailto:aeropower651@gmail.com"
+            >E-mail: aeropower651@gmail.com</a
+          >
           <div class="my-4" />
           <div class="d-flex" style="gap: 1rem">
             <v-icon size="30" class="social-icon">mdi-facebook</v-icon>
@@ -24,32 +36,49 @@
         </v-col>
 
         <!-- 中間代表資訊 -->
-        <v-col cols="12"  sm="6" md="4" class="text-left">
-          <h5 class="font-weight-bold title mb-8">Representative of Europe</h5>
-          <p class="text-subtitle-2 mb-8">Location: London, UK</p>
-          <p class="text-subtitle-2 mb-8">TEL: +44 (0) 7591-969585</p>
-          <p class="text-subtitle-2 mb-8">E-Mail: aeropower.sd@gmail.com</p>
+        <v-col cols="12" sm="6" md="4" class="text-left">
+          <h5 class="font-weight-bold title mb-8">{{ $t('app.info1') }}</h5>
+          <p class="text-subtitle-2 mb-2 mb-md-6">{{ $t('app.info2') }}</p>
+          <a
+            class="text-subtitle-1 mb-2 mb-md-6 white--text text-decoration-none fill-width"
+            href="tel:+44-7591-969585"
+            >{{ $t('tel') }}: +44 (0) 7591-969585</a
+          >
+          <a
+            class="text-subtitle-1 mb-2 mb-md-6 white--text text-decoration-none fill-width"
+            href="mailto:aeropower.sd@gmail.com"
+            >E-Mail: aeropower.sd@gmail.com</a
+          >
         </v-col>
 
         <!-- 右邊其他資訊 -->
         <v-col cols="12" sm="4" md="2" class="text-left">
-          <h5 class="font-weight-bold title mb-8">Company</h5>
-          <p class="text-subtitle-2 mb-8">About Us</p>
-          <p class="text-subtitle-2 mb-8">Global Layout</p>
+          <h5 class="font-weight-bold title mb-8">{{ $t(company.name) }}</h5>
+          <nuxt-link
+            v-for="url in company.children"
+            :key="'footer_' + url.name"
+            class="text-subtitle-1 mb-2 mb-md-6 white--text fill-width"
+            :to="url.url"
+            >{{ $t(url.name) }}</nuxt-link
+          >
           <div class="my-8" />
-          <h5 class="font-weight-bold title mb-8">Resources</h5>
-          <p class="text-subtitle-2 mb-8">Articles</p>
-          <p class="text-subtitle-2 mb-8">Downloads</p>
-          <p class="text-subtitle-2 mb-8">FAQs</p>
+          <h5 class="font-weight-bold title mb-8">{{ $t(resource.name) }}</h5>
+          <nuxt-link
+            v-for="url in resource.children"
+            :key="'footer_' + url.name"
+            class="text-subtitle-1 mb-2 mb-md-6 white--text fill-width"
+            :to="url.url"
+            >{{ $t(url.name) }}</nuxt-link
+          >
         </v-col>
         <v-col cols="12" sm="4" md="2" class="text-left">
-          <h5 class="font-weight-bold title mb-8">Product</h5>
-          <p class="text-subtitle-2 mb-8">HVLS fan</p>
-          <p class="text-subtitle-2 mb-8">EVAP fan</p>
-          <p class="text-subtitle-2 mb-8">Exhaust fan</p>
-          <p class="text-subtitle-2 mb-8">Air supply fan</p>
-          <p class="text-subtitle-2 mb-8">Controllers</p>
-          <p class="text-subtitle-2 mb-8">Accessories</p>
+          <h5 class="font-weight-bold title mb-8">{{ $t(product.name) }}</h5>
+          <nuxt-link
+            v-for="url in product.children"
+            :key="'footer_' + url.name"
+            :to="url.url"
+            class="text-subtitle-1 mb-2 mb-md-6 white--text fill-width"
+            >{{ $t(url.name) }}</nuxt-link>
         </v-col>
       </v-row>
       <!-- 底部版權資訊 -->
@@ -65,8 +94,159 @@
 <script>
 export default {
   name: 'CustomFooter',
+  asyncData() {
+    return {
+      product: {
+        name: 'product',
+        url: '/product',
+        children: [
+          {
+            name: 'hvls.fan',
+            url: '/product/hvls-fan',
+            children: [],
+          },
+          {
+            name: 'evap.fan',
+            url: '/product/evap-fan',
+            children: [],
+          },
+          {
+            name: 'exhaust.fan',
+            url: '/product/exhaust-fan',
+            children: [],
+          },
+          {
+            name: 'air.supply.fan',
+            url: '/product/air-supply-fan',
+            children: [],
+          },
+          {
+            name: 'controllers',
+            url: '/product/controllers',
+            children: [],
+          },
+          {
+            name: 'accessories',
+            url: '/product/accessories',
+            children: [],
+          },
+        ],
+      },
+      company: {
+        name: 'company',
+        url: '/about-company',
+        children: [
+          {
+            name: 'about.us',
+            url: '/about-company/about-us',
+            children: [],
+          },
+          {
+            name: 'global.layout',
+            url: '/about-company/global-layout',
+            children: [],
+          },
+        ],
+      },
+      resource: {
+        name: 'resource',
+        url: '/resource',
+        children: [
+          {
+            name: 'articles',
+            url: '/resource/articles',
+            children: [],
+          },
+          {
+            name: 'downloads',
+            url: '/resource/downloads',
+            children: [],
+          },
+          {
+            name: 'faqs',
+            url: '/resource/faqs',
+            children: [],
+          },
+        ],
+      },
+    };
+  },
   data() {
-    return {};
+    return {
+      product: {
+        name: 'product',
+        url: '/product',
+        children: [
+          {
+            name: 'hvls.fan',
+            url: '/product/hvls-fan',
+            children: [],
+          },
+          {
+            name: 'evap.fan',
+            url: '/product/evap-fan',
+            children: [],
+          },
+          {
+            name: 'exhaust.fan',
+            url: '/product/exhaust-fan',
+            children: [],
+          },
+          {
+            name: 'air.supply.fan',
+            url: '/product/air-supply-fan',
+            children: [],
+          },
+          {
+            name: 'controllers',
+            url: '/product/controllers',
+            children: [],
+          },
+          {
+            name: 'accessories',
+            url: '/product/accessories',
+            children: [],
+          },
+        ],
+      },
+      company: {
+        name: 'company',
+        url: '/about-company',
+        children: [
+          {
+            name: 'about.us',
+            url: '/about-company/about-us',
+            children: [],
+          },
+          {
+            name: 'global.layout',
+            url: '/about-company/global-layout',
+            children: [],
+          },
+        ],
+      },
+      resource: {
+        name: 'resource',
+        url: '/resource',
+        children: [
+          {
+            name: 'articles',
+            url: '/resource/articles',
+            children: [],
+          },
+          {
+            name: 'downloads',
+            url: '/resource/downloads',
+            children: [],
+          },
+          {
+            name: 'faqs',
+            url: '/resource/faqs',
+            children: [],
+          },
+        ],
+      },
+    };
   },
 };
 </script>
@@ -85,17 +265,20 @@ h5.title {
     right: 50%;
     bottom: 0;
     height: 3px;
-    background-color: orange;
+    background-color: var(--v-orange-base);
     z-index: 1;
     border-radius: 0;
     opacity: 1;
+  } /* 橙色線條效果 */
+
+  &:hover::after {
     animation-name: after-slide;
     animation-duration: 500ms;
   } /* 橙色線條效果 */
 
   @keyframes after-slide {
     from {
-      right: 0%;
+      right: 100%;
     }
     to {
       right: 50%;
@@ -104,7 +287,7 @@ h5.title {
 }
 
 ::v-deep .v-icon.social-icon:hover {
-  color: orange; /* 滑鼠移入橙色效果 */
+  color: var(--v-orange-base); /* 滑鼠移入橙色效果 */
   cursor: pointer;
   transition: color 500ms;
 }

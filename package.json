@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@nuxtjs/google-tag-manager": "^2.3.2",
+    "animate.css": "^4.1.1",
     "core-js": "^3.25.3",
     "moment": "github:moment/moment",
     "nuxt": "^2.18.1",

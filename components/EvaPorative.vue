@@ -1,16 +1,11 @@
 <template>
-  <v-container class="py-10 px-12 white bg" fluid>
-    <h2 class="font-weight-bold text-h2 mb-0 orange--text" style="position: relative;z-index: 2">EVAPORATIVE</h2>
-    <h2 class="font-weight-bold text-h2 mb-0 white--text" style="position: relative;z-index: 2">COOLER</h2>
-    <p style="font-size: 14px;max-width: calc(100% - 10rem);position: absolute;bottom: 30px;z-index: 2" class="white--text">
-      Leveraging the high-temperature and corrosion resistance of FRP
-      (Fiber-Reinforced Plastic), these fans are perfect for livestock
-      facilities or evaporative media systems. They provide excellent air
-      circulation, even in hard-to-reach areas, with easy installation and
-      direct-drive motors for minimal noise. They also allow
-      post-installation angle adjustments and can be upgraded to a brushless
-      DC motor. Additionally, an optional mobile base offers flexible
-      airflow direction.
+  <v-container class="py-10 px-12 white bg d-flex flex-column justify-space-between" fluid>
+    <div>
+      <h2 class="font-weight-bold text-md-h2 text-h4 mb-0 orange--text animate__animated animate__slideInLeft" style="position: relative;z-index: 5">EVAPORATIVE</h2>
+      <h2 class="font-weight-bold text-md-h2 text-h4 mb-0 white--text animate__animated animate__slideInLeft" style="position: relative;z-index: 5;animation-delay: 100ms">COOLER</h2>
+    </div>
+    <p style="font-size: 14px;max-width: 800px;z-index: 5" class="white--text animate__animated animate__fadeInUp">
+      {{$t('message5')}}
     </p>
     <div class="overlay" />
   </v-container>

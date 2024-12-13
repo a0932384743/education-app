@@ -1,13 +1,23 @@
 <template>
-  <v-container dark fluid class="px-12 py-6 orange justify-space-between align-center d-flex">
-    <h3 class="text-h3 white--text flex-grow-1 font-weight-bold">
-      PRODUCT INQUIRY?
+  <v-container
+    dark
+    fluid
+    class="py-6 py-md-12 px-8 px-md-16 orange justify-space-between align-center d-flex"
+  >
+    <h3
+      class="text-md-h3 text-h5 white--text flex-grow-1 font-weight-bold text-uppercase animate__animated animate__slideInLeft"
+    >
+      {{ $t('message2') }}?
     </h3>
-    <p class=" font-weight-bold px-8"  style="font-size: 14px">
-      If you have any product or service question<br/>
-      please contact: +886-4-23320088
-    </p>
-    <v-btn text color="white" class="contact-btn">CONTACT US</v-btn>
+    <div class="font-weight-bold px-8 mb-0 overflow-hidden" style="font-size: 14px">
+      <div class="animate__animated animate__fadeInDown">
+        {{ $t('message3') }}
+      </div>
+      <div class="animate__animated animate__fadeInDown" style="animation-delay: 100ms">
+        {{ $t('message4') }}
+      </div>
+    </div>
+    <v-btn text color="white" class="contact-btn">{{ $t('contact.us') }}</v-btn>
   </v-container>
 </template>
 

@@ -1,8 +1,8 @@
 <template>
   <v-container class="py-8 px-12 white bg d-flex flex-column-reverse" fluid>
-    <h3 class="font-weight-bold text-h3 mb-0 white--text text-center">PANEL FAN</h3>
-    <p style="font-size: 14px;" class="white--text text-center mb-0">
-      Lightweight And Convenient
+    <h3 class="font-weight-bold text-h3 mb-0 white--text text-center animate__animated animate__fadeIn">{{$t('panel.fan')}}</h3>
+    <p style="font-size: 14px;" class="white--text text-center mb-0 animate__animated animate__slideInDown">
+      {{$t('message1')}}
     </p>
   </v-container>
 </template>
