@@ -1,5 +1,23 @@
 <template>
   <v-app>
+    <v-system-bar app color="black" dark height="50" style="z-index: 100">
+      <v-spacer></v-spacer>
+      <v-btn icon><v-icon dark color="white">mdi-account</v-icon></v-btn>
+      <v-divider
+        vertical
+        color="white"
+        class="my-auto mx-2"
+        style="min-height: 60%; height: 60%; max-height: 60%"
+      />
+      <v-btn icon><v-icon dark color="white">mdi-cart-outline</v-icon></v-btn>
+      <v-btn
+        small
+        color="grey darken-2"
+        class="d-lg-none mx-2"
+        @click="changeLanguage"
+        >{{ currentLocale }}</v-btn
+      >
+    </v-system-bar>
     <v-app-bar app color="header" dark height="80">
       <v-container ref="header" fluid>
         <div class="d-flex align-center">
@@ -10,9 +28,6 @@
             max-width="350px"
             contain
           />
-          <v-btn icon class="d-md-none" @click="showMenu = !showMenu">
-            <v-icon light color="black">mdi-menu</v-icon>
-          </v-btn>
           <v-spacer />
           <!-- Navigation Links -->
           <div class="d-none d-md-flex align-center justify-space-between px-5">
@@ -23,8 +38,8 @@
                 text
                 color="white"
                 :to="m.url"
-                class="menu-item text-lg-h6 text-subtitle-1 text-uppercase"
-                >{{ $t(m.name) }}</v-btn
+                class="menu-item text-uppercase"
+                ><span class="text-lg-h6 text-subtitle-1 font-weight-bold">{{ $t(m.name) }}</span></v-btn
               >
               <v-menu
                 v-else
@@ -41,9 +56,9 @@
                     text
                     color="white"
                     v-bind="attrs"
-                    class="menu-item text-lg-h6 text-subtitle-1"
+                    class="menu-item"
                     v-on="on"
-                    >{{ $t(m.name) }}</v-btn
+                  ><span class="text-lg-h6 text-subtitle-1 font-weight-bold">{{ $t(m.name) }}</span></v-btn
                   >
                 </template>
                 <v-list class="rounded-0" color="indigo darken-3">
@@ -64,11 +79,15 @@
               </v-menu>
             </template>
           </div>
-
+          <v-btn icon class="d-md-none" @click="showMenu = !showMenu">
+            <v-expand-transition mode="in-out">
+              <v-icon light color="black">{{ showMenu ? 'mdi-close' : 'mdi-menu'}}</v-icon>
+            </v-expand-transition>
+          </v-btn>
           <v-btn
             text
             color="white"
-            class="lang-btn"
+            class="lang-btn d-none d-lg-inline-block"
             style="margin-right: -28px"
             @click="changeLanguage"
             >{{ currentLocale }}</v-btn
@@ -144,7 +163,7 @@
 export default {
   name: 'DefaultLayout',
   layout: 'DefaultLayout',
-  asyncData(){
+  asyncData() {
     return {
       menus: [
         {

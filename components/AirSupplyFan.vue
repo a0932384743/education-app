@@ -18,5 +18,10 @@ export default {
     height: 61.69vw;
     background-size: 100% 100%;
     background-image: url("/image/bg1.png");
+
+    @media screen and (max-width: 1350px) {
+      height: 100%;
+      min-height: 61.69vw;
+    }
   }
 </style>

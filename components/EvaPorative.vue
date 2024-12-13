@@ -23,6 +23,11 @@ export default {
   height: 55.37vw;
   background-size: 100% 100%;
   background-image: url("/image/bg2.png");
+
+  @media screen and (max-width: 1350px) {
+    height: 100%;
+    min-height: 55.37vw;
+  }
 }
 
 .overlay {

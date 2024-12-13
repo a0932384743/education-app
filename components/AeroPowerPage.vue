@@ -1,5 +1,9 @@
 <template>
-  <v-container class="white px-0 py-0 d-flex flex-column" fluid style="position: relative">
+  <v-container
+    class="white px-0 py-0 d-flex flex-column"
+    fluid
+    style="position: relative"
+  >
     <!-- Header Section -->
     <div
       class="section-1 bg d-flex flex-column py-6 py-md-12 px-8 px-md-16"
@@ -123,7 +127,9 @@
     </div>
     <div class="section-2 white d-flex flex-column py-6 py-md-12 px-8 px-md-16">
       <div class="block text-center">
-        <v-icon color="indigo darken-4" size="20" style="z-index: 5">mdi-circle</v-icon>
+        <v-icon color="indigo darken-4" size="20" style="z-index: 5"
+          >mdi-circle</v-icon
+        >
         <h4
           class="font-weight-bold text-md-h4 text-h5 my-3 text-center indigo--text text--darken-4 title right mx-auto"
           style="
@@ -149,7 +155,9 @@
       </div>
       <div class="py-md-6 py-3" />
       <div class="block text-left">
-        <v-icon color="indigo darken-4" size="20" style="z-index: 5">mdi-circle</v-icon>
+        <v-icon color="indigo darken-4" size="20" style="z-index: 5"
+          >mdi-circle</v-icon
+        >
         <h4
           class="font-weight-bold text-md-h4 text-h5 my-3 text-left indigo--text text--darken-4 title"
           style="
@@ -175,7 +183,9 @@
       </div>
       <div class="py-md-6 py-3" />
       <div class="block text-end">
-        <v-icon color="indigo darken-4" size="20" style="z-index: 5">mdi-circle</v-icon>
+        <v-icon color="indigo darken-4" size="20" style="z-index: 5"
+          >mdi-circle</v-icon
+        >
         <h4
           class="font-weight-bold text-md-h4 text-h5 my-3 text-end indigo--text text--darken-4 title right top ml-auto"
           style="
@@ -221,7 +231,7 @@
       </div>
       <div class="py-md-6 py-3" />
       <v-row
-        style="max-width: 1200px;z-index: 5"
+        style="max-width: 1200px; z-index: 5"
         class="mx-auto justify-space-between fill-width"
       >
         <v-col cols="12" sm="6" md="3">
@@ -302,7 +312,7 @@
       <div class="py-md-6 py-3" />
       <v-carousel
         hide-delimiters
-        style="max-width: 1300px;height: fit-content;z-index: 5"
+        style="max-width: 1300px; height: fit-content; z-index: 5"
         class="mx-auto"
       >
         <v-carousel-item>
@@ -320,7 +330,9 @@
                 <h6 class="text-subtitle-1 font-weight-bold orange--text">
                   GALVANIZED BOX FAN
                 </h6>
-                <p class="text-subtitle-2 black--text mb-0"># EG-B36 # EG-B50</p>
+                <p class="text-subtitle-2 black--text mb-0">
+                  # EG-B36 # EG-B50
+                </p>
                 <span class="text-subtitle-2 orange black--text">MORE</span>
               </div>
             </v-col>
@@ -337,7 +349,9 @@
                 <h6 class="text-subtitle-1 font-weight-bold orange--text">
                   AIR SUPPLY FAN
                 </h6>
-                <p class="text-subtitle-2 black--text mb-0"># EG-B36 # EG-B50</p>
+                <p class="text-subtitle-2 black--text mb-0">
+                  # EG-B36 # EG-B50
+                </p>
                 <span class="text-subtitle-2 orange black--text">MORE</span>
               </div>
             </v-col>
@@ -345,10 +359,10 @@
         </v-carousel-item>
       </v-carousel>
     </div>
-    <div class="overlay-right-1"/>
-    <div class="overlay-right-2"/>
-    <div class="overlay-right-3"/>
-    <div class="overlay-right-4"/>
+    <div class="overlay-right-1" />
+    <div class="overlay-right-2" />
+    <div class="overlay-right-3" />
+    <div class="overlay-right-4" />
   </v-container>
 </template>
 
@@ -443,6 +457,10 @@ export default {
   border-radius: 0 !important;
   background-color: var(--v-blue-base);
   clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 0% 0%, 100% 60%);
+
+  @media screen and (max-width: 959px) {
+    clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 0% 0%, 100% 35%);
+  }
 }
 
 .overlay-right-1 {
@@ -454,7 +472,11 @@ export default {
   width: 100%;
   border-radius: 0 !important;
   background-color: rgba(179, 190, 214, 0.7);
-  clip-path: polygon(100% 20%, 100% 50%, 0 90%, 0 60%)
+  clip-path: polygon(100% 20%, 100% 50%, 0 90%, 0 60%);
+
+  @media screen and (max-width: 959px) {
+    clip-path: polygon(100% 20%, 100% 50%, 0 62%, 0 32%);
+  }
 }
 
 .overlay-right-2 {
@@ -466,9 +488,13 @@ export default {
   width: 50%;
   border-radius: 0 !important;
   background-color: rgba(179, 190, 214, 0.7);
-  clip-path: polygon(100% 33%, 100% 63%, 0 90%, 0 60%)
-}
+  clip-path: polygon(100% 33%, 100% 63%, 0 90%, 0 60%);
 
+  @media screen and (max-width: 959px) {
+    top: 23%;
+    clip-path: polygon(100% 20%, 100% 50%, 0 59%, 0 29%);
+  }
+}
 
 .overlay-right-3 {
   position: absolute;
@@ -479,7 +505,12 @@ export default {
   width: 100%;
   border-radius: 0 !important;
   background-color: rgba(179, 190, 214, 0.7);
-  clip-path: polygon(100% 60%, 100% 95%, 0 30%, 0 0)
+  clip-path: polygon(100% 60%, 100% 95%, 0 30%, 0 0);
+
+  @media screen and (max-width: 959px) {
+    top: 45%;
+    clip-path: polygon(100% 35%, 100% 60%, 0 39%, 0 15%);
+  }
 }
 
 .overlay-right-4 {
@@ -491,7 +522,12 @@ export default {
   width: 50%;
   border-radius: 0 !important;
   background-color: rgba(179, 190, 214, 0.7);
-  clip-path: polygon(100% 40%, 100% 73%, 0 32%, 0 0)
+  clip-path: polygon(100% 40%, 100% 73%, 0 32%, 0 0);
+
+  @media screen and (max-width: 959px) {
+    top: 35%;
+    clip-path: polygon(100% 35%, 100% 60%, 0 45%, 0 20%);
+  }
 }
 
 .text-bg {
@@ -503,7 +539,7 @@ export default {
   clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
 }
 
-::v-deep .v-carousel__item{
+::v-deep .v-carousel__item {
   height: fit-content !important;
 }
 </style>
