@@ -1,11 +1,27 @@
 <template>
-  <v-container class="py-10 px-12 white bg d-flex flex-column justify-space-between" fluid>
+  <v-container
+    class="py-10 px-12 white bg d-flex flex-column justify-space-between"
+    fluid
+  >
     <div>
-      <h2 class="font-weight-bold text-md-h2 text-h4 mb-0 orange--text animate__animated animate__slideInLeft" style="position: relative;z-index: 5">EVAPORATIVE</h2>
-      <h2 class="font-weight-bold text-md-h2 text-h4 mb-0 white--text animate__animated animate__slideInLeft" style="position: relative;z-index: 5;animation-delay: 100ms">COOLER</h2>
+      <h2
+        class="font-weight-bold text-md-h2 text-h4 mb-0 orange--text animate__animated animate__slideInLeft"
+        style="position: relative; z-index: 5"
+      >
+        {{ $t('evaporative') }}
+      </h2>
+      <h2
+        class="font-weight-bold text-md-h2 text-h4 mb-0 white--text animate__animated animate__slideInLeft"
+        style="position: relative; z-index: 5; animation-delay: 100ms"
+      >
+        {{ $t('cooler') }}
+      </h2>
     </div>
-    <p style="font-size: 14px;max-width: 800px;z-index: 5" class="white--text animate__animated animate__fadeInUp">
-      {{$t('message5')}}
+    <p
+      style="font-size: 14px; max-width: 800px; z-index: 5"
+      class="white--text animate__animated animate__fadeInUp"
+    >
+      {{ $t('message5') }}
     </p>
     <div class="overlay" />
   </v-container>
@@ -13,7 +29,7 @@
 
 <script>
 export default {
-  name: 'EvaPorative'
+  name: 'EvaPorative',
 };
 </script>
 
@@ -22,7 +38,7 @@ export default {
   position: relative;
   height: 55.37vw;
   background-size: 100% 100%;
-  background-image: url("/image/bg2.png");
+  background-image: url('/image/bg2.png');
 
   @media screen and (max-width: 1350px) {
     height: 100%;

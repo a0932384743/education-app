@@ -192,7 +192,7 @@
             position: relative;
             z-index: 5;
             width: fit-content;
-            max-width: 400px;
+            max-width: 450px;
           "
         >
           {{ $t('message12') }}
@@ -317,43 +317,11 @@
       >
         <v-carousel-item>
           <v-row class="fill-width px-8">
-            <v-col cols="12" md="6" class="d-flex">
-              <v-img
-                width="300"
-                height="300"
-                max-width="300"
-                max-height="300"
-                src="/image/product1.png"
-                sizes="100%"
-              />
-              <div class="py-10">
-                <h6 class="text-subtitle-1 font-weight-bold orange--text">
-                  GALVANIZED BOX FAN
-                </h6>
-                <p class="text-subtitle-2 black--text mb-0">
-                  # EG-B36 # EG-B50
-                </p>
-                <span class="text-subtitle-2 orange black--text">MORE</span>
-              </div>
+            <v-col cols="12" md="6">
+              <hot-product img="/image/product1.png" title="GALVANIZED BOX FAN" detail="# EG-B36 # EG-B50"/>
             </v-col>
             <v-col cols="12" md="6" class="d-flex">
-              <v-img
-                width="300"
-                height="300"
-                max-width="300"
-                max-height="300"
-                src="/image/product2.png"
-                sizes="100%"
-              />
-              <div class="py-10">
-                <h6 class="text-subtitle-1 font-weight-bold orange--text">
-                  AIR SUPPLY FAN
-                </h6>
-                <p class="text-subtitle-2 black--text mb-0">
-                  # EG-B36 # EG-B50
-                </p>
-                <span class="text-subtitle-2 orange black--text">MORE</span>
-              </div>
+              <hot-product img="/image/product2.png" title="AIR SUPPLY FAN" detail="# EG-B36 # EG-B50"/>
             </v-col>
           </v-row>
         </v-carousel-item>
@@ -367,8 +335,13 @@
 </template>
 
 <script>
+import HotProduct from '@/components/HotProduct.vue';
+
 export default {
   name: 'AeroPowerPage',
+  components:{
+    HotProduct
+  },
 };
 </script>
 
@@ -467,15 +440,15 @@ export default {
   position: absolute;
   z-index: 2;
   left: 0;
-  top: 5%;
-  height: 40%;
+  top: 16%;
+  height: 500px;
   width: 100%;
   border-radius: 0 !important;
   background-color: rgba(179, 190, 214, 0.7);
-  clip-path: polygon(100% 20%, 100% 50%, 0 90%, 0 60%);
+  clip-path: polygon(100% 0%, 100% 45%, 0 100%, 0 55%);
 
   @media screen and (max-width: 959px) {
-    clip-path: polygon(100% 20%, 100% 50%, 0 62%, 0 32%);
+
   }
 }
 
@@ -483,16 +456,15 @@ export default {
   position: absolute;
   z-index: 2;
   left: 0;
-  top: 25%;
-  height: 30%;
+  top: 28%;
+  height: 500px;
   width: 50%;
   border-radius: 0 !important;
   background-color: rgba(179, 190, 214, 0.7);
-  clip-path: polygon(100% 33%, 100% 63%, 0 90%, 0 60%);
+  clip-path: polygon(200% 0%, 200% 45%, 0 100%, 0 55%);
 
   @media screen and (max-width: 959px) {
-    top: 23%;
-    clip-path: polygon(100% 20%, 100% 50%, 0 59%, 0 29%);
+
   }
 }
 
@@ -500,16 +472,15 @@ export default {
   position: absolute;
   z-index: 2;
   right: 0;
-  top: 52%;
-  height: 40%;
+  top: 50%;
+  height: 800px;
   width: 100%;
   border-radius: 0 !important;
   background-color: rgba(179, 190, 214, 0.7);
-  clip-path: polygon(100% 60%, 100% 95%, 0 30%, 0 0);
+  clip-path: polygon(100% 65%, 100% 100%, 0 35%, 0 0);
 
   @media screen and (max-width: 959px) {
-    top: 45%;
-    clip-path: polygon(100% 35%, 100% 60%, 0 39%, 0 15%);
+
   }
 }
 
@@ -517,16 +488,14 @@ export default {
   position: absolute;
   z-index: 2;
   right: 0;
-  top: 50%;
-  height: 30%;
+  top: 47%;
+  height: 800px;
   width: 50%;
   border-radius: 0 !important;
   background-color: rgba(179, 190, 214, 0.7);
-  clip-path: polygon(100% 40%, 100% 73%, 0 32%, 0 0);
+  clip-path: polygon(200% 65%, 200% 100%, 0 35%, 0 0);
 
   @media screen and (max-width: 959px) {
-    top: 35%;
-    clip-path: polygon(100% 35%, 100% 60%, 0 45%, 0 20%);
   }
 }
 

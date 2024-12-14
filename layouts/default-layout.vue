@@ -13,7 +13,7 @@
       <v-btn
         small
         color="grey darken-2"
-        class="d-lg-none mx-2"
+        class="d-lg-none mx-2 rounded-0"
         @click="changeLanguage"
         >{{ currentLocale }}</v-btn
       >
@@ -26,6 +26,7 @@
             :src="currentLocale === 'ENGLISH' ? 'logo-zh.svg' : 'logo-en.svg'"
             alt="Logo"
             max-width="350px"
+            min-width="250px"
             contain
           />
           <v-spacer />

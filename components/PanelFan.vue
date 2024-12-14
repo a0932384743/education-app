@@ -16,6 +16,7 @@ export default {
 <style scoped lang="scss">
   .bg{
     height: 32vw;
+    min-height: 250px;
     background-size: 100% 100%;
     background-image: url("/image/bg4.png");
   }

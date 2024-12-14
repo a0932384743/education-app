@@ -47,7 +47,7 @@
           <a
             class="text-subtitle-1 mb-2 mb-md-6 white--text text-decoration-none fill-width"
             href="mailto:aeropower.sd@gmail.com"
-            >E-Mail: aeropower.sd@gmail.com</a
+            >{{$t('email')}}: aeropower.sd@gmail.com</a
           >
         </v-col>
 
