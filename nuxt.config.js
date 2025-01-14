@@ -19,6 +19,15 @@ export default {
     },
   },
   head: {
+    script: [
+      {
+        src: "//js.hs-scripts.com/48892397.js",
+        type: "text/javascript",
+        async: true,
+        defer: true,
+        id: "hs-script-loader"
+      }
+    ],
     titleTemplate: '%s',
     htmlAttrs: {
       lang: 'en',
