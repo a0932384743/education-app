@@ -1,5 +1,8 @@
 <template>
   <v-app>
+    <!-- Start of HubSpot Embed Code -->
+      <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/48892397.js"></script>
+    <!-- End of HubSpot Embed Code -->
     <v-system-bar app color="black" dark height="50" style="z-index: 100">
       <v-spacer></v-spacer>
       <v-btn icon><v-icon dark color="white">mdi-account</v-icon></v-btn>
