@@ -1,5 +1,8 @@
 <template>
   <v-app id="inspire">
+    <!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/48892397.js"></script>
+<!-- End of HubSpot Embed Code -->
     <v-menu
       min-width="150px"
       transition="slide-y-transition"
