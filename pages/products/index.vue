@@ -1,6 +1,6 @@
 <template>
   <div>
-     首頁
+     產品
   </div>
 </template>
 
@@ -9,10 +9,10 @@
 import {Component, Vue} from 'vue-property-decorator';
 
 @Component({
-  name: 'home',
+  name: 'products',
   layout: 'default-layout',
 })
-export default class home extends Vue {
+export default class products extends Vue {
 
 };
 </script>
