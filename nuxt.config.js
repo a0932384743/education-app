@@ -1,6 +1,7 @@
 import en from './assets/locales/en.json';
 import zhTW from './assets/locales/zh-tw.json';
 import { darkTheme, lightTheme } from './utils/themes';
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   server: {
@@ -26,19 +27,26 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'google-site-verification', content: 'FLVMRulvoa3fa1A_oPGRQTvTm8cx86Tuqwja1T-xdpQ' },
+      {
+        name: 'google-site-verification',
+        content: 'FLVMRulvoa3fa1A_oPGRQTvTm8cx86Tuqwja1T-xdpQ',
+      },
       { hid: 'description', name: 'description', content: 'AERO POWER' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'canonical', href:'https://www.aeropower-fan.com.tw/' },
-      { rel: 'stylesheet', type: 'text/css',href:'https://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700&subset=all' }
+      { rel: 'canonical', href: 'https://www.aeropower-fan.com.tw/' },
+      {
+        rel: 'stylesheet',
+        type: 'text/css',
+        href: 'https://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700&subset=all',
+      },
     ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['~/assets/css/custom.css','animate.css/animate.min.css'],
+  css: ['~/assets/css/custom.css', 'animate.css/animate.min.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: ['~/plugins/snackbar'],
@@ -64,7 +72,7 @@ export default {
         el.style.opacity = 0;
         done();
       }, 50);
-    }
+    },
   },
   typescript: {
     typeCheck: false,
@@ -76,11 +84,13 @@ export default {
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
   ],
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/i18n',
-    ['@nuxtjs/google-tag-manager', { id: 'GTM-56ML65M' }]],
+  modules: [
+    '@nuxtjs/i18n',
+    ['@nuxtjs/google-tag-manager', { id: 'GTM-56ML65M' }],
+  ],
   i18n: {
     locales: [
       {
@@ -115,6 +125,7 @@ export default {
         dark: darkTheme,
       },
     },
+    optionsPath: '~/plugins/vuetify/index.ts'
   },
   loading: { color: '#027afa' },
 

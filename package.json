@@ -6,9 +6,7 @@
     "moment": "github:moment/moment",
     "nuxt": "^2.18.1",
     "vue": "^2.7.16",
-    "vue-class-component": "^7.2.6",
     "vue-i18n": "^8.28.2",
-    "vue-property-decorator": "^9.1.2",
     "vue-server-renderer": "^2.7.16",
     "vue-template-compiler": "^2.7.16",
     "vuetify": "^2.7.2"
@@ -47,7 +45,10 @@
     "stylelint-config-recommended-vue": "^1.4.0",
     "stylelint-config-standard": "^28.0.0",
     "ts-jest": "^29.0.3",
-    "vue-jest": "^3.0.4"
+    "vue-class-component": "^7.2.6",
+    "vue-jest": "^3.0.4",
+    "vue-property-decorator": "^9.1.2",
+    "vuetify-loader": "^1.9.2"
   },
   "lint-staged": {
     "*.**": "prettier --check --ignore-unknown",
