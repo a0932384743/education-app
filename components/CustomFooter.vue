@@ -97,34 +97,37 @@ interface MenuItem {
   url: string
   children: MenuItem[]
 }
+const menus: MenuItem[] = [
+  { name: 'home', url: '/', children: [] },
+  { name: 'about.us', url: '/about-us', children: [] },
+  { name: '製造|批發|ODM|OEM', url: '/products', children: [] },
+  { name: 'contact.us', url: '/contact-us', children: [] },
+];
+
+const products: MenuItem = {
+  name: '洋峰專營各類管束',
+  url: '/products/0',
+  children: [
+    { name: '|汽車油路管|', url: '/products/detail/0', children: [] },
+    { name: '|空氣風管|', url: '/products/detail/1', children: [] },
+    { name: '|手壓式管束|', url: '/products/detail/2', children: [] },
+    { name: '|特殊管束|', url: '/products/detail/3', children: [] },
+  ],
+};
+
 @Component({
   name: 'CustomFooter',
-})
-export default class CustomFooter extends Vue {
-  menus: MenuItem[] = [
-    { name: 'home', url: '/', children: [] },
-    { name: 'about.us', url: '/about-us', children: [] },
-    { name: '製造|批發|ODM|OEM', url: '/products', children: [] },
-    { name: 'contact.us', url: '/contact-us', children: [] },
-  ];
-
-  products: MenuItem = {
-    name: '洋峰專營各類管束',
-    url: '/products/0',
-    children: [
-      { name: '|汽車油路管|', url: '/products/detail/0', children: [] },
-      { name: '|空氣風管|', url: '/products/detail/1', children: [] },
-      { name: '|手壓式管束|', url: '/products/detail/2', children: [] },
-      { name: '|特殊管束|', url: '/products/detail/3', children: [] },
-    ],
-  };
-
   asyncData() {
     return {
-      menus: this.menus,
-      products: this.products,
+      menus,
+      products,
     };
   }
+})
+export default class CustomFooter extends Vue {
+  menus: MenuItem[] = menus;
+  products: MenuItem =products;
+
 }
 </script>
 <style scoped lang="scss">
