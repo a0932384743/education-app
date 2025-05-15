@@ -179,7 +179,12 @@
           contain
           :alt="product.img"
         >
-          <v-app-bar flat style="background: linear-gradient(180deg,#000 0, #000 60%, #0000 100%);">
+          <v-app-bar
+            flat
+            style="
+              background: linear-gradient(180deg, #000 0, #000 60%, #0000 100%);
+            "
+          >
             <h6 class="white--text text-no-wrap">
               {{ product.name }}
               <v-btn icon dark>
@@ -209,10 +214,12 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-const EXTRA_SIZE = 1904;
-const LARGE_SIZE = 1264;
-const MEDIUM_SIZE = 960;
-const SMALL_SIZE = 600;
+import {
+  EXTRA_SIZE,
+  LARGE_SIZE,
+  MEDIUM_SIZE,
+  SMALL_SIZE,
+} from '../utils/themes';
 type Product = {
   name: string
   count: number
@@ -291,6 +298,7 @@ export default class home extends Vue {
   }
 
   mounted() {
+    this.$nextTick(this.handleResize);
     window.addEventListener('resize', this.handleResize);
   }
 
@@ -374,7 +382,7 @@ p {
 }
 
 .title {
-  font-family: 'Zen Kaku Gothic New';
+  font-family: 'Zen Kaku Gothic New',serif;
   font-weight: 700;
   font-size: 26px;
   line-height: 180%;

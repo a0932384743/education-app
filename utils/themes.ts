@@ -61,3 +61,8 @@ export const darkTheme = {
   aside: '#ffffff',
   text: '#000000',
 };
+
+export const EXTRA_SIZE = 1904;
+export const LARGE_SIZE = 1264;
+export const MEDIUM_SIZE = 960;
+export const SMALL_SIZE = 600;

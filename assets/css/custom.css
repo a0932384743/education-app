@@ -4,23 +4,23 @@
 }
 
 .position-absolute {
-  position: absolute;
+  position: absolute !important;
 }
 
 .position-relative {
-  position: relative;
+  position: relative !important;
 }
 
 .position-fixed {
-  position: fixed;
+  position: fixed !important;
 }
 
 .position-sticky {
-  position: sticky;
+  position: sticky !important;
 }
 
 .position-static {
-  position: static;
+  position: static !important;
 }
 
 .top-0 {
