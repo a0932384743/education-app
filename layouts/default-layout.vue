@@ -28,12 +28,12 @@
           >
             <nuxt-link :to="m.url"> {{ $t(m.name) }}</nuxt-link>
           </div>
-          <div style="position: absolute; right: 70px; bottom: 10px">
+          <div style="position: absolute; right: -50px; bottom: 10px">
             <v-btn icon @click="onGoCart">
               <v-icon color="white">mdi-cart-variant</v-icon>
             </v-btn>
           </div>
-          <div style="position: absolute; right: 10px; bottom: 10px">
+          <div style="position: absolute; right: -120px; bottom: 10px">
             <v-btn icon @click="onChangeLang">
               <v-icon color="white">mdi-web</v-icon>
             </v-btn>
@@ -175,7 +175,7 @@ header {
   background: url('/image/header-bg.png') !important;
   background-position-x: right !important;
   background-position-y: bottom !important;
-  background-size: 170px 110px !important;
+  background-size: 18% 130px !important;
   background-repeat: no-repeat !important;
   background-color: white !important;
 
