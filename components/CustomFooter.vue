@@ -1,5 +1,6 @@
 <template>
   <v-footer dark class="pa-0">
+    <div class="d-none d-sm-block py-16 fill-width"></div>
     <v-container class="pt-16 pb-10 px-10 px-sm-0">
       <v-row class="mx-0">
         <v-col

@@ -178,7 +178,6 @@ header {
   background-size: 170px 110px !important;
   background-repeat: no-repeat !important;
   background-color: white !important;
-  z-index: 999 !important;
 
   ::v-deep .v-toolbar__content {
     padding: 0 !important;
@@ -214,7 +213,6 @@ header {
 
   @media screen and (max-width: 960px) {
     & {
-      font-family: Inter;
       font-weight: 400;
       font-size: 14px;
       line-height: 210%;
@@ -227,9 +225,5 @@ header {
       }
     }
   }
-}
-
-.shadow-bottom {
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2) !important;
 }
 </style>
