@@ -43,3 +43,9 @@
   font-family: 'Inter', sans-serif;
   font-size: 15px;
 }
+
+.v-breadcrumbs__item {
+  color: #ba9545 !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+}

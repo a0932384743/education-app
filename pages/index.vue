@@ -87,68 +87,30 @@
             object-fit: contain;
           "
         />
-        <div class="feature-item">
+        <div
+          v-for="(service, index) in services"
+          :key="index"
+          class="feature-item"
+        >
           <v-img
-            :src="
-              windowSize > 600 ? '/image/icon1.svg' : '/image/mobile-icon1.png'
-            "
+            :src="windowSize > 600 ? service.img : service.imgMobile"
             :width="windowSize > 600 ? 190 : 130"
             contain
             class="mb-sm-10"
           />
-          <div class="d-flex justify-center align-center" style="gap: 10px">
-            <div class="title">{{ $t('word1') }}</div>
+          <div
+            class="d-flex justify-center align-center"
+            style="gap: 10px"
+            :class="index % 2 ? 'flex-row-reverse' : ''"
+          >
+            <div class="title">{{ $t(service.title) }}</div>
             <v-divider
               vertical
               class="d-sm-none"
               style="border-color: #ba9545"
             />
             <div class="sub-title">
-              {{ $t('word2') }}<br />{{ $t('word3') }}
-            </div>
-          </div>
-        </div>
-
-        <div class="feature-item">
-          <v-img
-            :src="
-              windowSize > 600 ? '/image/icon2.svg' : '/image/mobile-icon2.png'
-            "
-            :width="windowSize > 600 ? 190 : 130"
-            contain
-            class="mb-sm-10"
-          />
-          <div class="d-flex justify-center align-center" style="gap: 10px">
-            <div class="title">{{ $t('word4') }}</div>
-            <v-divider
-              vertical
-              class="d-sm-none"
-              style="border-color: #ba9545"
-            />
-            <div class="sub-title">
-              {{ $t('word5') }}<br />{{ $t('word6') }}
-            </div>
-          </div>
-        </div>
-
-        <div class="feature-item">
-          <v-img
-            :src="
-              windowSize > 600 ? '/image/icon3.svg' : '/image/mobile-icon3.png'
-            "
-            :width="windowSize > 600 ? 190 : 130"
-            contain
-            class="mb-sm-10"
-          />
-          <div class="d-flex justify-center align-center" style="gap: 10px">
-            <div class="title">{{ $t('word7') }}</div>
-            <v-divider
-              vertical
-              class="d-sm-none"
-              style="border-color: #ba9545"
-            />
-            <div class="sub-title">
-              {{ $t('word8') }}<br />{{ $t('word9') }}
+              {{ $t(service.desc1) }}<br />{{ $t(service.desc2) }}
             </div>
           </div>
         </div>
@@ -220,32 +182,7 @@ import {
   MEDIUM_SIZE,
   SMALL_SIZE,
 } from '../utils/themes';
-type Product = {
-  name: string
-  count: number
-  img: string
-  id: number
-}
-const products: Array<Product> = [
-  {
-    name: '戶外大型管束商品',
-    count: 12,
-    img: '/image/product1.png',
-    id: 0,
-  },
-  {
-    name: '管束商品',
-    count: 9,
-    img: '/image/product2.png',
-    id: 1,
-  },
-  {
-    name: '汽機車零件商品',
-    count: 6,
-    img: '/image/product3.png',
-    id: 2,
-  },
-];
+import { Product, Service, products, services } from '../dummy';
 
 @Component({
   name: 'home',
@@ -253,6 +190,7 @@ const products: Array<Product> = [
   asyncData() {
     return {
       products,
+      services,
     };
   },
 })
@@ -261,6 +199,7 @@ export default class home extends Vue {
   size2: number = 720;
   size3: number = 1925;
   products: Array<Product> = products;
+  services: Array<Service> = services;
   windowSize: number = EXTRA_SIZE;
 
   handleResize() {
@@ -382,7 +321,7 @@ p {
 }
 
 .title {
-  font-family: 'Zen Kaku Gothic New',serif;
+  font-family: 'Zen Kaku Gothic New', serif;
   font-weight: 700;
   font-size: 26px;
   line-height: 180%;
@@ -411,5 +350,9 @@ p {
       line-height: 140%;
     }
   }
+}
+
+.app-bar ::v-deep .v-toolbar__content {
+  background: linear-gradient(180deg, #000 0, #000 60%, #0000 100%);
 }
 </style>

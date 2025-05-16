@@ -55,7 +55,7 @@
 
     <v-navigation-drawer
       v-model="showMenu"
-      absolute
+      app
       right
       temporary
       color="#BA9545E5"

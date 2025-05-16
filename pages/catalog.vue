@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-column position-relative" style="position: relative">
     <v-img
-      :src="windowSize > 600 ? '/image/bg12.png' : '/image/mobile-bg11.png'"
+      :src="windowSize > 600 ? '/image/bg12.png' : '/image/mobile-bg12.png'"
       width="100%"
       :height="windowSize > 600 ? 360 : 195"
       position="left center"
@@ -18,7 +18,7 @@
           <v-icon>mdi-chevron-right</v-icon>
         </template>
       </v-breadcrumbs>
-      <div class="title" style="padding: 0 40px;">
+      <div class="title" style="padding: 0 40px">
         <h1 class="d-block d-sm-none mx-auto mt-10">
           {{ $t('word10') }}
         </h1>
@@ -31,9 +31,9 @@
         <v-img src="/image/catalog.png" width="100%" contain />
         <div class="catalog-download text-start">
           <h3 class="d-none d-sm-block">{{ $t('word10') }}</h3>
-          <v-divider class="d-none d-sm-block" />
-          <v-btn icon light class="mr-auto d-none d-sm-block">
-            <v-icon size="30">mdi-arrow-left-thin</v-icon>
+          <v-divider class="d-none d-sm-block" style="border-color: black;" />
+          <v-btn text class="mr-auto d-none d-sm-block">
+            <arrow-icon direction="left" />
           </v-btn>
           <v-btn
             color="#D8AE5E"
@@ -59,9 +59,11 @@ import {
   MEDIUM_SIZE,
   SMALL_SIZE,
 } from '../utils/themes';
+import ArrowIcon from '../components/ArrowIcon.vue';
 
 @Component({
   name: 'catalog',
+  components: { ArrowIcon },
   layout: 'default-layout',
 })
 export default class catalog extends Vue {

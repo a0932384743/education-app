@@ -78,63 +78,30 @@
         </div>
       </div>
       <div class="feature-grid fill-width">
-        <div class="feature-item">
+        <div
+          v-for="(service, index) in services"
+          :key="index"
+          class="feature-item"
+        >
           <v-img
-            src="/image/mobile-icon1.png"
-            :width="size4"
-            contain
-            class="mb-5 mb-sm-10"
-          />
-          <div class="d-flex justify-center align-center" style="gap: 10px">
-            <div class="title">{{ $t('word1') }}</div>
-            <v-divider
-              vertical
-              class="d-sm-none"
-              style="border-color: #ba9545"
-            />
-            <div class="sub-title">
-              {{ $t('word2') }}<br />{{ $t('word3') }}
-            </div>
-          </div>
-        </div>
-        <div class="feature-item">
-          <v-img
-            src="/image/mobile-icon2.png"
+            :src="service.imgMobile"
             :width="size4"
             contain
             class="mb-5 mb-sm-10"
           />
           <div
-            class="d-flex justify-center align-center flex-row-reverse"
+            class="d-flex justify-center align-center"
             style="gap: 10px"
+            :class="index % 2 ? 'flex-row-reverse' : ''"
           >
-            <div class="title">{{ $t('word4') }}</div>
+            <div class="title">{{ $t(service.title) }}</div>
             <v-divider
               vertical
               class="d-sm-none"
               style="border-color: #ba9545"
             />
             <div class="sub-title">
-              {{ $t('word5') }}<br />{{ $t('word6') }}
-            </div>
-          </div>
-        </div>
-        <div class="feature-item">
-          <v-img
-            src="/image/mobile-icon3.png"
-            :width="size4"
-            contain
-            class="mb-5 mb-sm-10"
-          />
-          <div class="d-flex justify-center align-center" style="gap: 10px">
-            <div class="title">{{ $t('word7') }}</div>
-            <v-divider
-              vertical
-              class="d-sm-none"
-              style="border-color: #ba9545"
-            />
-            <div class="sub-title">
-              {{ $t('word8') }}<br />{{ $t('word9') }}
+              {{ $t(service.desc1) }}<br />{{ $t(service.desc2) }}
             </div>
           </div>
         </div>
@@ -157,10 +124,16 @@ import {
   MEDIUM_SIZE,
   SMALL_SIZE,
 } from '../utils/themes';
+import { Service, services } from '../dummy';
 
 @Component({
   name: 'about-us',
   layout: 'default-layout',
+  asyncData() {
+    return {
+      services,
+    };
+  },
 })
 export default class aboutUs extends Vue {
   get menus() {
@@ -174,7 +147,7 @@ export default class aboutUs extends Vue {
   size2: number = 950;
   size3: number = 430;
   size4: number = 320;
-
+  services: Array<Service> = services;
   windowSize: number = EXTRA_SIZE;
 
   handleResize() {
@@ -227,12 +200,6 @@ export default class aboutUs extends Vue {
 }
 </script>
 <style scoped lang="scss">
-::v-deep .v-breadcrumbs__item {
-  color: #ba9545 !important;
-  font-weight: 400;
-  font-size: 16px;
-}
-
 h1 {
   font-family: 'Kufam', serif;
   font-weight: 700;
