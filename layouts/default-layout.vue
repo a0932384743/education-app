@@ -3,15 +3,14 @@
     <v-app-bar app color="header" light :height="windowSize >= 960 ? 250 : 100">
       <v-container
         fluid
-        class="d-flex align-self-end py-0 align-end fill-height flex-nowrap"
+        class="d-flex align-self-end pa-0 align-end fill-height flex-nowrap"
       >
         <div class="pb-5 flex-grow-1 text-center">
-          <v-img
-            :src="windowSize >= 960 ? '/logo.png' : '/logo-mobile.png'"
+          <logo-icon
             alt="Logo"
-            :max-width="windowSize >= 960 ? 320 : 240"
+            :fill="windowSize >= 960 ? '#D8AE5E' : '#FFFFFF'"
+            :width="windowSize >= 960 ? 320 : 240"
             :height="windowSize >= 960 ? 85 : 45"
-            contain
             :class="windowSize >= 960 ? 'mx-auto' : 'mr-auto'"
           />
         </div>
@@ -19,7 +18,6 @@
         <!-- Navigation Links -->
         <div
           class="d-none d-md-flex align-end justify-space-between fill-height position-relative"
-          style="margin-right: 150px"
         >
           <div
             v-for="m in menus"
@@ -28,16 +26,16 @@
           >
             <nuxt-link :to="m.url"> {{ $t(m.name) }}</nuxt-link>
           </div>
-          <div style="position: absolute; right: -50px; bottom: 10px">
-            <v-btn icon @click="onGoCart">
-              <v-icon color="white">mdi-cart-variant</v-icon>
-            </v-btn>
-          </div>
-          <div style="position: absolute; right: -120px; bottom: 10px">
-            <v-btn icon @click="onChangeLang">
-              <v-icon color="white">mdi-web</v-icon>
-            </v-btn>
-          </div>
+        </div>
+        <div
+          class="d-none d-md-flex align-end justify-end fill-height position-relative ml-auto pb-2 btn-group"
+        >
+          <v-btn icon @click="onGoCart">
+            <v-icon color="white">mdi-cart-variant</v-icon>
+          </v-btn>
+          <v-btn icon @click="onChangeLang">
+            <v-icon color="white">mdi-web</v-icon>
+          </v-btn>
         </div>
         <div
           class="d-flex d-md-none align-end justify-space-between fill-height"
@@ -91,10 +89,9 @@
             v-for="m in menus"
             :key="'mobile_menu_' + m.name"
             class="menu-item"
+            :href="m.url"
           >
-            <v-list-item-title :href="m.url">{{
-              $t(m.name)
-            }}</v-list-item-title>
+            <v-list-item-title>{{ $t(m.name) }}</v-list-item-title>
           </v-list-item>
         </v-list-item-group>
         <v-list-item-group>
@@ -117,6 +114,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import CustomFooter from '../components/CustomFooter.vue';
+import LogoIcon from '../components/LogoIcon.vue';
 interface MenuItem {
   name: string
   url: string
@@ -133,7 +131,7 @@ const menus: MenuItem[] = [
 
 @Component({
   name: 'DefaultLayout',
-  components: { CustomFooter },
+  components: { LogoIcon, CustomFooter },
   layout: 'DefaultLayout',
   head() {
     return {
@@ -172,13 +170,7 @@ export default class DefaultLayout extends Vue {
 </script>
 <style scoped lang="scss">
 header {
-  background: url('/image/header-bg.png') !important;
-  background-position-x: right !important;
-  background-position-y: bottom !important;
-  background-size: 18% 130px !important;
-  background-repeat: no-repeat !important;
   background-color: white !important;
-
   ::v-deep .v-toolbar__content {
     padding: 0 !important;
   }
@@ -188,6 +180,16 @@ header {
   }
 }
 
+.btn-group {
+  background: url('/image/header-bg.png');
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+  gap: 20px;
+  max-width: 150px;
+  min-width: 150px;
+  flex:  1 1 auto;
+}
 .menu-item {
   display: flex;
   height: 100%;

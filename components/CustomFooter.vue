@@ -8,12 +8,7 @@
           class="d-flex align-start align-sm-end justify-space-between pt-16 px-0 flex-column flex-sm-row"
           style="border-bottom: 1px solid #fff"
         >
-          <v-img
-            max-width="185"
-            height="48"
-            src="/logo.svg"
-            class="d-black d-sm-none"
-          />
+          <logo-icon width="185" height="48" class="d-black d-sm-none mb-4" />
           <p class="d-black d-sm-none paragraph my-2">
             “Established in 1987, as a traditional family factory, we started
             from the first generation using a small press at home, and gradually
@@ -29,12 +24,7 @@
             <v-icon size="30" class="social-icon">$line</v-icon>
             <v-icon size="30" class="social-icon">$youtube</v-icon>
           </div>
-          <v-img
-            max-width="350"
-            height="90"
-            src="/logo.svg"
-            class="d-none d-sm-block"
-          />
+          <logo-icon width="350" height="90" class="d-none d-sm-block mb-1" />
         </v-col>
       </v-row>
       <v-row class="flex-column-reverse flex-sm-row mx-0">
@@ -93,6 +83,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import LogoIcon from './LogoIcon.vue';
 interface MenuItem {
   name: string
   url: string
@@ -118,17 +109,17 @@ const products: MenuItem = {
 
 @Component({
   name: 'CustomFooter',
+  components: { LogoIcon },
   asyncData() {
     return {
       menus,
       products,
     };
-  }
+  },
 })
 export default class CustomFooter extends Vue {
   menus: MenuItem[] = menus;
-  products: MenuItem =products;
-
+  products: MenuItem = products;
 }
 </script>
 <style scoped lang="scss">
