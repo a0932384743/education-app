@@ -18,14 +18,14 @@
           <v-icon color="#ba9545">mdi-chevron-right</v-icon>
         </template>
       </v-breadcrumbs>
-      <div class="title" style="padding: 0 40px">
+      <div class="title px-4 px-md-0">
         <h1 class="d-block d-sm-none mx-auto mt-10">
           {{ $t('word10') }}
         </h1>
         <hr class="double-color-hr d-block d-sm-none" />
       </div>
       <div
-        class="position-relative fill-width mx-auto py-16 catalog"
+        class="position-relative fill-width mx-auto py-16 catalog px-4 px-md-0"
         style="max-width: 1260px"
       >
         <v-img src="/image/catalog.png" width="100%" contain />
