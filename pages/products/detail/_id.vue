@@ -66,20 +66,49 @@
           <thead>
             <tr>
               <th class="white--text pa-4">
-                <h2 class="text-center" style="letter-spacing: 10px">
+                <h2
+                  v-if="lang === 'zh-tw'"
+                  class="text-center"
+                  style="letter-spacing: 10px"
+                >
                   自由內徑
                 </h2>
-                <h3 class="text-center">Free Inner Diameter</h3>
+                <component
+                  :is="lang === 'en' ? 'h2' : 'h3'"
+                  class="text-center"
+                >
+                  Free Inner Diameter
+                </component>
               </th>
               <th class="white--text pa-4">
-                <h2 class="text-center" style="letter-spacing: 10px">
+                <h2
+                  v-if="lang === 'zh-tw'"
+                  class="text-center"
+                  style="letter-spacing: 10px"
+                >
                   最大內徑
                 </h2>
-                <h3 class="text-center">Max Inner Diameter</h3>
+                <component
+                  :is="lang === 'en' ? 'h2' : 'h3'"
+                  class="text-center"
+                >
+                  Max Inner Diameter
+                </component>
               </th>
               <th class="white--text pa-4">
-                <h2 class="text-center" style="letter-spacing: 10px">規格</h2>
-                <h3 class="text-center">Specification</h3>
+                <h2
+                  v-if="lang === 'zh-tw'"
+                  class="text-center"
+                  style="letter-spacing: 10px"
+                >
+                  規格
+                </h2>
+                <component
+                  :is="lang === 'en' ? 'h2' : 'h3'"
+                  class="text-center"
+                >
+                  Specification
+                </component>
               </th>
             </tr>
           </thead>
@@ -130,6 +159,10 @@ export default class productDetail extends Vue {
     ];
   }
 
+  get lang() {
+    return this.$i18n.locale;
+  }
+
   onAddToCart() {
     // Add to cart logic
   }
@@ -148,6 +181,30 @@ h1 {
   @media screen and (max-width: 780px) {
     & {
       font-size: 20px;
+    }
+  }
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 100%;
+
+  @media screen and (max-width: 780px) {
+    & {
+      font-size: 15px;
+    }
+  }
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+
+  @media screen and (max-width: 780px) {
+    & {
+      font-size: 12px;
     }
   }
 }
