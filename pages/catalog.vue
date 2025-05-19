@@ -4,7 +4,7 @@
       :src="windowSize > 600 ? '/image/bg12.png' : '/image/mobile-bg12.png'"
       width="100%"
       :height="windowSize > 600 ? 360 : 195"
-      position="left center"
+      position="left bottom"
     />
     <v-container class="px-0">
       <v-breadcrumbs
@@ -15,7 +15,7 @@
         }"
       >
         <template #divider>
-          <v-icon>mdi-chevron-right</v-icon>
+          <v-icon color="#ba9545">mdi-chevron-right</v-icon>
         </template>
       </v-breadcrumbs>
       <div class="title" style="padding: 0 40px">
@@ -137,11 +137,5 @@ h3 {
   font-size: 45px;
   line-height: 180%;
   text-align: right;
-}
-
-.double-color-hr {
-  height: 5px;
-  border: none;
-  background: linear-gradient(to right, #cfae63 40%, #e9daa5 40%);
 }
 </style>

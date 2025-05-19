@@ -4,7 +4,7 @@
       :src="windowSize > 600 ? '/image/bg7.png' : '/image/mobile-bg7.png'"
       width="100%"
       :height="windowSize > 600 ? 360 : 195"
-      position="left center"
+      position="left bottom"
     />
     <v-container class="px-0">
       <v-breadcrumbs
@@ -15,7 +15,7 @@
         }"
       >
         <template #divider>
-          <v-icon>mdi-chevron-right</v-icon>
+          <v-icon color="#ba9545">mdi-chevron-right</v-icon>
         </template>
       </v-breadcrumbs>
       <div class="position-relative py-16 pr-sm-10 pl-sm-10 pr-16">

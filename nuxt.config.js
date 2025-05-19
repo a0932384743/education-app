@@ -42,6 +42,12 @@ export default {
         type: 'text/css',
         href: 'https://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700&subset=all',
       },
+      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Kufam:ital,wght@0,400..900;1,400..900&family=Zen+Kaku+Gothic+New&display=swap'
+      }
     ],
   },
 

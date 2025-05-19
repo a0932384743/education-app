@@ -1,4 +1,3 @@
-
 export type Product = {
   name: string
   count: number
@@ -13,6 +12,15 @@ export type Service = {
   img: string
   imgMobile: string
 }
+
+export const subProducts: Array<Product> = Array.from({ length: 40 }).map(
+  (_, index) => ({
+    id: index,
+    count: Math.floor(Math.random() * 100),
+    img: `/image/icon${(index % 8) + 1}.png`,
+    name: `YF-${`00${index + 1}`.substring(-3)}`,
+  })
+);
 
 export const products: Array<Product> = [
   {

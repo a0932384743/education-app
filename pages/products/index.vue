@@ -4,9 +4,9 @@
       :src="windowSize > 600 ? '/image/bg11.png' : '/image/mobile-bg11.png'"
       width="100%"
       :height="windowSize > 600 ? 360 : 195"
-      position="left center"
+      position="left bottom"
     />
-    <v-container class="px-0" fluid>
+    <v-container class="px-0">
       <v-breadcrumbs
         :items="menus"
         class="pt-0"
@@ -15,7 +15,7 @@
         }"
       >
         <template #divider>
-          <v-icon>mdi-chevron-right</v-icon>
+          <v-icon color="#ba9545">mdi-chevron-right</v-icon>
         </template>
       </v-breadcrumbs>
       <div
@@ -96,8 +96,8 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { Product, products } from '../../dummy';
-import { EXTRA_SIZE } from '../../utils/themes';
 import ArrowIcon from '../../components/ArrowIcon.vue';
+import { EXTRA_SIZE } from '../../utils/themes';
 
 @Component({
   name: 'products',
