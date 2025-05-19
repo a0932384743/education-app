@@ -45,7 +45,7 @@
               class="white"
             />
             <v-card-actions class="justify-center align-center">
-              <h6>{{ product.name }}</h6>
+              <h6> <nuxt-link to="/products/detail/0"> {{ product.name }}</nuxt-link></h6>
             </v-card-actions>
           </v-card>
         </v-col>
@@ -54,7 +54,7 @@
         class="d-flex justify-space-between align-center flex-column-reverse flex-md-row"
       >
         <div class="flex-grow-1 d-none d-sm-block">&nbsp;</div>
-        <div class="flex-grow-1 text-center py-8 py-md-0">
+        <div class="flex-grow-1 text-cernter py-8 py-md-0">
           <v-btn class="back-btn" color="#D8AE5E" to="/products" dark>
             <span class="text">{{ $t('word11') }}</span>
           </v-btn>
@@ -74,8 +74,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { Product, subProducts } from '../../dummy';
 import {EXTRA_SIZE, LARGE_SIZE, MEDIUM_SIZE, SMALL_SIZE} from '../../utils/themes';
+import { Product, subProducts } from '../../dummy';
 
 @Component({
   name: 'product',
@@ -159,9 +159,20 @@ h6 {
   font-size: 26.65px;
   color: white;
 
+  * {
+    font-weight: 600;
+    font-size: 26.65px;
+    color: white;
+    text-decoration: none;
+  }
+
   @media screen and (max-width: 780px) {
     & {
       font-size: 14px;
+
+      * {
+        font-size: 14px;
+      }
     }
   }
 }
