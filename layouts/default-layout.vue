@@ -22,7 +22,7 @@
           <div
             v-for="m in menus"
             :key="'menu_' + m.name"
-            class="menu-item pb-5"
+            class="menu-item pb-5 px-2"
           >
             <nuxt-link :to="m.url"> {{ $t(m.name) }}</nuxt-link>
           </div>
@@ -154,7 +154,9 @@ export default class DefaultLayout extends Vue {
     return this.$i18n.locale;
   }
 
-  onGoCart() {}
+  onGoCart() {
+    this.$router.push('/cart');
+  }
 
   onChangeLang(lang: string) {
     this.$i18n.setLocale(lang);

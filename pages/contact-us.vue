@@ -319,16 +319,14 @@ p {
 }
 
 button {
-  min-width: 145px;
-  width: 145px;
-  min-height: 50px;
+  min-width: 145px !important;
+  min-height: 50px !important;
   margin-left: auto;
 
   @media screen and (max-width: 600px) {
     & {
-      min-width: 80px;
-      width: 100px;
-      min-height: 27px;
+      min-width: 100px !important;
+      min-height: 27px !important;
       margin: auto;
     }
   }

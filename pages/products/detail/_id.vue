@@ -164,7 +164,7 @@ export default class productDetail extends Vue {
   }
 
   onAddToCart() {
-    // Add to cart logic
+    this.$router.push('/cart');
   }
 
   onGoToList() {

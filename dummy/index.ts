@@ -46,6 +46,23 @@ export const products: Array<Product> = [
   },
 ];
 
+
+export const cartProducts: Array<Product> = [
+  {
+    name: '管束',
+    count: 12,
+    desc: 'TF-104',
+    img: '/image/icon1.png',
+    id: 0,
+  },
+  {
+    name: '管夾',
+    count: 9,
+    desc: 'TF-118',
+    img: '/image/icon2.png',
+    id: 1,
+  }
+];
 export const services: Array<Service> = [
   {
     title: 'word1',
