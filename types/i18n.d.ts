@@ -22,4 +22,10 @@ declare module 'vue/types/vue' {
     i18n: typeof VueI18n.prototype;
   }
 }
+
+declare module 'vue-i18n' {
+  interface IVueI18n {
+    setLocale(locale: string): void;
+  }
+}
 export default VueI18n;

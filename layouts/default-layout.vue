@@ -5,7 +5,7 @@
         fluid
         class="d-flex align-self-end pa-0 align-end fill-height flex-nowrap"
       >
-        <div class="pb-5 flex-grow-1 text-center">
+        <div class="pb-3 flex-grow-1 text-center">
           <logo-icon
             alt="Logo"
             :fill="windowSize >= 960 ? '#D8AE5E' : '#FFFFFF'"
@@ -33,7 +33,7 @@
           <v-btn icon @click="onGoCart">
             <v-icon color="white">mdi-cart-variant</v-icon>
           </v-btn>
-          <v-btn icon @click="onChangeLang">
+          <v-btn icon @click="onChangeLang(lang === 'en' ? 'zh-tw' : 'en')">
             <v-icon color="white">mdi-web</v-icon>
           </v-btn>
         </div>
@@ -97,8 +97,8 @@
         <v-list-item-group>
           <v-list-item style="background: transparent !important">
             <v-list-item-title class="text-center white--text">
-              <v-btn text dark>EN</v-btn> |
-              <v-btn text dark>中文</v-btn>
+              <v-btn text dark @click="onChangeLang('en')">EN</v-btn> |
+              <v-btn text dark @click="onChangeLang('zh-tw')">中文</v-btn>
             </v-list-item-title>
           </v-list-item>
         </v-list-item-group>
@@ -150,9 +150,15 @@ export default class DefaultLayout extends Vue {
 
   windowSize: number = 960;
 
+  get lang(){
+    return this.$i18n.locale;
+  }
+
   onGoCart() {}
 
-  onChangeLang() {}
+  onChangeLang(lang: string) {
+    this.$i18n.setLocale(lang);
+  }
 
   handleResize() {
     this.windowSize = window.innerWidth;
