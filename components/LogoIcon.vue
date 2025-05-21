@@ -2,7 +2,7 @@
   <svg
     width="353"
     height="92"
-    viewBox="0 0 360 92"
+    :viewBox="lang === 'en' ? '0 0 480 90' : '0 0 368 92'"
     fill="white"
     xmlns="http://www.w3.org/2000/svg"
   >

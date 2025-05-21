@@ -2,39 +2,46 @@
   <div class="flex flex-column position-relative" style="position: relative">
     <v-carousel :show-arrows="false" cycle :height="size1">
       <v-carousel-item
-        :src="windowSize > 600 ? '/image/bg1.png' : '/image/mobile-bg1.png'"
+        :src="
+          windowSize > 600
+            ? '/image/' + lang + '/carousel1.png'
+            : '/image/' + lang + '/mobile-bg1.png'
+        "
       ></v-carousel-item>
       <v-carousel-item
-        :src="windowSize > 600 ? '/image/bg2.png' : '/image/mobile-bg2.png'"
+        :src="
+          windowSize > 600
+            ? '/image/' + lang + '/carousel2.png'
+            : '/image/' + lang + '/mobile-bg2.png'
+        "
       ></v-carousel-item>
       <v-carousel-item
-        :src="windowSize > 600 ? '/image/bg3.png' : '/image/mobile-bg3.png'"
+        :src="
+          windowSize > 600
+            ? '/image/' + lang + '/carousel3.png'
+            : '/image/' + lang + '/mobile-bg3.png'
+        "
       ></v-carousel-item>
     </v-carousel>
-    <div class="d-none d-sm-block my-10"></div>
     <v-img
-      src="/image/bg4.png"
+      :src="'/image/' + lang + '/bg4.png'"
       width="100%"
       :height="size2"
       contain
+      position="center left"
       class="d-none d-sm-block"
-      role="button"
     />
-    <v-container
-      class="flex-nowrap px-0 d-none d-sm-flex"
-      :fluid="windowSize < 960"
-    >
-      <div class="align-self-center flex-grow-1">
-        <v-img src="/image/text1.png" max-height="160" contain />
-        <v-img
-          src="/image/button1.png"
-          role="button"
-          class="ml-auto"
-          max-height="50"
-          contain
-        />
-      </div>
-      <div class="d-none d-sm-flex" style="gap: 20px">
+    <div class="product-container d-none d-sm-flex align-center">
+      <v-img
+        src="/image/text2.png"
+        role="button"
+        width="320"
+        max-width="320"
+        height="250"
+        contain
+        class="mx-10"
+      />
+      <div class="d-none d-sm-flex flex-grow-1" style="gap: 30px">
         <v-card
           v-for="(product, index) in products"
           :key="product.id"
@@ -50,7 +57,7 @@
             contain
             :alt="product.img"
           />
-          <v-card-text class="px-0 py-2">
+          <v-card-text class="pa-0">
             <h5>{{ product.name }}</h5>
             <p>{{ $t('count') }}:{{ product.count }}</p>
           </v-card-text>
@@ -61,7 +68,7 @@
           </v-card-actions>
         </v-card>
       </div>
-    </v-container>
+    </div>
     <v-img
       src="/image/mobile-bg4.png"
       width="100%"
@@ -158,14 +165,14 @@
       </v-card>
     </div>
     <v-img
-      src="/image/bg5.png"
+      :src="'/image/' + lang + '/bg5.png'"
       width="100%"
-      :height="size1"
       contain
       class="d-none d-sm-block"
+      style="margin-bottom: 200px"
     />
     <v-img
-      src="/image/bg6.png"
+      :src="'/image/' + lang + '/bg6.png'"
       width="100%"
       :height="size3"
       class="d-none d-sm-block"
@@ -195,42 +202,46 @@ import { Product, Service, products, services } from '../dummy';
   },
 })
 export default class home extends Vue {
-  size1: number = 600;
-  size2: number = 720;
+  size1: number = 820;
+  size2: number = 750;
   size3: number = 1925;
   products: Array<Product> = products;
   services: Array<Service> = services;
   windowSize: number = EXTRA_SIZE;
 
+  get lang() {
+    return this.$i18n.locale === 'en' ? '/en' : '';
+  }
+
   handleResize() {
     if (window.innerWidth >= EXTRA_SIZE) {
-      this.size1 = 600;
-      this.size2 = 720;
+      this.size1 = 820;
+      this.size2 = 750;
       this.size3 = 1925;
     } else if (
       window.innerWidth < EXTRA_SIZE &&
       window.innerWidth >= LARGE_SIZE
     ) {
-      this.size1 = 500;
-      this.size2 = 600;
+      this.size1 = 720;
+      this.size2 = 750;
       this.size3 = 1620;
     } else if (
       window.innerWidth < LARGE_SIZE &&
       window.innerWidth >= MEDIUM_SIZE
     ) {
-      this.size1 = 400;
-      this.size2 = 480;
+      this.size1 = 520;
+      this.size2 = 750;
       this.size3 = 1280;
     } else if (
       window.innerWidth < MEDIUM_SIZE &&
       window.innerWidth >= SMALL_SIZE
     ) {
-      this.size1 = 300;
-      this.size2 = 360;
+      this.size1 = 460;
+      this.size2 = 750;
       this.size3 = 820;
     } else {
-      this.size1 = 300;
-      this.size2 = 360;
+      this.size1 = 460;
+      this.size2 = 750;
       this.size3 = 820;
     }
     this.windowSize = window.innerWidth;
@@ -247,12 +258,49 @@ export default class home extends Vue {
 }
 </script>
 <style scoped lang="scss">
+::v-deep .v-carousel__controls {
+  background: transparent;
+}
+
+::v-deep .v-carousel__controls__item .v-icon {
+  font-size: 14px;
+  color: white;
+  opacity: 1 !important;
+
+  @media screen and (max-width: 600px) {
+    & {
+      font-size: 10px !important;
+    }
+  }
+}
+
+::v-deep .v-carousel {
+  margin-bottom: 200px;
+
+  @media screen and (max-width: 1264px) {
+    & {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.product-container {
+  display: flex;
+  padding: 50px 150px 150px 180px;
+
+  @media screen and (max-width: 1264px) {
+    & {
+      padding: 0 50px 50px 80px;
+    }
+  }
+}
+
 h5 {
   font-weight: 600;
   font-size: 30px;
   line-height: 180%;
   color: #000000;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 h6 {
