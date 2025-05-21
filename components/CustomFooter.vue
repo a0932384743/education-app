@@ -144,7 +144,13 @@ footer {
   width: 100%;
   align-self: end;
 
-  @media (max-width: 532px) {
+  @media (max-width: 1264px) {
+    & {
+      padding: 185px 180px;
+    }
+  }
+
+  @media (max-width: 960px) {
     & {
       padding: 57px 35px 0 35px;
     }
@@ -178,7 +184,7 @@ footer {
   width: 33px !important;
   height: 33px !important;
 
-  @media (max-width: 532px) {
+  @media (max-width: 600px) {
     & {
       width: 18px !important;
       height: 18px !important;
@@ -193,7 +199,7 @@ h5 {
   letter-spacing: 8px;
   margin-bottom: 10px;
 
-  @media (max-width: 532px) {
+  @media (max-width: 600px) {
     & {
       font-size: 20px;
       letter-spacing: 3px;
@@ -211,7 +217,7 @@ h5 {
   text-decoration: none;
 
 
-  @media (max-width: 532px) {
+  @media (max-width: 600px) {
     & {
       font-weight: 400;
       font-size: 12px;
@@ -222,7 +228,7 @@ h5 {
 }
 
 .section {
-  @media (max-width: 532px) {
+  @media (max-width: 600px) {
     & {
       border-bottom: 1px solid #fff;
     }

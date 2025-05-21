@@ -200,6 +200,12 @@ header {
 .logo-container {
   padding: 35px 200px;
 
+  @media screen and (max-width: 1904px) {
+    & {
+      padding: 35px 35px;
+    }
+  }
+
   @media screen and (max-width: 960px) {
     & {
       padding: 10px 11px;
@@ -217,6 +223,25 @@ header {
   min-width: 320px;
   flex: 1 1 auto;
   padding: 50px 50px;
+
+  @media screen and (max-width: 1264px) {
+    & {
+      gap: 20px;
+      max-width: 240px;
+      min-width: 240px;
+      padding: 50px 20px;
+    }
+  }
+
+  @media screen and (max-width: 960px) {
+    & {
+      gap: 20px;
+      max-width: 240px;
+      min-width: 240px;
+      padding: 50px 30px;
+    }
+  }
+
 }
 
 .menu-item {
