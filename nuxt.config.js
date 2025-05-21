@@ -22,7 +22,7 @@ export default {
   head: {
     titleTemplate: '%s',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'zh-tw',
     },
     meta: [
       { charset: 'utf-8' },
