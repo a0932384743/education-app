@@ -147,33 +147,6 @@ export default class aboutUs extends Vue {
 }
 </script>
 <style scoped lang="scss">
-h1 {
-  font-family: 'Kufam', serif;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 100%;
-  margin-bottom: 50px;
-
-  @media screen and (max-width: 600px) {
-    & {
-      font-size: 16px;
-    }
-  }
-}
-
-pre {
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 150%;
-  white-space: break-spaces;
-
-  @media screen and (max-width: 600px) {
-    & {
-      font-size: 12px;
-    }
-  }
-}
-
 .feature-grid {
   padding: 330px 0;
   display: grid;
@@ -195,7 +168,8 @@ pre {
   align-items: center;
   justify-content: center;
   gap: 35px;
-  @media screen and (min-width: 600px) {
+
+  @media screen and (max-width: 600px) {
     & {
       gap: 14px;
     }
