@@ -61,9 +61,7 @@
             <p>{{ $t('count') }}:{{ product.count }}</p>
           </v-card-text>
           <v-card-actions class="justify-end">
-            <v-btn icon light>
-              <v-icon>mdi-arrow-right</v-icon>
-            </v-btn>
+            <arrow-icon width="30px" direction="right"/>
           </v-card-actions>
         </v-card>
       </div>
@@ -137,30 +135,16 @@
       <v-card
         v-for="product in products"
         :key="'mobile-' + product.id"
-        class="pa-0 align-self-start mx-auto"
+        class="pa-0 position-relative"
         tile
       >
-        <v-img
-          :src="product.img"
-          width="100%"
-          :max-width="325"
-          contain
-          :alt="product.img"
-        >
-          <v-app-bar
-            flat
-            style="
-              background: linear-gradient(180deg, #000 0, #000 60%, #0000 100%);
-            "
-          >
-            <h6 class="white--text text-no-wrap">
-              {{ product.name }}
-              <v-btn icon dark>
-                <v-icon size="20">mdi-arrow-right-circle</v-icon>
-              </v-btn>
-            </h6>
-          </v-app-bar>
-        </v-img>
+        <h6 class="card-title">
+          {{ product.name }}
+          <v-btn icon dark>
+            <v-icon size="25">mdi-arrow-right-circle</v-icon>
+          </v-btn>
+        </h6>
+        <v-img :src="product.img" width="100%" :alt="product.img" contain/>
       </v-card>
     </div>
     <v-img
@@ -196,9 +180,11 @@ import {
   SMALL_SIZE,
 } from '../utils/themes';
 import {Product, Service, products, services} from '../dummy';
+import ArrowIcon from "../components/ArrowIcon.vue";
 
 @Component({
   name: 'home',
+  components: {ArrowIcon},
   layout: 'default-layout',
   asyncData() {
     return {
@@ -301,14 +287,6 @@ h5 {
   line-height: 180%;
   color: #000000;
   margin-bottom: 8px;
-}
-
-h6 {
-  font-weight: 600;
-  line-height: 180%;
-  color: #000000;
-  font-size: 23.96px;
-  text-align: right;
 }
 
 p {

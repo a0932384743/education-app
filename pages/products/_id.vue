@@ -6,12 +6,12 @@
       :height="windowSize > 600 ? 360 : 195"
       position="left bottom"
     />
-    <v-container class="px-0">
+    <v-container class="px-0 mx-auto" style="max-width: 1360px">
       <v-breadcrumbs
         :items="menus"
         class="pt-0"
         :style="{
-          marginBottom: windowSize > 600 ? '150px' : '10px',
+          marginBottom: windowSize > 600 ? '140px' : '10px',
         }"
       >
         <template #divider>
@@ -22,9 +22,9 @@
         <h1 class="mb-2">
           {{ title }}
         </h1>
-        <hr class="double-color-hr" />
+        <hr class="double-color-hr"/>
       </div>
-      <v-row class="pa-8 pa-sm-16 mb-10">
+      <div class="product-container">
         <v-col
           v-for="product in products.slice(
             perPage * (page - 1),
@@ -34,30 +34,33 @@
           cols="6"
           sm="6"
           md="4"
-          xl="3"
         >
-          <v-card color="#cfae63" rounded="0" outlined>
+          <v-card color="#cfae63" rounded="0" outlined class="fill-height">
             <v-img
               :src="product.img"
               width="100%"
-              :height="size1"
-              contain
+              :max-height="windowSize > 600 ? '340px' : '171px'"
+              :min-height="windowSize > 600 ? '340px' : '171px'"
               class="white"
+              contain
             />
-            <v-card-actions class="justify-center align-center">
-              <h6> <nuxt-link to="/products/detail/0"> {{ product.name }}</nuxt-link></h6>
+            <v-card-actions
+              class="justify-center align-center"
+              :style="{
+              height: windowSize > 600 ? '90px' : '45px'
+              }"
+            >
+              <nuxt-link to="/products/detail/0">{{ product.name }}</nuxt-link>
             </v-card-actions>
           </v-card>
         </v-col>
-      </v-row>
+      </div>
       <div
-        class="d-flex justify-space-between align-center flex-column-reverse flex-md-row"
+        class="d-flex justify-space-between align-center flex-column-reverse flex-md-row product-btn"
       >
         <div class="flex-grow-1 d-none d-sm-block">&nbsp;</div>
-        <div class="flex-grow-1 text-cernter py-8 py-md-0">
-          <v-btn class="back-btn" color="#D8AE5E" to="/products" dark>
-            <span class="text">{{ $t('word11') }}</span>
-          </v-btn>
+        <div class="flex-grow-1 text-center">
+          <v-btn class="back-btn" color="#D8AE5E" to="/products" dark :min-width="windowSize > 600 ? 235 : 120" :min-height="windowSize > 600 ? 60 : 30">{{ $t('word11') }}</v-btn>
         </div>
         <v-pagination
           v-model="page"
@@ -67,15 +70,15 @@
           :length="Math.ceil(products.length / perPage)"
         ></v-pagination>
       </div>
-      <div class="py-16 my-16" />
+      <div class="py-16 my-16"/>
     </v-container>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import {EXTRA_SIZE, LARGE_SIZE, MEDIUM_SIZE, SMALL_SIZE} from '../../utils/themes';
-import { Product, subProducts } from '../../dummy';
+import {Component, Vue} from 'vue-property-decorator';
+import {Product, subProducts} from '../../dummy';
+import {EXTRA_SIZE} from '../../utils/themes';
 
 @Component({
   name: 'product',
@@ -89,45 +92,21 @@ import { Product, subProducts } from '../../dummy';
 export default class product extends Vue {
   get menus() {
     return [
-      { text: this.$t('home'), disabled: false, href: '/' },
-      { text: this.$t('products.intro'), disabled: false, href: '/products' },
-      { text: '農機用管束商品', disabled: true },
+      {text: this.$t('home'), disabled: false, href: '/'},
+      {text: this.$t('products.intro'), disabled: false, href: '/products'},
+      {text: '農機用管束商品', disabled: true},
     ];
   }
 
   readonly products: Array<Product> = subProducts;
-
   readonly title: string = '農機用管束商品';
-
   windowSize: number = EXTRA_SIZE;
-  size1: number = 285;
 
   page: number = 1;
 
   readonly perPage: number = 6;
 
   handleResize() {
-
-    if (window.innerWidth >= EXTRA_SIZE) {
-      this.size1 = 285;
-    } else if (
-      window.innerWidth < EXTRA_SIZE &&
-      window.innerWidth >= LARGE_SIZE
-    ) {
-      this.size1 = 250;
-    } else if (
-      window.innerWidth < LARGE_SIZE &&
-      window.innerWidth >= MEDIUM_SIZE
-    ) {
-      this.size1 = 200;
-    } else if (
-      window.innerWidth < MEDIUM_SIZE &&
-      window.innerWidth >= SMALL_SIZE
-    ) {
-      this.size1 = 150;
-    } else {
-      this.size1 = 150;
-    }
     this.windowSize = window.innerWidth;
   }
 
@@ -145,35 +124,74 @@ export default class product extends Vue {
 h1 {
   font-weight: 500;
   font-size: 40px;
-  line-height: 100%;
+  line-height: 180%;
+  letter-spacing: 5px;
 
-  @media screen and (max-width: 780px) {
+  @media screen and (max-width: 600px) {
     & {
       font-size: 20px;
     }
   }
 }
 
-h6 {
-  font-weight: 600;
-  font-size: 26.65px;
-  color: white;
+.product-container {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  padding: 110px 50px 150px 50px;
 
-  * {
-    font-weight: 600;
-    font-size: 26.65px;
-    color: white;
-    text-decoration: none;
+  & > * {
+    padding: 0 40px 80px 40px;
   }
 
   @media screen and (max-width: 780px) {
     & {
-      font-size: 14px;
-
-      * {
-        font-size: 14px;
+      padding: 24px 0 50px 0;
+      > * {
+        padding: 0 11px 23px 11px;
       }
     }
+  }
+}
+
+.product-btn {
+  padding: 0 50px 0 50px;
+  @media screen and (max-width: 780px) {
+    & {
+      padding: 0;
+    }
+  }
+}
+
+a {
+  font-weight: 600;
+  font-size: 26.65px;
+  line-height: 180%;
+  letter-spacing: 5px;
+  text-align: right;
+  color: white;
+  text-decoration: none;
+  @media screen and (max-width: 600px) {
+    & {
+      font-size: 14px;
+    }
+  }
+}
+
+::v-deep .v-image:hover {
+  .v-image__image {
+    background-size: 150%;
+    animation: hover 1s;
+  }
+}
+
+@keyframes hover {
+  0% {
+    background-size: 100%;
+  }
+
+  100% {
+    background-size: 120%;
   }
 }
 
@@ -191,7 +209,7 @@ h6 {
   background: #e6d199 !important;
   color: white !important;
 
-  @media screen and (max-width: 780px) {
+  @media screen and (max-width: 600px) {
     & {
       width: 28px;
       height: 28px;
@@ -201,6 +219,7 @@ h6 {
     }
   }
 }
+
 ::v-deep .v-pagination__item--active {
   background: #d8ae5e !important;
 }
@@ -209,34 +228,22 @@ h6 {
   display: none;
 }
 
-.text {
-  font-family: Kufam, serif;
-  font-weight: 700;
-  font-size: 20px;
-  letter-spacing: 20px;
-  text-indent: 20px;
-
-  @media screen and (max-width: 780px) {
-    & {
-      font-size: 10px;
-    }
-  }
-}
-
 .back-btn {
-  font-family: Kufam, serif;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 0;
-  min-width: 250px;
-  min-height: 60px;
-  text-align: center;
+  margin: 15px auto;
 
-  @media screen and (max-width: 780px) {
+  .v-btn__content {
+    font-family: Kufam,serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 130%;
+    letter-spacing: 8px;
+  }
+
+  @media screen and (max-width: 600px) {
     & {
-      font-size: 10px;
-      min-width: 120px;
-      min-height: 30px;
+      .v-btn__content {
+        font-size: 10px;
+      }
     }
   }
 }
