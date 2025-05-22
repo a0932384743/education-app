@@ -5,28 +5,27 @@
         :src="
           windowSize > 600
             ? '/image/' + lang + '/carousel1.png'
-            : '/image/' + lang + '/mobile-bg1.png'
+            : '/image/' + lang + '/mobile-carousel1.png'
         "
       ></v-carousel-item>
       <v-carousel-item
         :src="
           windowSize > 600
             ? '/image/' + lang + '/carousel2.png'
-            : '/image/' + lang + '/mobile-bg2.png'
+            : '/image/' + lang + '/mobile-carousel2.png'
         "
       ></v-carousel-item>
       <v-carousel-item
         :src="
           windowSize > 600
             ? '/image/' + lang + '/carousel3.png'
-            : '/image/' + lang + '/mobile-bg3.png'
+            : '/image/' + lang + '/mobile-carousel3.png'
         "
       ></v-carousel-item>
     </v-carousel>
     <v-img
       :src="'/image/' + lang + '/bg4.png'"
       width="100%"
-      :height="size2"
       contain
       position="center left"
       class="d-none d-sm-block"
@@ -117,7 +116,7 @@
               style="border-color: #ba9545"
             />
             <div class="sub-title">
-              {{ $t(service.desc1) }}<br />{{ $t(service.desc2) }}
+              {{ $t(service.desc1) }}<br/>{{ $t(service.desc2) }}
             </div>
           </div>
         </div>
@@ -171,25 +170,32 @@
       class="d-none d-sm-block"
       style="margin-bottom: 200px"
     />
-    <v-img
-      :src="'/image/' + lang + '/bg6.png'"
-      width="100%"
-      :height="size3"
-      class="d-none d-sm-block"
-    />
-    <v-img src="/image/mobile-bg6.png" width="100%" class="d-sm-none d-block" />
+    <div class="fill-width position-relative hover d-none d-sm-block">
+      <v-img
+        :src="'/image/' + lang + '/bg6.png'"
+        width="100%"
+        height="100%"
+      />
+      <v-img
+        :src="'/image/' + lang + '/hover-bg6.png'"
+        width="100%"
+        height="100%"
+        class="hover-img"
+      />
+    </div>
+    <v-img src="/image/mobile-bg6.png" width="100%" class="d-sm-none d-block"/>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import {Component, Vue} from 'vue-property-decorator';
 import {
   EXTRA_SIZE,
   LARGE_SIZE,
   MEDIUM_SIZE,
   SMALL_SIZE,
 } from '../utils/themes';
-import { Product, Service, products, services } from '../dummy';
+import {Product, Service, products, services} from '../dummy';
 
 @Component({
   name: 'home',
@@ -203,7 +209,6 @@ import { Product, Service, products, services } from '../dummy';
 })
 export default class home extends Vue {
   size1: number = 820;
-  size2: number = 750;
   size3: number = 1925;
   products: Array<Product> = products;
   services: Array<Service> = services;
@@ -216,32 +221,27 @@ export default class home extends Vue {
   handleResize() {
     if (window.innerWidth >= EXTRA_SIZE) {
       this.size1 = 820;
-      this.size2 = 750;
       this.size3 = 1925;
     } else if (
       window.innerWidth < EXTRA_SIZE &&
       window.innerWidth >= LARGE_SIZE
     ) {
       this.size1 = 720;
-      this.size2 = 750;
       this.size3 = 1620;
     } else if (
       window.innerWidth < LARGE_SIZE &&
       window.innerWidth >= MEDIUM_SIZE
     ) {
       this.size1 = 520;
-      this.size2 = 750;
       this.size3 = 1280;
     } else if (
       window.innerWidth < MEDIUM_SIZE &&
       window.innerWidth >= SMALL_SIZE
     ) {
       this.size1 = 460;
-      this.size2 = 750;
       this.size3 = 820;
     } else {
       this.size1 = 460;
-      this.size2 = 750;
       this.size3 = 820;
     }
     this.windowSize = window.innerWidth;
@@ -402,5 +402,19 @@ p {
 
 .app-bar ::v-deep .v-toolbar__content {
   background: linear-gradient(180deg, #000 0, #000 60%, #0000 100%);
+}
+
+.hover-img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.hover:hover {
+  .hover-img {
+    opacity: 1;
+  }
 }
 </style>

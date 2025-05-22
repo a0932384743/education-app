@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app color="header" light :height="windowSize >= 960 ? 250 : 100">
+    <v-app-bar app color="header" light :height="windowSize >= 960 ? windowSize >= 1260 ? 250: 200 : 100">
       <v-container
         fluid
         class="d-flex align-self-end pa-0 align-end fill-height flex-nowrap"
@@ -264,10 +264,10 @@ header {
 
   &:hover {
     background-color: #d8ae5e;
-    color: white;
+    color: white !important;
 
     & > a {
-      color: white;
+      color: white !important;
     }
   }
 
