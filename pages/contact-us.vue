@@ -26,7 +26,7 @@
           </p>
           <div class="py-sm-10"></div>
           <h1>{{ $t('word17') }}</h1>
-          <p class="d-flex align-center" style="gap: 8px">
+          <div class="p d-flex align-center" style="gap: 8px">
             <v-img
               src="/image/icon6.svg"
               :width="size1"
@@ -35,10 +35,10 @@
               class="flex-grow-0"
             />
             {{ $t('app.address1') }}
-          </p>
+          </div>
           <div class="py-sm-10"></div>
           <h1>{{ $t('contact.info') }}</h1>
-          <p class="d-flex align-center" style="gap: 8px">
+          <div class="p d-flex align-center" style="gap: 8px">
             <v-img
               src="/image/icon7.svg"
               :width="size1"
@@ -47,8 +47,8 @@
               class="flex-grow-0"
             />
             yangfen7@ms78.hinet.net
-          </p>
-          <p class="d-flex align-center" style="gap: 8px">
+          </div>
+          <div class="p d-flex align-center" style="gap: 8px">
             <v-img
               src="/image/icon8.svg"
               :width="size1"
@@ -57,8 +57,8 @@
               class="flex-grow-0"
             />
             +886-4-7389650 | +886-4-7385200
-          </p>
-          <p class="d-flex align-center" style="gap: 8px">
+          </div>
+          <div class="p d-flex align-center" style="gap: 8px">
             <v-img
               src="/image/icon9.svg"
               :width="size1"
@@ -67,10 +67,10 @@
               class="flex-grow-0"
             />
             +886-4-7384890
-          </p>
+          </div>
           <div class="py-sm-10"></div>
           <h1>{{ $t('customer.service') }}</h1>
-          <p class="d-flex align-end" style="gap: 8px">
+          <div class="p d-flex align-end" style="gap: 8px">
             <v-img
               src="/image/icon9.png"
               :width="size2"
@@ -79,7 +79,7 @@
               class="flex-grow-0"
             />
             {{ $t('word18') }}: @812vhldt
-          </p>
+          </div>
         </v-col>
         <v-col cols="12" md="6">
           <v-form>
@@ -160,7 +160,7 @@
                 ref="captchaCanvas"
                 width="150"
                 height="40"
-                style="width: 150px; height: 40px;"
+                style="width: 150px; height: 40px"
                 class="mb-5"
                 @click="generateCaptcha"
               />
@@ -317,7 +317,8 @@ h1 {
   }
 }
 
-p {
+p,
+.p {
   font-weight: 400;
   font-size: 20px;
 
