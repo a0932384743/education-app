@@ -6,22 +6,22 @@
       :height="windowSize > 600 ? 360 : 195"
       position="left bottom"
     />
-    <v-container class="px-4">
+    <v-container class="px-0 mx-auto" style="max-width: 1360px">
       <v-breadcrumbs
         :items="menus"
         class="pt-0"
         :style="{
-          marginBottom: windowSize > 600 ? '150px' : '10px',
+          marginBottom: windowSize > 600 ? '155px' : '10px',
         }"
       >
         <template #divider>
           <v-icon color="#ba9545">mdi-chevron-right</v-icon>
         </template>
       </v-breadcrumbs>
-      <v-row>
+      <div class="contact-container">
         <v-col cols="12" md="6">
           <h1>{{ $t('title2') }}</h1>
-          <p>
+          <p style="line-height: 200%">
             {{ $t('paragraph2') }}
           </p>
           <div class="py-sm-10"></div>
@@ -169,10 +169,8 @@
             <v-btn color="#D8AE5E" class="ml-auto">{{ $t('submit') }}</v-btn>
           </div>
         </v-col>
-      </v-row>
+      </div>
     </v-container>
-    <div class="py-sm-16"></div>
-    <div class="py-16"></div>
   </div>
 </template>
 
@@ -184,6 +182,7 @@ import {
   MEDIUM_SIZE,
   SMALL_SIZE,
 } from '../utils/themes';
+import { rand, randomText } from '../utils/randomText';
 
 @Component({
   name: 'contact-us',
@@ -201,27 +200,14 @@ export default class contactUs extends Vue {
     ];
   }
 
-  randomText(length: number = 5) {
-    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-    return Array.from(
-      { length },
-      () => chars[Math.floor(Math.random() * chars.length)]
-    ).join('');
-  }
-
   @Ref('captchaCanvas') captchaCanvas!: HTMLCanvasElement;
 
   captchaText: string = '';
 
-  rand(min: number, max: number) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
   generateCaptcha() {
     const canvas = this.captchaCanvas;
     const ctx = canvas.getContext('2d');
-    this.captchaText = this.randomText();
-
+    this.captchaText = randomText();
     // 清除畫布
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -231,16 +217,15 @@ export default class contactUs extends Vue {
 
     // 干擾線
     for (let i = 0; i < 5; i++) {
-      ctx.strokeStyle = `rgba(${this.rand(100, 255)},${this.rand(
+      ctx.strokeStyle = `rgba(${rand(100, 255)},${rand(100, 255)},${rand(
         100,
         255
-      )},${this.rand(100, 255)},0.7)`;
+      )},0.7)`;
       ctx.beginPath();
-      ctx.moveTo(this.rand(0, canvas.width), this.rand(0, canvas.height));
-      ctx.lineTo(this.rand(0, canvas.width), this.rand(0, canvas.height));
+      ctx.moveTo(rand(0, canvas.width), rand(0, canvas.height));
+      ctx.lineTo(rand(0, canvas.width), rand(0, canvas.height));
       ctx.stroke();
     }
-
     // CAPTCHA 字
     ctx.font = '24px Arial';
     ctx.fillStyle = '#333';
@@ -290,6 +275,30 @@ export default class contactUs extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -45px;
+  margin-right: -45px;
+  margin-bottom: 300px;
+
+  & > * {
+    padding: 0 45px;
+  }
+
+  @media screen and (max-width: 1360px) {
+    & {
+      margin-left: 0;
+      margin-right: 0;
+      margin-bottom: 80px;
+
+      & > * {
+        padding: 0 45px 50px 45px;
+      }
+    }
+  }
+}
+
 h1 {
   font-family: Kufam, serif;
   font-weight: 700;
@@ -308,8 +317,6 @@ h1 {
 p {
   font-weight: 400;
   font-size: 20px;
-  line-height: 150%;
-  margin-bottom: 10px;
 
   @media screen and (max-width: 600px) {
     & {
@@ -330,6 +337,7 @@ button {
       margin: auto;
     }
   }
+
   ::v-deep .v-btn__content {
     font-family: Kufam, serif;
     font-weight: 700;

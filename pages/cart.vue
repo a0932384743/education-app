@@ -6,33 +6,36 @@
       :height="windowSize > 600 ? 360 : 195"
       position="left bottom"
     />
-    <v-container class="px-4">
+    <v-container class="px-0 mx-auto" style="max-width: 1360px">
       <v-breadcrumbs
         :items="menus"
         class="pt-0"
         :style="{
-          marginBottom: windowSize > 600 ? '150px' : '10px',
+          marginBottom: windowSize > 600 ? '155px' : '10px',
         }"
       >
         <template #divider>
           <v-icon color="#ba9545">mdi-chevron-right</v-icon>
         </template>
       </v-breadcrumbs>
-      <div class="title px-4 px-md-0">
+      <div class="title px-4 px-lg-0">
         <h1 class="mb-2">
           {{ $t('word20') }}
         </h1>
         <hr class="double-color-hr" />
       </div>
-      <div class="d-flex flex-column px-4 px-md-0">
-        <v-list class="mb-8 mb-sm-12">
+      <div class="cart-container">
+        <v-list>
           <v-list-item
             v-for="product in products"
             :key="product.id"
             class="px-0"
           >
-            <v-list-item-icon>
+            <v-list-item-icon
+              :style="{ padding: windowSize > 600 ? '25px 25px' : '30px 0px' }"
+            >
               <v-img
+                class="mx-auto"
                 :src="product.img"
                 :alt="product.name"
                 :width="windowSize > 600 ? 200 : 150"
@@ -46,12 +49,19 @@
                 <p>{{ $t('word12') }}:{{ product.desc }}</p>
               </v-list-item-title>
             </v-list-item-content>
-            <v-btn text class="align-self-start align-self-sm-center">
-              <v-icon color="#BA9545" :size="windowSize > 600 ?50 : 24">mdi-close-box</v-icon>
+            <v-btn
+              color="#D8AE5E"
+              class="align-self-start align-self-sm-center px-0 rounded-0 mt-2"
+              :min-height="windowSize > 600 ? 50 : 30"
+              :min-width="windowSize > 600 ? 50 : 30"
+            >
+              <v-icon color="white" :size="windowSize > 600 ? 50 : 24"
+                >mdi-close</v-icon
+              >
             </v-btn>
           </v-list-item>
         </v-list>
-        <v-card rounded="0" class="px-10 py-12" color="#D8AE5E" outlined>
+        <v-card rounded="0" class="form" color="#D8AE5E" outlined>
           <v-form>
             <div
               class="d-flex flex-column flex-sm-row"
@@ -116,23 +126,44 @@
                 :dense="windowSize < 600"
               ></v-textarea>
             </div>
+            <div class="flex-grow-1 form-group">
+              <v-text-field
+                :label="$t('graphic.verify')"
+                required
+                outlined
+                single-line
+                light
+                color="#BA9545"
+                background-color="#FFF"
+                :dense="windowSize < 600"
+              >
+                <template #append>
+                  <canvas
+                    ref="captchaCanvas"
+                    width="150"
+                    height="40"
+                    class="mb-5"
+                    @click="generateCaptcha"
+                  />
+                </template>
+              </v-text-field>
+            </div>
           </v-form>
-          <div class="d-flex mt-5 justify-end align-center" style="gap: 10px">
+          <div class="d-flex justify-end align-center btn-group">
             <v-btn color="#FFF" class="rounded-0">{{ $t('word21') }}</v-btn>
             <v-btn color="#FFF" class="rounded-0">{{ $t('word22') }}</v-btn>
           </div>
         </v-card>
       </div>
     </v-container>
-    <div class="py-sm-16"></div>
-    <div class="py-16"></div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Ref, Vue } from 'vue-property-decorator';
 import { EXTRA_SIZE } from '../utils/themes';
 import { Product, cartProducts } from '../dummy';
+import { rand, randomText } from '../utils/randomText';
 
 @Component({
   name: 'cart',
@@ -146,7 +177,48 @@ import { Product, cartProducts } from '../dummy';
 export default class Cart extends Vue {
   products: Product[] = cartProducts;
 
+  get menus() {
+    return [
+      { text: this.$t('home'), disabled: false, href: '/' },
+      { text: this.$t('word20'), disabled: true },
+    ];
+  }
+
   windowSize: number = EXTRA_SIZE;
+
+  @Ref('captchaCanvas') captchaCanvas!: HTMLCanvasElement;
+
+  captchaText: string = '';
+
+  generateCaptcha() {
+    const canvas = this.captchaCanvas;
+    const ctx = canvas.getContext('2d');
+    this.captchaText = randomText();
+    // 清除畫布
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // 背景
+    ctx.fillStyle = '#f5f5f5';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // 干擾線
+    for (let i = 0; i < 5; i++) {
+      ctx.strokeStyle = `rgba(${rand(100, 255)},${rand(100, 255)},${rand(
+        100,
+        255
+      )},0.7)`;
+      ctx.beginPath();
+      ctx.moveTo(rand(0, canvas.width), rand(0, canvas.height));
+      ctx.lineTo(rand(0, canvas.width), rand(0, canvas.height));
+      ctx.stroke();
+    }
+    // CAPTCHA 字
+    ctx.font = '24px Arial';
+    ctx.fillStyle = '#333';
+    ctx.textBaseline = 'middle';
+    ctx.textAlign = 'center';
+    ctx.fillText(this.captchaText, canvas.width / 2, canvas.height / 2);
+  }
 
   handleResize() {
     this.windowSize = window.innerWidth;
@@ -154,6 +226,7 @@ export default class Cart extends Vue {
 
   mounted() {
     this.$nextTick(this.handleResize);
+    this.$nextTick(this.generateCaptcha);
     window.addEventListener('resize', this.handleResize);
   }
 
@@ -163,6 +236,19 @@ export default class Cart extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+
+  @media screen and (max-width: 1360px) {
+    & {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+  }
+}
+
 h1 {
   font-weight: 500;
   font-size: 40px;
@@ -188,27 +274,51 @@ p {
   }
 }
 
-button {
-  min-width: 145px !important;
-  min-height: 50px !important;
+.form {
+  padding: 70px 55px;
+  margin-bottom: 250px;
 
   @media screen and (max-width: 600px) {
     & {
-      min-width: 80px !important;
-      min-height: 27px !important;
+      padding: 30px 16px;
+      margin-bottom: 130px;
     }
   }
-  ::v-deep .v-btn__content {
-    font-family: Kufam, serif;
-    font-weight: 700;
-    font-size: 20px;
-    color: #ba9545;
-  }
+}
+
+.btn-group {
+  gap: 30px;
+  margin-top: 70px;
 
   @media screen and (max-width: 600px) {
     & {
-      ::v-deep .v-btn__content {
-        font-size: 12px;
+      margin-top: 40px;
+    }
+  }
+
+  button {
+    min-width: 145px !important;
+    min-height: 50px !important;
+
+    @media screen and (max-width: 600px) {
+      & {
+        min-width: 80px !important;
+        min-height: 27px !important;
+      }
+    }
+
+    ::v-deep .v-btn__content {
+      font-family: Kufam, serif;
+      font-weight: 700;
+      font-size: 20px;
+      color: #ba9545;
+    }
+
+    @media screen and (max-width: 600px) {
+      & {
+        ::v-deep .v-btn__content {
+          font-size: 12px;
+        }
       }
     }
   }
