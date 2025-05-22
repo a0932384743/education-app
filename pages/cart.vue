@@ -142,7 +142,7 @@
                     ref="captchaCanvas"
                     width="150"
                     height="40"
-                    class="mb-5"
+                    style="width: 150px; height: 40px;"
                     @click="generateCaptcha"
                   />
                 </template>
@@ -192,7 +192,9 @@ export default class Cart extends Vue {
 
   generateCaptcha() {
     const canvas = this.captchaCanvas;
+    if (!canvas) return;
     const ctx = canvas.getContext('2d');
+    if (!ctx) return;
     this.captchaText = randomText();
     // 清除畫布
     ctx.clearRect(0, 0, canvas.width, canvas.height);

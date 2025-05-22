@@ -160,6 +160,7 @@
                 ref="captchaCanvas"
                 width="150"
                 height="40"
+                style="width: 150px; height: 40px;"
                 class="mb-5"
                 @click="generateCaptcha"
               />
@@ -206,7 +207,9 @@ export default class contactUs extends Vue {
 
   generateCaptcha() {
     const canvas = this.captchaCanvas;
+    if (!canvas) return;
     const ctx = canvas.getContext('2d');
+    if (!ctx) return;
     this.captchaText = randomText();
     // 清除畫布
     ctx.clearRect(0, 0, canvas.width, canvas.height);
