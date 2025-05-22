@@ -321,6 +321,7 @@ p,
 .p {
   font-weight: 400;
   font-size: 20px;
+  margin: 10px;
 
   @media screen and (max-width: 600px) {
     & {
