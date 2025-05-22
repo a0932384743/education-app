@@ -58,6 +58,8 @@
 
 .hover {
   position: relative !important;
+  width: 100%;
+  height: 100%;
 }
 
 .hover-img {
@@ -93,6 +95,7 @@
   letter-spacing: 5px;
   padding: 12px 19px;
   color: white;
+
   @media screen and (max-width: 600px) {
     & {
       font-size: 26px;
