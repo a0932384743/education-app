@@ -6,126 +6,147 @@
       :height="windowSize > 600 ? 360 : 195"
       position="left bottom"
     />
-    <v-container class="px-0">
-      <v-breadcrumbs
-        :items="menus"
-        class="pt-0"
-        :style="{
-          marginBottom: windowSize > 600 ? '150px' : '10px',
-        }"
-      >
+    <v-container
+      class="px-0 mx-auto"
+      style="max-width: 1440px"
+      :style="{ marginBottom: windowSize > 600 ? '80px' : '10px' }"
+    >
+      <v-breadcrumbs :items="menus" class="pt-0">
         <template #divider>
           <v-icon color="#ba9545">mdi-chevron-right</v-icon>
         </template>
       </v-breadcrumbs>
+    </v-container>
+    <v-container class="px-2 px-md-4 px-lg-0 mx-auto" fluid>
       <div
-        class="d-flex justify-center align-center products-link flex-column flex-sm-row pb-10 pb-sm-16"
+        class="d-flex flex-wrap justify-center align-center products-link flex-column flex-sm-row"
       >
-        <span>{{ title }} : </span>
+        <span class="text-no-wrap">{{ title }} : </span>
         <v-breadcrumbs :items="children" class="px-1 py-0">
           <template #divider>
             <span style="color: #ba9545">|</span>
           </template>
         </v-breadcrumbs>
       </div>
-      <div class="d-none d-sm-flex flex-column py-16">
+      <div class="d-none d-lg-flex flex-column py-16">
         <div
           v-for="(product, index) in products"
           :key="'img-' + index"
           class="catalog"
         >
-          <v-img v-if="index % 2 === 0" :src="product.img" />
+          <div v-if="index % 2 === 0" class="hover">
+            <v-img :src="product.img" width="100%"/>
+            <div class="hover-img d-flex align-end">
+              <h1>{{ product.name }}</h1>
+            </div>
+          </div>
           <div
-            class="catalog-download text-start"
-            :class="index % 2 ? 'pr-8 pl-16' : 'pl-8 pr-16'"
+            class="catalog-download"
+            :class="index % 2 ? 'text-end' : 'text-start'"
           >
-            <h3 class="d-block" :class="index % 2 ? 'text-end' : 'text-start'">
+            <h3
+              class="d-block"
+              :class="index % 2 ? 'text-start ml-auto' : 'text-end mr-auto'"
+            >
               {{ product.name }}
             </h3>
             <v-divider
               class="d-block"
-              style="border-color: black; width: 80%; min-width: 400px"
+              style="border-color: black"
               :class="index % 2 ? 'ml-auto' : 'mr-auto'"
             />
             <v-btn
               text
               more
-              class="d-block px-0 mb-10"
+              class="px-0"
               :class="index % 2 ? 'ml-auto' : 'mr-auto'"
             >
-              <arrow-icon v-if="index % 2 === 0" direction="left" />
+              <arrow-icon v-if="index % 2 === 0" direction="left"/>
               <span class="px-2">more</span>
-              <arrow-icon v-if="index % 2 === 1" direction="right" />
+              <arrow-icon v-if="index % 2 === 1" direction="right"/>
             </v-btn>
           </div>
-          <v-img v-if="index % 2 === 1" :src="product.img" />
+          <div v-if="index % 2 === 1" class="hover">
+            <v-img :src="product.img" width="100%"/>
+            <div class="hover-img d-flex align-end">
+              <h1>{{ product.name }}</h1>
+            </div>
+          </div>
         </div>
       </div>
       <div
-        class="d-sm-none d-flex flex-column products-container-mobile"
+        class="d-lg-none d-flex flex-column products-container-mobile"
         style="gap: 30px"
       >
         <v-card
           v-for="product in products"
           :key="'mobile-' + product.id"
-          class="pa-0 align-self-start mx-auto"
+          class="pa-0 position-relative"
           tile
         >
-          <v-img :src="product.img" width="355px" :alt="product.img">
-            <v-app-bar flat style="background: linear-gradient(180deg, #000 0, #000 60%, #0000 100%);">
-              <h6 class="white--text text-no-wrap">
-                {{ product.name }}
-                <v-btn icon dark>
-                  <v-icon size="20">mdi-arrow-right-circle</v-icon>
-                </v-btn>
-              </h6>
-            </v-app-bar>
-          </v-img>
+          <h6 class="card-title">
+            {{ product.name }}
+            <v-btn icon dark>
+              <v-icon size="25">mdi-arrow-right-circle</v-icon>
+            </v-btn>
+          </h6>
+          <v-img :src="product.mobile_img" width="100%" :alt="product.img" contain/>
         </v-card>
       </div>
       <v-img
-        class="py-sm-16 my-sm-16"
+        :style="{
+          marginTop: windowSize > 1260 ? '250px' : '10px',
+          marginBottom: windowSize > 1260 ? '260px' : '40px',
+        }"
         width="100%"
-        :src="windowSize > 600 ? '/image/step1.png' : '/image/mobile-step1.png'"
-        contain
+        :src="
+          windowSize > 600
+            ? '/image' + lang + '/step1.png'
+            : '/image' + lang + '/mobile-step1.png'
+        "
+        :contain="windowSize > 600"
       />
     </v-container>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import { Product, products } from '../../dummy';
+import {Component, Vue} from 'vue-property-decorator';
+import {Product, categories} from '../../dummy';
 import ArrowIcon from '../../components/ArrowIcon.vue';
-import { EXTRA_SIZE } from '../../utils/themes';
+import {EXTRA_SIZE} from '../../utils/themes';
 
 @Component({
   name: 'products',
-  components: { ArrowIcon },
+  components: {ArrowIcon},
   layout: 'default-layout',
   asyncData() {
     return {
-      products,
+      products: categories,
     };
   },
 })
 export default class Products extends Vue {
   title: string = '洋峰專營各類管束';
-  products: Array<Product> = products;
+  products: Array<Product> = categories;
+
+  get lang() {
+    return this.$i18n.locale === 'en' ? '/en' : '';
+  }
 
   get menus() {
     return [
-      { text: this.$t('home'), disabled: false, href: '/' },
-      { text: this.$t('products.intro'), disabled: true },
+      {text: this.$t('home'), disabled: false, href: '/'},
+      {text: this.$t('products.intro'), disabled: true},
     ];
   }
 
   get children() {
     return [
-      { text: '汽車油路管', disabled: false, href: '/products/0' },
-      { text: '空氣風管', disabled: false, href: '/products/1' },
-      { text: '手壓式管束', disabled: false, href: '/products/2' },
-      { text: '特殊管束', disabled: false, href: '/products/3' },
+      {text: '汽車油路管', disabled: false, href: '/products/0'},
+      {text: '空氣風管', disabled: false, href: '/products/1'},
+      {text: '手壓式管束', disabled: false, href: '/products/2'},
+      {text: '特殊管束', disabled: false, href: '/products/3'},
     ];
   }
 
@@ -152,9 +173,12 @@ export default class Products extends Vue {
   line-height: 180%;
   text-align: center;
   color: #ba9545 !important;
+  max-width: 960px;
+  margin: auto auto 166px auto;
 
   @media screen and (max-width: 600px) {
     & {
+      margin: auto auto 22px auto;
       font-size: 14px;
     }
   }
@@ -184,9 +208,44 @@ export default class Products extends Vue {
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
-    minmax(140px, 1fr)
+      minmax(140px, 1fr)
   ); /* 左 2 份，右 1 份 */
   align-items: end;
+}
+
+.catalog-download {
+  padding: 130px 35px;
+  gap: 5px;
+
+  h3,
+  hr {
+    max-width: 580px;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 1904px) {
+    padding: 65px 35px;
+  }
+}
+
+.hover-img {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      90deg,
+      rgb(0, 0, 0) 0%,
+      rgba(255, 255, 255, 0%) 14%
+  );
+}
+
+h1 {
+  font-weight: 700;
+  font-style: italic;
+  font-size: 55px;
+  letter-spacing: 5px;
+  text-align: right;
+  padding: 30px 50px;
+  color: white;
 }
 
 h3 {
@@ -196,17 +255,37 @@ h3 {
   white-space: nowrap;
 }
 
-h6 {
+
+.card-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      180deg,
+      rgb(0, 0, 0) 0%,
+      rgba(255, 255, 255, 0%) 20%
+  );
   font-weight: 600;
-  line-height: 180%;
-  color: #000000;
-  font-size: 23.96px;
-  text-align: right;
+  font-size: 45px;
+  letter-spacing: 5px;
+  padding: 12px 19px;
+  color: white;
+  @media screen and (max-width: 600px) {
+    & {
+      font-size: 26px;
+
+    }
+  }
 }
 
 .more {
   font-weight: 600;
   font-size: 20px;
   line-height: 180%;
+  letter-spacing: 5px;
+  color: black;
 }
 </style>

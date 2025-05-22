@@ -56,7 +56,11 @@
   background: linear-gradient(to right, #cfae63 40%, #e9daa5 40%);
 }
 
-.hover-img{
+.hover {
+  position: relative !important;
+}
+
+.hover-img {
   position: absolute !important;
   top: 0;
   left: 0;

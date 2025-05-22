@@ -2,6 +2,7 @@ export type Product = {
   name: string
   count: number
   img: string
+  mobile_img?: string
   desc?: string
   origin?: string
   sales?: string[]
@@ -46,6 +47,29 @@ export const products: Array<Product> = [
   },
 ];
 
+export const categories: Array<Product> = [
+  {
+    name: '戶外大型管束商品',
+    count: 12,
+    img: '/image/category1.png',
+    mobile_img: '/image/product1.png',
+    id: 0,
+  },
+  {
+    name: '管束商品',
+    count: 9,
+    img: '/image/category2.png',
+    mobile_img: '/image/product2.png',
+    id: 1,
+  },
+  {
+    name: '汽機車零件商品',
+    count: 6,
+    img: '/image/category3.png',
+    mobile_img: '/image/product2.png',
+    id: 2,
+  },
+];
 
 export const cartProducts: Array<Product> = [
   {
