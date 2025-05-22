@@ -306,9 +306,9 @@ h1 {
   font-family: Kufam, serif;
   font-weight: 700;
   font-size: 32px;
-  letter-spacing: 5px;
   color: #ba9545;
   margin-bottom: 10px;
+  margin-top: 15px;
 
   @media screen and (max-width: 600px) {
     & {
@@ -321,7 +321,6 @@ p,
 .p {
   font-weight: 400;
   font-size: 20px;
-  margin: 10px;
 
   @media screen and (max-width: 600px) {
     & {
