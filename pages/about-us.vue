@@ -6,78 +6,30 @@
       :height="windowSize > 600 ? 360 : 195"
       position="left bottom"
     />
-    <v-container class="px-0">
+    <v-container class="px-0 mx-auto" style="max-width: 1440px">
       <v-breadcrumbs
         :items="menus"
         class="pt-0"
         :style="{
-          marginBottom: windowSize > 600 ? '150px' : '10px',
+          marginBottom: windowSize > 600 ? '300px' : '10px',
         }"
       >
         <template #divider>
           <v-icon color="#ba9545">mdi-chevron-right</v-icon>
         </template>
       </v-breadcrumbs>
-      <div class="position-relative py-16 pr-sm-10 pl-sm-10 pr-16">
-        <div
-          class="position-relative fill-width px-12 pt-16"
-          style="background: #d8ae5e"
-          :style="{
-            paddingBottom:
-              (windowSize > 600 ? size2 * 0.6 : size1 * 0.9) + 'px',
-          }"
-        >
-          <v-img
-            class="position-absolute"
-            src="/image/bg8.png"
-            :width="size1"
-            style="right: -80px; z-index: 1"
-            :style="{
-              bottom: windowSize > 600 ? '' : '-40px',
-              top: windowSize > 600 ? '-100px' : '',
-            }"
-          />
-          <v-img
-            class="position-absolute"
-            src="/image/bg9.png"
-            :width="size2"
-            style="z-index: 1"
-            :style="{
-              bottom: windowSize > 600 ? '-100px' : -size1 + 'px',
-              left: windowSize > 600 ? '-80px' : '0px',
-            }"
-          />
-          <v-img
-            class="position-absolute"
-            src="/image/icon6.png"
-            :width="size3"
-            style="right: -70px; z-index: 2"
-            :style="{
-              bottom: windowSize > 600 ? '-100px' : '',
-              top: windowSize > 600 ? '' : '-100px',
-            }"
-          />
-          <h1
-            class="white--text"
-            :style="{
-              width:
-                'calc(100% - ' + (windowSize > 600 ? size1 : 0) * 0.9 + 'px)',
-            }"
-          >
-            {{ $t('title1') }}
-          </h1>
-          <pre
-            class="white--text"
-            :style="{
-              width:
-                'calc(100% - ' + (windowSize > 600 ? size1 : 0) * 0.9 + 'px)',
-            }"
-          >
-            {{ $t('paragraph1') }}
-          </pre>
-        </div>
-      </div>
-      <div class="feature-grid fill-width">
+      <v-img
+        v-if="windowSize > 600"
+        :src="'/image' + lang + '/bg8.png'"
+        width="100%"
+      />
+      <v-img
+        v-else
+        :src="'/image' + lang + '/mobile-bg8.png'"
+        width="100%"
+        contain
+      />
+      <div class="feature-grid fill-width align-start">
         <div
           v-for="(service, index) in services"
           :key="index"
@@ -86,8 +38,9 @@
           <v-img
             :src="service.imgMobile"
             :width="size4"
+            :height="size4"
+            :max-height="size4"
             contain
-            class="mb-5 mb-sm-10"
           />
           <div
             class="d-flex justify-center align-center"
@@ -106,12 +59,20 @@
           </div>
         </div>
       </div>
-      <v-img
-        :src="windowSize > 600 ? '/image/bg10.png' : '/image/mobile-bg10.png'"
-        width="100%"
-        class="mb-10"
-        contain
-      />
+      <div class="position-relative hover">
+        <v-img
+          :src="windowSize > 600 ? '/image'+ lang +'/bg10.png' : '/image'+ lang +'/mobile-bg10.png'"
+          width="100%"
+          contain
+        />
+        <v-img
+          src="/image/hover-bg10.png"
+          width="100%"
+          class="hover-img d-none d-sm-block"
+          contain
+        />
+
+      </div>
     </v-container>
   </div>
 </template>
@@ -143,47 +104,33 @@ export default class aboutUs extends Vue {
     ];
   }
 
-  size1: number = 850;
-  size2: number = 950;
-  size3: number = 430;
+  get lang() {
+    return this.$i18n.locale === 'en' ? '/en' : '';
+  }
+
   size4: number = 320;
   services: Array<Service> = services;
   windowSize: number = EXTRA_SIZE;
 
   handleResize() {
     if (window.innerWidth >= EXTRA_SIZE) {
-      this.size1 = 850;
-      this.size2 = 950;
-      this.size3 = 430;
       this.size4 = 320;
     } else if (
       window.innerWidth < EXTRA_SIZE &&
       window.innerWidth >= LARGE_SIZE
     ) {
-      this.size1 = 750;
-      this.size2 = 950;
-      this.size3 = 430;
       this.size4 = 320;
     } else if (
       window.innerWidth < LARGE_SIZE &&
       window.innerWidth >= MEDIUM_SIZE
     ) {
-      this.size1 = 450;
-      this.size2 = 550;
-      this.size3 = 430;
       this.size4 = 220;
     } else if (
       window.innerWidth < MEDIUM_SIZE &&
       window.innerWidth >= SMALL_SIZE
     ) {
-      this.size1 = 269;
-      this.size2 = 285;
-      this.size3 = 200;
       this.size4 = 120;
     } else {
-      this.size1 = 269;
-      this.size2 = 285;
-      this.size3 = 200;
       this.size4 = 120;
     }
     this.windowSize = window.innerWidth;
@@ -228,16 +175,16 @@ pre {
 }
 
 .feature-grid {
-  padding: 350px 20px;
+  padding: 330px 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   text-align: center;
 
   @media screen and (max-width: 600px) {
     & {
-      padding: 350px 20px 150px 20px;
+      padding: 80px 0;
       grid-template-columns: repeat(1, minmax(100%, 1fr));
-      gap: 30px;
+      gap: 50px;
     }
   }
 }
@@ -247,6 +194,7 @@ pre {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 35px;
 }
 
 .title {

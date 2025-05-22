@@ -403,18 +403,4 @@ p {
 .app-bar ::v-deep .v-toolbar__content {
   background: linear-gradient(180deg, #000 0, #000 60%, #0000 100%);
 }
-
-.hover-img{
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: all 0.5s ease-in-out;
-}
-
-.hover:hover {
-  .hover-img {
-    opacity: 1;
-  }
-}
 </style>
