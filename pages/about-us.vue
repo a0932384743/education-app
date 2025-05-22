@@ -195,6 +195,11 @@ pre {
   align-items: center;
   justify-content: center;
   gap: 35px;
+  @media screen and (min-width: 600px) {
+    & {
+      gap: 14px;
+    }
+  }
 }
 
 .title {
