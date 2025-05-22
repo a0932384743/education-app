@@ -140,6 +140,24 @@ h1 {
   flex-wrap: wrap;
   padding: 110px 50px 150px 50px;
 
+  ::v-deep .v-image:hover {
+    .v-image__image {
+      background-size: 150%;
+      animation: hover 1s;
+    }
+  }
+
+  @keyframes hover {
+    0% {
+      background-size: 100%;
+    }
+
+    100% {
+      background-size: 120%;
+    }
+  }
+
+
   & > * {
     padding: 0 40px 80px 40px;
   }
@@ -175,23 +193,6 @@ a {
     & {
       font-size: 14px;
     }
-  }
-}
-
-::v-deep .v-image:hover {
-  .v-image__image {
-    background-size: 150%;
-    animation: hover 1s;
-  }
-}
-
-@keyframes hover {
-  0% {
-    background-size: 100%;
-  }
-
-  100% {
-    background-size: 120%;
   }
 }
 

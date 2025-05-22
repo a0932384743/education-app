@@ -6,12 +6,12 @@
       :height="windowSize > 600 ? 360 : 195"
       position="left bottom"
     />
-    <v-container class="px-0">
+    <v-container class="px-0 mx-auto" style="max-width: 1360px">
       <v-breadcrumbs
         :items="menus"
         class="pt-0"
         :style="{
-          marginBottom: windowSize > 600 ? '150px' : '10px',
+          marginBottom: windowSize > 600 ? '140px' : '10px',
         }"
       >
         <template #divider>
@@ -24,17 +24,11 @@
         </h1>
         <hr class="double-color-hr" />
       </div>
-      <div class="product-intro py-16">
-        <div class="product-img d-flex align-center pa-16 pa-sm-0">
-          <v-img
-            :src="product.img"
-            width="80%"
-            height="80%"
-            class="mx-auto"
-            contain
-          />
+      <div class="product-intro">
+        <div class="product-img d-flex align-center">
+          <v-img :src="product.img" class="mx-auto" width="100%" contain />
         </div>
-        <div class="d-flex flex-column px-4 px-sm-12">
+        <div class="d-flex flex-column product-detail">
           <h1 class="mb-2">
             {{ product.name }}
           </h1>
@@ -42,86 +36,94 @@
           <p class="text-sm-end sub-title mt-2">
             {{ $t('word12') }}: {{ product.desc }}
           </p>
-          <div class="d-flex flex-column flex-grow-1 justify-end mt-10 mt-sm-0">
-            <p>{{ $t('word13') }}: {{ product.origin }}</p>
-            <p>{{ $t('word14') }}: {{ product.sales.join(',') }}</p>
+          <div
+            class="d-flex flex-column flex-grow-1 justify-end product-detail-paragraph"
+          >
+            <div>{{ $t('word13') }}: {{ product.origin }}</div>
+            <div>{{ $t('word14') }}: {{ product.sales.join(',') }}</div>
           </div>
-          <div class="pt-10 btn-group">
-            <v-btn color="#D8AE5E" dark @click="onAddToCart">
+          <div class="btn-group">
+            <v-btn color="#D8AE5E" dark :min-height="windowSize > 600 ? '60px' : '35px'" :min-width="windowSize > 600 ? '235px' : '137px'" @click="onAddToCart">
               {{ $t('word15') }}
             </v-btn>
-            <v-btn color="#D8AE5E" dark @click="onGoToList">
+            <v-btn color="#D8AE5E" dark :min-height="windowSize > 600 ? '60px' : '35px'" :min-width="windowSize > 600 ? '235px' : '137px'" @click="onGoToList">
               {{ $t('word11') }}
             </v-btn>
           </div>
         </div>
       </div>
-      <div class="py-2 py-sm-16" />
-      <div class="title px-4 px-md-0">
-        <h1 class="mb-2">
-          {{ $t('word16') }}
-        </h1>
-        <hr class="double-color-hr" />
-        <v-simple-table dense class="py-10 py-sm-16 px-sm-16">
-          <thead>
-            <tr>
-              <th class="white--text pa-4">
-                <h2
-                  v-if="lang === 'zh-tw'"
-                  class="text-center"
-                  style="letter-spacing: 10px"
-                >
-                  自由內徑
-                </h2>
-                <component
-                  :is="lang === 'en' ? 'h2' : 'h3'"
-                  class="text-center"
-                >
-                  Free Inner Diameter
-                </component>
-              </th>
-              <th class="white--text pa-4">
-                <h2
-                  v-if="lang === 'zh-tw'"
-                  class="text-center"
-                  style="letter-spacing: 10px"
-                >
-                  最大內徑
-                </h2>
-                <component
-                  :is="lang === 'en' ? 'h2' : 'h3'"
-                  class="text-center"
-                >
-                  Max Inner Diameter
-                </component>
-              </th>
-              <th class="white--text pa-4">
-                <h2
-                  v-if="lang === 'zh-tw'"
-                  class="text-center"
-                  style="letter-spacing: 10px"
-                >
-                  規格
-                </h2>
-                <component
-                  :is="lang === 'en' ? 'h2' : 'h3'"
-                  class="text-center"
-                >
-                  Specification
-                </component>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(item, i) in items" :key="i">
-              <td>{{ item.free }}</td>
-              <td>{{ item.max }}</td>
-              <td>{{ item.spec }}</td>
-            </tr>
-          </tbody>
-        </v-simple-table>
+      <div class="product-table">
+        <div class="title px-4 px-md-0">
+          <h1 class="mb-2">
+            {{ $t('word16') }}
+          </h1>
+          <hr class="double-color-hr" />
+          <v-simple-table
+            dense
+            style="max-width: 960px"
+            class="mx-auto"
+            :style="{
+              marginTop: windowSize > 600 ? '92px' : '20px',
+            }"
+          >
+            <thead>
+              <tr>
+                <th class="white--text pa-4">
+                  <h2
+                    v-if="lang === 'zh-tw'"
+                    class="text-center"
+                    style="letter-spacing: 10px"
+                  >
+                    自由內徑
+                  </h2>
+                  <component
+                    :is="lang === 'en' ? 'h2' : 'h3'"
+                    class="text-center"
+                  >
+                    Free Inner Diameter
+                  </component>
+                </th>
+                <th class="white--text pa-4">
+                  <h2
+                    v-if="lang === 'zh-tw'"
+                    class="text-center"
+                  >
+                    最大內徑
+                  </h2>
+                  <component
+                    :is="lang === 'en' ? 'h2' : 'h3'"
+                    class="text-center"
+                  >
+                    Max Inner Diameter
+                  </component>
+                </th>
+                <th class="white--text pa-4">
+                  <h2
+                    v-if="lang === 'zh-tw'"
+                    class="text-center"
+                    style="letter-spacing: 10px"
+                  >
+                    規格
+                  </h2>
+                  <component
+                    :is="lang === 'en' ? 'h2' : 'h3'"
+                    class="text-center"
+                  >
+                    Specification
+                  </component>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(item, i) in items" :key="i">
+                <td>{{ item.free }}</td>
+                <td>{{ item.max }}</td>
+                <td>{{ item.spec }}</td>
+              </tr>
+            </tbody>
+          </v-simple-table>
+        </div>
       </div>
-      <div class="py-10 py-sm-16" />
     </v-container>
   </div>
 </template>
@@ -129,6 +131,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { Item, Product, items } from '../../../dummy';
+import { EXTRA_SIZE } from '../../../utils/themes';
 
 @Component({
   name: 'product-detail',
@@ -163,6 +166,8 @@ export default class productDetail extends Vue {
     return this.$i18n.locale;
   }
 
+  windowSize: number = EXTRA_SIZE;
+
   onAddToCart() {
     this.$router.push('/cart');
   }
@@ -170,15 +175,29 @@ export default class productDetail extends Vue {
   onGoToList() {
     this.$router.push('/products');
   }
+
+  handleResize() {
+    this.windowSize = window.innerWidth;
+  }
+
+  mounted() {
+    this.$nextTick(this.handleResize);
+    window.addEventListener('resize', this.handleResize);
+  }
+
+  destroyed() {
+    window.removeEventListener('resize', this.handleResize);
+  }
 }
 </script>
 <style lang="scss" scoped>
 h1 {
   font-weight: 500;
   font-size: 40px;
-  line-height: 100%;
+  line-height: 180%;
+  letter-spacing: 5px;
 
-  @media screen and (max-width: 780px) {
+  @media screen and (max-width: 600px) {
     & {
       font-size: 20px;
     }
@@ -211,10 +230,12 @@ h3 {
 
 .product-intro {
   display: grid;
+  padding: 115px 0 130px 0;
   grid-template-columns: 720px 1fr;
 
-  @media screen and (max-width: 780px) {
+  @media screen and (max-width: 960px) {
     & {
+      padding: 0 0 60px 0;
       grid-template-columns: 1fr;
     }
   }
@@ -223,13 +244,47 @@ h3 {
 .product-img {
   box-shadow: 3px 4px 8px 0 #00000040;
 
-  @media screen and (max-width: 780px) {
-    & {
-      box-shadow: none;
+  ::v-deep .v-image {
+    .v-image__image {
+      background-size: 80%;
     }
+  }
 
-    & > * {
-      box-shadow: 3px 4px 8px 0 #00000040;
+  @media screen and (max-width: 960px) {
+    & {
+       margin: 45px 73px;
+    }
+  }
+}
+
+.product-detail {
+  padding: 20px 93px 70px 93px;
+
+  @media screen and (max-width: 960px) {
+    & {
+      padding: 0 20px;
+    }
+  }
+}
+
+.product-detail-paragraph {
+  margin-bottom: 65px;
+
+  * {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 120%;
+    letter-spacing: 5px;
+    white-space: nowrap;
+  }
+
+  @media screen and (max-width: 960px) {
+    & {
+      margin-top: 40px;
+      margin-bottom: 40px;
+      * {
+        font-size: 13.21px;
+      }
     }
   }
 }
@@ -238,7 +293,6 @@ h3 {
   width: 100%;
   font-weight: 500;
   font-size: 24px;
-  line-height: 100%;
 
   @media screen and (max-width: 780px) {
     & {
@@ -247,31 +301,19 @@ h3 {
   }
 }
 
-p {
-  width: 100%;
-  font-size: 24px;
-  line-height: 100%;
-
-  @media screen and (max-width: 780px) {
-    & {
-      font-size: 14px;
-    }
-  }
-}
-
 .btn-group {
-  gap: 20px;
+  gap: 30px;
   display: flex;
 
   @media screen and (max-width: 780px) {
     & {
+      gap: 15px;
       flex-direction: column;
     }
   }
 
   button {
     flex: 1 1 auto;
-    min-height: 60px;
 
     ::v-deep .v-btn__content {
       font-family: Kufam, serif;
@@ -282,8 +324,6 @@ p {
 
     @media screen and (max-width: 780px) {
       & {
-        width: 140px;
-        min-height: 35px;
         margin: auto;
 
         ::v-deep .v-btn__content {
@@ -292,6 +332,10 @@ p {
       }
     }
   }
+}
+
+.product-table {
+  padding-bottom: 165px;
 }
 
 th {
@@ -308,10 +352,11 @@ td {
   font-weight: 400;
   font-size: 20px;
   line-height: 120%;
-  letter-spacing: 5px;
+  letter-spacing: 8px;
   text-align: center;
   border: 1px solid #ba9545;
   border-right: none;
+  padding: 5px;
 
   &:last-child {
     border-right: 1px solid #ba9545;
