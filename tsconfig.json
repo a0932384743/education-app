@@ -20,5 +20,5 @@
     "types": ["vuetify", "@nuxtjs/vuetify", "@nuxt/types", "@types/node"]
   },
   "exclude": ["node_modules", ".nuxt", "docs"],
-  "include": ["types/*.d.ts", "**/*.ts", "**/*.vue"]
+  "include": ["types/*.d.ts", "**/*.ts", "**/*.vue" , "server-middleware"]
 }
