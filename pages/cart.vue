@@ -140,18 +140,18 @@
                 <template #append>
                   <canvas
                     ref="captchaCanvas"
-                    width="150"
-                    height="40"
-                    style="width: 150px; height: 40px;"
+                    width="120"
+                    height="30"
+                    style="margin-top: -2px;"
                     @click="generateCaptcha"
                   />
                 </template>
               </v-text-field>
             </div>
           </v-form>
-          <div class="d-flex justify-end align-center btn-group">
-            <v-btn color="#FFF" class="rounded-0">{{ $t('word21') }}</v-btn>
-            <v-btn color="#FFF" class="rounded-0">{{ $t('word22') }}</v-btn>
+          <div class="d-flex btn-group" :class="lang === 'en' ? 'justify-center justify-sm-end' : 'justify-end'">
+            <v-btn color="#FFF" class="rounded-0" :min-width="lang === 'en' ? '180px' : 100">{{ $t('word21') }}</v-btn>
+            <v-btn color="#FFF" class="rounded-0" :min-width="lang === 'en' ? '180px' : 100">{{ $t('word22') }}</v-btn>
           </div>
         </v-card>
       </div>
@@ -183,6 +183,11 @@ export default class Cart extends Vue {
       { text: this.$t('word20'), disabled: true },
     ];
   }
+
+  get lang() {
+    return this.$i18n.locale;
+  }
+
 
   windowSize: number = EXTRA_SIZE;
 
@@ -291,20 +296,22 @@ p {
 .btn-group {
   gap: 30px;
   margin-top: 70px;
+  justify-content: end;
+  align-items: center;
+  flex-wrap: wrap;
 
   @media screen and (max-width: 600px) {
     & {
+      gap: 20px;
       margin-top: 40px;
     }
   }
 
   button {
-    min-width: 145px !important;
     min-height: 50px !important;
 
     @media screen and (max-width: 600px) {
       & {
-        min-width: 80px !important;
         min-height: 27px !important;
       }
     }
