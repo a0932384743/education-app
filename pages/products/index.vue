@@ -60,6 +60,7 @@
               more
               class="px-0"
               :class="index % 2 ? 'ml-auto' : 'mr-auto'"
+              :to="`/products/${index}`"
             >
               <arrow-icon v-if="index % 2 === 0" direction="left"/>
               <span class="px-2">more</span>

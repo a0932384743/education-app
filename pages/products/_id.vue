@@ -26,7 +26,7 @@
       </div>
       <div class="product-container">
         <v-col
-          v-for="product in products.slice(
+          v-for="(product , index) in products.slice(
             perPage * (page - 1),
             perPage * page
           )"
@@ -43,6 +43,8 @@
               :min-height="windowSize > 600 ? '340px' : '171px'"
               class="white"
               contain
+              role="button"
+              @click="$router.push('/products/detail/0')"
             />
             <v-card-actions
               class="justify-center align-center"
@@ -142,8 +144,8 @@ h1 {
 
   ::v-deep .v-image:hover {
     .v-image__image {
-      background-size: 150%;
-      animation: hover 1s;
+      background-size: 105%;
+      animation: hover 0.5s;
     }
   }
 
@@ -153,7 +155,7 @@ h1 {
     }
 
     100% {
-      background-size: 120%;
+      background-size: 105%;
     }
   }
 

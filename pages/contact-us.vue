@@ -111,7 +111,7 @@
               </div>
             </div>
             <div class="flex-grow-1 form-group">
-              <label>mail<span class="red--text mx-2">*</span></label>
+              <label>E-mail<span class="red--text mx-2">*</span></label>
               <v-text-field
                 label="E-mail"
                 required

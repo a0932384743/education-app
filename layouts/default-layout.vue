@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app color="header" light :height="windowSize >= 960 ? windowSize >= 1260 ? 250: 200 : 100">
+    <v-app-bar app color="header" light :height="windowSize >= 960 ? windowSize >= 1260 ? 150: 200 : 100">
       <v-container
         fluid
         class="d-flex align-self-end pa-0 align-end fill-height flex-nowrap"
@@ -9,8 +9,8 @@
           <logo-icon
             alt="Logo"
             :fill="windowSize >= 960 ? '#D8AE5E' : '#FFFFFF'"
-            :width="windowSize >= 960 ? 350 : 200"
-            :height="windowSize >= 960 ? 85 : 50"
+            :width="windowSize >= 960 ? 300 : 240"
+            :height="windowSize >= 960 ? 75 : 45"
             :class="windowSize >= 960 ? 'mx-auto' : 'mr-auto'"
           />
         </div>
@@ -27,7 +27,7 @@
           class="d-none d-md-flex align-end justify-end fill-height position-relative ml-auto btn-group"
         >
           <v-btn icon @click="onGoCart">
-            <v-icon color="white" size="32">mdi-cart-variant</v-icon>
+            <v-icon color="white" size="34">mdi-cart-variant</v-icon>
           </v-btn>
           <v-tooltip
             v-model="showTooltip"
@@ -39,7 +39,7 @@
           >
             <template #activator>
               <v-btn icon @click="showTooltip = !showTooltip">
-                <v-icon color="white" size="32">mdi-web</v-icon>
+                <v-icon color="white" size="34">mdi-web</v-icon>
               </v-btn>
             </template>
             <div class="d-flex" style="gap:2px">
@@ -217,7 +217,7 @@ header {
   background: url('/image/header-bg.png');
   background-position: bottom;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 100% 100%;
   gap: 48px;
   max-width: 320px;
   min-width: 320px;

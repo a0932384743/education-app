@@ -24,11 +24,12 @@
       ></v-carousel-item>
     </v-carousel>
     <v-img
+      v-intersect="onIntersect"
       :src="'/image/' + lang + '/bg4.png'"
       width="100%"
       contain
       position="center left"
-      class="d-none d-sm-block"
+      class="d-none d-sm-block fade-in-left"
     />
     <div class="product-container d-none d-sm-flex align-center">
       <v-img
@@ -40,7 +41,7 @@
         contain
         class="mx-10"
       />
-      <div class="d-none d-sm-flex flex-grow-1" style="gap: 30px">
+      <div class="d-none d-sm-flex flex-grow-1" style="gap: 29px">
         <v-card
           v-for="(product, index) in products"
           :key="product.id"
@@ -52,7 +53,7 @@
           <v-img
             :src="product.img"
             width="100%"
-            :max-width="index ? 325 : 425"
+            :max-width="index ? 298 : 389"
             contain
             :alt="product.img"
           />
@@ -73,7 +74,7 @@
       role="button"
       contain
     />
-    <div class="feature d-flex justify-center fill-width">
+    <div v-intersect="onIntersect" class="feature d-flex justify-center fill-width" :class="windowSize > 600 ? 'fade-in-bottom' : ''">
       <div
         class="feature-grid white fill-height fill-width"
         style="position: relative; max-width: 1260px"
@@ -86,7 +87,7 @@
           style="
             position: absolute;
             top: -200px;
-            left: -200px;
+            left: -150px;
             z-index: 1;
             object-fit: contain;
           "
@@ -98,12 +99,13 @@
         >
           <v-img
             :src="windowSize > 600 ? service.img : service.imgMobile"
-            :width="windowSize > 600 ? 190 : 130"
+            :width="windowSize > 600 ? 150 : 130"
+            :height="windowSize > 600 ? 150 : 130"
             contain
-            class="mb-sm-10"
+            class="mb-2 flex-grow-0"
           />
           <div
-            class="d-flex justify-center align-center"
+            class="d-flex justify-center align-center flex-grow-1"
             style="gap: 10px"
             :class="index % 2 ? 'flex-row-reverse' : ''"
           >
@@ -148,25 +150,27 @@
       </v-card>
     </div>
     <v-img
+      v-intersect="onIntersect"
       :src="'/image/' + lang + '/bg5.png'"
       width="100%"
       contain
-      class="d-none d-sm-block"
+      class="d-none d-sm-block fade-in-right"
       style="margin-bottom: 200px"
     />
-    <div class="fill-width position-relative hover d-none d-sm-block">
+    <v-img
+      :src="'/image/' + lang + '/bg6.png'"
+      width="100%"
+      height="100%"
+      class="position-relative d-none d-sm-block"
+    >
       <v-img
-        :src="'/image/' + lang + '/bg6.png'"
-        width="100%"
-        height="100%"
-      />
-      <v-img
+        v-intersect="onIntersect"
         :src="'/image/' + lang + '/hover-bg6.png'"
         width="100%"
         height="100%"
-        class="hover-img"
+        class="hover-img fade"
       />
-    </div>
+    </v-img>
     <v-img src="/image/mobile-bg6.png" width="100%" class="d-sm-none d-block"/>
   </div>
 </template>
@@ -180,7 +184,7 @@ import {
   SMALL_SIZE,
 } from '../utils/themes';
 import {Product, Service, products, services} from '../dummy';
-import ArrowIcon from "../components/ArrowIcon.vue";
+import ArrowIcon from '../components/ArrowIcon.vue';
 
 @Component({
   name: 'home',
@@ -241,6 +245,14 @@ export default class home extends Vue {
   destroyed() {
     window.removeEventListener('resize', this.handleResize);
   }
+
+  onIntersect(entries: Record<string, any>[]) {
+    if (entries[0].isIntersecting) {
+      entries[0].target.classList.add('appear');
+    } else {
+      entries[0].target.classList.remove('appear');
+    }
+  }
 }
 </script>
 <style scoped lang="scss">
@@ -261,7 +273,7 @@ export default class home extends Vue {
 }
 
 ::v-deep .v-carousel {
-  margin-bottom: 200px;
+  margin-bottom: 0;
 
   @media screen and (max-width: 1264px) {
     & {
@@ -283,15 +295,15 @@ export default class home extends Vue {
 
 h5 {
   font-weight: 600;
-  font-size: 30px;
   line-height: 180%;
   color: #000000;
   margin-bottom: 8px;
+  font-size: 27px;
 }
 
 p {
   font-weight: 600;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 180%;
   color: #8d8d8c;
   margin-bottom: 5px;
@@ -301,7 +313,7 @@ p {
   position: absolute;
   bottom: -180px;
   left: 0;
-  height: 450px;
+  height: 360px;
   z-index: 1;
 
   @media screen and (max-width: 600px) {
@@ -380,5 +392,47 @@ p {
 
 .app-bar ::v-deep .v-toolbar__content {
   background: linear-gradient(180deg, #000 0, #000 60%, #0000 100%);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: all 1s ease-out;
+}
+
+.fade-in-left.appear {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: all 1s ease-out;
+}
+
+.fade-in-right.appear {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade {
+  opacity: 0;
+  transition: all 1s ease-out;
+}
+
+.fade.appear {
+  opacity: 1;
+}
+
+.fade-in-bottom {
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: all 1s ease-out;
+}
+
+.fade-in-bottom.appear {
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>

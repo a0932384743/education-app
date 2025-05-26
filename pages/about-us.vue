@@ -108,18 +108,18 @@ export default class aboutUs extends Vue {
     return this.$i18n.locale === 'en' ? '/en' : '';
   }
 
-  size4: number = 320;
+  size4: number = 248;
   services: Array<Service> = services;
   windowSize: number = EXTRA_SIZE;
 
   handleResize() {
     if (window.innerWidth >= EXTRA_SIZE) {
-      this.size4 = 320;
+      this.size4 = 248;
     } else if (
       window.innerWidth < EXTRA_SIZE &&
       window.innerWidth >= LARGE_SIZE
     ) {
-      this.size4 = 320;
+      this.size4 = 248;
     } else if (
       window.innerWidth < LARGE_SIZE &&
       window.innerWidth >= MEDIUM_SIZE
@@ -129,9 +129,9 @@ export default class aboutUs extends Vue {
       window.innerWidth < MEDIUM_SIZE &&
       window.innerWidth >= SMALL_SIZE
     ) {
-      this.size4 = 120;
+      this.size4 = 132;
     } else {
-      this.size4 = 120;
+      this.size4 = 132;
     }
     this.windowSize = window.innerWidth;
   }
@@ -179,10 +179,11 @@ export default class aboutUs extends Vue {
 .title {
   font-family: 'Zen Kaku Gothic New', serif;
   font-weight: 700;
-  font-size: 26px;
+  font-size: 20px;
   line-height: 180%;
   text-align: center;
   color: #ba9545; /* brown-ish tone */
+  letter-spacing: 0;
 
   @media screen and (min-width: 601px) {
     & {
@@ -193,17 +194,19 @@ export default class aboutUs extends Vue {
 
 .sub-title {
   font-weight: 400;
-  font-size: 24px;
+  font-size: 19.25px;
   line-height: 180%;
+  letter-spacing: 2px;
   text-align: center;
   color: #ba9545; /* brown-ish tone */
 
   @media screen and (max-width: 600px) {
     & {
-      text-align: left;
       font-weight: 400;
-      font-size: 10.24px;
-      line-height: 140%;
+      font-size: 9px;
+      line-height: 12px;
+      text-align: right;
+
     }
   }
 }
