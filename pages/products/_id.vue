@@ -106,7 +106,7 @@ export default class product extends Vue {
 
   page: number = 1;
 
-  readonly perPage: number = 6;
+  readonly perPage: number = 18;
 
   handleResize() {
     this.windowSize = window.innerWidth;
@@ -140,25 +140,22 @@ h1 {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
-  padding: 110px 50px 150px 50px;
+  padding: 95px 50px 150px 50px;
+
+  ::v-deep .v-image {
+    cursor: pointer;
+
+    .v-image__image {
+      background-size: auto 85%;
+      transition: background-size 0.5s ease-in-out;
+    }
+  }
 
   ::v-deep .v-image:hover {
     .v-image__image {
-      background-size: 105%;
-      animation: hover 0.5s;
+      background-size: auto 100%;
     }
   }
-
-  @keyframes hover {
-    0% {
-      background-size: 100%;
-    }
-
-    100% {
-      background-size: 105%;
-    }
-  }
-
 
   & > * {
     padding: 0 40px 80px 40px;

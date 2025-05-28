@@ -246,7 +246,7 @@ h3 {
 
   ::v-deep .v-image {
     .v-image__image {
-      background-size: 80%;
+      background-size: auto 90%;
     }
   }
 
