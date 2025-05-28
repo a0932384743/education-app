@@ -33,13 +33,14 @@
       >
         <v-img src="/image/catalog.png" width="100%" contain>
           <div class="hover">
-            <div class="hover-img">DOWNLOAD</div>
+            <div class="hover-img" @click="onDownload">DOWNLOAD</div>
           </div>
         </v-img>
         <div class="catalog-download">
           <h3 class="d-none d-md-block">{{ $t('word10') }}</h3>
           <v-divider class="d-none d-md-block" style="border-color: black"/>
-          <v-btn text class="mr-auto d-none d-md-block">
+          <v-btn text class="mr-auto d-none d-md-block"  @click="onDownload"
+          >
             <arrow-icon direction="left"/>
           </v-btn>
           <v-btn
@@ -49,6 +50,7 @@
             width="100%"
             dark
             large
+            @click="onDownload"
           >
             DOWNLOAD
           </v-btn>
@@ -115,6 +117,10 @@ export default class catalog extends Vue {
 
   destroyed() {
     window.removeEventListener('resize', this.handleResize);
+  }
+
+  onDownload(){
+    window.open('/洋峰型錄001.pdf', '_blank');
   }
 }
 </script>
