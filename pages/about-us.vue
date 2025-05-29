@@ -53,7 +53,7 @@
               class="d-sm-none"
               style="border-color: #ba9545"
             />
-            <div class="sub-title">
+            <div class="sub-title" :class="index % 2 ? 'text-end' : 'text-start'">
               {{ $t(service.desc1) }}<br />{{ $t(service.desc2) }}
             </div>
           </div>
@@ -206,7 +206,7 @@ export default class aboutUs extends Vue {
       font-size: 9px;
       line-height: 12px;
       text-align: right;
-
+      max-width: 150px;
     }
   }
 }

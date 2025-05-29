@@ -83,7 +83,10 @@
         </v-col>
         <v-col cols="12" md="6">
           <v-form>
-            <div class="d-flex" style="gap: 10px">
+            <div
+              class="d-flex flex-column flex-md-row"
+              :style="{ gap: windowSize > 600 ? '10px' : '0px' }"
+            >
               <div class="flex-grow-1 form-group">
                 <label
                   >{{ $t('word19')

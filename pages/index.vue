@@ -115,7 +115,7 @@
               class="d-sm-none"
               style="border-color: #ba9545"
             />
-            <div class="sub-title">
+            <div class="sub-title" :class="index % 2 ? 'text-end' : 'text-start'">
               {{ $t(service.desc1) }}<br/>{{ $t(service.desc2) }}
             </div>
           </div>
@@ -171,7 +171,7 @@
         class="hover-img fade"
       />
     </v-img>
-    <v-img src="/image/mobile-bg6.png" width="100%" class="d-sm-none d-block"/>
+    <v-img :src="'/image' + lang + '/mobile-bg6.png'" width="100%" class="d-sm-none d-block"/>
   </div>
 </template>
 
@@ -386,6 +386,7 @@ p {
       font-weight: 400;
       font-size: 10.24px;
       line-height: 140%;
+      max-width: 150px;
     }
   }
 }
