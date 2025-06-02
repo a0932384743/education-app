@@ -7,7 +7,7 @@
           class="d-flex align-start align-sm-end justify-space-between px-0 flex-column flex-sm-row"
           style="border-bottom: 1px solid #fff"
         >
-          <logo-icon width="185" height="48" class="d-black d-sm-none mb-4"/>
+          <logo-icon width="185" height="48" class="d-black d-sm-none" color="white"/>
           <p class="d-black d-sm-none paragraph my-2">
             {{ $t('paragraph3') }}
           </p>
@@ -17,7 +17,7 @@
             <v-icon :size="windowSize > 600 ? 35 : 18" class="social-icon">$line</v-icon>
             <v-icon :size="windowSize > 600 ? 35 : 18" class="social-icon">$youtube</v-icon>
           </div>
-          <logo-icon width="350" height="90" class="d-none d-sm-block mb-1"/>
+          <logo-icon width="350" height="90" class="d-none d-sm-block" color="white" style="margin-bottom: -10px"/>
         </v-col>
       </v-row>
       <v-row class="flex-column-reverse flex-sm-row mx-0">
