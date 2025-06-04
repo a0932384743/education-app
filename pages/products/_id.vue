@@ -52,7 +52,7 @@
               height: windowSize > 600 ? '90px' : '45px'
               }"
             >
-              <nuxt-link to="/products/detail/0">{{ product.name }}</nuxt-link>
+              <nuxt-link to="/products/detail/0" class="white--text">{{ product.name }}</nuxt-link>
             </v-card-actions>
           </v-card>
         </v-col>
