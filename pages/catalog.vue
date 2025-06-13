@@ -2,6 +2,7 @@
   <div class="flex flex-column position-relative" style="position: relative">
     <v-img
       :src="windowSize > 600 ? '/image/bg12.png' : '/image/mobile-bg12.png'"
+      :lazy-src="windowSize > 600 ? '/image/bg12.png' : '/image/mobile-bg12.png'"
       width="100%"
       :height="windowSize > 600 ? 360 : 195"
       position="left bottom"
@@ -31,7 +32,7 @@
           marginBottom: windowSize > 960 ? '290px' : '0',
         }"
       >
-        <v-img src="/image/catalog.png" width="100%" contain>
+        <v-img src="/image/catalog.png"  lazy-src="/image/catalog.png" width="100%" contain>
           <div class="hover">
             <div class="hover-img" @click="onDownload">DOWNLOAD</div>
           </div>

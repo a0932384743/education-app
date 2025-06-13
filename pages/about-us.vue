@@ -21,11 +21,13 @@
       <v-img
         v-if="windowSize > 600"
         :src="'/image' + lang + '/bg8.png'"
+        :lazy-src="'/image' + lang + '/bg8.png'"
         width="100%"
       />
       <v-img
         v-else
         :src="'/image' + lang + '/mobile-bg8.png'"
+        :lazy-src="'/image' + lang + '/mobile-bg8.png'"
         width="100%"
         contain
       />
@@ -37,6 +39,7 @@
         >
           <v-img
             :src="service.imgMobile"
+            :lazy-src="service.imgMobile"
             :width="size4"
             :height="size4"
             :max-height="size4"
@@ -62,11 +65,14 @@
       <div class="position-relative hover">
         <v-img
           :src="windowSize > 600 ? '/image'+ lang +'/bg10.png' : '/image'+ lang +'/mobile-bg10.png'"
+          :lazy-src="windowSize > 600 ? '/image'+ lang +'/bg10.png' : '/image'+ lang +'/mobile-bg10.png'"
+
           width="100%"
           contain
         />
         <v-img
           src="/image/hover-bg10.png"
+          lazy-src="/image/hover-bg10.png"
           width="100%"
           class="hover-img d-none d-sm-block"
           contain

@@ -1,6 +1,7 @@
 <template>
   <div class="flex flex-column position-relative" style="position: relative">
     <v-img
+      :lazy-src="windowSize > 600 ? '/image/bg14.png' : '/image/mobile-bg14.png'"
       :src="windowSize > 600 ? '/image/bg14.png' : '/image/mobile-bg14.png'"
       width="100%"
       :height="windowSize > 600 ? 360 : 195"
@@ -37,6 +38,7 @@
               <v-img
                 class="mx-auto"
                 :src="product.img"
+                :lazy-src="product.img"
                 :alt="product.name"
                 :width="windowSize > 600 ? 200 : 150"
                 :height="windowSize > 600 ? 200 : 150"

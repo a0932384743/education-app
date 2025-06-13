@@ -29,6 +29,7 @@
           <div class="p d-flex align-center" style="gap: 8px">
             <v-img
               src="/image/icon6.svg"
+              lazy-src="/image/icon6.svg"
               :width="size1"
               :height="size1"
               contain
@@ -41,6 +42,7 @@
           <div class="p d-flex align-center" style="gap: 8px">
             <v-img
               src="/image/icon7.svg"
+              lazy-src="/image/icon7.svg"
               :width="size1"
               :height="size1"
               contain
@@ -51,6 +53,7 @@
           <div class="p d-flex align-center" style="gap: 8px">
             <v-img
               src="/image/icon8.svg"
+              lazy-src="/image/icon8.svg"
               :width="size1"
               :height="size1"
               contain
@@ -61,6 +64,7 @@
           <div class="p d-flex align-center" style="gap: 8px">
             <v-img
               src="/image/icon9.svg"
+              lazy-src="/image/icon9.svg"
               :width="size1"
               :height="size1"
               contain
@@ -73,6 +77,7 @@
           <div class="p d-flex align-end" style="gap: 8px">
             <v-img
               src="/image/icon9.png"
+              lazy-src="/image/icon9.png"
               :width="size2"
               :height="size2"
               contain

@@ -2,6 +2,7 @@
   <div class="flex flex-column position-relative" style="position: relative">
     <v-img
       :src="windowSize > 600 ? '/image/bg11.png' : '/image/mobile-bg11.png'"
+      :lazy-src="windowSize > 600 ? '/image/bg11.png' : '/image/mobile-bg11.png'"
       width="100%"
       :height="windowSize > 600 ? 360 : 195"
       position="left bottom"
@@ -26,7 +27,7 @@
       </div>
       <div class="product-intro">
         <div class="product-img d-flex align-center">
-          <v-img :src="product.img" class="mx-auto" width="100%" contain />
+          <v-img :src="product.img" :lazy-src="product.img" class="mx-auto" width="100%" contain />
         </div>
         <div class="d-flex flex-column product-detail">
           <h1 class="mb-2">

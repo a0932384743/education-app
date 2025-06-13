@@ -26,6 +26,7 @@
     <v-img
       v-intersect="onIntersect"
       :src="'/image/' + lang + '/bg4.png'"
+      :lazy-src="'/image/' + lang + '/bg4.png'"
       width="100%"
       contain
       position="center left"
@@ -34,6 +35,7 @@
     <div class="product-container d-none d-sm-flex align-center">
       <v-img
         src="/image/text2.png"
+        lazy-src="/image/text2.png"
         role="button"
         width="320"
         max-width="320"
@@ -52,6 +54,7 @@
         >
           <v-img
             :src="product.img"
+            :lazy-src="product.img"
             width="100%"
             :max-width="index ? 298 : 389"
             contain
@@ -62,25 +65,31 @@
             <p>{{ $t('count') }}:{{ product.count }}</p>
           </v-card-text>
           <v-card-actions class="justify-end">
-            <arrow-icon width="30px" direction="right"/>
+            <arrow-icon width="30px" direction="right" />
           </v-card-actions>
         </v-card>
       </div>
     </div>
     <v-img
       src="/image/mobile-bg4.png"
+      lazy-src="/image/mobile-bg4.png"
       width="100%"
       class="d-block d-sm-none"
       role="button"
       contain
     />
-    <div v-intersect="onIntersect" class="feature d-flex justify-center fill-width" :class="windowSize > 600 ? 'fade-in-bottom' : ''">
+    <div
+      v-intersect="onIntersect"
+      class="feature d-flex justify-center fill-width"
+      :class="windowSize > 600 ? 'fade-in-bottom' : ''"
+    >
       <div
         class="feature-grid white fill-height fill-width"
         style="position: relative; max-width: 1260px"
       >
         <v-img
           src="/image/icon5.png"
+          lazy-src="/image/icon5.png"
           width="350"
           height="350"
           class="d-none d-sm-block"
@@ -99,6 +108,7 @@
         >
           <v-img
             :src="windowSize > 600 ? service.img : service.imgMobile"
+            :lazy-src="windowSize > 600 ? service.img : service.imgMobile"
             :width="windowSize > 600 ? 150 : 130"
             :height="windowSize > 600 ? 150 : 130"
             contain
@@ -115,8 +125,11 @@
               class="d-sm-none"
               style="border-color: #ba9545"
             />
-            <div class="sub-title" :class="index % 2 ? 'text-end' : 'text-start'">
-              {{ $t(service.desc1) }}<br/>{{ $t(service.desc2) }}
+            <div
+              class="sub-title"
+              :class="index % 2 ? 'text-end' : 'text-start'"
+            >
+              {{ $t(service.desc1) }}<br />{{ $t(service.desc2) }}
             </div>
           </div>
         </div>
@@ -124,6 +137,7 @@
     </div>
     <v-img
       src="/image/mobile-button1.png"
+      lazy-src="/image/mobile-button1.png"
       width="100%"
       contain
       role="button"
@@ -146,12 +160,19 @@
             <v-icon size="25">mdi-arrow-right-circle</v-icon>
           </v-btn>
         </h6>
-        <v-img :src="product.img" width="100%" :alt="product.img" contain/>
+        <v-img
+          :src="product.img"
+          :lazy-src="product.img"
+          width="100%"
+          :alt="product.img"
+          contain
+        />
       </v-card>
     </div>
     <v-img
       v-intersect="onIntersect"
       :src="'/image/' + lang + '/bg5.png'"
+      :lazy-src="'/image/' + lang + '/bg5.png'"
       width="100%"
       contain
       class="d-none d-sm-block fade-in-right"
@@ -159,6 +180,7 @@
     />
     <v-img
       :src="'/image/' + lang + '/bg6.png'"
+      :lazy-src="'/image/' + lang + '/bg6.png'"
       width="100%"
       height="100%"
       class="position-relative d-none d-sm-block"
@@ -166,29 +188,35 @@
       <v-img
         v-intersect="onIntersect"
         :src="'/image/' + lang + '/hover-bg6.png'"
+        :lazy-src="'/image/' + lang + '/hover-bg6.png'"
         width="100%"
         height="100%"
         class="hover-img fade"
       />
     </v-img>
-    <v-img :src="'/image' + lang + '/mobile-bg6.png'" width="100%" class="d-sm-none d-block"/>
+    <v-img
+      :src="'/image' + lang + '/mobile-bg6.png'"
+      :lazy-src="'/image' + lang + '/mobile-bg6.png'"
+      width="100%"
+      class="d-sm-none d-block"
+    />
   </div>
 </template>
 
 <script lang="ts">
-import {Component, Vue} from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 import {
   EXTRA_SIZE,
   LARGE_SIZE,
   MEDIUM_SIZE,
   SMALL_SIZE,
 } from '../utils/themes';
-import {Product, Service, products, services} from '../dummy';
+import { Product, Service, products, services } from '../dummy';
 import ArrowIcon from '../components/ArrowIcon.vue';
 
 @Component({
   name: 'home',
-  components: {ArrowIcon},
+  components: { ArrowIcon },
   layout: 'default-layout',
   asyncData() {
     return {

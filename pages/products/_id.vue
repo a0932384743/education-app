@@ -2,6 +2,7 @@
   <div class="flex flex-column position-relative" style="position: relative">
     <v-img
       :src="windowSize > 600 ? '/image/bg11.png' : '/image/mobile-bg11.png'"
+      :lazy-src="windowSize > 600 ? '/image/bg11.png' : '/image/mobile-bg11.png'"
       width="100%"
       :height="windowSize > 600 ? 360 : 195"
       position="left bottom"
@@ -38,6 +39,8 @@
           <v-card color="#cfae63" rounded="0" outlined class="fill-height">
             <v-img
               :src="product.img"
+              :lazy-src="product.img"
+
               width="100%"
               :max-height="windowSize > 600 ? '340px' : '171px'"
               :min-height="windowSize > 600 ? '340px' : '171px'"
@@ -62,7 +65,9 @@
       >
         <div class="flex-grow-1 d-none d-sm-block">&nbsp;</div>
         <div class="flex-grow-1 text-center">
-          <v-btn class="back-btn" color="#D8AE5E" to="/products" dark :min-width="windowSize > 600 ? 235 : 120" :min-height="windowSize > 600 ? 60 : 30">{{ $t('word11') }}</v-btn>
+          <v-btn class="back-btn" color="#D8AE5E" to="/products" dark :min-width="windowSize > 600 ? 235 : 120"
+                 :min-height="windowSize > 600 ? 60 : 30">{{ $t('word11') }}
+          </v-btn>
         </div>
         <v-pagination
           v-model="page"
@@ -164,6 +169,7 @@ h1 {
   @media screen and (max-width: 780px) {
     & {
       padding: 24px 0 50px 0;
+
       > * {
         padding: 0 11px 23px 11px;
       }
@@ -232,7 +238,7 @@ a {
   margin: 15px auto;
 
   .v-btn__content {
-    font-family: Kufam,serif;
+    font-family: Kufam, serif;
     font-weight: 700;
     font-size: 20px;
     line-height: 130%;

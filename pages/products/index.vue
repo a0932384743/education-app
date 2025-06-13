@@ -2,6 +2,7 @@
   <div class="flex flex-column position-relative" style="position: relative">
     <v-img
       :src="windowSize > 600 ? '/image/bg11.png' : '/image/mobile-bg11.png'"
+      :lazy-src="windowSize > 600 ? '/image/bg11.png' : '/image/mobile-bg11.png'"
       width="100%"
       :height="windowSize > 600 ? 360 : 195"
       position="left bottom"
@@ -35,7 +36,7 @@
           class="catalog"
         >
           <div v-if="index % 2 === 0" class="hover">
-            <v-img :src="product.img" width="100%"/>
+            <v-img :src="product.img" :lazy-src="product.img" width="100%"/>
             <div class="hover-img d-flex align-end">
               <h1>{{ product.name }}</h1>
             </div>
@@ -68,7 +69,7 @@
             </v-btn>
           </div>
           <div v-if="index % 2 === 1" class="hover">
-            <v-img :src="product.img" width="100%"/>
+            <v-img :src="product.img" :lazy-src="product.img" width="100%"/>
             <div class="hover-img d-flex align-end">
               <h1>{{ product.name }}</h1>
             </div>
@@ -91,7 +92,7 @@
               <v-icon size="25">mdi-arrow-right-circle</v-icon>
             </v-btn>
           </h6>
-          <v-img :src="product.mobile_img" width="100%" :alt="product.img" contain/>
+          <v-img :src="product.mobile_img" :lazy-src="product.mobile_img"  width="100%" :alt="product.img" contain/>
         </v-card>
       </div>
       <v-img
@@ -101,6 +102,11 @@
         }"
         width="100%"
         :src="
+          windowSize > 600
+            ? '/image' + lang + '/step1.png'
+            : '/image' + lang + '/mobile-step1.png'
+        "
+        :lazy-src="
           windowSize > 600
             ? '/image' + lang + '/step1.png'
             : '/image' + lang + '/mobile-step1.png'
